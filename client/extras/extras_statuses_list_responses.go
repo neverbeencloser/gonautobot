@@ -1,0 +1,223 @@
+package extras
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"strconv"
+
+	"github.com/go-openapi/errors"
+	"github.com/go-openapi/runtime"
+	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
+
+	"github.com/josh5276/gonautobot/gonautobot/models"
+)
+
+// ExtrasStatusesListReader is a Reader for the ExtrasStatusesList structure.
+type ExtrasStatusesListReader struct {
+	formats strfmt.Registry
+}
+
+// ReadResponse reads a server response into the received o.
+func (o *ExtrasStatusesListReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+	switch response.Code() {
+	case 200:
+		result := NewExtrasStatusesListOK()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	default:
+		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
+	}
+}
+
+// NewExtrasStatusesListOK creates a ExtrasStatusesListOK with default headers values
+func NewExtrasStatusesListOK() *ExtrasStatusesListOK {
+	return &ExtrasStatusesListOK{}
+}
+
+/* ExtrasStatusesListOK describes a response with status code 200, with default header values.
+
+ExtrasStatusesListOK extras statuses list o k
+*/
+type ExtrasStatusesListOK struct {
+	Payload *ExtrasStatusesListOKBody
+}
+
+func (o *ExtrasStatusesListOK) Error() string {
+	return fmt.Sprintf("[GET /extras/statuses/][%d] extrasStatusesListOK  %+v", 200, o.Payload)
+}
+func (o *ExtrasStatusesListOK) GetPayload() *ExtrasStatusesListOKBody {
+	return o.Payload
+}
+
+func (o *ExtrasStatusesListOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(ExtrasStatusesListOKBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+/*ExtrasStatusesListOKBody extras statuses list o k body
+swagger:model ExtrasStatusesListOKBody
+*/
+type ExtrasStatusesListOKBody struct {
+
+	// count
+	// Required: true
+	Count *int64 `json:"count"`
+
+	// next
+	// Format: uri
+	Next *strfmt.URI `json:"next,omitempty"`
+
+	// previous
+	// Format: uri
+	Previous *strfmt.URI `json:"previous,omitempty"`
+
+	// results
+	// Required: true
+	Results []*models.Status `json:"results"`
+}
+
+// Validate validates this extras statuses list o k body
+func (o *ExtrasStatusesListOKBody) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.validateCount(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateNext(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validatePrevious(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := o.validateResults(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *ExtrasStatusesListOKBody) validateCount(formats strfmt.Registry) error {
+
+	if err := validate.Required("extrasStatusesListOK"+"."+"count", "body", o.Count); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (o *ExtrasStatusesListOKBody) validateNext(formats strfmt.Registry) error {
+	if swag.IsZero(o.Next) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("extrasStatusesListOK"+"."+"next", "body", "uri", o.Next.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (o *ExtrasStatusesListOKBody) validatePrevious(formats strfmt.Registry) error {
+	if swag.IsZero(o.Previous) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("extrasStatusesListOK"+"."+"previous", "body", "uri", o.Previous.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (o *ExtrasStatusesListOKBody) validateResults(formats strfmt.Registry) error {
+
+	if err := validate.Required("extrasStatusesListOK"+"."+"results", "body", o.Results); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(o.Results); i++ {
+		if swag.IsZero(o.Results[i]) { // not required
+			continue
+		}
+
+		if o.Results[i] != nil {
+			if err := o.Results[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("extrasStatusesListOK" + "." + "results" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this extras statuses list o k body based on the context it is used
+func (o *ExtrasStatusesListOKBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := o.contextValidateResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (o *ExtrasStatusesListOKBody) contextValidateResults(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(o.Results); i++ {
+
+		if o.Results[i] != nil {
+			if err := o.Results[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("extrasStatusesListOK" + "." + "results" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// MarshalBinary interface implementation
+func (o *ExtrasStatusesListOKBody) MarshalBinary() ([]byte, error) {
+	if o == nil {
+		return nil, nil
+	}
+	return swag.WriteJSON(o)
+}
+
+// UnmarshalBinary interface implementation
+func (o *ExtrasStatusesListOKBody) UnmarshalBinary(b []byte) error {
+	var res ExtrasStatusesListOKBody
+	if err := swag.ReadJSON(b, &res); err != nil {
+		return err
+	}
+	*o = res
+	return nil
+}
