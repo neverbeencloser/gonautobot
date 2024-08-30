@@ -1,0 +1,63 @@
+{
+	"id": "37692a18-d28b-577f-851c-a96e5310426c",
+	"display": "A52Plus",
+	"url": "https://demo.nautobot.com/api/dcim/sites/1ce0df0c-5221-4b4e-a7e5-d52810828041/",
+	"name": "Casita",
+	"slug": "casita",
+	"status": {
+		"value": "active",
+		"label": "Active"
+	},
+	"region": {
+		"display": "San Antonio",
+		"id": "1ce0df0c-5221-4b4e-a7e5-d52810828041",
+		"url": "https://demo.nautobot.com/api/dcim/regions/1ce0df0c-5221-4b4e-a7e5-d52810828041/",
+		"name": "San Antonio",
+		"slug": "san-antonio",
+		"_depth": 2
+	},
+	"tenant": {
+		"display": "Network Engineering",
+		"id": "1ce0df0c-5221-4b4e-a7e5-d52810828041",
+		"url": "https://demo.nautobot.com/api/tenancy/tenants/1ce0df0c-5221-4b4e-a7e5-d52810828041/",
+		"name": "Network Engineering",
+		"slug": "network-engineering"
+	},
+	"facility": "Some Facility",
+	"asn": null,
+	"time_zone": "America/Los_Angeles",
+	"description": "",
+	"physical_address": "Facility\r\n111 Park Circle Circle\r\nSan Antonio, Texas 78240",
+	"shipping_address": "",
+	"latitude": null,
+	"longitude": null,
+	"contact_name": "Phil Collins",
+	"contact_phone": "555-555-5555",
+	"contact_email": "someone@example.com",
+	"comments": "Some test data",
+	"circuit_count": 5,
+	"device_count": 122,
+	"prefix_count": 31,
+	"rack_count": 52,
+	"virtualmachine_count": 0,
+	"vlan_count": 10,
+	"created": "1997-03-31",
+	"last_updated": "2023-08-13T16:35:27.434956Z",
+	"tags": [],
+	"notes_url": "https://demo.nautobot.com/api/dcim/sites/1ce0df0c-5221-4b4e-a7e5-d52810828041/notes/",
+	"custom_fields": {
+		"cafm_building": null,
+		"floor": "2",
+		"nw_discovery": null,
+		"office_manager": null,
+		"resource_id": null,
+		"resource_info": null,
+		"room": null,
+		"secondary_contact": "Cyndi Lauper",
+		"secondary_contact_bu": null,
+		"security_officer": null,
+		"site_account_number": null,
+		"site_leader": null,
+		"site_type": "DC"
+	}
+}

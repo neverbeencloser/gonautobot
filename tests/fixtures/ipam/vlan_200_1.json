@@ -1,0 +1,109 @@
+{
+	"id": "01acc3fb-d449-4f36-9789-df5503206528",
+	"object_type": "ipam.vlan",
+	"display": "dfw01-103-mgmt (99)",
+	"url": "https://demo.nautobot.com/api/ipam/vlans/01acc3fb-d449-4f36-9789-df5503206528/",
+	"natural_slug": "01acc3fb-d449-4f36-9789-df5503206528_01ac",
+	"prefix_count": 1,
+	"vid": 99,
+	"name": "dfw01-103-mgmt",
+	"description": "",
+	"vlan_group": null,
+	"status": {
+		"id": "9f38bab4-4b47-4e77-b50c-fda62817b2db",
+		"object_type": "extras.status",
+		"display": "Active",
+		"url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/",
+		"natural_slug": "active_9f38",
+		"name": "Active",
+		"color": "4caf50",
+		"description": "Unit is active",
+		"created": "2023-09-21T00:00:00Z",
+		"last_updated": "2023-09-21T19:46:47.125611Z",
+		"notes_url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/notes/",
+		"custom_fields": {}
+	},
+	"role": {
+		"id": "5f965b05-bca7-48a4-b5d0-c3360c102c46",
+		"object_type": "extras.role",
+		"display": "mgmt",
+		"url": "https://demo.nautobot.com/api/extras/roles/5f965b05-bca7-48a4-b5d0-c3360c102c46/",
+		"natural_slug": "mgmt_5f96",
+		"name": "mgmt",
+		"color": "9e9e9e",
+		"description": "",
+		"weight": 1000,
+		"created": "2023-10-31T00:00:00Z",
+		"last_updated": "2023-10-31T18:51:42.395094Z",
+		"notes_url": "https://demo.nautobot.com/api/extras/roles/5f965b05-bca7-48a4-b5d0-c3360c102c46/notes/",
+		"custom_fields": {}
+	},
+	"tenant": {
+		"id": "1f7fbd07-111a-4091-81d0-f34db26d961d",
+		"object_type": "tenancy.tenant",
+		"display": "Nautobot Airports",
+		"url": "https://demo.nautobot.com/api/tenancy/tenants/1f7fbd07-111a-4091-81d0-f34db26d961d/",
+		"natural_slug": "nautobot-airports_1f7f",
+		"name": "Nautobot Airports",
+		"description": "atc.nautobot.com",
+		"comments": "",
+		"tenant_group": null,
+		"created": "2023-09-21T00:00:00Z",
+		"last_updated": "2023-09-21T19:46:55.974813Z",
+		"notes_url": "https://demo.nautobot.com/api/tenancy/tenants/1f7fbd07-111a-4091-81d0-f34db26d961d/notes/",
+		"custom_fields": {}
+	},
+	"locations": [
+		{
+			"id": "bbca5b70-668f-4220-afd8-48904b88f269",
+			"object_type": "dcim.location",
+			"display": "Americas → United States → DFW01",
+			"url": "https://demo.nautobot.com/api/dcim/locations/bbca5b70-668f-4220-afd8-48904b88f269/",
+			"natural_slug": "dfw01_united-states_americas_bbca",
+			"time_zone": null,
+			"name": "DFW01",
+			"description": "",
+			"facility": "Dallas/Fort Worth International Airport",
+			"asn": null,
+			"physical_address": "",
+			"shipping_address": "",
+			"latitude": null,
+			"longitude": null,
+			"contact_name": "",
+			"contact_phone": "",
+			"contact_email": "",
+			"comments": "",
+			"parent": {
+				"id": "26001bdf-9b5e-404a-a349-053b483569c2",
+				"object_type": "dcim.location",
+				"url": "https://demo.nautobot.com/api/dcim/locations/26001bdf-9b5e-404a-a349-053b483569c2/"
+			},
+			"location_type": {
+				"id": "db20360d-ba02-48eb-8297-7013f3f6b9ca",
+				"object_type": "dcim.locationtype",
+				"url": "https://demo.nautobot.com/api/dcim/location-types/db20360d-ba02-48eb-8297-7013f3f6b9ca/"
+			},
+			"status": {
+				"id": "9f38bab4-4b47-4e77-b50c-fda62817b2db",
+				"object_type": "extras.status",
+				"url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/"
+			},
+			"tenant": {
+				"id": "1f7fbd07-111a-4091-81d0-f34db26d961d",
+				"object_type": "tenancy.tenant",
+				"url": "https://demo.nautobot.com/api/tenancy/tenants/1f7fbd07-111a-4091-81d0-f34db26d961d/"
+			},
+			"created": "2023-10-31T00:00:00Z",
+			"last_updated": "2024-08-30T04:03:25.421773Z",
+			"notes_url": "https://demo.nautobot.com/api/dcim/locations/bbca5b70-668f-4220-afd8-48904b88f269/notes/",
+			"custom_fields": {
+				"site_type": "POP"
+			}
+		}
+	],
+	"created": "2023-09-21T00:00:00Z",
+	"last_updated": "2023-09-21T19:48:04.449250Z",
+	"tags": [],
+	"notes_url": "https://demo.nautobot.com/api/ipam/vlans/01acc3fb-d449-4f36-9789-df5503206528/notes/",
+	"custom_fields": {}
+}

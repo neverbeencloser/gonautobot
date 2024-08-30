@@ -1,7 +1,8 @@
-app_name := josh5276/gonautobot
-version := v$(shell cat VERSION)
-hash := $(shell git rev-parse HEAD)
-timestamp := $(shell date -u '+%Y-%m-%d_%I:%M:%S%p')
+APP_NAME  := gonautobot
+REPO      := github.com/josh-silvas
+VERSION   := v$(shell cat VERSION)
+HASH      := $(shell git rev-parse HEAD)
+TS        := $(shell date -u '+%Y-%m-%d_%I:%M:%S%p')
 
 
 # Small function to run golint for the packages directories
@@ -14,7 +15,7 @@ lint: ## Run golint on all sub-packages
 release: ## Release a new version and build, tag.
 	golangci-lint run
 	rm -rf build/*
-	git tag $(version)
+	git tag $(VERSION)
 	goreleaser --rm-dist
 
 .PHONY: testrelease
@@ -25,6 +26,10 @@ testrelease: ## Test a release
 
 .PHONY: test
 test:
-	go test -v -short github.com/$(app_name)/common
+	@go test -v -short -coverprofile coverage.txt -covermode atomic $(REPO)/$(APP_NAME)/... | { grep -v 'no test files'; true; }
+
+.PHONY: cover
+cover:
+	@go tool cover -html=coverage.txt
 
 

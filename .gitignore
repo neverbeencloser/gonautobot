@@ -401,9 +401,6 @@ ASALocalRun/
 # MSBuild Binary and Structured Log
 *.binlog
 
-# NVidia Nsight GPU debugger configuration file
-*.nvuser
-
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
 
@@ -474,4 +471,8 @@ DerivedData/
 
 ## Gcc Patch
 /*.gcno
+
+### Golang Specific
+coverage.txt
+
 

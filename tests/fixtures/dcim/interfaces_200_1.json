@@ -1,0 +1,247 @@
+{
+	"count": 2,
+	"next": "",
+	"previous": null,
+	"results": [
+		{
+			"id": "1ce0df0c-5221-4b4e-a7e5-d52810828041",
+			"object_type": "dcim.interface",
+			"display": "Ethernet1",
+			"url": "https://demo.nautobot.com/api/dcim/interfaces/1ce0df0c-5221-4b4e-a7e5-d52810828041/",
+			"cable_peer_type": null,
+			"cable_peer": null,
+			"natural_slug": "ams01-dist-01_nautobot-airports_ams01_netherlands_europe___ethernet1_1ce0",
+			"connected_endpoint_type": null,
+			"connected_endpoint": null,
+			"connected_endpoint_reachable": null,
+			"type": {
+				"value": "virtual",
+				"label": "Virtual"
+			},
+			"mode": null,
+			"mac_address": null,
+			"ip_address_count": 0,
+			"name": "Ethernet1",
+			"label": "",
+			"description": "",
+			"enabled": true,
+			"mtu": null,
+			"mgmt_only": false,
+			"device": {
+				"id": "89b2ac3b-1853-4eeb-9ea6-6a081999bd3c",
+				"object_type": "dcim.device",
+				"display": "ams01-dist-01",
+				"url": "https://demo.nautobot.com/api/dcim/devices/89b2ac3b-1853-4eeb-9ea6-6a081999bd3c/",
+				"natural_slug": "ams01-dist-01_nautobot-airports_ams01_netherlands_europe_89b2",
+				"face": null,
+				"local_config_context_data": null,
+				"local_config_context_data_owner_object_id": null,
+				"name": "ams01-dist-01",
+				"serial": "",
+				"asset_tag": null,
+				"position": null,
+				"device_redundancy_group_priority": null,
+				"vc_position": null,
+				"vc_priority": null,
+				"comments": "",
+				"local_config_context_schema": null,
+				"local_config_context_data_owner_content_type": null,
+				"device_type": {
+					"id": "4bf23e23-4eb1-4fae-961c-edd6f8cbaaf1",
+					"object_type": "dcim.devicetype",
+					"url": "https://demo.nautobot.com/api/dcim/device-types/4bf23e23-4eb1-4fae-961c-edd6f8cbaaf1/"
+				},
+				"status": {
+					"id": "9f38bab4-4b47-4e77-b50c-fda62817b2db",
+					"object_type": "extras.status",
+					"url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/"
+				},
+				"role": {
+					"id": "40567487-6328-4dac-b7b5-b789d1154bf0",
+					"object_type": "extras.role",
+					"url": "https://demo.nautobot.com/api/extras/roles/40567487-6328-4dac-b7b5-b789d1154bf0/"
+				},
+				"tenant": {
+					"id": "1f7fbd07-111a-4091-81d0-f34db26d961d",
+					"object_type": "tenancy.tenant",
+					"url": "https://demo.nautobot.com/api/tenancy/tenants/1f7fbd07-111a-4091-81d0-f34db26d961d/"
+				},
+				"platform": {
+					"id": "aa07ca99-b973-4870-9b44-e1ea48c23cc9",
+					"object_type": "dcim.platform",
+					"url": "https://demo.nautobot.com/api/dcim/platforms/aa07ca99-b973-4870-9b44-e1ea48c23cc9/"
+				},
+				"location": {
+					"id": "9e39051b-e968-4016-b0cf-63a5607375de",
+					"object_type": "dcim.location",
+					"url": "https://demo.nautobot.com/api/dcim/locations/9e39051b-e968-4016-b0cf-63a5607375de/"
+				},
+				"rack": null,
+				"primary_ip4": null,
+				"primary_ip6": null,
+				"cluster": null,
+				"virtual_chassis": null,
+				"device_redundancy_group": null,
+				"software_version": null,
+				"secrets_group": null,
+				"controller_managed_device_group": null,
+				"created": "2023-09-21T00:00:00Z",
+				"last_updated": "2023-09-21T19:51:28.755228Z",
+				"notes_url": "https://demo.nautobot.com/api/dcim/devices/89b2ac3b-1853-4eeb-9ea6-6a081999bd3c/notes/",
+				"custom_fields": {},
+				"parent_bay": null
+			},
+			"module": null,
+			"cable": null,
+			"status": {
+				"id": "9f38bab4-4b47-4e77-b50c-fda62817b2db",
+				"object_type": "extras.status",
+				"display": "Active",
+				"url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/",
+				"natural_slug": "active_9f38",
+				"name": "Active",
+				"color": "4caf50",
+				"description": "Unit is active",
+				"created": "2023-09-21T00:00:00Z",
+				"last_updated": "2023-09-21T19:46:47.125611Z",
+				"notes_url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/notes/",
+				"custom_fields": {}
+			},
+			"role": null,
+			"parent_interface": null,
+			"bridge": null,
+			"lag": null,
+			"untagged_vlan": null,
+			"vrf": null,
+			"tagged_vlans": [],
+			"ip_addresses": [],
+			"created": "2024-08-30T18:03:29.915239Z",
+			"last_updated": "2024-08-30T18:03:29.915257Z",
+			"notes_url": "https://demo.nautobot.com/api/dcim/interfaces/1ce0df0c-5221-4b4e-a7e5-d52810828041/notes/",
+			"custom_fields": {
+				"role": ""
+			},
+			"tags": []
+		},
+		{
+			"id": "f3a7a9aa-4fe2-40d6-9101-af3a0e1d6b36",
+			"object_type": "dcim.interface",
+			"display": "Ethernet2",
+			"url": "https://demo.nautobot.com/api/dcim/interfaces/f3a7a9aa-4fe2-40d6-9101-af3a0e1d6b36/",
+			"cable_peer_type": null,
+			"cable_peer": null,
+			"natural_slug": "ams01-dist-01_nautobot-airports_ams01_netherlands_europe___ethernet2_f3a7",
+			"connected_endpoint_type": null,
+			"connected_endpoint": null,
+			"connected_endpoint_reachable": null,
+			"type": {
+				"value": "virtual",
+				"label": "Virtual"
+			},
+			"mode": null,
+			"mac_address": null,
+			"ip_address_count": 0,
+			"name": "Ethernet2",
+			"label": "",
+			"description": "",
+			"enabled": true,
+			"mtu": null,
+			"mgmt_only": false,
+			"device": {
+				"id": "89b2ac3b-1853-4eeb-9ea6-6a081999bd3c",
+				"object_type": "dcim.device",
+				"display": "ams01-dist-01",
+				"url": "https://demo.nautobot.com/api/dcim/devices/89b2ac3b-1853-4eeb-9ea6-6a081999bd3c/",
+				"natural_slug": "ams01-dist-01_nautobot-airports_ams01_netherlands_europe_89b2",
+				"face": null,
+				"local_config_context_data": null,
+				"local_config_context_data_owner_object_id": null,
+				"name": "ams01-dist-01",
+				"serial": "",
+				"asset_tag": null,
+				"position": null,
+				"device_redundancy_group_priority": null,
+				"vc_position": null,
+				"vc_priority": null,
+				"comments": "",
+				"local_config_context_schema": null,
+				"local_config_context_data_owner_content_type": null,
+				"device_type": {
+					"id": "4bf23e23-4eb1-4fae-961c-edd6f8cbaaf1",
+					"object_type": "dcim.devicetype",
+					"url": "https://demo.nautobot.com/api/dcim/device-types/4bf23e23-4eb1-4fae-961c-edd6f8cbaaf1/"
+				},
+				"status": {
+					"id": "9f38bab4-4b47-4e77-b50c-fda62817b2db",
+					"object_type": "extras.status",
+					"url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/"
+				},
+				"role": {
+					"id": "40567487-6328-4dac-b7b5-b789d1154bf0",
+					"object_type": "extras.role",
+					"url": "https://demo.nautobot.com/api/extras/roles/40567487-6328-4dac-b7b5-b789d1154bf0/"
+				},
+				"tenant": {
+					"id": "1f7fbd07-111a-4091-81d0-f34db26d961d",
+					"object_type": "tenancy.tenant",
+					"url": "https://demo.nautobot.com/api/tenancy/tenants/1f7fbd07-111a-4091-81d0-f34db26d961d/"
+				},
+				"platform": {
+					"id": "aa07ca99-b973-4870-9b44-e1ea48c23cc9",
+					"object_type": "dcim.platform",
+					"url": "https://demo.nautobot.com/api/dcim/platforms/aa07ca99-b973-4870-9b44-e1ea48c23cc9/"
+				},
+				"location": {
+					"id": "9e39051b-e968-4016-b0cf-63a5607375de",
+					"object_type": "dcim.location",
+					"url": "https://demo.nautobot.com/api/dcim/locations/9e39051b-e968-4016-b0cf-63a5607375de/"
+				},
+				"rack": null,
+				"primary_ip4": null,
+				"primary_ip6": null,
+				"cluster": null,
+				"virtual_chassis": null,
+				"device_redundancy_group": null,
+				"software_version": null,
+				"secrets_group": null,
+				"controller_managed_device_group": null,
+				"created": "2023-09-21T00:00:00Z",
+				"last_updated": "2023-09-21T19:51:28.755228Z",
+				"notes_url": "https://demo.nautobot.com/api/dcim/devices/89b2ac3b-1853-4eeb-9ea6-6a081999bd3c/notes/",
+				"custom_fields": {},
+				"parent_bay": null
+			},
+			"module": null,
+			"cable": null,
+			"status": {
+				"id": "9f38bab4-4b47-4e77-b50c-fda62817b2db",
+				"object_type": "extras.status",
+				"display": "Active",
+				"url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/",
+				"natural_slug": "active_9f38",
+				"name": "Active",
+				"color": "4caf50",
+				"description": "Unit is active",
+				"created": "2023-09-21T00:00:00Z",
+				"last_updated": "2023-09-21T19:46:47.125611Z",
+				"notes_url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/notes/",
+				"custom_fields": {}
+			},
+			"role": null,
+			"parent_interface": null,
+			"bridge": null,
+			"lag": null,
+			"untagged_vlan": null,
+			"vrf": null,
+			"tagged_vlans": [],
+			"ip_addresses": [],
+			"created": "2024-08-30T18:03:29.959811Z",
+			"last_updated": "2024-08-30T18:03:29.959826Z",
+			"notes_url": "https://demo.nautobot.com/api/dcim/interfaces/f3a7a9aa-4fe2-40d6-9101-af3a0e1d6b36/notes/",
+			"custom_fields": {
+				"role": ""
+			},
+			"tags": []
+		}
+	]
+}

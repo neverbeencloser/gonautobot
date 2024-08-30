@@ -1,0 +1,47 @@
+{
+	"count": 1,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"id": "07bb040f-0d38-4267-9501-c746f995b9f3",
+			"object_type": "dcim.consoleport",
+			"display": "con0",
+			"url": "https://demo.nautobot.com/api/dcim/console-ports/07bb040f-0d38-4267-9501-c746f995b9f3/",
+			"natural_slug": "ams01-dist-01_nautobot-airports_ams01_netherlands_europe___con0_07bb",
+			"cable_peer_type": "dcim.consoleserverport",
+			"cable_peer": {
+				"id": "b5eb6069-6fd8-4fd5-8ebd-d7b43293bf50",
+				"object_type": "dcim.consoleserverport",
+				"url": "https://demo.nautobot.com/api/dcim/console-server-ports/b5eb6069-6fd8-4fd5-8ebd-d7b43293bf50/"
+			},
+			"connected_endpoint_type": "dcim.consoleserverport",
+			"connected_endpoint": {
+				"id": "b5eb6069-6fd8-4fd5-8ebd-d7b43293bf50",
+				"object_type": "dcim.consoleserverport",
+				"url": "https://demo.nautobot.com/api/dcim/console-server-ports/b5eb6069-6fd8-4fd5-8ebd-d7b43293bf50/"
+			},
+			"connected_endpoint_reachable": true,
+			"type": null,
+			"name": "con0",
+			"label": "",
+			"description": "",
+			"device": {
+				"id": "89b2ac3b-1853-4eeb-9ea6-6a081999bd3c",
+				"object_type": "dcim.device",
+				"url": "https://demo.nautobot.com/api/dcim/devices/89b2ac3b-1853-4eeb-9ea6-6a081999bd3c/"
+			},
+			"module": null,
+			"cable": {
+				"id": "af9117ae-2918-442a-873d-f08e0c0a6d93",
+				"object_type": "dcim.consoleport",
+				"url": "https://demo.nautobot.com/api/dcim/cables/af9117ae-2918-442a-873d-f08e0c0a6d93/"
+			},
+			"created": "2024-08-30T17:40:09.981125Z",
+			"last_updated": "2024-08-30T17:47:59.412320Z",
+			"notes_url": "https://demo.nautobot.com/api/dcim/console-ports/07bb040f-0d38-4267-9501-c746f995b9f3/notes/",
+			"custom_fields": {},
+			"tags": []
+		}
+	]
+}

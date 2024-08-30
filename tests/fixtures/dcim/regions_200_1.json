@@ -1,0 +1,22 @@
+{
+	"count": 1,
+	"next": "",
+	"previous": null,
+	"results": [
+		{
+			"id": "1c15af24-29fa-4bf7-b295-d5506c659f6f",
+			"display": "United States",
+			"url": "https://demo.nautobot.com/api/dcim/regions/1c15af24-29fa-4bf7-b295-d5506c659f6f/",
+			"name": "United States",
+			"slug": "united-states",
+			"parent": null,
+			"description": "",
+			"site_count": 50,
+			"_depth": 0,
+			"created": "1995-02-08",
+			"last_updated": "2023-08-01T12:16:11.153995Z",
+			"notes_url": "https://demo.nautobot.com/api/dcim/regions/1c15af24-29fa-4bf7-b295-d5506c659f6f/notes/",
+			"custom_fields": {}
+		}
+	]
+}
