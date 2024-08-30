@@ -45,5 +45,7 @@ jobs:
               with:
                   go-version-file: 'go.mod'
                   cache: true
+            - env:
+                  ENVIRONMENT: "CI"
               run: "go test -v -short ./..."
               timeout-minutes: 10
