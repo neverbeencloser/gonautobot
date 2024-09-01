@@ -1,0 +1,17 @@
+---
+services:
+
+  develop:
+    build:
+      context: "../"
+      dockerfile: "develop/Dockerfile"
+      args:
+        ALPINE_VERSION: "${ALPINE_VERSION}"
+        GO_VERSION: "${GO_VERSION}"
+        GORELEASER_VERSION: "${GORELEASER_VERSION}"
+        GOLANGCILINT_VERSION: "${GOLANGCILINT_VERSION}"
+    env_file:
+      - ".env"
+    volumes:
+      - "../:/workdir"
+    tty: true

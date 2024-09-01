@@ -475,4 +475,7 @@ DerivedData/
 ### Golang Specific
 coverage.txt
 
+### Local Development
+develop/.env
+
 
