@@ -19,7 +19,7 @@ var testClient *nautobot.Client
 // build and tear down of test data for us.
 func TestMain(m *testing.M) {
 	testClient = nautobot.New(
-		"aaaaaaaaaaaa",
+		nautobot.WithToken("aaaaaaaaaaaa"),
 		nautobot.WithHTTPClient(http.DefaultClient),
 		nautobot.WithEndpoint(testURL),
 	)

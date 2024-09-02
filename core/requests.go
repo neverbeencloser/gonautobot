@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"io"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"strings"
@@ -16,7 +16,7 @@ import (
 // Client : Requests data type client.
 type Client struct {
 	Client *http.Client
-	Log    *logrus.Logger
+	Log    *slog.Logger
 	Token  string
 	URL    string
 }
@@ -66,7 +66,7 @@ func (c *Client) UnmarshalDo(req *http.Request, v interface{}) error {
 	if resp != nil && resp.Body != nil {
 		defer func(r *http.Response) {
 			if err := r.Body.Close(); err != nil {
-				c.Log.Warn(err)
+				c.Log.Warn(err.Error())
 			}
 		}(resp)
 	}

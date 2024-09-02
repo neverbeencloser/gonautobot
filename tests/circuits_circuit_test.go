@@ -13,7 +13,7 @@ func TestClient_GetCircuits(t *testing.T) {
 	gock.New(testURL).Get("circuits/circuits/").Reply(200).
 		File(path.Join("fixtures", "circuits", "circuits_200_1.json"))
 
-	circuits, err := testClient.Circuits.GetCircuits(nil)
+	circuits, err := testClient.Circuits.CircuitFilter(nil)
 	require.NoError(t, err)
 	assert.Len(t, circuits, 2)
 }

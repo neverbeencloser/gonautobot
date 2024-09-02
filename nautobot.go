@@ -10,9 +10,15 @@ import (
 	"github.com/josh-silvas/gonautobot/plugins"
 	"github.com/josh-silvas/gonautobot/tenancy"
 	"github.com/josh-silvas/gonautobot/virtualization"
-	"github.com/sirupsen/logrus"
+	"log/slog"
 	"net/http"
+	"os"
 	"strings"
+)
+
+const (
+	envNautobotURL   = "NAUTOBOT_URL"
+	envNautobotToken = "NAUTOBOT_TOKEN"
 )
 
 type (
@@ -33,10 +39,19 @@ type (
 	Option func(*Client)
 )
 
-// WithEndpoint : Sets the API endpoint to use in Nautobot. Default is https://demo.nautobot.com
+// WithEndpoint : Sets the API endpoint to use in Nautobot.
+// Default is from NAUTOBOT_URL environment or https://demo.nautobot.com is not specified.
 func WithEndpoint(url string) Option {
 	return func(o *Client) {
 		o.Request.URL = SanitizeURL(url)
+	}
+}
+
+// WithToken : Sets the token for Nautobot.
+// Default is from NAUTOBOT_TOKEN, will error if not either passed in or set as an environment variable.
+func WithToken(token string) Option {
+	return func(o *Client) {
+		o.Request.Token = token
 	}
 }
 
@@ -48,25 +63,36 @@ func WithHTTPClient(client *http.Client) Option {
 }
 
 // WithLogger : Overrides the default logger for the package.
-func WithLogger(logger *logrus.Logger) Option {
+func WithLogger(logger *slog.Logger) Option {
 	return func(o *Client) {
 		o.Request.Log = logger
 	}
 }
 
 // New : Function used to create a new Nautobot client data type.
-func New(token string, opts ...Option) *Client {
+func New(opts ...Option) *Client {
 	c := &Client{
 		Request: &core.Client{
-			Token:  token,
-			URL:    "https://demo.nautobot.com/api/",
+			Token: os.Getenv(envNautobotToken),
+			URL: func() string {
+				r := os.Getenv(envNautobotURL)
+				if r == "" {
+					r = "https://demo.nautobot.com/api/"
+				}
+				return r
+			}(),
 			Client: http.DefaultClient,
-			Log:    logrus.StandardLogger(),
+			Log:    slog.New(slog.NewJSONHandler(os.Stdout, nil)),
 		},
 	}
 
 	for _, opt := range opts {
 		opt(c)
+	}
+
+	if c.Request.Token == "" {
+		slog.Error(fmt.Sprintf("Token must be set with core.WithToken('aaaa') or `%s` environment variable", envNautobotToken))
+		os.Exit(1)
 	}
 
 	c.Circuits = circuits.New(c.Request)
