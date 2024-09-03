@@ -13,7 +13,7 @@ func TestClient_GetConsoleConnections(t *testing.T) {
 	gock.New(testURL).Get("dcim/console-connections/").Reply(200).
 		File(path.Join("fixtures", "dcim", "console_connections_200_1.json"))
 
-	resp, err := testClient.Dcim.ConsoleConnections(nil)
+	resp, err := testClient.Dcim.ConsoleConnectionFilter(nil)
 	require.NoError(t, err)
 	assert.Len(t, resp, 1)
 }

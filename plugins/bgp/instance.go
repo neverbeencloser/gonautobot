@@ -1,8 +1,8 @@
 package bgp
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	nautobot "github.com/josh-silvas/gonautobot/extras"
 	nautobot2 "github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -30,11 +30,11 @@ type (
 	}
 )
 
-// BGPRoutingInstance : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/:id/
+// BGPRoutingInstanceGet : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/:id/
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_list
-func (c *Client) BGPRoutingInstance(uuid string, q *url.Values) (*RoutingInstance, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("plugins/bgp/routing-instances/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) BGPRoutingInstanceGet(uuid string) (*RoutingInstance, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("plugins/bgp/routing-instances/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -44,24 +44,10 @@ func (c *Client) BGPRoutingInstance(uuid string, q *url.Values) (*RoutingInstanc
 	return ret, err
 }
 
-// BGPRoutingInstances : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/
+// BGPRoutingInstanceFilter : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_retrieve
-func (c *Client) BGPRoutingInstances(q *url.Values) ([]RoutingInstance, error) {
-	req, err := c.Request(http.MethodGet, "plugins/bgp/routing-instances/", nil, q)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(nautobot2.ResponseList)
-	ret := make([]RoutingInstance, 0)
-
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("BGPRoutingInstances.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+func (c *Client) BGPRoutingInstanceFilter(q *url.Values) ([]RoutingInstance, error) {
+	resp := make([]RoutingInstance, 0)
+	return resp, core.Paginate[RoutingInstance](c.Client, "plugins/bgp/routing-instances/", q, &resp)
 }

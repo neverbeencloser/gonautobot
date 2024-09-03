@@ -1,9 +1,8 @@
 package dcim
 
 import (
-	"encoding/json"
 	"fmt"
-	"github.com/josh-silvas/gonautobot/shared"
+	"github.com/josh-silvas/gonautobot/core"
 	"net/http"
 	"net/url"
 )
@@ -27,11 +26,11 @@ type (
 	}
 )
 
-// GetRegion : Go function to process requests for the endpoint: /api/dcim/regions/:id/
+// RegionGet : Go function to process requests for the endpoint: /api/dcim/regions/:id/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_regions_retrieve
-func (c *Client) GetRegion(uuid string, q *url.Values) (*Region, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/regions/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) RegionGet(uuid string) (*Region, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/regions/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -41,24 +40,13 @@ func (c *Client) GetRegion(uuid string, q *url.Values) (*Region, error) {
 	return ret, err
 }
 
-// GetRegions : Go function to process requests for the endpoint: /api/dcim/regions/
+// RegionFilter : Go function to process requests for the endpoint: /api/dcim/regions/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_regions_list
-func (c *Client) GetRegions(q *url.Values) ([]Region, error) {
-	req, err := c.Request(http.MethodGet, "dcim/regions/", nil, q)
-	if err != nil {
+func (c *Client) RegionFilter(q *url.Values) ([]Region, error) {
+	resp := make([]Region, 0)
+	if err := core.Paginate[Region](c.Client, "dcim/regions/", q, &resp); err != nil {
 		return nil, err
 	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]Region, 0)
-
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetRegions.error.json.Unmarhsal(%w)", err)
-	}
-	return ret, err
+	return resp, nil
 }

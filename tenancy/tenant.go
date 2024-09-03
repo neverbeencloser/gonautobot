@@ -1,12 +1,9 @@
 package tenancy
 
 import (
-	"encoding/json"
-	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
-	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
-	"net/http"
 	"net/url"
 	"time"
 )
@@ -39,23 +36,10 @@ type (
 	}
 )
 
-// GetTenants : Go function to process requests for the endpoint: /api/tenancy/tenants/
+// TenantFilter : Go function to process requests for the endpoint: /api/tenancy/tenants/
 //
 // https://demo.nautobot.com/api/docs/#/tenancy/tenancy_tenants_list
-func (c *Client) GetTenants(q *url.Values) ([]Tenant, error) {
-	req, err := c.Request(http.MethodGet, "tenancy/tenants/", nil, q)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]Tenant, 0)
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetTenants.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+func (c *Client) TenantFilter(q *url.Values) ([]Tenant, error) {
+	resp := make([]Tenant, 0)
+	return resp, core.Paginate[Tenant](c.Client, "tenancy/tenants/", q, &resp)
 }

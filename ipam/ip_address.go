@@ -1,8 +1,8 @@
 package ipam
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
 	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -64,11 +64,11 @@ type (
 	}
 )
 
-// GetIPAddress : Go function to process requests for the endpoint: /api/ipam/ip_addresses/:id/
+// IPAddressGet : Go function to process requests for the endpoint: /api/ipam/ip_addresses/:id/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_ip_addresses_retrieve
-func (c *Client) GetIPAddress(uuid string, q *url.Values) (*IPAddress, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/ip-addresses/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) IPAddressGet(uuid string) (*IPAddress, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/ip-addresses/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -78,24 +78,10 @@ func (c *Client) GetIPAddress(uuid string, q *url.Values) (*IPAddress, error) {
 	return ret, err
 }
 
-// GetIPAddresses : Go function to process requests for the endpoint: /api/ipam/ip_addresses/
+// IPAddressFilter : Go function to process requests for the endpoint: /api/ipam/ip_addresses/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_ip_addresses_list
-func (c *Client) GetIPAddresses(q *url.Values) ([]IPAddress, error) {
-	req, err := c.Request(http.MethodGet, "ipam/ip-addresses/", nil, q)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]IPAddress, 0)
-
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetIPAddress.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+func (c *Client) IPAddressFilter(q *url.Values) ([]IPAddress, error) {
+	resp := make([]IPAddress, 0)
+	return resp, core.Paginate[IPAddress](c.Client, "ipam/ip-addresses/", q, &resp)
 }

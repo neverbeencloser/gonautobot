@@ -19,8 +19,24 @@ func main() {
 			nautobot.WithEndpoint("https://demo.nautobot.com/"),
 		),
 	}
+	c.ipAddress()
+	//c.circuit()
+}
 
-	c.circuit()
+func (c *ex) ipAddress() {
+	r0, err := c.Ipam.IPAddressFilter(&url.Values{"tenant": {"6202c221-2a49-4700-a879-32a6f912428b"}})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Filtered ", r0)
+}
+
+func (c *ex) device() {
+	r0, err := c.Dcim.DeviceFilter(&url.Values{"name__ic": {"ams01-edge"}})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Filtered ", r0)
 }
 
 func (c *ex) circuit() {

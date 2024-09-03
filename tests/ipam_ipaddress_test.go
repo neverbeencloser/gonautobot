@@ -14,7 +14,7 @@ func TestClient_GetIPAddress(t *testing.T) {
 	gock.New(testURL).Get("ipam/ip-addresses/50476c26-4349-4669-bc40-fa3baedd72fb/").Reply(200).
 		File(path.Join("fixtures", "ipam", "ip_address_200_1.json"))
 
-	resp, err := testClient.Ipam.GetIPAddress("50476c26-4349-4669-bc40-fa3baedd72fb", nil)
+	resp, err := testClient.Ipam.IPAddressGet("50476c26-4349-4669-bc40-fa3baedd72fb")
 	require.NoError(t, err)
 	assert.Equal(t, "2.1.1.1/32", resp.Address)
 }
@@ -23,7 +23,7 @@ func TestClient_GetIPAddresses(t *testing.T) {
 	gock.New(testURL).Get("ipam/ip-addresses/").Reply(200).
 		File(path.Join("fixtures", "ipam", "ip_addresses_200_1.json"))
 
-	resp, err := testClient.Ipam.GetIPAddresses(&url.Values{"offset": {"50"}})
+	resp, err := testClient.Ipam.IPAddressFilter(&url.Values{"offset": {"50"}})
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }

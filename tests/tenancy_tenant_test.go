@@ -13,7 +13,7 @@ func TestClient_GetTenants(t *testing.T) {
 	gock.New(testURL).Get("tenancy/tenants/").Reply(200).
 		File(path.Join("fixtures", "tenancy", "tenants_200_1.json"))
 
-	resp, err := testClient.Tenancy.GetTenants(nil)
+	resp, err := testClient.Tenancy.TenantFilter(nil)
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }
@@ -22,7 +22,7 @@ func TestClient_GetTenantGroups(t *testing.T) {
 	gock.New(testURL).Get("tenancy/tenant-groups/").Reply(200).
 		File(path.Join("fixtures", "tenancy", "tenant_groups_200_1.json"))
 
-	resp, err := testClient.Tenancy.GetTenantGroups(nil)
+	resp, err := testClient.Tenancy.TenantGroupFilter(nil)
 	require.NoError(t, err)
 	assert.Len(t, resp, 1)
 }

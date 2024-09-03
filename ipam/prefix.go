@@ -1,8 +1,8 @@
 package ipam
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
 	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -84,11 +84,11 @@ type (
 	}
 )
 
-// GetPrefix : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/
+// PrefixGet : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_retrieve
-func (c *Client) GetPrefix(uuid string, q *url.Values) (*Prefix, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/prefixes/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) PrefixGet(uuid string) (*Prefix, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/prefixes/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -96,6 +96,64 @@ func (c *Client) GetPrefix(uuid string, q *url.Values) (*Prefix, error) {
 	ret := new(Prefix)
 	err = c.UnmarshalDo(req, ret)
 	return ret, err
+}
+
+// PrefixFilter : Go function to process requests for the endpoint: /api/ipam/prefixes/
+//
+// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_list
+func (c *Client) PrefixFilter(q *url.Values) ([]Prefix, error) {
+	resp := make([]Prefix, 0)
+	return resp, core.Paginate[Prefix](c.Client, "ipam/prefixes/", q, &resp)
+}
+
+// PrefixCreate : Creates a new prefix using the NewPrefix data type.
+//
+// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_create
+func (c *Client) PrefixCreate(prefix *NewPrefix) (*Prefix, error) {
+	req, err := c.Request(http.MethodPost, "ipam/prefixes/", prefix, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	var r Prefix
+	err = c.UnmarshalDo(req, &r)
+	if err != nil {
+		return nil, fmt.Errorf("CreatePrefix.error.UnmarshalDo(%w)", err)
+	}
+
+	return &r, nil
+}
+
+// PrefixUpdate : Updates a Nautobot prefix by UUID
+//
+// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_partial_update
+func (c *Client) PrefixUpdate(uuid string, prefix *PrefixUpdate) (*Prefix, error) {
+	req, err := c.Request(http.MethodPatch, fmt.Sprintf("ipam/prefixes/%s/", uuid), prefix, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	var r Prefix
+	if err := c.UnmarshalDo(req, &r); err != nil {
+		return nil, fmt.Errorf("UpdatePrefix.error.UnmarshalDo(%w)", err)
+	}
+
+	return &r, nil
+}
+
+// PrefixDelete : Removes a prefix from the Nautobot DB.
+//
+// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_destroy
+func (c *Client) PrefixDelete(prefixID string) error {
+	req, err := c.Request(http.MethodDelete, fmt.Sprintf("ipam/prefixes/%s/", prefixID), nil, nil)
+	if err != nil {
+		return err
+	}
+
+	if err := c.UnmarshalDo(req, nil); err != nil {
+		return fmt.Errorf("DeletePrefix.error.UnmarshalDo(%w)", err)
+	}
+	return nil
 }
 
 // GetPrefixAvailableIPs : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/available-ips/
@@ -128,76 +186,4 @@ func (c *Client) GetPrefixAvailablePrefixes(uuid string, q *url.Values) ([]Prefi
 		return nil, fmt.Errorf("GetPrefixAvailablePrefixes.error.UnmarshalDo(%w)", err)
 	}
 	return ret, nil
-}
-
-// GetPrefixes : Go function to process requests for the endpoint: /api/ipam/prefixes/
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_list
-func (c *Client) GetPrefixes(q *url.Values) ([]Prefix, error) {
-	req, err := c.Request(http.MethodGet, "ipam/prefixes/", nil, q)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]Prefix, 0)
-
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetPrefixes.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
-}
-
-// CreatePrefix : Creates a new prefix using the NewPrefix data type.
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_create
-func (c *Client) CreatePrefix(prefix *NewPrefix) (*Prefix, error) {
-	req, err := c.Request(http.MethodPost, "ipam/prefixes/", prefix, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	var r Prefix
-	err = c.UnmarshalDo(req, &r)
-	if err != nil {
-		return nil, fmt.Errorf("CreatePrefix.error.UnmarshalDo(%w)", err)
-	}
-
-	return &r, nil
-}
-
-// UpdatePrefix : Updates a Nautobot prefix by UUID
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_partial_update
-func (c *Client) UpdatePrefix(uuid string, prefix *PrefixUpdate) (*Prefix, error) {
-	req, err := c.Request(http.MethodPatch, fmt.Sprintf("ipam/prefixes/%s/", uuid), prefix, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	var r Prefix
-	if err := c.UnmarshalDo(req, &r); err != nil {
-		return nil, fmt.Errorf("UpdatePrefix.error.UnmarshalDo(%w)", err)
-	}
-
-	return &r, nil
-}
-
-// DeletePrefix : Removes a prefix from the Nautobot DB.
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_destroy
-func (c *Client) DeletePrefix(prefixID string) error {
-	req, err := c.Request(http.MethodDelete, fmt.Sprintf("ipam/prefixes/%s/", prefixID), nil, nil)
-	if err != nil {
-		return err
-	}
-
-	if err := c.UnmarshalDo(req, nil); err != nil {
-		return fmt.Errorf("DeletePrefix.error.UnmarshalDo(%w)", err)
-	}
-	return nil
 }

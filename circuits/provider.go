@@ -33,10 +33,10 @@ type (
 	}
 )
 
-// GetProviders : Go function to process requests for the endpoint: /api/circuits/providers/
+// ProviderFilter : Go function to process requests for the endpoint: /api/circuits/providers/
 //
 // https://demo.nautobot.com/api/docs/#/circuits/circuits_providers_list
-func (c *Client) GetProviders(q *url.Values) ([]Provider, error) {
+func (c *Client) ProviderFilter(q *url.Values) ([]Provider, error) {
 	req, err := c.Request(http.MethodGet, "circuits/providers/", nil, q)
 	if err != nil {
 		return nil, err

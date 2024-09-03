@@ -14,7 +14,7 @@ func TestClient_GetDevice(t *testing.T) {
 	gock.New(testURL).Get("dcim/devices/89b2ac3b-1853-4eeb-9ea6-6a081999bd3c/").Reply(200).
 		File(path.Join("fixtures", "dcim", "device_200_1.json"))
 
-	resp, err := testClient.Dcim.GetDevice("89b2ac3b-1853-4eeb-9ea6-6a081999bd3c", nil)
+	resp, err := testClient.Dcim.DeviceGet("89b2ac3b-1853-4eeb-9ea6-6a081999bd3c")
 	require.NoError(t, err)
 	assert.Equal(t, "ams01-dist-01", resp.Name)
 }
@@ -23,7 +23,7 @@ func TestClient_GetDevices(t *testing.T) {
 	gock.New(testURL).Get("dcim/devices/").Reply(200).
 		File(path.Join("fixtures", "dcim", "devices_200_1.json"))
 
-	resp, err := testClient.Dcim.GetDevices(&url.Values{"offset": {"50"}})
+	resp, err := testClient.Dcim.DeviceFilter(&url.Values{"offset": {"50"}})
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }

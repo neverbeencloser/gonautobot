@@ -15,7 +15,7 @@ func TestClient_GetPrefix(t *testing.T) {
 	gock.New(testURL).Get("ipam/prefixes/900326be-92a5-4392-8178-929256081580/").Reply(200).
 		File(path.Join("fixtures", "ipam", "prefix_200_1.json"))
 
-	resp, err := testClient.Ipam.GetPrefix("900326be-92a5-4392-8178-929256081580", nil)
+	resp, err := testClient.Ipam.PrefixGet("900326be-92a5-4392-8178-929256081580")
 	require.NoError(t, err)
 	assert.Equal(t, "10.0.0.0/24", resp.Prefix)
 }
@@ -24,7 +24,7 @@ func TestClient_GetPrefixes(t *testing.T) {
 	gock.New(testURL).Get("ipam/prefixes/").Reply(200).
 		File(path.Join("fixtures", "ipam", "prefixes_200_1.json"))
 
-	resp, err := testClient.Ipam.GetPrefixes(&url.Values{"offset": {"50"}})
+	resp, err := testClient.Ipam.PrefixFilter(&url.Values{"offset": {"50"}})
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }
@@ -57,7 +57,7 @@ func TestClient_CreatePrefix(t *testing.T) {
 	gock.New(testURL).Post("ipam/prefixes/").JSON(req).Reply(201).
 		File(path.Join("fixtures", "ipam", "prefix_create_response_201_1.json"))
 
-	resp, err := testClient.Ipam.CreatePrefix(&req)
+	resp, err := testClient.Ipam.PrefixCreate(&req)
 	require.NoError(t, err)
 	assert.Equal(t, req.Prefix, resp.Prefix)
 	assert.Equal(t, req.Description, resp.Description)

@@ -3,6 +3,7 @@ package dcim
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
 	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -49,11 +50,11 @@ type (
 	}
 )
 
-// GetInterface : Go function to process requests for the endpoint: /api/dcim/interfaces/:id/
+// InterfaceGet : Go function to process requests for the endpoint: /api/dcim/interfaces/:id/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_interfaces_retrieve
-func (c *Client) GetInterface(uuid string, q *url.Values) (*Interface, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/interfaces/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) InterfaceGet(uuid string) (*Interface, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/interfaces/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -63,24 +64,13 @@ func (c *Client) GetInterface(uuid string, q *url.Values) (*Interface, error) {
 	return ret, err
 }
 
-// GetInterfaces : Go function to process requests for the endpoint: /api/dcim/interfaces/
+// InterfaceFilter : Go function to process requests for the endpoint: /api/dcim/interfaces/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_interfaces_list
-func (c *Client) GetInterfaces(q *url.Values) ([]Interface, error) {
-	req, err := c.Request(http.MethodGet, "dcim/interfaces/", nil, q)
-	if err != nil {
+func (c *Client) InterfaceFilter(q *url.Values) ([]Interface, error) {
+	resp := make([]Interface, 0)
+	if err := core.Paginate[Interface](c.Client, "dcim/interfaces/", q, &resp); err != nil {
 		return nil, err
 	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]Interface, 0)
-
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetInterfaces.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+	return resp, nil
 }

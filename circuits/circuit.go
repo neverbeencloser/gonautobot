@@ -1,8 +1,8 @@
 package circuits
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
 	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -71,42 +71,16 @@ func (c *Client) CircuitGet(uuid string) (Circuit, error) {
 //
 // https://demo.nautobot.com/api/docs/#/circuits/circuits_circuits_list
 func (c *Client) CircuitFilter(q *url.Values) ([]Circuit, error) {
-	req, err := c.Request(http.MethodGet, "circuits/circuits/", nil, q)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]Circuit, 0)
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetCircuits.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+	resp := make([]Circuit, 0)
+	return resp, core.Paginate[Circuit](c.Client, "circuits/circuits/", q, &resp)
 }
 
 // CircuitAll : Go function to process requests for the endpoint: /api/circuits/circuits/
 //
 // https://demo.nautobot.com/api/docs/#/circuits/circuits_circuits_list
 func (c *Client) CircuitAll() ([]Circuit, error) {
-	req, err := c.Request(http.MethodGet, "circuits/circuits/", nil, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]Circuit, 0)
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetCircuits.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+	resp := make([]Circuit, 0)
+	return resp, core.Paginate[Circuit](c.Client, "circuits/circuits/", nil, &resp)
 }
 
 // CircuitDelete : Go function to process requests for the endpoint: /api/circuits/circuits/

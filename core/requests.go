@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/shared"
 	"io"
 	"log/slog"
 	"net/http"
@@ -19,6 +20,45 @@ type Client struct {
 	Log    *slog.Logger
 	Token  string
 	URL    string
+}
+
+// Paginate : Helper function to abstract out Nautobot paginated responses.
+func Paginate[T any](c *Client, uri string, q *url.Values, ret *[]T) error {
+	fullURL := ""
+	for {
+		if fullURL == "" {
+			uri = strings.TrimPrefix(uri, "/")
+			fullURL = fmt.Sprintf("%s%s", c.URL, uri)
+		}
+
+		req, err := http.NewRequestWithContext(context.Background(), http.MethodGet, fullURL, nil)
+		if err != nil {
+			return err
+		}
+
+		req.Header.Set("Accept", "application/json")
+		req.Header.Set("Authorization", fmt.Sprintf("Token %s", c.Token))
+		if q != nil && len(*q) > 0 {
+			req.URL.RawQuery = q.Encode()
+		}
+
+		resp := new(shared.ResponseList)
+		r := make([]T, 0)
+		if err = c.UnmarshalDo(req, resp); err != nil {
+			return err
+		}
+		if err = json.Unmarshal(resp.Results, &r); err != nil {
+			return fmt.Errorf("Paginate.error.json.Unmarshal(%w)", err)
+		}
+
+		*ret = append(*ret, r...)
+		if resp.Next == "" || fullURL == resp.Next {
+			break
+		}
+		slog.Info(fmt.Sprintf("Paginate.next=%s; Total.items=%d", resp.Next, resp.Count))
+		fullURL = resp.Next
+	}
+	return nil
 }
 
 // Request : Crafts an HTTP request to Nautobot.

@@ -1,8 +1,8 @@
 package bgp
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
 	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -27,11 +27,11 @@ type (
 	}
 )
 
-// GetBGPAutonomousSystem : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/:id/
+// BGPAutonomousSystemGet : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/:id/
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_list
-func (c *Client) GetBGPAutonomousSystem(uuid string, q *url.Values) (*AutonomousSystem, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("plugins/bgp/autonomous-systems/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) BGPAutonomousSystemGet(uuid string) (*AutonomousSystem, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("plugins/bgp/autonomous-systems/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -40,24 +40,10 @@ func (c *Client) GetBGPAutonomousSystem(uuid string, q *url.Values) (*Autonomous
 	return ret, c.UnmarshalDo(req, ret)
 }
 
-// GetBGPAutonomousSystems : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/
+// BGPAutonomousSystemFilter : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_retrieve
-func (c *Client) GetBGPAutonomousSystems(q *url.Values) ([]AutonomousSystem, error) {
-	req, err := c.Request(http.MethodGet, "plugins/bgp/autonomous-systems/", nil, q)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]AutonomousSystem, 0)
-
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+func (c *Client) BGPAutonomousSystemFilter(q *url.Values) ([]AutonomousSystem, error) {
+	resp := make([]AutonomousSystem, 0)
+	return resp, core.Paginate[AutonomousSystem](c.Client, "plugins/bgp/autonomous-systems/", q, &resp)
 }

@@ -1,8 +1,8 @@
 package ipam
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
 	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -34,11 +34,11 @@ type (
 	}
 )
 
-// GetVLAN : Go function to process requests for the endpoint: /api/ipam/vlans/:id/
+// VLANGet : Go function to process requests for the endpoint: /api/ipam/vlans/:id/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_vlans_retrieve
-func (c *Client) GetVLAN(uuid string, q *url.Values) (*VLAN, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/vlans/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) VLANGet(uuid string) (*VLAN, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/vlans/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -46,23 +46,10 @@ func (c *Client) GetVLAN(uuid string, q *url.Values) (*VLAN, error) {
 	return ret, c.UnmarshalDo(req, ret)
 }
 
-// GetVLANs : Go function to process requests for the endpoint: /api/ipam/vlans/
+// VLANFilter : Go function to process requests for the endpoint: /api/ipam/vlans/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_vlans_list
-func (c *Client) GetVLANs(q *url.Values) ([]VLAN, error) {
-	req, err := c.Request(http.MethodGet, "ipam/vlans/", nil, q)
-	if err != nil {
-		return nil, err
-	}
-
-	resp := new(shared.ResponseList)
-	ret := make([]VLAN, 0)
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
-
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetVLANs.error.json.Unmarshal(%w)", err)
-	}
-	return ret, err
+func (c *Client) VLANFilter(q *url.Values) ([]VLAN, error) {
+	resp := make([]VLAN, 0)
+	return resp, core.Paginate[VLAN](c.Client, "ipam/vlans/", q, &resp)
 }

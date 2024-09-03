@@ -47,11 +47,11 @@ type (
 	}
 )
 
-// GetSite : Go function to process requests for the endpoint: /api/dcim/sites/:id/
+// SiteGet : Go function to process requests for the endpoint: /api/dcim/sites/:id/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_sites_retrieve
-func (c *Client) GetSite(uuid string, q *url.Values) (*Site, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/sites/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) SiteGet(uuid string) (*Site, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/sites/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -61,10 +61,10 @@ func (c *Client) GetSite(uuid string, q *url.Values) (*Site, error) {
 	return ret, err
 }
 
-// GetSites : Go function to process requests for the endpoint: /api/dcim/sites/
+// SiteFilter : Go function to process requests for the endpoint: /api/dcim/sites/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_sites_list
-func (c *Client) GetSites(q *url.Values) ([]Site, error) {
+func (c *Client) SiteFilter(q *url.Values) ([]Site, error) {
 	req, err := c.Request(http.MethodGet, "dcim/sites/", nil, q)
 	if err != nil {
 		return nil, err

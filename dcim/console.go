@@ -52,8 +52,8 @@ type (
 	}
 )
 
-// ConsoleConnections : Method used to fetch a list of console connections for a device.
-func (c *Client) ConsoleConnections(q *url.Values) ([]ConsolePort, error) {
+// ConsoleConnectionFilter : Method used to fetch a list of console connections for a device.
+func (c *Client) ConsoleConnectionFilter(q *url.Values) ([]ConsolePort, error) {
 	req, err := c.Request(http.MethodGet, "dcim/console-connections/", nil, q)
 	if err != nil {
 		return nil, err

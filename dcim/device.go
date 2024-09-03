@@ -1,8 +1,8 @@
 package dcim
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
 	"github.com/josh-silvas/gonautobot/shared"
 	"github.com/josh-silvas/gonautobot/shared/nested"
@@ -50,11 +50,11 @@ type (
 	}
 )
 
-// GetDevice : Go function to process requests for the endpoint: /api/dcim/devices/:id/
+// DeviceGet : Go function to process requests for the endpoint: /api/dcim/devices/:id/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_devices_retrieve
-func (c *Client) GetDevice(uuid string, q *url.Values) (*Device, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/devices/%s/", url.PathEscape(uuid)), nil, q)
+func (c *Client) DeviceGet(uuid string) (*Device, error) {
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("dcim/devices/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
@@ -64,38 +64,18 @@ func (c *Client) GetDevice(uuid string, q *url.Values) (*Device, error) {
 	return ret, err
 }
 
-// GetDevices : Go function to process requests for the endpoint: /api/dcim/devices/
+// DeviceFilter : Go function to process requests for the endpoint: /api/dcim/devices/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_devices_list
-func (c *Client) GetDevices(query *url.Values) ([]Device, error) {
+func (c *Client) DeviceFilter(q *url.Values) ([]Device, error) {
 	devices := make([]Device, 0)
-	offset := 0
-	if query == nil {
-		query = &url.Values{}
-	}
-	for {
-		query.Set("offset", fmt.Sprintf("%d", offset))
-		req, err := c.Request(http.MethodGet, "dcim/devices/", nil, query)
-		if err != nil {
-			return nil, err
-		}
+	return devices, core.Paginate[Device](c.Client, "dcim/devices/", q, &devices)
+}
 
-		resp := new(shared.ResponseList)
-		ret := make([]Device, 0)
-
-		if err = c.UnmarshalDo(req, resp); err != nil {
-			return ret, err
-		}
-
-		if err = json.Unmarshal(resp.Results, &ret); err != nil {
-			return devices, fmt.Errorf("GetDevices.error.json.Unmarshal(%w)", err)
-		}
-		devices = append(devices, ret...)
-		if resp.Count <= len(devices) {
-			break
-		}
-		offset += 50
-	}
-
-	return devices, nil
+// DeviceAll : Go function to process requests for the endpoint: /api/dcim/devices/
+//
+// https://demo.nautobot.com/api/docs/#/dcim/dcim_devices_list
+func (c *Client) DeviceAll() ([]Device, error) {
+	devices := make([]Device, 0)
+	return devices, core.Paginate[Device](c.Client, "dcim/devices/", nil, &devices)
 }
