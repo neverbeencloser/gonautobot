@@ -2,20 +2,10 @@ package core
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"strings"
-)
-
-const (
-	// define common expected Nautobot error strings
-	errDetailAuthNotProvided = "Authentication credentials were not provided."
-	errDetailInvalidToken    = "Invalid token"
-	errDetailNotFound        = "Not Found."
-	// partial string match on raw []byte
-	errRawUnknownFilter = "Unknown filter field"
 )
 
 type (
@@ -24,26 +14,12 @@ type (
 	ErrorResponse struct {
 		Response *http.Response `json:"-"`
 		Detail   string         `json:"detail"`
-		// Errors field is returned by the graphql endpoint
-		Errors []errorMessage `json:"errors"`
+		Errors   []message      `json:"errors"`
 	}
 
-	errorMessage struct {
+	message struct {
 		Message string `json:"message"`
 	}
-)
-
-// define well-known Nautobot errors here for compatibility
-// with errors.Is() client comparisons
-var (
-	// ErrAuthNotProvided : 403 response for missing authentication
-	ErrAuthNotProvided = errors.New("authentication not provided")
-	// ErrInvalidToken : 403 response for invalid token
-	ErrInvalidToken = errors.New("invalid authentication token")
-	// ErrItemNotFound : 404 response
-	ErrItemNotFound = errors.New("item not found")
-	// ErrUnknownFilter : 400 response for bad query parameter
-	ErrUnknownFilter = errors.New("unknown query filter")
 )
 
 // Error : satisfies the 'error' interface requirements
@@ -80,22 +56,17 @@ func HasError(resp *http.Response) error {
 	e := &ErrorResponse{
 		Response: resp,
 	}
+	e2 := new(json.RawMessage)
 	data, err := io.ReadAll(resp.Body)
 	if err == nil && data != nil {
-		//nolint:errcheck
-		_ = json.Unmarshal(data, e)
-	}
-
-	// check for well-known errors and return pre-defined error
-	switch {
-	case strings.EqualFold(e.Detail, errDetailAuthNotProvided):
-		return ErrAuthNotProvided
-	case strings.EqualFold(e.Detail, errDetailInvalidToken):
-		return ErrInvalidToken
-	case strings.EqualFold(e.Detail, errDetailNotFound):
-		return ErrItemNotFound
-	case strings.Contains(string(data), errRawUnknownFilter):
-		return ErrUnknownFilter
+		if err := json.Unmarshal(data, e2); err != nil {
+			return fmt.Errorf("HasError.io.ReadAll.json.Unmarshal: %w", err)
+		}
+		js, err := e2.MarshalJSON()
+		if err != nil {
+			return fmt.Errorf("HasError.io.ReadAll.json.MarshalJSON: %w", err)
+		}
+		e.Detail = string(js)
 	}
 
 	return e

@@ -7,8 +7,8 @@ import (
 	"errors"
 	"fmt"
 	"github.com/josh-silvas/gonautobot/shared"
+	"github.com/rs/zerolog/log"
 	"io"
-	"log/slog"
 	"net/http"
 	"net/url"
 	"strings"
@@ -17,7 +17,6 @@ import (
 // Client : Requests data type client.
 type Client struct {
 	Client *http.Client
-	Log    *slog.Logger
 	Token  string
 	URL    string
 }
@@ -55,7 +54,7 @@ func Paginate[T any](c *Client, uri string, q *url.Values, ret *[]T) error {
 		if resp.Next == "" || fullURL == resp.Next {
 			break
 		}
-		slog.Info(fmt.Sprintf("Paginate.next=%s; Total.items=%d", resp.Next, resp.Count))
+		log.Info().Msgf("Paginate.next=%s; Total.items=%d", resp.Next, resp.Count)
 		fullURL = resp.Next
 	}
 	return nil
@@ -106,26 +105,27 @@ func (c *Client) UnmarshalDo(req *http.Request, v interface{}) error {
 	if resp != nil && resp.Body != nil {
 		defer func(r *http.Response) {
 			if err := r.Body.Close(); err != nil {
-				c.Log.Warn(err.Error())
+				log.Warn().Err(err).Msg("UnmarshalDo.resp.Body.Close()")
 			}
 		}(resp)
 	}
 	if err != nil {
-		return err
+		return fmt.Errorf("c.Do.error: %w", err)
 	}
 
 	switch v := v.(type) {
 	case nil:
 	case io.Writer:
-		_, err = io.Copy(v, resp.Body)
-	default:
-		decErr := json.NewDecoder(resp.Body).Decode(v)
-		if errors.Is(decErr, io.EOF) {
-			decErr = nil // ignore EOF errors caused by empty response body
+		if _, err := io.Copy(v, resp.Body); err != nil {
+			return fmt.Errorf("UnmarshalDo.io.Copy(): %w", err)
 		}
-		if decErr != nil {
-			err = fmt.Errorf("error.UnmarshalDo.json.NewDecoder(%w)", decErr)
+	default:
+		if err := json.NewDecoder(resp.Body).Decode(v); err != nil {
+			if errors.Is(err, io.EOF) {
+				return nil
+			}
+			return fmt.Errorf("error.UnmarshalDo.json.NewDecoder(%w)", err)
 		}
 	}
-	return err
+	return nil
 }

@@ -1,6 +1,7 @@
 package dcim
 
 import (
+	"errors"
 	"fmt"
 	"github.com/josh-silvas/gonautobot/core"
 	"github.com/josh-silvas/gonautobot/extras"
@@ -48,6 +49,38 @@ type (
 		VCPriority         *int                          `json:"vc_priority"`
 		VirtualChassis     *nested.VirtualChassis        `json:"virtual_chassis"`
 	}
+
+	// NewDevice : Structured input for a new Device record in Nautobot.
+	NewDevice struct {
+		Name                         string         `json:"name"`
+		Role                         string         `json:"role"`
+		Status                       string         `json:"status"`
+		DeviceType                   string         `json:"device_type"`
+		Location                     string         `json:"location,omitempty"`
+		Site                         string         `json:"site,omitempty"`
+		Tenant                       string         `json:"tenant,omitempty"`
+		Platform                     string         `json:"platform,omitempty"`
+		Serial                       string         `json:"serial,omitempty"`
+		AssetTag                     string         `json:"asset_tag,omitempty"`
+		Position                     int            `json:"position,omitempty"`
+		Face                         string         `json:"face,omitempty"`
+		VcPosition                   int            `json:"vc_position,omitempty"`
+		VcPriority                   int            `json:"vc_priority,omitempty"`
+		Comments                     string         `json:"comments,omitempty"`
+		Rack                         string         `json:"rack,omitempty"`
+		PrimaryIP4                   string         `json:"primary_ip4,omitempty"`
+		PrimaryIP6                   string         `json:"primary_ip6,omitempty"`
+		Cluster                      string         `json:"cluster,omitempty"`
+		VirtualChassis               string         `json:"virtual_chassis,omitempty"`
+		DeviceRedundancyGroup        string         `json:"device_redundancy_group,omitempty"`
+		SoftwareVersion              string         `json:"software_version,omitempty"`
+		SecretsGroup                 string         `json:"secrets_group,omitempty"`
+		ControllerManagedDeviceGroup string         `json:"controller_managed_device_group,omitempty"`
+		SoftwareImageFiles           []string       `json:"software_image_files,omitempty"`
+		CustomFields                 map[string]any `json:"custom_fields,omitempty"`
+		Tags                         []string       `json:"tags,omitempty"`
+		ParentBay                    string         `json:"parent_bay,omitempty"`
+	}
 )
 
 // DeviceGet : Go function to process requests for the endpoint: /api/dcim/devices/:id/
@@ -78,4 +111,43 @@ func (c *Client) DeviceFilter(q *url.Values) ([]Device, error) {
 func (c *Client) DeviceAll() ([]Device, error) {
 	devices := make([]Device, 0)
 	return devices, core.Paginate[Device](c.Client, "dcim/devices/", nil, &devices)
+}
+
+// DeviceCreate : Generate a new Device record in Nautobot.
+func (c *Client) DeviceCreate(obj NewDevice) (Device, error) {
+	var r Device
+	req, err := c.Request(http.MethodPost, "dcim/devices/", obj, nil)
+	if err != nil {
+		return r, err
+	}
+
+	if err := c.UnmarshalDo(req, &r); err != nil {
+		return r, fmt.Errorf("DeviceCreate.error.UnmarshalDo(%w)", err)
+	}
+	return r, nil
+}
+
+// DeviceDelete : DCIM method to delete a Device by UUIDv4 identifier.
+func (c *Client) DeviceDelete(uuid string) error {
+	if uuid == "" {
+		return errors.New("DeviceDelete.error.UUID(UUIDv4 is missing)")
+	}
+	req, err := c.Request(http.MethodDelete, fmt.Sprintf("dcim/devices/%s/", url.PathEscape(uuid)), nil, nil)
+	if err != nil {
+		return err
+	}
+	return c.UnmarshalDo(req, nil)
+}
+
+// DeviceUpdate : Update an existing Device record in Nautobot.
+func (c *Client) DeviceUpdate(uuid string, patch map[string]any) (Device, error) {
+	var r Device
+	req, err := c.Request(http.MethodPatch, fmt.Sprintf("dcim/devices/%s/", uuid), patch, nil)
+	if err != nil {
+		return r, err
+	}
+	if err := c.UnmarshalDo(req, &r); err != nil {
+		return r, fmt.Errorf("DeviceUpdate.error.UnmarshalDo(%w)", err)
+	}
+	return r, nil
 }

@@ -10,7 +10,8 @@ import (
 	"github.com/josh-silvas/gonautobot/plugins"
 	"github.com/josh-silvas/gonautobot/tenancy"
 	"github.com/josh-silvas/gonautobot/virtualization"
-	"log/slog"
+	"github.com/rs/zerolog"
+	"github.com/rs/zerolog/log"
 	"net/http"
 	"os"
 	"strings"
@@ -62,13 +63,6 @@ func WithHTTPClient(client *http.Client) Option {
 	}
 }
 
-// WithLogger : Overrides the default logger for the package.
-func WithLogger(logger *slog.Logger) Option {
-	return func(o *Client) {
-		o.Request.Log = logger
-	}
-}
-
 // New : Function used to create a new Nautobot client data type.
 func New(opts ...Option) *Client {
 	c := &Client{
@@ -82,8 +76,11 @@ func New(opts ...Option) *Client {
 				return r
 			}(),
 			Client: http.DefaultClient,
-			Log:    slog.New(slog.NewJSONHandler(os.Stdout, nil)),
 		},
+	}
+	zerolog.SetGlobalLevel(zerolog.InfoLevel)
+	if strings.EqualFold(os.Getenv("DEBUG"), "true") {
+		zerolog.SetGlobalLevel(zerolog.DebugLevel)
 	}
 
 	for _, opt := range opts {
@@ -91,7 +88,7 @@ func New(opts ...Option) *Client {
 	}
 
 	if c.Request.Token == "" {
-		slog.Error(fmt.Sprintf("Token must be set with core.WithToken('aaaa') or `%s` environment variable", envNautobotToken))
+		log.Error().Msg(fmt.Sprintf("Token must be set with core.WithToken('aaaa') or `%s` environment variable", envNautobotToken))
 		os.Exit(1)
 	}
 
