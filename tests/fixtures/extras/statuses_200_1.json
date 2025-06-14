@@ -1,0 +1,453 @@
+{
+  "count": 22,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "color": "4caf50",
+      "content_types": [
+        "circuits.circuit",
+        "dcim.device",
+        "dcim.powerfeed",
+        "dcim.rack",
+        "ipam.ipaddress",
+        "ipam.prefix",
+        "ipam.vlan",
+        "virtualization.virtualmachine",
+        "virtualization.vminterface",
+        "dcim.interface",
+        "dcim.location",
+        "dcim.deviceredundancygroup",
+        "dcim.interfaceredundancygroup",
+        "extras.contactassociation",
+        "dcim.softwareimagefile",
+        "dcim.softwareversion",
+        "dcim.controller",
+        "dcim.module",
+        "ipam.vrf",
+        "dcim.virtualdevicecontext"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit is active",
+      "display": "Active",
+      "id": "e70c2769-1608-48aa-b428-4eed14081665",
+      "last_updated": "2025-06-07T05:22:26.853805Z",
+      "name": "Active",
+      "natural_slug": "active_e70c",
+      "notes_url": "http://localhost:8080/api/extras/statuses/e70c2769-1608-48aa-b428-4eed14081665/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/e70c2769-1608-48aa-b428-4eed14081665/"
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "dcim.rack"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit is available",
+      "display": "Available",
+      "id": "78a24b67-3148-4562-a714-8d180dca0aa3",
+      "last_updated": "2025-06-07T05:22:26.876859Z",
+      "name": "Available",
+      "natural_slug": "available_78a2",
+      "notes_url": "http://localhost:8080/api/extras/statuses/78a24b67-3148-4562-a714-8d180dca0aa3/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/78a24b67-3148-4562-a714-8d180dca0aa3/"
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "dcim.cable"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Cable is connected",
+      "display": "Connected",
+      "id": "b85565ff-d76d-40d8-8f8f-711ff6c347e6",
+      "last_updated": "2025-06-07T05:22:26.858840Z",
+      "name": "Connected",
+      "natural_slug": "connected_b855",
+      "notes_url": "http://localhost:8080/api/extras/statuses/b85565ff-d76d-40d8-8f8f-711ff6c347e6/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/b85565ff-d76d-40d8-8f8f-711ff6c347e6/"
+    },
+    {
+      "color": "9e9e9e",
+      "content_types": [
+        "circuits.circuit"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Circuit has been decommissioned",
+      "display": "Decommissioned",
+      "id": "83c8be28-6fbf-4ae0-94cf-a4032caef404",
+      "last_updated": "2025-06-07T05:22:26.857014Z",
+      "name": "Decommissioned",
+      "natural_slug": "decommissioned_83c8",
+      "notes_url": "http://localhost:8080/api/extras/statuses/83c8be28-6fbf-4ae0-94cf-a4032caef404/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/83c8be28-6fbf-4ae0-94cf-a4032caef404/"
+    },
+    {
+      "color": "ffc107",
+      "content_types": [
+        "dcim.cable",
+        "dcim.device",
+        "virtualization.virtualmachine",
+        "virtualization.vminterface",
+        "dcim.interface",
+        "dcim.location",
+        "dcim.deviceredundancygroup",
+        "dcim.interfaceredundancygroup",
+        "dcim.controller",
+        "dcim.module"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit is being decommissioned",
+      "display": "Decommissioning",
+      "id": "08afb930-4135-4562-9e6c-aa59d1916cf3",
+      "last_updated": "2025-06-07T05:22:26.861107Z",
+      "name": "Decommissioning",
+      "natural_slug": "decommissioning_08af",
+      "notes_url": "http://localhost:8080/api/extras/statuses/08afb930-4135-4562-9e6c-aa59d1916cf3/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/08afb930-4135-4562-9e6c-aa59d1916cf3/"
+    },
+    {
+      "color": "f44336",
+      "content_types": [
+        "dcim.rack",
+        "ipam.ipaddress",
+        "ipam.prefix",
+        "ipam.vlan",
+        "ipam.vrf"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit has been deprecated",
+      "display": "Deprecated",
+      "id": "09bf5b01-4e56-4baf-b62f-67c741460cb3",
+      "last_updated": "2025-06-07T05:22:26.880532Z",
+      "name": "Deprecated",
+      "natural_slug": "deprecated_09bf",
+      "notes_url": "http://localhost:8080/api/extras/statuses/09bf5b01-4e56-4baf-b62f-67c741460cb3/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/09bf5b01-4e56-4baf-b62f-67c741460cb3/"
+    },
+    {
+      "color": "ffc107",
+      "content_types": [
+        "circuits.circuit"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Circuit is being deprovisioned",
+      "display": "Deprovisioning",
+      "id": "fd143d70-9142-486b-b6c0-4f93f1dc7007",
+      "last_updated": "2025-06-07T05:22:26.855936Z",
+      "name": "Deprovisioning",
+      "natural_slug": "deprovisioning_fd14",
+      "notes_url": "http://localhost:8080/api/extras/statuses/fd143d70-9142-486b-b6c0-4f93f1dc7007/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/fd143d70-9142-486b-b6c0-4f93f1dc7007/"
+    },
+    {
+      "color": "ffc107",
+      "content_types": [
+        "ipam.vrf"
+      ],
+      "created": "2025-06-13T04:43:22.917773Z",
+      "custom_fields": {},
+      "description": "VRF is down",
+      "display": "Down",
+      "id": "71102689-01c2-4ea7-940e-712af7b0b298",
+      "last_updated": "2025-06-13T04:43:22.917779Z",
+      "name": "Down",
+      "natural_slug": "down_7110",
+      "notes_url": "http://localhost:8080/api/extras/statuses/71102689-01c2-4ea7-940e-712af7b0b298/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/71102689-01c2-4ea7-940e-712af7b0b298/"
+    },
+    {
+      "color": "f44336",
+      "content_types": [
+        "dcim.softwareimagefile",
+        "dcim.softwareversion"
+      ],
+      "created": "2025-06-07T05:22:56.955189Z",
+      "custom_fields": {},
+      "description": "Unit has reached end-of-life",
+      "display": "End-of-Life",
+      "id": "e45ba2e3-4ea8-40e9-bfa8-2dd557cf9011",
+      "last_updated": "2025-06-07T05:22:56.955194Z",
+      "name": "End-of-Life",
+      "natural_slug": "end-of-life_e45b",
+      "notes_url": "http://localhost:8080/api/extras/statuses/e45ba2e3-4ea8-40e9-bfa8-2dd557cf9011/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/e45ba2e3-4ea8-40e9-bfa8-2dd557cf9011/"
+    },
+    {
+      "color": "00bcd4",
+      "content_types": [
+        "dcim.softwareimagefile",
+        "dcim.softwareversion"
+      ],
+      "created": "2025-06-07T05:22:56.953494Z",
+      "custom_fields": {},
+      "description": "Software is in extended support",
+      "display": "Extended Support",
+      "id": "5511040a-59dd-4cb5-aa57-c1db06ada7c8",
+      "last_updated": "2025-06-07T05:22:56.953503Z",
+      "name": "Extended Support",
+      "natural_slug": "extended-support_5511",
+      "notes_url": "http://localhost:8080/api/extras/statuses/5511040a-59dd-4cb5-aa57-c1db06ada7c8/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/5511040a-59dd-4cb5-aa57-c1db06ada7c8/"
+    },
+    {
+      "color": "f44336",
+      "content_types": [
+        "dcim.device",
+        "dcim.powerfeed",
+        "virtualization.virtualmachine",
+        "virtualization.vminterface",
+        "dcim.interface",
+        "dcim.controller",
+        "dcim.module"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit has failed",
+      "display": "Failed",
+      "id": "7e14e802-f43e-429c-8efd-192eb2193bfc",
+      "last_updated": "2025-06-07T05:22:26.866900Z",
+      "name": "Failed",
+      "natural_slug": "failed_7e14",
+      "notes_url": "http://localhost:8080/api/extras/statuses/7e14e802-f43e-429c-8efd-192eb2193bfc/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/7e14e802-f43e-429c-8efd-192eb2193bfc/"
+    },
+    {
+      "color": "9e9e9e",
+      "content_types": [
+        "dcim.device",
+        "dcim.controller",
+        "dcim.module"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Device is in inventory",
+      "display": "Inventory",
+      "id": "029ed57c-f719-4832-9f1a-75b10ea7e12d",
+      "last_updated": "2025-06-07T05:22:26.868082Z",
+      "name": "Inventory",
+      "natural_slug": "inventory_029e",
+      "notes_url": "http://localhost:8080/api/extras/statuses/029ed57c-f719-4832-9f1a-75b10ea7e12d/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/029ed57c-f719-4832-9f1a-75b10ea7e12d/"
+    },
+    {
+      "color": "9e9e9e",
+      "content_types": [
+        "virtualization.vminterface",
+        "dcim.interface"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit is under maintenance",
+      "display": "Maintenance",
+      "id": "ef4498c9-4bd4-4be1-8d27-b8f92df56ffd",
+      "last_updated": "2025-06-07T05:22:28.901841Z",
+      "name": "Maintenance",
+      "natural_slug": "maintenance_ef44",
+      "notes_url": "http://localhost:8080/api/extras/statuses/ef4498c9-4bd4-4be1-8d27-b8f92df56ffd/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/ef4498c9-4bd4-4be1-8d27-b8f92df56ffd/"
+    },
+    {
+      "color": "ffc107",
+      "content_types": [
+        "circuits.circuit",
+        "dcim.device",
+        "dcim.powerfeed",
+        "virtualization.virtualmachine",
+        "dcim.controller",
+        "dcim.module",
+        "dcim.virtualdevicecontext"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit is offline",
+      "display": "Offline",
+      "id": "56d09bc6-a0dc-462e-9ff4-35bd11578692",
+      "last_updated": "2025-06-07T05:22:26.854831Z",
+      "name": "Offline",
+      "natural_slug": "offline_56d0",
+      "notes_url": "http://localhost:8080/api/extras/statuses/56d09bc6-a0dc-462e-9ff4-35bd11578692/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/56d09bc6-a0dc-462e-9ff4-35bd11578692/"
+    },
+    {
+      "color": "00bcd4",
+      "content_types": [
+        "circuits.circuit",
+        "dcim.cable",
+        "dcim.device",
+        "dcim.powerfeed",
+        "dcim.rack",
+        "virtualization.virtualmachine",
+        "virtualization.vminterface",
+        "dcim.interface",
+        "dcim.location",
+        "dcim.deviceredundancygroup",
+        "dcim.interfaceredundancygroup",
+        "dcim.controller",
+        "dcim.module",
+        "dcim.virtualdevicecontext"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit has been planned",
+      "display": "Planned",
+      "id": "9a8097d7-b671-4b44-8e36-e6f3fe5f0783",
+      "last_updated": "2025-06-07T05:22:26.849933Z",
+      "name": "Planned",
+      "natural_slug": "planned_9a80",
+      "notes_url": "http://localhost:8080/api/extras/statuses/9a8097d7-b671-4b44-8e36-e6f3fe5f0783/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/9a8097d7-b671-4b44-8e36-e6f3fe5f0783/"
+    },
+    {
+      "color": "2196f3",
+      "content_types": [
+        "extras.contactassociation"
+      ],
+      "created": "2025-06-07T05:22:56.147515Z",
+      "custom_fields": {},
+      "description": "Unit is primary",
+      "display": "Primary",
+      "id": "22a2bfa5-9ea0-4036-973e-3bb46aa46307",
+      "last_updated": "2025-06-07T05:22:56.147522Z",
+      "name": "Primary",
+      "natural_slug": "primary_22a2",
+      "notes_url": "http://localhost:8080/api/extras/statuses/22a2bfa5-9ea0-4036-973e-3bb46aa46307/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/22a2bfa5-9ea0-4036-973e-3bb46aa46307/"
+    },
+    {
+      "color": "2196f3",
+      "content_types": [
+        "circuits.circuit"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Circuit is being provisioned",
+      "display": "Provisioning",
+      "id": "883c506b-2a0d-4d8f-a9aa-b61313dbaea4",
+      "last_updated": "2025-06-07T05:22:26.852597Z",
+      "name": "Provisioning",
+      "natural_slug": "provisioning_883c",
+      "notes_url": "http://localhost:8080/api/extras/statuses/883c506b-2a0d-4d8f-a9aa-b61313dbaea4/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/883c506b-2a0d-4d8f-a9aa-b61313dbaea4/"
+    },
+    {
+      "color": "00bcd4",
+      "content_types": [
+        "dcim.rack",
+        "ipam.ipaddress",
+        "ipam.prefix",
+        "ipam.vlan"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit is reserved",
+      "display": "Reserved",
+      "id": "3a8ae028-bc98-4d8e-8ad5-6299a6c0ca95",
+      "last_updated": "2025-06-07T05:22:26.875558Z",
+      "name": "Reserved",
+      "natural_slug": "reserved_3a8a",
+      "notes_url": "http://localhost:8080/api/extras/statuses/3a8ae028-bc98-4d8e-8ad5-6299a6c0ca95/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/3a8ae028-bc98-4d8e-8ad5-6299a6c0ca95/"
+    },
+    {
+      "color": "f44336",
+      "content_types": [
+        "dcim.location",
+        "dcim.deviceredundancygroup",
+        "dcim.interfaceredundancygroup"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Location has been retired",
+      "display": "Retired",
+      "id": "743f9309-7f07-47fc-be3f-815295f93bfa",
+      "last_updated": "2025-06-07T05:22:31.552861Z",
+      "name": "Retired",
+      "natural_slug": "retired_743f",
+      "notes_url": "http://localhost:8080/api/extras/statuses/743f9309-7f07-47fc-be3f-815295f93bfa/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/743f9309-7f07-47fc-be3f-815295f93bfa/"
+    },
+    {
+      "color": "ffeb3b",
+      "content_types": [
+        "extras.contactassociation"
+      ],
+      "created": "2025-06-07T05:22:56.149285Z",
+      "custom_fields": {},
+      "description": "Unit is secondary",
+      "display": "Secondary",
+      "id": "7c2c0c5b-06e4-48ff-b08a-9bf8d30d7297",
+      "last_updated": "2025-06-07T05:22:56.149288Z",
+      "name": "Secondary",
+      "natural_slug": "secondary_7c2c",
+      "notes_url": "http://localhost:8080/api/extras/statuses/7c2c0c5b-06e4-48ff-b08a-9bf8d30d7297/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/7c2c0c5b-06e4-48ff-b08a-9bf8d30d7297/"
+    },
+    {
+      "color": "2196f3",
+      "content_types": [
+        "dcim.device",
+        "virtualization.virtualmachine",
+        "dcim.controller",
+        "dcim.module"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Unit has been staged",
+      "display": "Staged",
+      "id": "b446a4ed-bd7d-4834-8719-f4acbbf1d234",
+      "last_updated": "2025-06-07T05:22:26.865811Z",
+      "name": "Staged",
+      "natural_slug": "staged_b446",
+      "notes_url": "http://localhost:8080/api/extras/statuses/b446a4ed-bd7d-4834-8719-f4acbbf1d234/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/b446a4ed-bd7d-4834-8719-f4acbbf1d234/"
+    },
+    {
+      "color": "2196f3",
+      "content_types": [
+        "dcim.location",
+        "dcim.deviceredundancygroup",
+        "dcim.interfaceredundancygroup"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "Location is in the process of being staged",
+      "display": "Staging",
+      "id": "f46a5d99-26e0-4cf0-82d2-55f5a05cda13",
+      "last_updated": "2025-06-07T05:22:31.549401Z",
+      "name": "Staging",
+      "natural_slug": "staging_f46a",
+      "notes_url": "http://localhost:8080/api/extras/statuses/f46a5d99-26e0-4cf0-82d2-55f5a05cda13/notes/",
+      "object_type": "extras.status",
+      "url": "http://localhost:8080/api/extras/statuses/f46a5d99-26e0-4cf0-82d2-55f5a05cda13/"
+    }
+  ]
+}

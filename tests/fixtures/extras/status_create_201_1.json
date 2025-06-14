@@ -1,0 +1,19 @@
+{
+	"color": "2196f3",
+	"content_types": [
+		"dcim.location",
+		"dcim.deviceredundancygroup",
+		"dcim.interfaceredundancygroup"
+	],
+	"created": "2025-06-07T00:00:00Z",
+	"custom_fields": {},
+	"description": "Location is in the process of being staged",
+	"display": "Staging",
+	"id": "f46a5d99-26e0-4cf0-82d2-55f5a05cda13",
+	"last_updated": "2025-06-07T05:22:31.549401Z",
+	"name": "Staging",
+	"natural_slug": "staging_f46a",
+	"notes_url": "http://localhost:8080/api/extras/statuses/f46a5d99-26e0-4cf0-82d2-55f5a05cda13/notes/",
+	"object_type": "extras.status",
+	"url": "http://localhost:8080/api/extras/statuses/f46a5d99-26e0-4cf0-82d2-55f5a05cda13/"
+}

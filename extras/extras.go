@@ -9,7 +9,7 @@ type Client struct {
 	*core.Client
 }
 
-// New : Initializes the BGP client.
+// New : Initializes the extras client.
 func New(c *core.Client) *Client {
 	return &Client{c}
 }
