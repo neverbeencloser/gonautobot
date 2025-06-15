@@ -1,14 +1,15 @@
 package extras
 
 import (
-	"errors"
-	"fmt"
-	"net/http"
 	"net/url"
 	"time"
 
 	"github.com/google/uuid"
 	"github.com/josh-silvas/gonautobot/core"
+)
+
+const (
+	extrasEndpointRole = "extras/roles/"
 )
 
 type (
@@ -43,17 +44,7 @@ type (
 
 // RoleGet : Get a Role by UUID identifier.
 func (c *Client) RoleGet(id uuid.UUID) (*Role, error) {
-	if id == uuid.Nil {
-		return nil, errors.New("RoleGet.error.ID(ID is missing or nil)")
-	}
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("extras/roles/%s/", id), nil, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	ret := new(Role)
-	err = c.UnmarshalDo(req, ret)
-	return ret, err
+	return core.Get[Role](c.Client, extrasEndpointRole, id)
 }
 
 // RoleFilter : Get a list of Roles based on query parameters.
@@ -69,43 +60,16 @@ func (c *Client) RoleAll() ([]Role, error) {
 }
 
 // RoleCreate : Generate a new Role record in Nautobot.
-func (c *Client) RoleCreate(obj NewRole) (Role, error) {
-	var r Role
-	req, err := c.Request(http.MethodPost, "extras/roles/", obj, nil)
-	if err != nil {
-		return r, err
-	}
-
-	if err := c.UnmarshalDo(req, &r); err != nil {
-		return r, fmt.Errorf("RoleCreate.error.UnmarshalDo(%w)", err)
-	}
-	return r, nil
+func (c *Client) RoleCreate(obj NewRole) (*Role, error) {
+	return core.Create[Role, NewRole](c.Client, extrasEndpointRole, obj)
 }
 
 // RoleDelete : Delete a Role by UUID identifier.
 func (c *Client) RoleDelete(id uuid.UUID) error {
-	if id == uuid.Nil {
-		return errors.New("RoleDelete.error.ID(ID is missing or nil)")
-	}
-	req, err := c.Request(http.MethodDelete, fmt.Sprintf("extras/roles/%s/", id), nil, nil)
-	if err != nil {
-		return err
-	}
-	return c.UnmarshalDo(req, nil)
+	return core.Delete(c.Client, extrasEndpointRole, id)
 }
 
 // RoleUpdate : Update an existing Role record in Nautobot.
-func (c *Client) RoleUpdate(id uuid.UUID, patch map[string]any) (Role, error) {
-	var r Role
-	if id == uuid.Nil {
-		return r, errors.New("RoleUpdate.error.ID(ID is missing or nil)")
-	}
-	req, err := c.Request(http.MethodPatch, fmt.Sprintf("extras/roles/%s/", id), patch, nil)
-	if err != nil {
-		return r, err
-	}
-	if err := c.UnmarshalDo(req, &r); err != nil {
-		return r, fmt.Errorf("RoleUpdate.error.UnmarshalDo(%w)", err)
-	}
-	return r, nil
+func (c *Client) RoleUpdate(id uuid.UUID, patch map[string]any) (*Role, error) {
+	return core.Update[Role](c.Client, extrasEndpointRole, id, patch)
 }

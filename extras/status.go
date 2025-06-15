@@ -1,14 +1,15 @@
 package extras
 
 import (
-	"errors"
-	"fmt"
-	"net/http"
 	"net/url"
 	"time"
 
 	"github.com/google/uuid"
 	"github.com/josh-silvas/gonautobot/core"
+)
+
+const (
+	extrasEndpointStatus = "extras/statuses/"
 )
 
 type (
@@ -41,17 +42,7 @@ type (
 
 // StatusGet : Go function to process requests for the endpoint: /api/extras/statuses/:id/
 func (c *Client) StatusGet(id uuid.UUID) (*Status, error) {
-	if id == uuid.Nil {
-		return nil, errors.New("StatusGet.error.ID(ID is missing or nil)")
-	}
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("extras/statuses/%s/", id), nil, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	ret := new(Status)
-	err = c.UnmarshalDo(req, ret)
-	return ret, err
+	return core.Get[Status](c.Client, extrasEndpointStatus, id)
 }
 
 // StatusFilter : Go function to process requests for the endpoint: /api/extras/statuses/
@@ -67,43 +58,16 @@ func (c *Client) StatusAll() ([]Status, error) {
 }
 
 // StatusCreate : Generate a new Status record in Nautobot.
-func (c *Client) StatusCreate(obj NewStatus) (Status, error) {
-	var r Status
-	req, err := c.Request(http.MethodPost, "extras/statuses/", obj, nil)
-	if err != nil {
-		return r, err
-	}
-
-	if err := c.UnmarshalDo(req, &r); err != nil {
-		return r, fmt.Errorf("StatusCreate.error.UnmarshalDo(%w)", err)
-	}
-	return r, nil
+func (c *Client) StatusCreate(obj NewStatus) (*Status, error) {
+	return core.Create[Status, NewStatus](c.Client, extrasEndpointStatus, obj)
 }
 
 // StatusDelete : Delete a Status by UUID identifier.
 func (c *Client) StatusDelete(id uuid.UUID) error {
-	if id == uuid.Nil {
-		return errors.New("StatusDelete.error.ID(ID is missing or nil)")
-	}
-	req, err := c.Request(http.MethodDelete, fmt.Sprintf("extras/statuses/%s/", id), nil, nil)
-	if err != nil {
-		return err
-	}
-	return c.UnmarshalDo(req, nil)
+	return core.Delete(c.Client, extrasEndpointStatus, id)
 }
 
 // StatusUpdate : Update an existing Status record in Nautobot.
-func (c *Client) StatusUpdate(id uuid.UUID, patch map[string]any) (Status, error) {
-	var r Status
-	if id == uuid.Nil {
-		return r, errors.New("StatusUpdate.error.ID(ID is missing or nil)")
-	}
-	req, err := c.Request(http.MethodPatch, fmt.Sprintf("extras/statuses/%s/", id), patch, nil)
-	if err != nil {
-		return r, err
-	}
-	if err := c.UnmarshalDo(req, &r); err != nil {
-		return r, fmt.Errorf("StatusUpdate.error.UnmarshalDo(%w)", err)
-	}
-	return r, nil
+func (c *Client) StatusUpdate(id uuid.UUID, patch map[string]any) (*Status, error) {
+	return core.Update[Status](c.Client, extrasEndpointStatus, id, patch)
 }
