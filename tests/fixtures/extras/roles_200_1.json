@@ -1,0 +1,260 @@
+{
+  "count": 14,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "color": "2196f3",
+      "content_types": [
+        "extras.contactassociation"
+      ],
+      "created": "2025-06-07T05:22:56.152834Z",
+      "custom_fields": {},
+      "description": "Unit plays an administrative role",
+      "display": "Administrative",
+      "id": "31d00cdc-bd93-4540-954b-ed25963f06ee",
+      "last_updated": "2025-06-07T05:22:56.152839Z",
+      "name": "Administrative",
+      "natural_slug": "administrative_31d0",
+      "notes_url": "http://localhost:8080/api/extras/roles/31d00cdc-bd93-4540-954b-ed25963f06ee/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/31d00cdc-bd93-4540-954b-ed25963f06ee/",
+      "weight": null
+    },
+    {
+      "color": "ffc107",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Anycast",
+      "id": "c5a29af7-1e63-4a55-ab87-7231055ccb4a",
+      "last_updated": "2025-06-07T05:22:33.157839Z",
+      "name": "Anycast",
+      "natural_slug": "anycast_c5a2",
+      "notes_url": "http://localhost:8080/api/extras/roles/c5a29af7-1e63-4a55-ab87-7231055ccb4a/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/c5a29af7-1e63-4a55-ab87-7231055ccb4a/",
+      "weight": null
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "extras.contactassociation"
+      ],
+      "created": "2025-06-07T05:22:56.154539Z",
+      "custom_fields": {},
+      "description": "Unit plays a billing role",
+      "display": "Billing",
+      "id": "5f5bc945-e584-4c5a-bf74-0e97da9be61c",
+      "last_updated": "2025-06-07T05:22:56.154543Z",
+      "name": "Billing",
+      "natural_slug": "billing_5f5b",
+      "notes_url": "http://localhost:8080/api/extras/roles/5f5bc945-e584-4c5a-bf74-0e97da9be61c/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/5f5bc945-e584-4c5a-bf74-0e97da9be61c/",
+      "weight": null
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "CARP",
+      "id": "0639e55b-3801-4b0c-8d6f-b00b809e9c3b",
+      "last_updated": "2025-06-07T05:22:33.160715Z",
+      "name": "CARP",
+      "natural_slug": "carp_0639",
+      "notes_url": "http://localhost:8080/api/extras/roles/0639e55b-3801-4b0c-8d6f-b00b809e9c3b/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/0639e55b-3801-4b0c-8d6f-b00b809e9c3b/",
+      "weight": null
+    },
+    {
+      "color": "9e9e9e",
+      "content_types": [
+        "dcim.device"
+      ],
+      "created": "2025-06-11T06:06:22.200824Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Compute",
+      "id": "0eb7e306-b960-4199-8040-08ce947f2e3a",
+      "last_updated": "2025-06-11T06:06:22.200843Z",
+      "name": "Compute",
+      "natural_slug": "compute_0eb7",
+      "notes_url": "http://localhost:8080/api/extras/roles/0eb7e306-b960-4199-8040-08ce947f2e3a/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/0eb7e306-b960-4199-8040-08ce947f2e3a/",
+      "weight": null
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "GLBP",
+      "id": "acbe3a5f-c9a8-4466-bc5f-ef3ae2f1c759",
+      "last_updated": "2025-06-07T05:22:33.160122Z",
+      "name": "GLBP",
+      "natural_slug": "glbp_acbe",
+      "notes_url": "http://localhost:8080/api/extras/roles/acbe3a5f-c9a8-4466-bc5f-ef3ae2f1c759/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/acbe3a5f-c9a8-4466-bc5f-ef3ae2f1c759/",
+      "weight": null
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "HSRP",
+      "id": "9be934ff-67ef-4d9a-928f-eb4025f0b404",
+      "last_updated": "2025-06-07T05:22:33.159535Z",
+      "name": "HSRP",
+      "natural_slug": "hsrp_9be9",
+      "notes_url": "http://localhost:8080/api/extras/roles/9be934ff-67ef-4d9a-928f-eb4025f0b404/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/9be934ff-67ef-4d9a-928f-eb4025f0b404/",
+      "weight": null
+    },
+    {
+      "color": "9e9e9e",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Loopback",
+      "id": "7d3d5cac-98a0-4b2b-94b9-33cd7e99be9e",
+      "last_updated": "2025-06-07T05:22:33.156623Z",
+      "name": "Loopback",
+      "natural_slug": "loopback_7d3d",
+      "notes_url": "http://localhost:8080/api/extras/roles/7d3d5cac-98a0-4b2b-94b9-33cd7e99be9e/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/7d3d5cac-98a0-4b2b-94b9-33cd7e99be9e/",
+      "weight": null
+    },
+    {
+      "color": "111111",
+      "content_types": [
+        "extras.contactassociation"
+      ],
+      "created": "2025-06-07T05:22:56.157460Z",
+      "custom_fields": {},
+      "description": "Unit plays an on site role",
+      "display": "On Site",
+      "id": "3dc74532-6f1e-4d95-a550-dd21655cdef1",
+      "last_updated": "2025-06-07T05:22:56.157464Z",
+      "name": "On Site",
+      "natural_slug": "on-site_3dc7",
+      "notes_url": "http://localhost:8080/api/extras/roles/3dc74532-6f1e-4d95-a550-dd21655cdef1/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/3dc74532-6f1e-4d95-a550-dd21655cdef1/",
+      "weight": null
+    },
+    {
+      "color": "2196f3",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Secondary",
+      "id": "e2c2ab79-fcc4-445f-90c5-6a028eb8dd49",
+      "last_updated": "2025-06-07T05:22:33.157281Z",
+      "name": "Secondary",
+      "natural_slug": "secondary_e2c2",
+      "notes_url": "http://localhost:8080/api/extras/roles/e2c2ab79-fcc4-445f-90c5-6a028eb8dd49/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/e2c2ab79-fcc4-445f-90c5-6a028eb8dd49/",
+      "weight": null
+    },
+    {
+      "color": "ffeb3b",
+      "content_types": [
+        "extras.contactassociation"
+      ],
+      "created": "2025-06-07T05:22:56.156024Z",
+      "custom_fields": {},
+      "description": "Unit plays a support role",
+      "display": "Support",
+      "id": "3d7e0b4c-1989-450e-b8dc-9c58d127833e",
+      "last_updated": "2025-06-07T05:22:56.156028Z",
+      "name": "Support",
+      "natural_slug": "support_3d7e",
+      "notes_url": "http://localhost:8080/api/extras/roles/3d7e0b4c-1989-450e-b8dc-9c58d127833e/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/3d7e0b4c-1989-450e-b8dc-9c58d127833e/",
+      "weight": null
+    },
+    {
+      "color": "a99edc",
+      "content_types": [
+        "dcim.device",
+        "ipam.prefix"
+      ],
+      "created": "2025-06-12T04:02:03.180246Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Test",
+      "id": "d5eaffd7-bafd-4cc4-a3b9-33f7695ce81a",
+      "last_updated": "2025-06-12T04:03:55.232990Z",
+      "name": "Test",
+      "natural_slug": "test_d5ea",
+      "notes_url": "http://localhost:8080/api/extras/roles/d5eaffd7-bafd-4cc4-a3b9-33f7695ce81a/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/d5eaffd7-bafd-4cc4-a3b9-33f7695ce81a/",
+      "weight": null
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "VIP",
+      "id": "6dcb8596-836c-41b0-8345-3cbc905c520b",
+      "last_updated": "2025-06-07T05:22:33.158423Z",
+      "name": "VIP",
+      "natural_slug": "vip_6dcb",
+      "notes_url": "http://localhost:8080/api/extras/roles/6dcb8596-836c-41b0-8345-3cbc905c520b/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/6dcb8596-836c-41b0-8345-3cbc905c520b/",
+      "weight": null
+    },
+    {
+      "color": "4caf50",
+      "content_types": [
+        "ipam.ipaddress"
+      ],
+      "created": "2025-06-07T00:00:00Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "VRRP",
+      "id": "2623de05-bd50-4fcc-8da7-aab2a99f9085",
+      "last_updated": "2025-06-07T05:22:33.158981Z",
+      "name": "VRRP",
+      "natural_slug": "vrrp_2623",
+      "notes_url": "http://localhost:8080/api/extras/roles/2623de05-bd50-4fcc-8da7-aab2a99f9085/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/2623de05-bd50-4fcc-8da7-aab2a99f9085/",
+      "weight": null
+    }
+  ]
+}

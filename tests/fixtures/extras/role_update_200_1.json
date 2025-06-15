@@ -1,0 +1,18 @@
+{
+  "color": "9e9e9e",
+  "content_types": [
+    "dcim.device"
+  ],
+  "created": "2025-06-11T06:06:22.200824Z",
+  "custom_fields": {},
+  "description": "updated description",
+  "display": "Compute",
+  "id": "0eb7e306-b960-4199-8040-08ce947f2e3a",
+  "last_updated": "2025-06-11T06:06:22.200843Z",
+  "name": "Compute",
+  "natural_slug": "compute_0eb7",
+  "notes_url": "http://localhost:8080/api/extras/roles/0eb7e306-b960-4199-8040-08ce947f2e3a/notes/",
+  "object_type": "extras.role",
+  "url": "http://localhost:8080/api/extras/roles/0eb7e306-b960-4199-8040-08ce947f2e3a/",
+  "weight": 200
+}

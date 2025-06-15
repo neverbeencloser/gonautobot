@@ -1,0 +1,44 @@
+{
+  "count": 2,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "color": "9e9e9e",
+      "content_types": [
+        "dcim.device"
+      ],
+      "created": "2025-06-11T06:06:22.200824Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Compute",
+      "id": "0eb7e306-b960-4199-8040-08ce947f2e3a",
+      "last_updated": "2025-06-11T06:06:22.200843Z",
+      "name": "Compute",
+      "natural_slug": "compute_0eb7",
+      "notes_url": "http://localhost:8080/api/extras/roles/0eb7e306-b960-4199-8040-08ce947f2e3a/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/0eb7e306-b960-4199-8040-08ce947f2e3a/",
+      "weight": null
+    },
+    {
+      "color": "a99edc",
+      "content_types": [
+        "dcim.device",
+        "ipam.prefix"
+      ],
+      "created": "2025-06-12T04:02:03.180246Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Test",
+      "id": "d5eaffd7-bafd-4cc4-a3b9-33f7695ce81a",
+      "last_updated": "2025-06-12T04:03:55.232990Z",
+      "name": "Test",
+      "natural_slug": "test_d5ea",
+      "notes_url": "http://localhost:8080/api/extras/roles/d5eaffd7-bafd-4cc4-a3b9-33f7695ce81a/notes/",
+      "object_type": "extras.role",
+      "url": "http://localhost:8080/api/extras/roles/d5eaffd7-bafd-4cc4-a3b9-33f7695ce81a/",
+      "weight": null
+    }
+  ]
+}
