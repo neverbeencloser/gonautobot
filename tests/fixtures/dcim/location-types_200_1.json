@@ -1,0 +1,84 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "content_types": [
+        "dcim.device"
+      ],
+      "created": "2025-06-11T06:07:53.017139Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Cloud Region",
+      "id": "6fe2529b-edfa-4f4a-ac25-1b6741a4ca33",
+      "last_updated": "2025-06-11T06:07:53.017154Z",
+      "name": "Cloud Region",
+      "natural_slug": "cloud-region_6fe2",
+      "nestable": false,
+      "notes_url": "http://localhost:8080/api/dcim/location-types/6fe2529b-edfa-4f4a-ac25-1b6741a4ca33/notes/",
+      "object_type": "dcim.locationtype",
+      "parent": null,
+      "tree_depth": null,
+      "url": "http://localhost:8080/api/dcim/location-types/6fe2529b-edfa-4f4a-ac25-1b6741a4ca33/"
+    },
+    {
+      "content_types": [
+        "dcim.device",
+        "ipam.prefix",
+        "ipam.vlan",
+        "ipam.namespace"
+      ],
+      "created": "2025-06-14T00:28:42.495113Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Region",
+      "id": "e9ad1520-23d9-48e7-8de8-c44a88411aa4",
+      "last_updated": "2025-06-14T00:29:26.062760Z",
+      "name": "Region",
+      "natural_slug": "region_e9ad",
+      "nestable": true,
+      "notes_url": "http://localhost:8080/api/dcim/location-types/e9ad1520-23d9-48e7-8de8-c44a88411aa4/notes/",
+      "object_type": "dcim.locationtype",
+      "parent": null,
+      "tree_depth": null,
+      "url": "http://localhost:8080/api/dcim/location-types/e9ad1520-23d9-48e7-8de8-c44a88411aa4/"
+    },
+    {
+      "content_types": [
+        "dcim.device",
+        "ipam.prefix",
+        "ipam.vlan",
+        "ipam.vlangroup"
+      ],
+      "created": "2025-06-14T00:29:18.400117Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Region → Site",
+      "id": "efb32b11-e80a-4880-9f96-9a1b16be9896",
+      "last_updated": "2025-06-14T00:29:18.400130Z",
+      "name": "Site",
+      "natural_slug": "site_efb3",
+      "nestable": true,
+      "notes_url": "http://localhost:8080/api/dcim/location-types/efb32b11-e80a-4880-9f96-9a1b16be9896/notes/",
+      "object_type": "dcim.locationtype",
+      "parent": {
+        "created": "2025-06-14T00:28:42.495113Z",
+        "custom_fields": {},
+        "description": "",
+        "display": "Region",
+        "id": "e9ad1520-23d9-48e7-8de8-c44a88411aa4",
+        "last_updated": "2025-06-14T00:29:26.062760Z",
+        "name": "Region",
+        "natural_slug": "region_e9ad",
+        "nestable": true,
+        "notes_url": "http://localhost:8080/api/dcim/location-types/e9ad1520-23d9-48e7-8de8-c44a88411aa4/notes/",
+        "object_type": "dcim.locationtype",
+        "parent": null,
+        "url": "http://localhost:8080/api/dcim/location-types/e9ad1520-23d9-48e7-8de8-c44a88411aa4/"
+      },
+      "tree_depth": null,
+      "url": "http://localhost:8080/api/dcim/location-types/efb32b11-e80a-4880-9f96-9a1b16be9896/"
+    }
+  ]
+}
