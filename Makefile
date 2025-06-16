@@ -34,7 +34,7 @@ lint: .env ## Run golang-ci lint on all sub-packages
 
 _lint:
 	@echo "🔧 Running golangci-lint... 🔧"
-	@golangci-lint run --tests=false --exclude-use-default=false
+	@golangci-lint run ./... --config=.golangci.yml
 .PHONY: _lint
 
 unittest: .env ## Run UnitTest only.

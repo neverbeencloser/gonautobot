@@ -1,0 +1,52 @@
+{
+	"circuit_count": 0,
+	"comments": "",
+	"created": "2025-06-15T04:33:04.678310Z",
+	"custom_fields": {},
+	"description": "updated description",
+	"device_count": 0,
+	"display": "Customer2",
+	"id": "fa973d85-f491-4253-9c90-49a62f90d657",
+	"ipaddress_count": 0,
+	"last_updated": "2025-06-15T04:33:04.678328Z",
+	"name": "Customer2",
+	"natural_slug": "customer2_fa97",
+	"notes_url": "http://localhost:8080/api/tenancy/tenants/fa973d85-f491-4253-9c90-49a62f90d657/notes/",
+	"object_type": "tenancy.tenant",
+	"prefix_count": 0,
+	"rack_count": 0,
+	"tags": [
+		{
+			"color": "ff9800",
+			"created": "2025-06-15T04:31:13.586215Z",
+			"custom_fields": {},
+			"description": "",
+			"display": "the-worst",
+			"id": "b7b99848-8726-435e-a03e-84bcb2d4f1d7",
+			"last_updated": "2025-06-15T04:31:13.586230Z",
+			"name": "the-worst",
+			"natural_slug": "the-worst_b7b9",
+			"notes_url": "http://localhost:8080/api/extras/tags/b7b99848-8726-435e-a03e-84bcb2d4f1d7/notes/",
+			"object_type": "extras.tag",
+			"url": "http://localhost:8080/api/extras/tags/b7b99848-8726-435e-a03e-84bcb2d4f1d7/"
+		}
+	],
+	"tenant_group": {
+		"created": "2025-06-15T04:32:52.544930Z",
+		"custom_fields": {},
+		"description": "",
+		"display": "AWS Customers",
+		"id": "2cad2953-40ff-4791-97e6-4d683c3800d4",
+		"last_updated": "2025-06-15T04:32:52.544938Z",
+		"name": "AWS Customers",
+		"natural_slug": "aws-customers_2cad",
+		"notes_url": "http://localhost:8080/api/tenancy/tenant-groups/2cad2953-40ff-4791-97e6-4d683c3800d4/notes/",
+		"object_type": "tenancy.tenantgroup",
+		"parent": null,
+		"url": "http://localhost:8080/api/tenancy/tenant-groups/2cad2953-40ff-4791-97e6-4d683c3800d4/"
+	},
+	"url": "http://localhost:8080/api/tenancy/tenants/fa973d85-f491-4253-9c90-49a62f90d657/",
+	"virtualmachine_count": 0,
+	"vlan_count": 0,
+	"vrf_count": 0
+}

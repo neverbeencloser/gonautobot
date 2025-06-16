@@ -1,0 +1,16 @@
+{
+	"id": "91283c9c-e2ba-4cfe-8f9f-ed6dd6e18ba1",
+	"object_type": "extras.tag",
+	"display": "sup-720",
+	"url": "https://demo.nautobot.com/api/extras/tags/91283c9c-e2ba-4cfe-8f9f-ed6dd6e18ba1/",
+	"natural_slug": "sup-720_9128",
+	"tagged_items": 38,
+	"content_types": [],
+	"name": "sup-720",
+	"color": "607d8b",
+	"description": "Supervisor Engine 720",
+	"created": "2023-09-21T00:00:00Z",
+	"last_updated": "2023-09-21T19:51:28.737199Z",
+	"notes_url": "https://demo.nautobot.com/api/extras/tags/91283c9c-e2ba-4cfe-8f9f-ed6dd6e18ba1/notes/",
+	"custom_fields": {}
+}
