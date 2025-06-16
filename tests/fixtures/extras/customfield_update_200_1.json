@@ -1,0 +1,35 @@
+{
+	"advanced_ui": false,
+	"content_types": [
+		"dcim.device",
+		"dcim.location",
+		"dcim.locationtype",
+		"tenancy.tenant"
+	],
+	"created": "2025-06-15T23:24:31.499610Z",
+	"default": false,
+	"description": "updated description",
+	"display": "Terraform",
+	"filter_logic": {
+		"label": "Loose",
+		"value": "loose"
+	},
+	"grouping": "",
+	"id": "b6e143ff-c980-4c1f-a2b7-70a59042a188",
+	"key": "terraform",
+	"label": "Terraform",
+	"last_updated": "2025-06-15T23:24:31.499625Z",
+	"natural_slug": "terraform_b6e1",
+	"notes_url": "http://localhost:8080/api/extras/custom-fields/b6e143ff-c980-4c1f-a2b7-70a59042a188/notes/",
+	"object_type": "extras.customfield",
+	"required": false,
+	"type": {
+		"label": "Boolean (true/false)",
+		"value": "boolean"
+	},
+	"url": "http://localhost:8080/api/extras/custom-fields/b6e143ff-c980-4c1f-a2b7-70a59042a188/",
+	"validation_maximum": null,
+	"validation_minimum": null,
+	"validation_regex": "",
+	"weight": 250
+}
