@@ -1,0 +1,15 @@
+{
+	"created": "2025-06-17T00:41:17.439316Z",
+	"custom_fields": {},
+	"description": "updated description",
+	"device_type_count": 0,
+	"display": "Family1",
+	"id": "8985db57-2dcd-4bce-8129-5f86e3a65174",
+	"last_updated": "2025-06-17T00:41:17.439327Z",
+	"name": "Family1",
+	"natural_slug": "family1_8985",
+	"notes_url": "http://localhost:8080/api/dcim/device-families/8985db57-2dcd-4bce-8129-5f86e3a65174/notes/",
+	"object_type": "dcim.devicefamily",
+	"tags": [],
+	"url": "http://localhost:8080/api/dcim/device-families/8985db57-2dcd-4bce-8129-5f86e3a65174/"
+}
