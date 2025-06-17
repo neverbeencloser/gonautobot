@@ -1,0 +1,41 @@
+{
+	"count": 2,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"cloud_account_count": 0,
+			"created": "2025-06-16T06:26:18.256002Z",
+			"custom_fields": {},
+			"description": "Amazon Web Services",
+			"device_type_count": 1,
+			"display": "AWS",
+			"id": "acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e",
+			"inventory_item_count": 0,
+			"last_updated": "2025-06-16T06:26:18.256012Z",
+			"name": "AWS",
+			"natural_slug": "aws_acc4",
+			"notes_url": "http://localhost:8080/api/dcim/manufacturers/acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e/notes/",
+			"object_type": "dcim.manufacturer",
+			"platform_count": 0,
+			"url": "http://localhost:8080/api/dcim/manufacturers/acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e/"
+		},
+		{
+			"cloud_account_count": 0,
+			"created": "2025-06-16T06:26:06.964277Z",
+			"custom_fields": {},
+			"description": "Arista Networks",
+			"device_type_count": 1,
+			"display": "Arista",
+			"id": "b832f225-56af-4ff3-8e9a-66ab401c84de",
+			"inventory_item_count": 0,
+			"last_updated": "2025-06-16T06:26:06.964289Z",
+			"name": "Arista",
+			"natural_slug": "arista_b832",
+			"notes_url": "http://localhost:8080/api/dcim/manufacturers/b832f225-56af-4ff3-8e9a-66ab401c84de/notes/",
+			"object_type": "dcim.manufacturer",
+			"platform_count": 0,
+			"url": "http://localhost:8080/api/dcim/manufacturers/b832f225-56af-4ff3-8e9a-66ab401c84de/"
+		}
+	]
+}
