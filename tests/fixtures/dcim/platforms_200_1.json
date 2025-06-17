@@ -1,0 +1,87 @@
+{
+	"count": 3,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"created": "2025-06-17T01:01:58.881923Z",
+			"custom_fields": {},
+			"description": "",
+			"device_count": 0,
+			"display": "eos",
+			"id": "b23f67d6-b92d-4447-b18e-beb7bd6adee7",
+			"last_updated": "2025-06-17T01:01:58.881941Z",
+			"manufacturer": {
+				"id": "b832f225-56af-4ff3-8e9a-66ab401c84de",
+				"object_type": "dcim.manufacturer",
+				"url": "http://localhost:8080/api/dcim/manufacturers/b832f225-56af-4ff3-8e9a-66ab401c84de/"
+			},
+			"name": "eos",
+			"napalm_args": null,
+			"napalm_driver": "",
+			"natural_slug": "eos_b23f",
+			"network_driver": "arista_eos",
+			"network_driver_mappings": {
+				"ansible": "arista.eos.eos",
+				"hier_config": "eos",
+				"napalm": "eos",
+				"netmiko": "arista_eos",
+				"netutils_parser": "arista_eos",
+				"ntc_templates": "arista_eos",
+				"pyntc": "arista_eos_eapi",
+				"scrapli": "arista_eos"
+			},
+			"notes_url": "http://localhost:8080/api/dcim/platforms/b23f67d6-b92d-4447-b18e-beb7bd6adee7/notes/",
+			"object_type": "dcim.platform",
+			"url": "http://localhost:8080/api/dcim/platforms/b23f67d6-b92d-4447-b18e-beb7bd6adee7/",
+			"virtual_machine_count": 0
+		},
+		{
+			"created": "2025-06-17T01:08:52.467470Z",
+			"custom_fields": {},
+			"description": "",
+			"device_count": 0,
+			"display": "generic",
+			"id": "ca8f3f88-19a6-4c11-abc2-90ea0d2dc784",
+			"last_updated": "2025-06-17T03:59:43.149579Z",
+			"manufacturer": null,
+			"name": "generic",
+			"napalm_args": null,
+			"napalm_driver": "",
+			"natural_slug": "generic_ca8f",
+			"network_driver": "",
+			"network_driver_mappings": {},
+			"notes_url": "http://localhost:8080/api/dcim/platforms/ca8f3f88-19a6-4c11-abc2-90ea0d2dc784/notes/",
+			"object_type": "dcim.platform",
+			"url": "http://localhost:8080/api/dcim/platforms/ca8f3f88-19a6-4c11-abc2-90ea0d2dc784/",
+			"virtual_machine_count": 0
+		},
+		{
+			"created": "2025-06-17T01:02:25.930692Z",
+			"custom_fields": {},
+			"description": "",
+			"device_count": 0,
+			"display": "linux",
+			"id": "9a47828b-0f74-42b0-8d30-99fd9806cb1f",
+			"last_updated": "2025-06-17T01:15:03.895263Z",
+			"manufacturer": null,
+			"name": "linux",
+			"napalm_args": {
+				"stuff": "things"
+			},
+			"napalm_driver": "",
+			"natural_slug": "linux_9a47",
+			"network_driver": "linux",
+			"network_driver_mappings": {
+				"netmiko": "linux",
+				"netutils_parser": "linux",
+				"ntc_templates": "linux",
+				"pyats": "linux"
+			},
+			"notes_url": "http://localhost:8080/api/dcim/platforms/9a47828b-0f74-42b0-8d30-99fd9806cb1f/notes/",
+			"object_type": "dcim.platform",
+			"url": "http://localhost:8080/api/dcim/platforms/9a47828b-0f74-42b0-8d30-99fd9806cb1f/",
+			"virtual_machine_count": 0
+		}
+	]
+}
