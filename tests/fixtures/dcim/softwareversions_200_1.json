@@ -1,0 +1,65 @@
+{
+	"count": 2,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"alias": "",
+			"created": "2025-06-17T01:06:03.115356Z",
+			"custom_fields": {},
+			"display": "eos - 4.34.0F",
+			"documentation_url": "https://www.arista.com/en/um-eos/eos-overview",
+			"end_of_support_date": "2028-04-25",
+			"id": "1a7b0d98-ff4d-4c0d-905d-2aea16a27ee9",
+			"last_updated": "2025-06-17T01:07:00.451416Z",
+			"long_term_support": false,
+			"natural_slug": "eos_4-34-0f_1a7b",
+			"notes_url": "http://localhost:8080/api/dcim/software-versions/1a7b0d98-ff4d-4c0d-905d-2aea16a27ee9/notes/",
+			"object_type": "dcim.softwareversion",
+			"platform": {
+				"id": "b23f67d6-b92d-4447-b18e-beb7bd6adee7",
+				"object_type": "dcim.platform",
+				"url": "http://localhost:8080/api/dcim/platforms/b23f67d6-b92d-4447-b18e-beb7bd6adee7/"
+			},
+			"pre_release": false,
+			"release_date": "2025-04-25",
+			"status": {
+				"id": "7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6",
+				"object_type": "extras.status",
+				"url": "http://localhost:8080/api/extras/statuses/7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6/"
+			},
+			"tags": [],
+			"url": "http://localhost:8080/api/dcim/software-versions/1a7b0d98-ff4d-4c0d-905d-2aea16a27ee9/",
+			"version": "4.34.0F"
+		},
+		{
+			"alias": "",
+			"created": "2025-06-17T01:06:45.693576Z",
+			"custom_fields": {},
+			"display": "linux - 6.15.2",
+			"documentation_url": "",
+			"end_of_support_date": null,
+			"id": "bd0d3850-385d-47c5-8117-75de4c92d6c6",
+			"last_updated": "2025-06-17T01:07:25.809439Z",
+			"long_term_support": false,
+			"natural_slug": "linux_6-15-2_bd0d",
+			"notes_url": "http://localhost:8080/api/dcim/software-versions/bd0d3850-385d-47c5-8117-75de4c92d6c6/notes/",
+			"object_type": "dcim.softwareversion",
+			"platform": {
+				"id": "9a47828b-0f74-42b0-8d30-99fd9806cb1f",
+				"object_type": "dcim.platform",
+				"url": "http://localhost:8080/api/dcim/platforms/9a47828b-0f74-42b0-8d30-99fd9806cb1f/"
+			},
+			"pre_release": false,
+			"release_date": "2025-06-10",
+			"status": {
+				"id": "7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6",
+				"object_type": "extras.status",
+				"url": "http://localhost:8080/api/extras/statuses/7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6/"
+			},
+			"tags": [],
+			"url": "http://localhost:8080/api/dcim/software-versions/bd0d3850-385d-47c5-8117-75de4c92d6c6/",
+			"version": "6.15.2"
+		}
+	]
+}
