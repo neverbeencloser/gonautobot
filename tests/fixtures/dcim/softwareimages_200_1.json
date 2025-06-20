@@ -1,0 +1,65 @@
+{
+	"count": 2,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"created": "2025-06-17T01:07:58.146570Z",
+			"custom_fields": {},
+			"default_image": false,
+			"display": "eos - 4.34.0F - asdfsdf",
+			"download_url": "",
+			"external_integration": null,
+			"hashing_algorithm": "sha1",
+			"id": "196d81c8-4554-4adb-9344-20d7ba09c2c8",
+			"image_file_checksum": "asf",
+			"image_file_name": "asdfsdf",
+			"image_file_size": 500,
+			"last_updated": "2025-06-17T01:07:58.146577Z",
+			"natural_slug": "asdfsdf_eos_4-34-0f_196d",
+			"notes_url": "http://localhost:8080/api/dcim/software-image-files/196d81c8-4554-4adb-9344-20d7ba09c2c8/notes/",
+			"object_type": "dcim.softwareimagefile",
+			"software_version": {
+				"id": "1a7b0d98-ff4d-4c0d-905d-2aea16a27ee9",
+				"object_type": "dcim.softwareversion",
+				"url": "http://localhost:8080/api/dcim/software-versions/1a7b0d98-ff4d-4c0d-905d-2aea16a27ee9/"
+			},
+			"status": {
+				"id": "7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6",
+				"object_type": "extras.status",
+				"url": "http://localhost:8080/api/extras/statuses/7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6/"
+			},
+			"tags": [],
+			"url": "http://localhost:8080/api/dcim/software-image-files/196d81c8-4554-4adb-9344-20d7ba09c2c8/"
+		},
+		{
+			"created": "2025-06-17T01:08:11.084957Z",
+			"custom_fields": {},
+			"default_image": false,
+			"display": "linux - 6.15.2 - efwwefwf",
+			"download_url": "",
+			"external_integration": null,
+			"hashing_algorithm": "",
+			"id": "9f80dd3f-0394-45e0-a759-c6c43f0a6b76",
+			"image_file_checksum": "",
+			"image_file_name": "efwwefwf",
+			"image_file_size": null,
+			"last_updated": "2025-06-17T01:08:11.084977Z",
+			"natural_slug": "efwwefwf_linux_6-15-2_9f80",
+			"notes_url": "http://localhost:8080/api/dcim/software-image-files/9f80dd3f-0394-45e0-a759-c6c43f0a6b76/notes/",
+			"object_type": "dcim.softwareimagefile",
+			"software_version": {
+				"id": "bd0d3850-385d-47c5-8117-75de4c92d6c6",
+				"object_type": "dcim.softwareversion",
+				"url": "http://localhost:8080/api/dcim/software-versions/bd0d3850-385d-47c5-8117-75de4c92d6c6/"
+			},
+			"status": {
+				"id": "7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6",
+				"object_type": "extras.status",
+				"url": "http://localhost:8080/api/extras/statuses/7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6/"
+			},
+			"tags": [],
+			"url": "http://localhost:8080/api/dcim/software-image-files/9f80dd3f-0394-45e0-a759-c6c43f0a6b76/"
+		}
+	]
+}

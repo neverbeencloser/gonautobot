@@ -2,6 +2,8 @@ package shared
 
 import (
 	"encoding/json"
+
+	"github.com/google/uuid"
 )
 
 type (
@@ -28,5 +30,13 @@ type (
 	// BulkDelete is used to for bulk-delete operations in Nautobot.
 	BulkDelete []struct {
 		ID string `json:"id"`
+	}
+
+	// Object is a generic object structure used in Nautobot responses.
+	Object struct {
+		ID         uuid.UUID `json:"id"`
+		Name       string    `json:"name"`
+		ObjectType string    `json:"object_type"`
+		URL        string    `json:"url"`
 	}
 )
