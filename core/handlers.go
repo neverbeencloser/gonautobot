@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
+	"github.com/josh-silvas/gonautobot/shared"
 )
 
 // Create : Generic function to perform a POST request to Nautobot.
@@ -17,6 +18,31 @@ func Create[T any, R any](c *Client, uri string, body R) (*T, error) {
 	}
 	if err := c.UnmarshalDo(req, &resp); err != nil {
 		return nil, fmt.Errorf("%s Create.error.UnmarshalDo(%w)", uri, err)
+	}
+	return &resp, nil
+}
+
+// CreateMultipart : Generic function to perform a POST request with multipart/form-data to Nautobot.
+//
+// This should only be used on API endpoints that support
+// multipart form data and image uploads, such as 'dcim/device-types/'.
+func CreateMultipart[T any, R any](c *Client, uri string, body R) (*T, error) {
+	var resp T
+
+	m, contentType, err := shared.NewMultipartBody(body)
+	if err != nil {
+		return nil, fmt.Errorf("%s CreateMultipart.error.NewMultipartBody(%w)", uri, err)
+	}
+
+	req, err := c.Request(http.MethodPost, uri, m, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Set("Content-Type", contentType)
+
+	if err := c.UnmarshalDo(req, &resp); err != nil {
+		return nil, fmt.Errorf("%s CreateMultipart.error.UnmarshalDo(%w)", uri, err)
 	}
 	return &resp, nil
 }
@@ -63,6 +89,31 @@ func Update[T any](c *Client, uri string, id uuid.UUID, patch map[string]any) (*
 	}
 	if err := c.UnmarshalDo(req, &resp); err != nil {
 		return nil, fmt.Errorf("%s Update.error.UnmarshalDo(%w)", uri, err)
+	}
+	return &resp, nil
+}
+
+// UpdateMultipart : Generic function to perform a PATCH request with multipart/form-data to Nautobot.
+//
+// This should only be used on API endpoints that support
+// multipart form data and image uploads, such as 'dcim/device-types/'.
+func UpdateMultipart[T any, R any](c *Client, uri string, id uuid.UUID, body R) (*T, error) {
+	var resp T
+
+	m, contentType, err := shared.NewMultipartBody(body)
+	if err != nil {
+		return nil, fmt.Errorf("%s UpdateMultipart.error.NewMultipartBody(%w)", uri, err)
+	}
+
+	req, err := c.Request(http.MethodPatch, fmt.Sprintf("%s%s/", uri, id), m, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Set("Content-Type", contentType)
+
+	if err := c.UnmarshalDo(req, &resp); err != nil {
+		return nil, fmt.Errorf("%s UpdateMultipart.error.UnmarshalDo(%w)", uri, err)
 	}
 	return &resp, nil
 }

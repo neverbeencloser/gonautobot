@@ -6,12 +6,13 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/josh-silvas/gonautobot/shared"
-	"github.com/rs/zerolog/log"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
+
+	"github.com/josh-silvas/gonautobot/shared"
+	"github.com/rs/zerolog/log"
 )
 
 // Client : Requests data type client.
@@ -62,13 +63,21 @@ func Paginate[T any](c *Client, uri string, q *url.Values, ret *[]T) error {
 
 // Request : Crafts an HTTP request to Nautobot.
 func (c *Client) Request(method, uri string, body interface{}, params *url.Values) (*http.Request, error) {
-	var buf io.ReadWriter
+	var buf io.Reader
 	if body != nil {
-		buf = new(bytes.Buffer)
-		enc := json.NewEncoder(buf)
-		enc.SetEscapeHTML(false)
-		if err := enc.Encode(body); err != nil {
-			return nil, err
+		switch b := body.(type) {
+		// If the body is already a bytes.Buffer (e.g. multipart form data),
+		// we can use it directly.
+		case *bytes.Buffer:
+			buf = b
+		default:
+			jsonBuf := new(bytes.Buffer)
+			enc := json.NewEncoder(jsonBuf)
+			enc.SetEscapeHTML(false)
+			if err := enc.Encode(body); err != nil {
+				return nil, err
+			}
+			buf = jsonBuf
 		}
 	}
 	uri = strings.TrimPrefix(uri, "/")
@@ -79,6 +88,7 @@ func (c *Client) Request(method, uri string, body interface{}, params *url.Value
 	}
 
 	if body != nil {
+		// this can be overridden by a handler if needed; see CreateMultipart()
 		req.Header.Set("Content-Type", "application/json")
 	}
 	req.Header.Set("Accept", "application/json")

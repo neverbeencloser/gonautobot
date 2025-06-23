@@ -1,0 +1,91 @@
+{
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "comments": "",
+      "created": "2025-06-16T06:31:39.365780Z",
+      "custom_fields": {},
+      "device_count": 0,
+      "device_family": null,
+      "display": "AWS t2.micro",
+      "front_image": null,
+      "id": "a5286991-7396-47f9-9ca1-33ca3be9d2ec",
+      "is_full_depth": true,
+      "last_updated": "2025-06-16T06:31:39.365792Z",
+      "manufacturer": {
+        "id": "acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e",
+        "object_type": "dcim.manufacturer",
+        "url": "http://localhost:8080/api/dcim/manufacturers/acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e/"
+      },
+      "model": "t2.micro",
+      "natural_slug": "aws_t2-micro_a528",
+      "notes_url": "http://localhost:8080/api/dcim/device-types/a5286991-7396-47f9-9ca1-33ca3be9d2ec/notes/",
+      "object_type": "dcim.devicetype",
+      "part_number": "",
+      "rear_image": null,
+      "software_image_files": [],
+      "subdevice_role": null,
+      "tags": [],
+      "u_height": 1,
+      "url": "http://localhost:8080/api/dcim/device-types/a5286991-7396-47f9-9ca1-33ca3be9d2ec/"
+    },
+    {
+      "comments": "",
+      "created": "2025-06-17T00:35:22.128309Z",
+      "custom_fields": {},
+      "device_count": 0,
+      "device_family": null,
+      "display": "Arista DCS-7020TR-48-R",
+      "front_image": null,
+      "id": "870e5d9f-c0b1-4f68-b4d6-0a092a1c03ac",
+      "is_full_depth": true,
+      "last_updated": "2025-06-17T00:35:22.128320Z",
+      "manufacturer": {
+        "id": "b832f225-56af-4ff3-8e9a-66ab401c84de",
+        "object_type": "dcim.manufacturer",
+        "url": "http://localhost:8080/api/dcim/manufacturers/b832f225-56af-4ff3-8e9a-66ab401c84de/"
+      },
+      "model": "DCS-7020TR-48-R",
+      "natural_slug": "arista_dcs-7020tr-48-r_870e",
+      "notes_url": "http://localhost:8080/api/dcim/device-types/870e5d9f-c0b1-4f68-b4d6-0a092a1c03ac/notes/",
+      "object_type": "dcim.devicetype",
+      "part_number": "",
+      "rear_image": null,
+      "software_image_files": [],
+      "subdevice_role": null,
+      "tags": [],
+      "u_height": 1,
+      "url": "http://localhost:8080/api/dcim/device-types/870e5d9f-c0b1-4f68-b4d6-0a092a1c03ac/"
+    },
+    {
+      "comments": "",
+      "created": "2025-06-16T06:27:15.640636Z",
+      "custom_fields": {},
+      "device_count": 0,
+      "device_family": null,
+      "display": "Arista DCS-7050SX3-48YC8",
+      "front_image": null,
+      "id": "5a044a62-68c7-4163-b14d-93f037151b35",
+      "is_full_depth": true,
+      "last_updated": "2025-06-16T06:27:15.640646Z",
+      "manufacturer": {
+        "id": "b832f225-56af-4ff3-8e9a-66ab401c84de",
+        "object_type": "dcim.manufacturer",
+        "url": "http://localhost:8080/api/dcim/manufacturers/b832f225-56af-4ff3-8e9a-66ab401c84de/"
+      },
+      "model": "DCS-7050SX3-48YC8",
+      "natural_slug": "arista_dcs-7050sx3-48yc8_5a04",
+      "notes_url": "http://localhost:8080/api/dcim/device-types/5a044a62-68c7-4163-b14d-93f037151b35/notes/",
+      "object_type": "dcim.devicetype",
+      "part_number": "",
+      "rear_image": null,
+      "software_image_files": [],
+      "subdevice_role": null,
+      "tags": [],
+      "u_height": 1,
+      "url": "http://localhost:8080/api/dcim/device-types/5a044a62-68c7-4163-b14d-93f037151b35/"
+    }
+  ]
+}

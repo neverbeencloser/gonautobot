@@ -1,0 +1,28 @@
+{
+	"comments": "",
+	"created": "2025-06-16T06:31:39.365780Z",
+	"custom_fields": {},
+	"device_count": 0,
+	"device_family": null,
+	"display": "AWS t2.micro",
+	"front_image": null,
+	"id": "a5286991-7396-47f9-9ca1-33ca3be9d2ec",
+	"is_full_depth": true,
+	"last_updated": "2025-06-16T06:31:39.365792Z",
+	"manufacturer": {
+		"id": "acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e",
+		"object_type": "dcim.manufacturer",
+		"url": "http://localhost:8080/api/dcim/manufacturers/acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e/"
+	},
+	"model": "t2.micro",
+	"natural_slug": "aws_t2-micro_a528",
+	"notes_url": "http://localhost:8080/api/dcim/device-types/a5286991-7396-47f9-9ca1-33ca3be9d2ec/notes/",
+	"object_type": "dcim.devicetype",
+	"part_number": "",
+	"rear_image": null,
+	"software_image_files": [],
+	"subdevice_role": null,
+	"tags": [],
+	"u_height": 1,
+	"url": "http://localhost:8080/api/dcim/device-types/a5286991-7396-47f9-9ca1-33ca3be9d2ec/"
+}
