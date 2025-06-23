@@ -2,7 +2,13 @@ APP_NAME  := gonautobot
 REPO      := github.com/josh-silvas
 
 COMPOSE   := docker-compose -p $(APP_NAME) --project-directory "develop"  -f "develop/docker-compose.yml"
-RUN       := $(COMPOSE) run --rm develop
+
+# Check if the session is interactive. if not, disable TTY for docker-compose.
+ifneq ($(shell test -t 0 && echo true),true)
+	COMPOSE_RUN_OPTS := -T
+endif
+
+RUN       := $(COMPOSE) run $(COMPOSE_RUN_OPTS) --rm develop
 
 VERSION   := v$(shell cat VERSION)
 HASH      := $(shell git rev-parse HEAD)

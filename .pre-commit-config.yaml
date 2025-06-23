@@ -1,0 +1,13 @@
+# This file can be used to configure pre-commit hooks for this repository.
+# To use:
+#    pip install pre-commit
+#    pre-commit install
+repos:
+    - repo: local
+      hooks:
+          - id: run-make-lint
+            name: Run Make Lint
+            description: Runs `make lint` before a commit.
+            entry: make lint
+            language: system
+            pass_filenames: false
