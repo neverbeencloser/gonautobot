@@ -53,14 +53,20 @@ func NewMultipartBody(inputStruct any) (*bytes.Buffer, string, error) {
 		}
 
 		if upload {
-			if value.Kind() != reflect.String {
-				return nil, "", fmt.Errorf("field %s is marked as upload but is not a string", formName)
+			if value.Kind() != reflect.Ptr || value.Type().Elem().Kind() != reflect.String {
+				return nil, "", fmt.Errorf("field %s is marked as upload but is not a string pointer", formName)
 			}
-			filePath := value.String()
+
+			if value.IsNil() {
+				continue
+			}
+
+			// Get the file path from the string pointer.
+			filePath := value.Elem().String()
 			if filePath == "" {
 				// For empty file paths, set the field to an empty string and continue.
 				// For existing resources on Update(), this will clear a file image.
-				if err := w.WriteField(formName, fmt.Sprintf("%v", value.Interface())); err != nil {
+				if _, err := w.CreateFormFile(formName, filePath); err != nil {
 					return nil, "", fmt.Errorf("failed to write field %s: %w", formName, err)
 				}
 				continue

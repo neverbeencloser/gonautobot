@@ -49,10 +49,10 @@ type (
 		Model              string         `form:"model"`
 		Comments           string         `form:"comments,omitempty"`
 		CustomFields       map[string]any `form:"custom_fields,omitempty"`
-		FrontImage         string         `form:"front_image,upload"`
+		FrontImage         *string        `form:"front_image,omitempty,upload"`
 		IsFullDepth        bool           `form:"is_full_depth"`
 		PartNumber         string         `form:"part_number,omitempty"`
-		RearImage          string         `form:"rear_image,upload"`
+		RearImage          *string        `form:"rear_image,omitempty,upload"`
 		SoftwareImageFiles []string       `form:"software_image_files,omitempty"`
 		SubDeviceRole      string         `form:"subdevice_role,omitempty"`
 		Tags               []string       `form:"tags,omitempty"`
@@ -90,4 +90,14 @@ func (c *Client) DeviceTypeDelete(id uuid.UUID) error {
 // DeviceTypeUpdate : Update an existing DeviceType record in Nautobot.
 func (c *Client) DeviceTypeUpdate(id uuid.UUID, obj NewDeviceType) (*DeviceType, error) {
 	return core.UpdateMultipart[DeviceType, NewDeviceType](c.Client, dcimEndpointDeviceType, id, obj)
+}
+
+// SetFrontImage is a convenience method to set the front image path for a NewDeviceType.
+func (n *NewDeviceType) SetFrontImage(path string) {
+	n.FrontImage = &path
+}
+
+// SetRearImage is a convenience method to set the rear image path for a NewDeviceType.
+func (n *NewDeviceType) SetRearImage(path string) {
+	n.RearImage = &path
 }
