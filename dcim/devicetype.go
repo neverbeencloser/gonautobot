@@ -47,14 +47,15 @@ type (
 	NewDeviceType struct {
 		Manufacturer       string         `form:"manufacturer"`
 		Model              string         `form:"model"`
-		Comments           string         `form:"comments,omitempty"`
+		Comments           string         `form:"comments"`
 		CustomFields       map[string]any `form:"custom_fields,omitempty"`
+		DeviceFamily       string         `form:"device_family"`
 		FrontImage         *string        `form:"front_image,omitempty,upload"`
 		IsFullDepth        bool           `form:"is_full_depth"`
-		PartNumber         string         `form:"part_number,omitempty"`
+		PartNumber         string         `form:"part_number"`
 		RearImage          *string        `form:"rear_image,omitempty,upload"`
 		SoftwareImageFiles []string       `form:"software_image_files,omitempty"`
-		SubDeviceRole      string         `form:"subdevice_role,omitempty"`
+		SubDeviceRole      string         `form:"subdevice_role"`
 		Tags               []string       `form:"tags,omitempty"`
 		UHeight            int            `form:"u_height"`
 	}
