@@ -121,11 +121,11 @@ func TestCreateMultipartBody(t *testing.T) {
 		Model:        "test-model",
 		Manufacturer: "test-manufacturer",
 		UHeight:      1,
-		FrontImage:   tmpFile.Name(),
 		CustomFields: map[string]any{
 			"cf_text": "test value",
 		},
 	}
+	newDeviceType.SetFrontImage(tmpFile.Name())
 
 	body, contentType, err := shared.NewMultipartBody(newDeviceType)
 	require.NoError(t, err)
