@@ -1,0 +1,74 @@
+{
+	"count": 3,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"created": "2025-07-11T22:12:48.291800Z",
+			"custom_fields": {},
+			"description": "",
+			"display": "rackgroup1",
+			"id": "7e2c45bf-2d17-45ca-9edf-a0dd3259ed66",
+			"last_updated": "2025-07-11T22:12:48.291810Z",
+			"location": {
+				"id": "b840f97e-e6e9-4b8b-b7ce-0e30f3424201",
+				"object_type": "dcim.location",
+				"url": "http://localhost:8080/api/dcim/locations/b840f97e-e6e9-4b8b-b7ce-0e30f3424201/"
+			},
+			"name": "rackgroup1",
+			"natural_slug": "rackgroup1_campus1_7e2c",
+			"notes_url": "http://localhost:8080/api/dcim/rack-groups/7e2c45bf-2d17-45ca-9edf-a0dd3259ed66/notes/",
+			"object_type": "dcim.rackgroup",
+			"parent": null,
+			"rack_count": 0,
+			"tree_depth": null,
+			"url": "http://localhost:8080/api/dcim/rack-groups/7e2c45bf-2d17-45ca-9edf-a0dd3259ed66/"
+		},
+		{
+			"created": "2025-07-11T22:13:00.361465Z",
+			"custom_fields": {},
+			"description": "",
+			"display": "rackgroup1 → rackgroup2",
+			"id": "a2c80aa5-14ab-4e2d-806f-0d604fdab7ce",
+			"last_updated": "2025-07-11T22:13:00.361479Z",
+			"location": {
+				"id": "b840f97e-e6e9-4b8b-b7ce-0e30f3424201",
+				"object_type": "dcim.location",
+				"url": "http://localhost:8080/api/dcim/locations/b840f97e-e6e9-4b8b-b7ce-0e30f3424201/"
+			},
+			"name": "rackgroup2",
+			"natural_slug": "rackgroup2_campus1_a2c8",
+			"notes_url": "http://localhost:8080/api/dcim/rack-groups/a2c80aa5-14ab-4e2d-806f-0d604fdab7ce/notes/",
+			"object_type": "dcim.rackgroup",
+			"parent": {
+				"id": "7e2c45bf-2d17-45ca-9edf-a0dd3259ed66",
+				"object_type": "dcim.rackgroup",
+				"url": "http://localhost:8080/api/dcim/rack-groups/7e2c45bf-2d17-45ca-9edf-a0dd3259ed66/"
+			},
+			"rack_count": 0,
+			"tree_depth": null,
+			"url": "http://localhost:8080/api/dcim/rack-groups/a2c80aa5-14ab-4e2d-806f-0d604fdab7ce/"
+		},
+		{
+			"created": "2025-07-11T22:13:16.519650Z",
+			"custom_fields": {},
+			"description": "description of rack group3",
+			"display": "rackgroup3",
+			"id": "052f75af-2312-490e-a229-8e599b28a0d3",
+			"last_updated": "2025-07-11T22:13:16.519663Z",
+			"location": {
+				"id": "b840f97e-e6e9-4b8b-b7ce-0e30f3424201",
+				"object_type": "dcim.location",
+				"url": "http://localhost:8080/api/dcim/locations/b840f97e-e6e9-4b8b-b7ce-0e30f3424201/"
+			},
+			"name": "rackgroup3",
+			"natural_slug": "rackgroup3_campus1_052f",
+			"notes_url": "http://localhost:8080/api/dcim/rack-groups/052f75af-2312-490e-a229-8e599b28a0d3/notes/",
+			"object_type": "dcim.rackgroup",
+			"parent": null,
+			"rack_count": 0,
+			"tree_depth": null,
+			"url": "http://localhost:8080/api/dcim/rack-groups/052f75af-2312-490e-a229-8e599b28a0d3/"
+		}
+	]
+}
