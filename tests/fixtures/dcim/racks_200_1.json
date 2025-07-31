@@ -1,0 +1,336 @@
+{
+	"count": 3,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"asset_tag": null,
+			"comments": "",
+			"created": "2025-07-19T23:02:15.280085Z",
+			"custom_fields": {},
+			"desc_units": false,
+			"device_count": 0,
+			"display": "A11-13",
+			"facility_id": null,
+			"id": "5dc82cf7-7854-4d91-999a-d60d5724071d",
+			"last_updated": "2025-07-19T23:03:18.853431Z",
+			"location": {
+				"asn": null,
+				"comments": "",
+				"contact_email": "bradyerin@example.com",
+				"contact_name": "Wayne Solis",
+				"contact_phone": "",
+				"created": "2025-07-19T16:11:45.513369Z",
+				"custom_fields": {},
+				"description": "Suggest prevent say.",
+				"display": "Campus-01 → Building-02",
+				"facility": "",
+				"id": "99474b4a-42ea-46b0-b588-07acad2413cd",
+				"last_updated": "2025-07-19T16:11:45.515900Z",
+				"latitude": "-48.760000",
+				"location_type": {
+					"id": "4b8d2be7-4453-49b3-9d26-d77979271592",
+					"object_type": "dcim.locationtype",
+					"url": "http://localhost:8080/api/dcim/location-types/4b8d2be7-4453-49b3-9d26-d77979271592/"
+				},
+				"longitude": "96.050000",
+				"name": "Building-02",
+				"natural_slug": "building-02_campus-01_9947",
+				"notes_url": "http://localhost:8080/api/dcim/locations/99474b4a-42ea-46b0-b588-07acad2413cd/notes/",
+				"object_type": "dcim.location",
+				"parent": {
+					"id": "ae29c028-6908-48a1-a2fc-535161896402",
+					"object_type": "dcim.location",
+					"url": "http://localhost:8080/api/dcim/locations/ae29c028-6908-48a1-a2fc-535161896402/"
+				},
+				"physical_address": "",
+				"shipping_address": "",
+				"status": {
+					"id": "dd38f23c-6a29-4e76-8d47-8e17ce539c0e",
+					"object_type": "extras.status",
+					"url": "http://localhost:8080/api/extras/statuses/dd38f23c-6a29-4e76-8d47-8e17ce539c0e/"
+				},
+				"tenant": {
+					"id": "b2128099-4205-42b6-9e88-c34deb589bf0",
+					"object_type": "tenancy.tenant",
+					"url": "http://localhost:8080/api/tenancy/tenants/b2128099-4205-42b6-9e88-c34deb589bf0/"
+				},
+				"time_zone": null,
+				"url": "http://localhost:8080/api/dcim/locations/99474b4a-42ea-46b0-b588-07acad2413cd/"
+			},
+			"name": "A11-13",
+			"natural_slug": "a11-13_a11_building-02_campus-01_5dc8",
+			"notes_url": "http://localhost:8080/api/dcim/racks/5dc82cf7-7854-4d91-999a-d60d5724071d/notes/",
+			"object_type": "dcim.rack",
+			"outer_depth": null,
+			"outer_unit": null,
+			"outer_width": null,
+			"power_feed_count": 0,
+			"rack_group": {
+				"created": "2025-07-19T23:03:10.330445Z",
+				"custom_fields": {},
+				"description": "",
+				"display": "A11",
+				"id": "1e7c0a7a-2a68-4b8f-9373-1edca4d8f1b1",
+				"last_updated": "2025-07-19T23:03:10.330461Z",
+				"location": {
+					"id": "99474b4a-42ea-46b0-b588-07acad2413cd",
+					"object_type": "dcim.location",
+					"url": "http://localhost:8080/api/dcim/locations/99474b4a-42ea-46b0-b588-07acad2413cd/"
+				},
+				"name": "A11",
+				"natural_slug": "a11_building-02_campus-01_1e7c",
+				"notes_url": "http://localhost:8080/api/dcim/rack-groups/1e7c0a7a-2a68-4b8f-9373-1edca4d8f1b1/notes/",
+				"object_type": "dcim.rackgroup",
+				"parent": null,
+				"url": "http://localhost:8080/api/dcim/rack-groups/1e7c0a7a-2a68-4b8f-9373-1edca4d8f1b1/"
+			},
+			"role": null,
+			"serial": "",
+			"status": {
+				"color": "4caf50",
+				"created": "2025-07-19T00:00:00Z",
+				"custom_fields": {},
+				"description": "Unit is active",
+				"display": "Active",
+				"id": "7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353",
+				"last_updated": "2025-07-19T16:10:22.681144Z",
+				"name": "Active",
+				"natural_slug": "active_7069",
+				"notes_url": "http://localhost:8080/api/extras/statuses/7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353/notes/",
+				"object_type": "extras.status",
+				"url": "http://localhost:8080/api/extras/statuses/7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353/"
+			},
+			"tags": [],
+			"tenant": null,
+			"type": {
+				"label": "4-post frame",
+				"value": "4-post-frame"
+			},
+			"u_height": 42,
+			"url": "http://localhost:8080/api/dcim/racks/5dc82cf7-7854-4d91-999a-d60d5724071d/",
+			"width": {
+				"label": "19 inches",
+				"value": 19
+			}
+		},
+		{
+			"asset_tag": "1234",
+			"comments": "",
+			"created": "2025-07-19T23:02:55.085564Z",
+			"custom_fields": {},
+			"desc_units": false,
+			"device_count": 0,
+			"display": "A11-14",
+			"facility_id": null,
+			"id": "64f90a6f-7cb6-4a8d-9d54-b584f6bb2daf",
+			"last_updated": "2025-07-19T23:03:18.861283Z",
+			"location": {
+				"asn": null,
+				"comments": "",
+				"contact_email": "bradyerin@example.com",
+				"contact_name": "Wayne Solis",
+				"contact_phone": "",
+				"created": "2025-07-19T16:11:45.513369Z",
+				"custom_fields": {},
+				"description": "Suggest prevent say.",
+				"display": "Campus-01 → Building-02",
+				"facility": "",
+				"id": "99474b4a-42ea-46b0-b588-07acad2413cd",
+				"last_updated": "2025-07-19T16:11:45.515900Z",
+				"latitude": "-48.760000",
+				"location_type": {
+					"id": "4b8d2be7-4453-49b3-9d26-d77979271592",
+					"object_type": "dcim.locationtype",
+					"url": "http://localhost:8080/api/dcim/location-types/4b8d2be7-4453-49b3-9d26-d77979271592/"
+				},
+				"longitude": "96.050000",
+				"name": "Building-02",
+				"natural_slug": "building-02_campus-01_9947",
+				"notes_url": "http://localhost:8080/api/dcim/locations/99474b4a-42ea-46b0-b588-07acad2413cd/notes/",
+				"object_type": "dcim.location",
+				"parent": {
+					"id": "ae29c028-6908-48a1-a2fc-535161896402",
+					"object_type": "dcim.location",
+					"url": "http://localhost:8080/api/dcim/locations/ae29c028-6908-48a1-a2fc-535161896402/"
+				},
+				"physical_address": "",
+				"shipping_address": "",
+				"status": {
+					"id": "dd38f23c-6a29-4e76-8d47-8e17ce539c0e",
+					"object_type": "extras.status",
+					"url": "http://localhost:8080/api/extras/statuses/dd38f23c-6a29-4e76-8d47-8e17ce539c0e/"
+				},
+				"tenant": {
+					"id": "b2128099-4205-42b6-9e88-c34deb589bf0",
+					"object_type": "tenancy.tenant",
+					"url": "http://localhost:8080/api/tenancy/tenants/b2128099-4205-42b6-9e88-c34deb589bf0/"
+				},
+				"time_zone": null,
+				"url": "http://localhost:8080/api/dcim/locations/99474b4a-42ea-46b0-b588-07acad2413cd/"
+			},
+			"name": "A11-14",
+			"natural_slug": "a11-14_a11_building-02_campus-01_64f9",
+			"notes_url": "http://localhost:8080/api/dcim/racks/64f90a6f-7cb6-4a8d-9d54-b584f6bb2daf/notes/",
+			"object_type": "dcim.rack",
+			"outer_depth": null,
+			"outer_unit": null,
+			"outer_width": null,
+			"power_feed_count": 0,
+			"rack_group": {
+				"created": "2025-07-19T23:03:10.330445Z",
+				"custom_fields": {},
+				"description": "",
+				"display": "A11",
+				"id": "1e7c0a7a-2a68-4b8f-9373-1edca4d8f1b1",
+				"last_updated": "2025-07-19T23:03:10.330461Z",
+				"location": {
+					"id": "99474b4a-42ea-46b0-b588-07acad2413cd",
+					"object_type": "dcim.location",
+					"url": "http://localhost:8080/api/dcim/locations/99474b4a-42ea-46b0-b588-07acad2413cd/"
+				},
+				"name": "A11",
+				"natural_slug": "a11_building-02_campus-01_1e7c",
+				"notes_url": "http://localhost:8080/api/dcim/rack-groups/1e7c0a7a-2a68-4b8f-9373-1edca4d8f1b1/notes/",
+				"object_type": "dcim.rackgroup",
+				"parent": null,
+				"url": "http://localhost:8080/api/dcim/rack-groups/1e7c0a7a-2a68-4b8f-9373-1edca4d8f1b1/"
+			},
+			"role": null,
+			"serial": "1234",
+			"status": {
+				"color": "4caf50",
+				"created": "2025-07-19T00:00:00Z",
+				"custom_fields": {},
+				"description": "Unit is active",
+				"display": "Active",
+				"id": "7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353",
+				"last_updated": "2025-07-19T16:10:22.681144Z",
+				"name": "Active",
+				"natural_slug": "active_7069",
+				"notes_url": "http://localhost:8080/api/extras/statuses/7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353/notes/",
+				"object_type": "extras.status",
+				"url": "http://localhost:8080/api/extras/statuses/7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353/"
+			},
+			"tags": [],
+			"tenant": {
+				"comments": "",
+				"created": "2025-07-19T16:11:54.781020Z",
+				"custom_fields": {},
+				"description": "",
+				"display": "Jefferson PLC",
+				"id": "7dab0592-f142-478e-a9c0-fc5389437ddf",
+				"last_updated": "2025-07-19T16:11:54.783105Z",
+				"name": "Jefferson PLC",
+				"natural_slug": "jefferson-plc_7dab",
+				"notes_url": "http://localhost:8080/api/tenancy/tenants/7dab0592-f142-478e-a9c0-fc5389437ddf/notes/",
+				"object_type": "tenancy.tenant",
+				"tenant_group": {
+					"id": "639496a9-251e-4dc8-b483-c0dd82574832",
+					"object_type": "tenancy.tenantgroup",
+					"url": "http://localhost:8080/api/tenancy/tenant-groups/639496a9-251e-4dc8-b483-c0dd82574832/"
+				},
+				"url": "http://localhost:8080/api/tenancy/tenants/7dab0592-f142-478e-a9c0-fc5389437ddf/"
+			},
+			"type": {
+				"label": "4-post frame",
+				"value": "4-post-frame"
+			},
+			"u_height": 42,
+			"url": "http://localhost:8080/api/dcim/racks/64f90a6f-7cb6-4a8d-9d54-b584f6bb2daf/",
+			"width": {
+				"label": "19 inches",
+				"value": 19
+			}
+		},
+		{
+			"asset_tag": "asfd23",
+			"comments": "",
+			"created": "2025-07-19T23:03:39.952052Z",
+			"custom_fields": {},
+			"desc_units": false,
+			"device_count": 0,
+			"display": "A12-24",
+			"facility_id": null,
+			"id": "11ed8c56-6b0f-4689-9ca4-134e59860102",
+			"last_updated": "2025-07-19T23:03:39.952061Z",
+			"location": {
+				"asn": 65016,
+				"comments": "",
+				"contact_email": "rivasricardo@example.com",
+				"contact_name": "Angela Pena",
+				"contact_phone": "+1-646-537-0860",
+				"created": "2025-07-19T16:11:45.629282Z",
+				"custom_fields": {},
+				"description": "Condition above reason.",
+				"display": "Campus-01 → Building-16",
+				"facility": "",
+				"id": "96af6f0f-c573-48d7-8ee1-f4e10545c14c",
+				"last_updated": "2025-07-19T16:11:45.630603Z",
+				"latitude": null,
+				"location_type": {
+					"id": "4b8d2be7-4453-49b3-9d26-d77979271592",
+					"object_type": "dcim.locationtype",
+					"url": "http://localhost:8080/api/dcim/location-types/4b8d2be7-4453-49b3-9d26-d77979271592/"
+				},
+				"longitude": null,
+				"name": "Building-16",
+				"natural_slug": "building-16_campus-01_96af",
+				"notes_url": "http://localhost:8080/api/dcim/locations/96af6f0f-c573-48d7-8ee1-f4e10545c14c/notes/",
+				"object_type": "dcim.location",
+				"parent": {
+					"id": "ae29c028-6908-48a1-a2fc-535161896402",
+					"object_type": "dcim.location",
+					"url": "http://localhost:8080/api/dcim/locations/ae29c028-6908-48a1-a2fc-535161896402/"
+				},
+				"physical_address": "529 Miller Overpass Suite 023\nNorth Patricia, AL 13884",
+				"shipping_address": "Unit 2455 Box 9503\nDPO AA 28821",
+				"status": {
+					"id": "2f3254c0-f7b0-4a3d-9af7-06ca84436c3e",
+					"object_type": "extras.status",
+					"url": "http://localhost:8080/api/extras/statuses/2f3254c0-f7b0-4a3d-9af7-06ca84436c3e/"
+				},
+				"tenant": null,
+				"time_zone": null,
+				"url": "http://localhost:8080/api/dcim/locations/96af6f0f-c573-48d7-8ee1-f4e10545c14c/"
+			},
+			"name": "A12-24",
+			"natural_slug": "a12-24_11ed",
+			"notes_url": "http://localhost:8080/api/dcim/racks/11ed8c56-6b0f-4689-9ca4-134e59860102/notes/",
+			"object_type": "dcim.rack",
+			"outer_depth": null,
+			"outer_unit": null,
+			"outer_width": null,
+			"power_feed_count": 0,
+			"rack_group": null,
+			"role": null,
+			"serial": "2345",
+			"status": {
+				"color": "4caf50",
+				"created": "2025-07-19T00:00:00Z",
+				"custom_fields": {},
+				"description": "Unit is active",
+				"display": "Active",
+				"id": "7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353",
+				"last_updated": "2025-07-19T16:10:22.681144Z",
+				"name": "Active",
+				"natural_slug": "active_7069",
+				"notes_url": "http://localhost:8080/api/extras/statuses/7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353/notes/",
+				"object_type": "extras.status",
+				"url": "http://localhost:8080/api/extras/statuses/7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353/"
+			},
+			"tags": [],
+			"tenant": null,
+			"type": {
+				"label": "4-post frame",
+				"value": "4-post-frame"
+			},
+			"u_height": 42,
+			"url": "http://localhost:8080/api/dcim/racks/11ed8c56-6b0f-4689-9ca4-134e59860102/",
+			"width": {
+				"label": "19 inches",
+				"value": 19
+			}
+		}
+	]
+}
