@@ -1,8 +1,8 @@
 package plugins
 
 import (
-	"github.com/josh-silvas/gonautobot/core"
-	"github.com/josh-silvas/gonautobot/plugins/bgp"
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/plugins/bgp"
 )
 
 // Client : Abstracted base client to use with Nautobot

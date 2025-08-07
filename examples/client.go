@@ -1,7 +1,7 @@
 package main
 
 import (
-	nautobot "github.com/josh-silvas/gonautobot"
+	nautobot "github.com/neverbeencloser/gonautobot"
 )
 
 type ex struct {

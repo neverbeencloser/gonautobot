@@ -11,8 +11,8 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/josh-silvas/gonautobot/dcim"
-	"github.com/josh-silvas/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/shared"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"

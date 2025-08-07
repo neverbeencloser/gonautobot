@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/josh-silvas/gonautobot/core"
-	"github.com/josh-silvas/gonautobot/extras"
-	"github.com/josh-silvas/gonautobot/tenancy"
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/tenancy"
 )
 
 const (

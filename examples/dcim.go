@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/josh-silvas/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/dcim"
 	"github.com/rs/zerolog/log"
 	"net/url"
 )

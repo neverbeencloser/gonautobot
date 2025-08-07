@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
-	"github.com/josh-silvas/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/shared"
 )
 
 // Create : Generic function to perform a POST request to Nautobot.

@@ -11,7 +11,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/josh-silvas/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/shared"
 	"github.com/rs/zerolog/log"
 )
 

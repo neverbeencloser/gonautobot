@@ -2,7 +2,7 @@ package dcim
 
 import (
 	"fmt"
-	"github.com/josh-silvas/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/core"
 	"net/http"
 	"net/url"
 )

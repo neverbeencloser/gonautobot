@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/josh-silvas/gonautobot/circuits"
-	"github.com/josh-silvas/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/circuits"
+	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/rs/zerolog/log"
 	"net/url"
 )

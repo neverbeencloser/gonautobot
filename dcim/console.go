@@ -3,8 +3,8 @@ package dcim
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/josh-silvas/gonautobot/extras"
-	"github.com/josh-silvas/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/shared"
 	"net/http"
 	"net/url"
 	"strconv"

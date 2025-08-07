@@ -1,7 +1,7 @@
 package nautobot_test
 
 import (
-	"github.com/josh-silvas/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
 	"path"

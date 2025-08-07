@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/josh-silvas/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/core"
 )
 
 const (

@@ -2,10 +2,10 @@ package bgp
 
 import (
 	"fmt"
-	"github.com/josh-silvas/gonautobot/core"
-	nautobot "github.com/josh-silvas/gonautobot/extras"
-	nautobot2 "github.com/josh-silvas/gonautobot/shared"
-	"github.com/josh-silvas/gonautobot/shared/nested"
+	"github.com/neverbeencloser/gonautobot/core"
+	nautobot "github.com/neverbeencloser/gonautobot/extras"
+	nautobot2 "github.com/neverbeencloser/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
 )

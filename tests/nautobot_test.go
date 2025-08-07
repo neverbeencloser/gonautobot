@@ -3,7 +3,7 @@
 package nautobot_test
 
 import (
-	nautobot "github.com/josh-silvas/gonautobot"
+	nautobot "github.com/neverbeencloser/gonautobot"
 	"gopkg.in/h2non/gock.v1"
 	"net/http"
 	"os"

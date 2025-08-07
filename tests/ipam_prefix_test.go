@@ -1,7 +1,7 @@
 package nautobot_test
 
 import (
-	"github.com/josh-silvas/gonautobot/ipam"
+	"github.com/neverbeencloser/gonautobot/ipam"
 	"github.com/stretchr/testify/require"
 	"net/url"
 	"path"

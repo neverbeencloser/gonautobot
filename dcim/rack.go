@@ -4,10 +4,10 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/josh-silvas/gonautobot/core"
-	"github.com/josh-silvas/gonautobot/extras"
-	"github.com/josh-silvas/gonautobot/shared"
-	"github.com/josh-silvas/gonautobot/tenancy"
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/tenancy"
 
 	"github.com/google/uuid"
 )

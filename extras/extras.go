@@ -1,7 +1,7 @@
 package extras
 
 import (
-	"github.com/josh-silvas/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/core"
 )
 
 // Client : Abstracted base client to use with Nautobot

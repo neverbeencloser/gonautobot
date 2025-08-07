@@ -1,7 +1,7 @@
 package circuits
 
 import (
-	"github.com/josh-silvas/gonautobot/shared/nested"
+	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"time"
 )
 
