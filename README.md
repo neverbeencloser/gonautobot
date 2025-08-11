@@ -1,4 +1,4 @@
-# GoNautBot
+# gonautobot
 
 A Go client library for the [Nautobot](https://github.com/nautobot/nautobot) REST API. This library provides a clean Go interface to interact with Nautobot's various endpoints, supporting all major CRUD operations with built-in pagination and error handling.
 
@@ -142,8 +142,8 @@ Specific endpoints support multipart file uploads for Create/Update:
 
 ```go
 import (
-	nautobot "github.com/neverbeencloser/gonautobot"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	nautobot "github.com/neverbeencloser/tobot"
+	"github.com/neverbeencloser/tobot/dcim"
 )
 // Create a new device type
 payload := dcim.NewDeviceType{
