@@ -142,8 +142,8 @@ Specific endpoints support multipart file uploads for Create/Update:
 
 ```go
 import (
-	nautobot "github.com/neverbeencloser/tobot"
-	"github.com/neverbeencloser/tobot/dcim"
+	nautobot "github.com/neverbeencloser/gonautobot"
+	"github.com/neverbeencloser/gonautobot/dcim"
 )
 // Create a new device type
 payload := dcim.NewDeviceType{
