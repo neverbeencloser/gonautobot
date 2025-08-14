@@ -23,7 +23,7 @@ type (
 		Description  string         `json:"description"`
 		Display      string         `json:"display"`
 		LastUpdated  time.Time      `json:"last_updated"`
-		Location     dcim.Location  `json:"location"`
+		Location     *dcim.Location `json:"location"`
 		Name         string         `json:"name"`
 		NaturalSlug  string         `json:"natural_slug"`
 		NotesURL     string         `json:"notes_url"`
