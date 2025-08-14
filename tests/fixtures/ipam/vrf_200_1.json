@@ -1,0 +1,726 @@
+{
+  "created": "2025-08-10T17:43:30.244495Z",
+  "custom_fields": {},
+  "description": "Bag house campaign authority. Piece list or Congress. Coach street to only early.\nBook bed think off. Thank enjoy morning.\nTo point machine above suggest structure woman. See nor at more admit.",
+  "devices": [],
+  "display": "Art old radio.: (CadetBlue8029)",
+  "export_targets": [
+    {
+      "created": "2025-08-10T17:43:30.032959Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "172.16.94.182:47211",
+      "id": "0770a823-7fbd-40be-9677-021a3c070cbd",
+      "last_updated": "2025-08-10T17:43:30.034651Z",
+      "name": "172.16.94.182:47211",
+      "natural_slug": "172-16-94-182-47211_0770",
+      "notes_url": "http://localhost:8080/api/ipam/route-targets/0770a823-7fbd-40be-9677-021a3c070cbd/notes/",
+      "object_type": "ipam.routetarget",
+      "tenant": null,
+      "url": "http://localhost:8080/api/ipam/route-targets/0770a823-7fbd-40be-9677-021a3c070cbd/"
+    }
+  ],
+  "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+  "import_targets": [
+    {
+      "created": "2025-08-10T17:43:30.112013Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "192.168.110.150:8345",
+      "id": "8b387b7d-8307-4bf2-bb32-52d9e66dbd53",
+      "last_updated": "2025-08-10T17:43:30.113844Z",
+      "name": "192.168.110.150:8345",
+      "natural_slug": "192-168-110-150-8345_8b38",
+      "notes_url": "http://localhost:8080/api/ipam/route-targets/8b387b7d-8307-4bf2-bb32-52d9e66dbd53/notes/",
+      "object_type": "ipam.routetarget",
+      "tenant": {
+        "id": "eb3f955a-d2a1-4f0b-8ec7-0978e5aff96a",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/eb3f955a-d2a1-4f0b-8ec7-0978e5aff96a/"
+      },
+      "url": "http://localhost:8080/api/ipam/route-targets/8b387b7d-8307-4bf2-bb32-52d9e66dbd53/"
+    }
+  ],
+  "last_updated": "2025-08-10T17:43:30.250145Z",
+  "name": "CadetBlue8029",
+  "namespace": {
+    "created": "2025-08-10T17:43:30.169056Z",
+    "custom_fields": {},
+    "description": "",
+    "display": "Art old radio.",
+    "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+    "last_updated": "2025-08-10T17:43:30.170547Z",
+    "location": null,
+    "name": "Art old radio.",
+    "natural_slug": "art-old-radio_e7bf",
+    "notes_url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/notes/",
+    "object_type": "ipam.namespace",
+    "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+  },
+  "natural_slug": "art-old-radio_4280249921-43428_2d13",
+  "notes_url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/notes/",
+  "object_type": "ipam.vrf",
+  "prefixes": [
+    {
+      "broadcast": "10.13.127.255",
+      "created": "2025-08-10T17:43:32.370078Z",
+      "custom_fields": {},
+      "date_allocated": "2020-05-15T05:24:01.656650Z",
+      "description": "",
+      "display": "10.13.0.0/17: Art old radio.",
+      "id": "6490e7c2-74ce-416c-baea-bc202d45646e",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:32.391734Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-13-0-0_17_6490",
+      "network": "10.13.0.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/6490e7c2-74ce-416c-baea-bc202d45646e/notes/",
+      "object_type": "ipam.prefix",
+      "parent": {
+        "id": "d9f093d2-8b42-47b7-9f88-59024842cfa0",
+        "object_type": "ipam.prefix",
+        "url": "http://localhost:8080/api/ipam/prefixes/d9f093d2-8b42-47b7-9f88-59024842cfa0/"
+      },
+      "prefix": "10.13.0.0/17",
+      "prefix_length": 17,
+      "rir": null,
+      "role": {
+        "id": "13cd48e2-a42a-4ba7-be27-269f394781f4",
+        "object_type": "extras.role",
+        "url": "http://localhost:8080/api/extras/roles/13cd48e2-a42a-4ba7-be27-269f394781f4/"
+      },
+      "status": {
+        "id": "2e079d86-e57a-48f0-8743-60a032186586",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/2e079d86-e57a-48f0-8743-60a032186586/"
+      },
+      "tenant": {
+        "id": "dacdcf66-fd77-4318-bd8b-606d12d5c02a",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/dacdcf66-fd77-4318-bd8b-606d12d5c02a/"
+      },
+      "type": {
+        "label": "Network",
+        "value": "network"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/6490e7c2-74ce-416c-baea-bc202d45646e/",
+      "vlan": null,
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "347b7a56-476c-4a57-8848-6b4a618b816f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/347b7a56-476c-4a57-8848-6b4a618b816f/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    },
+    {
+      "broadcast": "10.14.255.255",
+      "created": "2025-08-10T17:43:32.580890Z",
+      "custom_fields": {},
+      "date_allocated": null,
+      "description": "",
+      "display": "10.14.0.0/16: Art old radio.",
+      "id": "c6d94120-ed90-4f7a-bd03-289700a9cc96",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:32.639128Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-14-0-0_16_c6d9",
+      "network": "10.14.0.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/c6d94120-ed90-4f7a-bd03-289700a9cc96/notes/",
+      "object_type": "ipam.prefix",
+      "parent": null,
+      "prefix": "10.14.0.0/16",
+      "prefix_length": 16,
+      "rir": null,
+      "role": null,
+      "status": {
+        "id": "d372cff2-4aac-4cd0-b844-3162f69de3fb",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/d372cff2-4aac-4cd0-b844-3162f69de3fb/"
+      },
+      "tenant": {
+        "id": "854deec8-96b1-40c4-b966-ef618a21deb4",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/854deec8-96b1-40c4-b966-ef618a21deb4/"
+      },
+      "type": {
+        "label": "Container",
+        "value": "container"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/c6d94120-ed90-4f7a-bd03-289700a9cc96/",
+      "vlan": {
+        "id": "7e186985-82d5-448b-84d1-62b4f89b0e52",
+        "object_type": "ipam.vlan",
+        "url": "http://localhost:8080/api/ipam/vlans/7e186985-82d5-448b-84d1-62b4f89b0e52/"
+      },
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    },
+    {
+      "broadcast": "10.14.63.255",
+      "created": "2025-08-10T17:43:32.603356Z",
+      "custom_fields": {},
+      "date_allocated": "1992-12-15T14:30:37.142728Z",
+      "description": "",
+      "display": "10.14.0.0/18: Art old radio.",
+      "id": "ad9648be-09c1-4e36-bb96-b1b1f15a043f",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:32.609889Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-14-0-0_18_ad96",
+      "network": "10.14.0.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/ad9648be-09c1-4e36-bb96-b1b1f15a043f/notes/",
+      "object_type": "ipam.prefix",
+      "parent": {
+        "id": "c6d94120-ed90-4f7a-bd03-289700a9cc96",
+        "object_type": "ipam.prefix",
+        "url": "http://localhost:8080/api/ipam/prefixes/c6d94120-ed90-4f7a-bd03-289700a9cc96/"
+      },
+      "prefix": "10.14.0.0/18",
+      "prefix_length": 18,
+      "rir": null,
+      "role": null,
+      "status": {
+        "id": "2e079d86-e57a-48f0-8743-60a032186586",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/2e079d86-e57a-48f0-8743-60a032186586/"
+      },
+      "tenant": {
+        "id": "854deec8-96b1-40c4-b966-ef618a21deb4",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/854deec8-96b1-40c4-b966-ef618a21deb4/"
+      },
+      "type": {
+        "label": "Pool",
+        "value": "pool"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/ad9648be-09c1-4e36-bb96-b1b1f15a043f/",
+      "vlan": {
+        "id": "0dd94b23-282a-4131-a8f0-b4582ba68645",
+        "object_type": "ipam.vlan",
+        "url": "http://localhost:8080/api/ipam/vlans/0dd94b23-282a-4131-a8f0-b4582ba68645/"
+      },
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    },
+    {
+      "broadcast": "10.19.255.255",
+      "created": "2025-08-10T17:43:33.634220Z",
+      "custom_fields": {},
+      "date_allocated": "1992-05-16T22:39:12.829345Z",
+      "description": "",
+      "display": "10.19.0.0/16: Art old radio.",
+      "id": "00c739fc-f84a-4f0a-ba5f-f3877a113e34",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:33.645177Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-19-0-0_16_00c7",
+      "network": "10.19.0.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/00c739fc-f84a-4f0a-ba5f-f3877a113e34/notes/",
+      "object_type": "ipam.prefix",
+      "parent": null,
+      "prefix": "10.19.0.0/16",
+      "prefix_length": 16,
+      "rir": {
+        "id": "bdd6425a-a595-4bc6-9225-b27db81cd3a0",
+        "object_type": "ipam.rir",
+        "url": "http://localhost:8080/api/ipam/rirs/bdd6425a-a595-4bc6-9225-b27db81cd3a0/"
+      },
+      "role": null,
+      "status": {
+        "id": "2e079d86-e57a-48f0-8743-60a032186586",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/2e079d86-e57a-48f0-8743-60a032186586/"
+      },
+      "tenant": null,
+      "type": {
+        "label": "Container",
+        "value": "container"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/00c739fc-f84a-4f0a-ba5f-f3877a113e34/",
+      "vlan": {
+        "id": "7c9af83b-ee23-4e69-b6ee-969464e27b16",
+        "object_type": "ipam.vlan",
+        "url": "http://localhost:8080/api/ipam/vlans/7c9af83b-ee23-4e69-b6ee-969464e27b16/"
+      },
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "347b7a56-476c-4a57-8848-6b4a618b816f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/347b7a56-476c-4a57-8848-6b4a618b816f/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    },
+    {
+      "broadcast": "10.24.255.255",
+      "created": "2025-08-10T17:43:34.788913Z",
+      "custom_fields": {},
+      "date_allocated": null,
+      "description": "Computer major hundred enjoy president contain data nice.\nForget even election design away crime writer. Deep thing artist without. Usually indeed science check owner. Reach foreign style popular entire us cell.",
+      "display": "10.24.0.0/16: Art old radio.",
+      "id": "6c5eba88-1aa2-4ae1-9135-cc8e15448f0c",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:34.795196Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-24-0-0_16_6c5e",
+      "network": "10.24.0.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/6c5eba88-1aa2-4ae1-9135-cc8e15448f0c/notes/",
+      "object_type": "ipam.prefix",
+      "parent": null,
+      "prefix": "10.24.0.0/16",
+      "prefix_length": 16,
+      "rir": {
+        "id": "530bbfaf-54c7-49da-9121-787d4c392bf1",
+        "object_type": "ipam.rir",
+        "url": "http://localhost:8080/api/ipam/rirs/530bbfaf-54c7-49da-9121-787d4c392bf1/"
+      },
+      "role": {
+        "id": "b76e6948-9b52-4f72-bc10-e849c3703b26",
+        "object_type": "extras.role",
+        "url": "http://localhost:8080/api/extras/roles/b76e6948-9b52-4f72-bc10-e849c3703b26/"
+      },
+      "status": {
+        "id": "a20a68f4-546d-4df3-acc6-6a07c2310e86",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/a20a68f4-546d-4df3-acc6-6a07c2310e86/"
+      },
+      "tenant": {
+        "id": "ee0e384c-63d9-4c73-a54f-edda1ce5b0a1",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/ee0e384c-63d9-4c73-a54f-edda1ce5b0a1/"
+      },
+      "type": {
+        "label": "Container",
+        "value": "container"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/6c5eba88-1aa2-4ae1-9135-cc8e15448f0c/",
+      "vlan": null,
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        }
+      ]
+    },
+    {
+      "broadcast": "10.26.255.255",
+      "created": "2025-08-10T17:43:35.153475Z",
+      "custom_fields": {},
+      "date_allocated": "1982-09-10T04:23:38.707058Z",
+      "description": "",
+      "display": "10.26.0.0/16: Art old radio.",
+      "id": "135c9311-2ec0-45ab-a3c0-bcc1423c6cfe",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:35.255013Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-26-0-0_16_135c",
+      "network": "10.26.0.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/135c9311-2ec0-45ab-a3c0-bcc1423c6cfe/notes/",
+      "object_type": "ipam.prefix",
+      "parent": null,
+      "prefix": "10.26.0.0/16",
+      "prefix_length": 16,
+      "rir": null,
+      "role": {
+        "id": "9e41be7b-d7cc-43b7-b065-db560a19279c",
+        "object_type": "extras.role",
+        "url": "http://localhost:8080/api/extras/roles/9e41be7b-d7cc-43b7-b065-db560a19279c/"
+      },
+      "status": {
+        "id": "d372cff2-4aac-4cd0-b844-3162f69de3fb",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/d372cff2-4aac-4cd0-b844-3162f69de3fb/"
+      },
+      "tenant": {
+        "id": "b673c945-61ea-42c5-a26a-bdc3e551b23b",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/b673c945-61ea-42c5-a26a-bdc3e551b23b/"
+      },
+      "type": {
+        "label": "Container",
+        "value": "container"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/135c9311-2ec0-45ab-a3c0-bcc1423c6cfe/",
+      "vlan": null,
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "347b7a56-476c-4a57-8848-6b4a618b816f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/347b7a56-476c-4a57-8848-6b4a618b816f/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    },
+    {
+      "broadcast": "10.26.191.255",
+      "created": "2025-08-10T17:43:35.220526Z",
+      "custom_fields": {},
+      "date_allocated": "1970-11-27T15:45:22.869920Z",
+      "description": "Cold author safe peace society form where. Reflect its reach better realize travel.\nCurrent mission beat Mrs middle security trial. Star true similar hope community quite writer. Even moment memory.",
+      "display": "10.26.128.0/18: Art old radio.",
+      "id": "e42af8a0-f392-4501-835a-8aeccfa32360",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:35.229518Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-26-128-0_18_e42a",
+      "network": "10.26.128.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/e42af8a0-f392-4501-835a-8aeccfa32360/notes/",
+      "object_type": "ipam.prefix",
+      "parent": {
+        "id": "135c9311-2ec0-45ab-a3c0-bcc1423c6cfe",
+        "object_type": "ipam.prefix",
+        "url": "http://localhost:8080/api/ipam/prefixes/135c9311-2ec0-45ab-a3c0-bcc1423c6cfe/"
+      },
+      "prefix": "10.26.128.0/18",
+      "prefix_length": 18,
+      "rir": null,
+      "role": {
+        "id": "adfdf160-4bb1-4d2e-8453-c73f665464e4",
+        "object_type": "extras.role",
+        "url": "http://localhost:8080/api/extras/roles/adfdf160-4bb1-4d2e-8453-c73f665464e4/"
+      },
+      "status": {
+        "id": "d372cff2-4aac-4cd0-b844-3162f69de3fb",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/d372cff2-4aac-4cd0-b844-3162f69de3fb/"
+      },
+      "tenant": {
+        "id": "b673c945-61ea-42c5-a26a-bdc3e551b23b",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/b673c945-61ea-42c5-a26a-bdc3e551b23b/"
+      },
+      "type": {
+        "label": "Network",
+        "value": "network"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/e42af8a0-f392-4501-835a-8aeccfa32360/",
+      "vlan": {
+        "id": "52149bfa-a2ac-407e-abc9-8d0697de0340",
+        "object_type": "ipam.vlan",
+        "url": "http://localhost:8080/api/ipam/vlans/52149bfa-a2ac-407e-abc9-8d0697de0340/"
+      },
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "347b7a56-476c-4a57-8848-6b4a618b816f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/347b7a56-476c-4a57-8848-6b4a618b816f/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    },
+    {
+      "broadcast": "10.26.255.255",
+      "created": "2025-08-10T17:43:35.233553Z",
+      "custom_fields": {},
+      "date_allocated": null,
+      "description": "Name again series. Same expert keep perform miss clear police. Change later much.\nInstitution old use nothing son natural reason life. Challenge worry daughter movie.",
+      "display": "10.26.192.0/18: Art old radio.",
+      "id": "db1e8284-5d96-48c5-923a-922d33231258",
+      "ip_version": 4,
+      "last_updated": "2025-08-10T17:43:35.252182Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_10-26-192-0_18_db1e",
+      "network": "10.26.192.0",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/db1e8284-5d96-48c5-923a-922d33231258/notes/",
+      "object_type": "ipam.prefix",
+      "parent": {
+        "id": "135c9311-2ec0-45ab-a3c0-bcc1423c6cfe",
+        "object_type": "ipam.prefix",
+        "url": "http://localhost:8080/api/ipam/prefixes/135c9311-2ec0-45ab-a3c0-bcc1423c6cfe/"
+      },
+      "prefix": "10.26.192.0/18",
+      "prefix_length": 18,
+      "rir": null,
+      "role": null,
+      "status": {
+        "id": "d372cff2-4aac-4cd0-b844-3162f69de3fb",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/d372cff2-4aac-4cd0-b844-3162f69de3fb/"
+      },
+      "tenant": {
+        "id": "b673c945-61ea-42c5-a26a-bdc3e551b23b",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/b673c945-61ea-42c5-a26a-bdc3e551b23b/"
+      },
+      "type": {
+        "label": "Network",
+        "value": "network"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/db1e8284-5d96-48c5-923a-922d33231258/",
+      "vlan": null,
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "347b7a56-476c-4a57-8848-6b4a618b816f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/347b7a56-476c-4a57-8848-6b4a618b816f/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    },
+    {
+      "broadcast": "2001:db8:0:3:ffff:ffff:ffff:ffff",
+      "created": "2025-08-10T17:43:31.263853Z",
+      "custom_fields": {},
+      "date_allocated": null,
+      "description": "Reason per blood especially. Now mind gas drop recent would discover leave. Reach trial meeting focus theory offer there professional.",
+      "display": "2001:db8:0:3::/64: Art old radio.",
+      "id": "ee7c8837-8406-4862-9053-485f4e7b7d32",
+      "ip_version": 6,
+      "last_updated": "2025-08-10T17:43:31.270898Z",
+      "namespace": {
+        "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+        "object_type": "ipam.namespace",
+        "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+      },
+      "natural_slug": "art-old-radio_2001-db8-0-3_64_ee7c",
+      "network": "2001:db8:0:3::",
+      "notes_url": "http://localhost:8080/api/ipam/prefixes/ee7c8837-8406-4862-9053-485f4e7b7d32/notes/",
+      "object_type": "ipam.prefix",
+      "parent": null,
+      "prefix": "2001:db8:0:3::/64",
+      "prefix_length": 64,
+      "rir": null,
+      "role": {
+        "id": "13cd48e2-a42a-4ba7-be27-269f394781f4",
+        "object_type": "extras.role",
+        "url": "http://localhost:8080/api/extras/roles/13cd48e2-a42a-4ba7-be27-269f394781f4/"
+      },
+      "status": {
+        "id": "d372cff2-4aac-4cd0-b844-3162f69de3fb",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/d372cff2-4aac-4cd0-b844-3162f69de3fb/"
+      },
+      "tenant": {
+        "id": "b2b0943f-361f-481f-8f36-f19e3e3831ed",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/b2b0943f-361f-481f-8f36-f19e3e3831ed/"
+      },
+      "type": {
+        "label": "Container",
+        "value": "container"
+      },
+      "url": "http://localhost:8080/api/ipam/prefixes/ee7c8837-8406-4862-9053-485f4e7b7d32/",
+      "vlan": null,
+      "vrfs": [
+        {
+          "id": "2d1376b7-2eca-4641-ac30-0e6ff7613ebc",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/"
+        },
+        {
+          "id": "347b7a56-476c-4a57-8848-6b4a618b816f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/347b7a56-476c-4a57-8848-6b4a618b816f/"
+        },
+        {
+          "id": "d6aad51d-b0de-4c40-960a-50a40cda3c4f",
+          "object_type": "ipam.vrf",
+          "url": "http://localhost:8080/api/ipam/vrfs/d6aad51d-b0de-4c40-960a-50a40cda3c4f/"
+        }
+      ]
+    }
+  ],
+  "rd": "4280249921:43428",
+  "status": {
+    "color": "03a9f4",
+    "created": "2025-08-10T17:43:28.794251Z",
+    "custom_fields": {},
+    "description": "Page success discuss seem room should marriage. Nothing life dream its home.\nStatement audience while evening several game record. Other control set newspaper. Front stop although can relationship upon.",
+    "display": "UnableAll",
+    "id": "ea0da8f4-09a0-469d-87b9-78bd2ad34a96",
+    "last_updated": "2025-08-10T17:43:28.796883Z",
+    "name": "UnableAll",
+    "natural_slug": "unableall_ea0d",
+    "notes_url": "http://localhost:8080/api/extras/statuses/ea0da8f4-09a0-469d-87b9-78bd2ad34a96/notes/",
+    "object_type": "extras.status",
+    "url": "http://localhost:8080/api/extras/statuses/ea0da8f4-09a0-469d-87b9-78bd2ad34a96/"
+  },
+  "tags": [],
+  "tenant": {
+    "comments": "News affect involve eat very. Perform simple him society civil.",
+    "created": "2025-08-10T17:43:29.320734Z",
+    "custom_fields": {},
+    "description": "",
+    "display": "Griffin and Sons",
+    "id": "b006046a-a324-4b56-a963-335f2d568573",
+    "last_updated": "2025-08-10T17:43:29.323072Z",
+    "name": "Griffin and Sons",
+    "natural_slug": "griffin-and-sons_b006",
+    "notes_url": "http://localhost:8080/api/tenancy/tenants/b006046a-a324-4b56-a963-335f2d568573/notes/",
+    "object_type": "tenancy.tenant",
+    "tenant_group": {
+      "id": "00f1a1f0-b48c-48ec-bda0-c2b81037c9f6",
+      "object_type": "tenancy.tenantgroup",
+      "url": "http://localhost:8080/api/tenancy/tenant-groups/00f1a1f0-b48c-48ec-bda0-c2b81037c9f6/"
+    },
+    "url": "http://localhost:8080/api/tenancy/tenants/b006046a-a324-4b56-a963-335f2d568573/"
+  },
+  "url": "http://localhost:8080/api/ipam/vrfs/2d1376b7-2eca-4641-ac30-0e6ff7613ebc/",
+  "virtual_device_contexts": [
+    {
+      "created": "2025-08-10T17:43:38.276541Z",
+      "custom_fields": {},
+      "description": "",
+      "device": {
+        "id": "9994d035-21fe-49ee-b580-2ce6af2d5e16",
+        "object_type": "dcim.device",
+        "url": "http://localhost:8080/api/dcim/devices/9994d035-21fe-49ee-b580-2ce6af2d5e16/"
+      },
+      "display": "VirtualDeviceContext 28",
+      "id": "78ae1db0-4f81-4721-a61c-33b495feda4e",
+      "identifier": 129,
+      "last_updated": "2025-08-10T17:43:38.284467Z",
+      "name": "VirtualDeviceContext 28",
+      "natural_slug": "san-fabric-13__root-52_____129_78ae",
+      "notes_url": "http://localhost:8080/api/dcim/virtual-device-contexts/78ae1db0-4f81-4721-a61c-33b495feda4e/notes/",
+      "object_type": "dcim.virtualdevicecontext",
+      "primary_ip4": null,
+      "primary_ip6": null,
+      "role": {
+        "id": "04c41e1b-412a-49e6-a417-f2bd013e2eb6",
+        "object_type": "extras.role",
+        "url": "http://localhost:8080/api/extras/roles/04c41e1b-412a-49e6-a417-f2bd013e2eb6/"
+      },
+      "status": {
+        "id": "5d531c9a-4fda-4e43-b682-344e830654de",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/5d531c9a-4fda-4e43-b682-344e830654de/"
+      },
+      "tenant": {
+        "id": "b006046a-a324-4b56-a963-335f2d568573",
+        "object_type": "tenancy.tenant",
+        "url": "http://localhost:8080/api/tenancy/tenants/b006046a-a324-4b56-a963-335f2d568573/"
+      },
+      "url": "http://localhost:8080/api/dcim/virtual-device-contexts/78ae1db0-4f81-4721-a61c-33b495feda4e/"
+    },
+    {
+      "created": "2025-08-10T17:43:37.946004Z",
+      "custom_fields": {},
+      "description": "",
+      "device": {
+        "id": "1396500e-c5c6-4c09-9d65-33ee54c89aa2",
+        "object_type": "dcim.device",
+        "url": "http://localhost:8080/api/dcim/devices/1396500e-c5c6-4c09-9d65-33ee54c89aa2/"
+      },
+      "display": "VirtualDeviceContext 8",
+      "id": "c7c47d37-8014-43ac-a962-32a2a56b7c01",
+      "identifier": 109,
+      "last_updated": "2025-08-10T17:43:37.971098Z",
+      "name": "VirtualDeviceContext 8",
+      "natural_slug": "console-server-16__root-56_____109_c7c4",
+      "notes_url": "http://localhost:8080/api/dcim/virtual-device-contexts/c7c47d37-8014-43ac-a962-32a2a56b7c01/notes/",
+      "object_type": "dcim.virtualdevicecontext",
+      "primary_ip4": null,
+      "primary_ip6": null,
+      "role": null,
+      "status": {
+        "id": "5e94c0e6-a65a-4ef3-acb0-ee4dec2d0fbb",
+        "object_type": "extras.status",
+        "url": "http://localhost:8080/api/extras/statuses/5e94c0e6-a65a-4ef3-acb0-ee4dec2d0fbb/"
+      },
+      "tenant": null,
+      "url": "http://localhost:8080/api/dcim/virtual-device-contexts/c7c47d37-8014-43ac-a962-32a2a56b7c01/"
+    }
+  ],
+  "virtual_machines": []
+}
