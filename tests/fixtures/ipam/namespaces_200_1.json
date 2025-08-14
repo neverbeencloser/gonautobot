@@ -1,0 +1,124 @@
+{
+  "count": 3,
+  "next": "",
+  "previous": null,
+  "results": [
+    {
+      "created": "2025-08-10T17:43:30.169056Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Art old radio.",
+      "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+      "last_updated": "2025-08-10T17:43:30.170547Z",
+      "location": null,
+      "name": "Art old radio.",
+      "natural_slug": "art-old-radio_e7bf",
+      "notes_url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/notes/",
+      "object_type": "ipam.namespace",
+      "tags": [],
+      "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+    },
+    {
+      "created": "2025-08-10T17:43:30.163745Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Available different.",
+      "id": "7aab8544-6dc2-4764-88e9-a67593e014a2",
+      "last_updated": "2025-08-10T17:43:30.168064Z",
+      "location": null,
+      "name": "Available different.",
+      "natural_slug": "available-different_7aab",
+      "notes_url": "http://localhost:8080/api/ipam/namespaces/7aab8544-6dc2-4764-88e9-a67593e014a2/notes/",
+      "object_type": "ipam.namespace",
+      "tags": [
+        {
+          "color": "00ffff",
+          "created": "2025-08-10T17:43:28.886702Z",
+          "custom_fields": {},
+          "description": "",
+          "display": "Aqua",
+          "id": "04caba42-88b6-40e9-8761-82854fdfceb5",
+          "last_updated": "2025-08-10T17:43:28.893458Z",
+          "name": "Aqua",
+          "natural_slug": "aqua_04ca",
+          "notes_url": "http://localhost:8080/api/extras/tags/04caba42-88b6-40e9-8761-82854fdfceb5/notes/",
+          "object_type": "extras.tag",
+          "url": "http://localhost:8080/api/extras/tags/04caba42-88b6-40e9-8761-82854fdfceb5/"
+        },
+        {
+          "color": "8bc34a",
+          "created": "2025-08-10T17:43:28.909997Z",
+          "custom_fields": {},
+          "description": "Let check federal our recent by draw. Color partner gas show probably national authority.\nHigh century child. Industry note appear serious ground big. Character wish specific. Rock week agree pay half challenge conference.",
+          "display": "Light green",
+          "id": "21093608-1624-4902-931e-fe1426898bfc",
+          "last_updated": "2025-08-10T17:43:28.916584Z",
+          "name": "Light green",
+          "natural_slug": "light-green_2109",
+          "notes_url": "http://localhost:8080/api/extras/tags/21093608-1624-4902-931e-fe1426898bfc/notes/",
+          "object_type": "extras.tag",
+          "url": "http://localhost:8080/api/extras/tags/21093608-1624-4902-931e-fe1426898bfc/"
+        },
+        {
+          "color": "cddc39",
+          "created": "2025-08-10T17:43:28.917511Z",
+          "custom_fields": {},
+          "description": "",
+          "display": "Lime",
+          "id": "e607d562-ec70-4e01-84d1-f099dcd9045f",
+          "last_updated": "2025-08-10T17:43:28.923607Z",
+          "name": "Lime",
+          "natural_slug": "lime_e607",
+          "notes_url": "http://localhost:8080/api/extras/tags/e607d562-ec70-4e01-84d1-f099dcd9045f/notes/",
+          "object_type": "extras.tag",
+          "url": "http://localhost:8080/api/extras/tags/e607d562-ec70-4e01-84d1-f099dcd9045f/"
+        },
+        {
+          "color": "f44336",
+          "created": "2025-08-10T17:43:28.809610Z",
+          "custom_fields": {},
+          "description": "Allow product dark seek. Either scene statement series.\nMarriage risk environment brother whole level father look.\nResponsibility crime certainly great example much street. Risk common low six.",
+          "display": "Red",
+          "id": "f2bd6042-b435-474d-98ed-133191bcc3ae",
+          "last_updated": "2025-08-10T17:43:28.812345Z",
+          "name": "Red",
+          "natural_slug": "red_f2bd",
+          "notes_url": "http://localhost:8080/api/extras/tags/f2bd6042-b435-474d-98ed-133191bcc3ae/notes/",
+          "object_type": "extras.tag",
+          "url": "http://localhost:8080/api/extras/tags/f2bd6042-b435-474d-98ed-133191bcc3ae/"
+        }
+      ],
+      "url": "http://localhost:8080/api/ipam/namespaces/7aab8544-6dc2-4764-88e9-a67593e014a2/"
+    },
+    {
+      "created": "2025-08-10T17:43:35.911997Z",
+      "custom_fields": {},
+      "description": "",
+      "display": "Certainly safe.",
+      "id": "c5cee7c4-7c94-466d-8b87-ddf64b76547e",
+      "last_updated": "2025-08-10T17:43:35.913990Z",
+      "location": null,
+      "name": "Certainly safe.",
+      "natural_slug": "certainly-safe_c5ce",
+      "notes_url": "http://localhost:8080/api/ipam/namespaces/c5cee7c4-7c94-466d-8b87-ddf64b76547e/notes/",
+      "object_type": "ipam.namespace",
+      "tags": [
+        {
+          "color": "aa1409",
+          "created": "2025-08-10T17:43:28.803007Z",
+          "custom_fields": {},
+          "description": "",
+          "display": "Dark red",
+          "id": "da1c0628-1c7d-495a-9b2e-a6b49219fcb3",
+          "last_updated": "2025-08-10T17:43:28.808515Z",
+          "name": "Dark red",
+          "natural_slug": "dark-red_da1c",
+          "notes_url": "http://localhost:8080/api/extras/tags/da1c0628-1c7d-495a-9b2e-a6b49219fcb3/notes/",
+          "object_type": "extras.tag",
+          "url": "http://localhost:8080/api/extras/tags/da1c0628-1c7d-495a-9b2e-a6b49219fcb3/"
+        }
+      ],
+      "url": "http://localhost:8080/api/ipam/namespaces/c5cee7c4-7c94-466d-8b87-ddf64b76547e/"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "created": "2025-08-10T17:43:30.169056Z",
+  "custom_fields": {},
+  "description": "",
+  "display": "Art old radio.",
+  "id": "e7bf1338-ea50-487a-ae37-56c939187d9e",
+  "last_updated": "2025-08-10T17:43:30.170547Z",
+  "location": null,
+  "name": "Art old radio.",
+  "natural_slug": "art-old-radio_e7bf",
+  "notes_url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/notes/",
+  "object_type": "ipam.namespace",
+  "tags": [],
+  "url": "http://localhost:8080/api/ipam/namespaces/e7bf1338-ea50-487a-ae37-56c939187d9e/"
+}
