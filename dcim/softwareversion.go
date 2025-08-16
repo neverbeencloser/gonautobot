@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const (
@@ -31,8 +31,8 @@ type (
 		Platform         Platform       `json:"platform"`
 		PreRelease       bool           `json:"pre_release"`
 		ReleaseDate      *string        `json:"release_date"`
-		Status           extras.Status  `json:"status"`
-		Tags             []extras.Tag   `json:"tags"`
+		Status           types.Status   `json:"status"`
+		Tags             []types.Tag    `json:"tags"`
 		URL              string         `json:"url"`
 		Version          string         `json:"version"`
 	}

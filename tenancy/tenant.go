@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const (
@@ -32,7 +32,7 @@ type (
 		ObjectType     string         `json:"object_type"`
 		PrefixCount    int            `json:"prefix_count"`
 		RackCount      int            `json:"rack_count"`
-		Tags           []extras.Tag   `json:"tags"`
+		Tags           []types.Tag    `json:"tags"`
 		TenantGroup    *TenantGroup   `json:"tenant_group"`
 		URL            string         `json:"url"`
 		VMCount        int            `json:"virtualmachine_count"`

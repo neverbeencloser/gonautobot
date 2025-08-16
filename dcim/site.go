@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/neverbeencloser/gonautobot/types/nested"
 )
@@ -39,7 +38,7 @@ type (
 		ShippingAddress     string            `json:"shipping_address"`
 		Slug                string            `json:"slug"`
 		Status              *types.LabelValue `json:"status"`
-		Tags                []extras.Tag      `json:"tags"`
+		Tags                []types.Tag       `json:"tags"`
 		Tenant              *nested.Tenant    `json:"tenant"`
 		TimeZone            json.RawMessage   `json:"time_zone"`
 		URL                 string            `json:"url"`
