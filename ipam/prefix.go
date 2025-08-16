@@ -2,12 +2,13 @@ package ipam
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -17,7 +18,7 @@ type (
 		CustomFields map[string]interface{} `json:"custom_fields"`
 		Description  string                 `json:"description"`
 		Display      string                 `json:"display"`
-		Family       *shared.LabelValueInt  `json:"family"`
+		Family       *types.LabelValueInt   `json:"family"`
 		Group        *nested.SecretsGroup   `json:"group"`
 		ID           string                 `json:"id"`
 		IsPool       bool                   `json:"is_pool"`
@@ -28,7 +29,7 @@ type (
 		Prefix       string                 `json:"prefix"`
 		Role         *nested.Role           `json:"role"`
 		Site         *nested.Site           `json:"site"`
-		Status       *shared.LabelValue     `json:"status"`
+		Status       *types.LabelValue      `json:"status"`
 		Tags         []extras.Tag           `json:"tags"`
 		Tenant       *nested.Tenant         `json:"tenant"`
 		URL          string                 `json:"url"`

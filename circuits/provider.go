@@ -3,11 +3,12 @@ package circuits
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 type (
@@ -42,7 +43,7 @@ func (c *Client) ProviderFilter(q *url.Values) ([]Provider, error) {
 		return nil, err
 	}
 
-	resp := new(shared.ResponseList)
+	resp := new(types.ResponseList)
 	ret := make([]Provider, 0)
 	if err = c.UnmarshalDo(req, resp); err != nil {
 		return ret, err

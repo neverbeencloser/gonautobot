@@ -1,8 +1,9 @@
 package circuits
 
 import (
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"time"
+
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (

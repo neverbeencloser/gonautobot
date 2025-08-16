@@ -11,7 +11,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/neverbeencloser/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
 
@@ -42,7 +42,7 @@ func Paginate[T any](c *Client, uri string, q *url.Values, ret *[]T) error {
 			req.URL.RawQuery = q.Encode()
 		}
 
-		resp := new(shared.ResponseList)
+		resp := new(types.ResponseList)
 		r := make([]T, 0)
 		if err = c.UnmarshalDo(req, resp); err != nil {
 			return err

@@ -8,8 +8,8 @@ import (
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/dcim"
 	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
 	"github.com/neverbeencloser/gonautobot/tenancy"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const (
@@ -25,8 +25,8 @@ type (
 		Description           string          `json:"description"`
 		Devices               []dcim.Device   `json:"devices"`
 		Display               string          `json:"display"`
-		ExportTargets         []shared.Object `json:"export_targets"`
-		ImportTargets         []shared.Object `json:"import_targets"`
+		ExportTargets         []types.Object  `json:"export_targets"`
+		ImportTargets         []types.Object  `json:"import_targets"`
 		LastUpdated           time.Time       `json:"last_updated"`
 		Name                  string          `json:"name"`
 		Namespace             Namespace       `json:"namespace"`
@@ -39,8 +39,8 @@ type (
 		Tags                  []extras.Tag    `json:"tags"`
 		Tenant                *tenancy.Tenant `json:"tenant"`
 		URL                   string          `json:"url"`
-		VirtualDeviceContexts []shared.Object `json:"virtual_device_contexts"`
-		VirtualMachines       []shared.Object `json:"virtual_machines"`
+		VirtualDeviceContexts []types.Object  `json:"virtual_device_contexts"`
+		VirtualMachines       []types.Object  `json:"virtual_machines"`
 	}
 
 	// NewVRF : Structured input for a new VRF record in Nautobot.

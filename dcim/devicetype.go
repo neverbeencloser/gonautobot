@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const (
@@ -35,7 +35,7 @@ type (
 		PartNumber         string              `json:"part_number"`
 		RearImage          *string             `json:"rear_image"`
 		SoftwareImageFiles []SoftwareImageFile `json:"software_image_files"`
-		SubDeviceRole      *shared.LabelValue  `json:"subdevice_role"`
+		SubDeviceRole      *types.LabelValue   `json:"subdevice_role"`
 		Tags               []extras.Tag        `json:"tags"`
 		UHeight            int                 `json:"u_height"`
 		URL                string              `json:"url"`

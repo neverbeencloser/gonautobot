@@ -6,8 +6,8 @@ import (
 
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
 	"github.com/neverbeencloser/gonautobot/tenancy"
+	"github.com/neverbeencloser/gonautobot/types"
 
 	"github.com/google/uuid"
 )
@@ -19,35 +19,35 @@ const (
 type (
 	// Rack : Data type entry for a Rack in Nautobot.
 	Rack struct {
-		ID             uuid.UUID            `json:"id"`
-		AssetTag       *string              `json:"asset_tag"`
-		Comments       string               `json:"comments"`
-		Created        time.Time            `json:"created"`
-		CustomFields   map[string]any       `json:"custom_fields"`
-		DescUnits      bool                 `json:"desc_units"`
-		DeviceCount    int                  `json:"device_count"`
-		Display        string               `json:"display"`
-		FacilityID     *string              `json:"facility_id"`
-		LastUpdated    time.Time            `json:"last_updated"`
-		Location       Location             `json:"location"`
-		Name           string               `json:"name"`
-		NaturalSlug    string               `json:"natural_slug"`
-		NotesURL       string               `json:"notes_url"`
-		ObjectType     string               `json:"object_type"`
-		OuterDepth     *int                 `json:"outer_depth"`
-		OuterUnit      *shared.LabelValue   `json:"outer_unit"`
-		OuterWidth     *int                 `json:"outer_width"`
-		PowerFeedCount int                  `json:"power_feed_count"`
-		RackGroup      *RackGroup           `json:"rack_group"`
-		Role           *extras.Role         `json:"role"`
-		Serial         string               `json:"serial"`
-		Status         extras.Status        `json:"status"`
-		Tags           []extras.Tag         `json:"tags"`
-		Tenant         *tenancy.Tenant      `json:"tenant"`
-		Type           *shared.LabelValue   `json:"type"`
-		UHeight        int                  `json:"u_height"`
-		URL            string               `json:"url"`
-		Width          shared.LabelValueInt `json:"width"`
+		ID             uuid.UUID           `json:"id"`
+		AssetTag       *string             `json:"asset_tag"`
+		Comments       string              `json:"comments"`
+		Created        time.Time           `json:"created"`
+		CustomFields   map[string]any      `json:"custom_fields"`
+		DescUnits      bool                `json:"desc_units"`
+		DeviceCount    int                 `json:"device_count"`
+		Display        string              `json:"display"`
+		FacilityID     *string             `json:"facility_id"`
+		LastUpdated    time.Time           `json:"last_updated"`
+		Location       Location            `json:"location"`
+		Name           string              `json:"name"`
+		NaturalSlug    string              `json:"natural_slug"`
+		NotesURL       string              `json:"notes_url"`
+		ObjectType     string              `json:"object_type"`
+		OuterDepth     *int                `json:"outer_depth"`
+		OuterUnit      *types.LabelValue   `json:"outer_unit"`
+		OuterWidth     *int                `json:"outer_width"`
+		PowerFeedCount int                 `json:"power_feed_count"`
+		RackGroup      *RackGroup          `json:"rack_group"`
+		Role           *extras.Role        `json:"role"`
+		Serial         string              `json:"serial"`
+		Status         extras.Status       `json:"status"`
+		Tags           []extras.Tag        `json:"tags"`
+		Tenant         *tenancy.Tenant     `json:"tenant"`
+		Type           *types.LabelValue   `json:"type"`
+		UHeight        int                 `json:"u_height"`
+		URL            string              `json:"url"`
+		Width          types.LabelValueInt `json:"width"`
 	}
 
 	// NewRack represents the structure for creating a new Rack in Nautobot.

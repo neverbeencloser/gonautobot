@@ -2,13 +2,14 @@ package circuits
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
 	"time"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -20,7 +21,7 @@ type (
 		CircuitID    string             `json:"cid"`
 		Provider     nested.Provider    `json:"provider"`
 		Type         nested.CircuitType `json:"type"`
-		Status       shared.LabelValue  `json:"status"`
+		Status       types.LabelValue   `json:"status"`
 		Tenant       nested.Tenant      `json:"tenant"`
 		InstallDate  string             `json:"install_date"`
 		CommitRate   int                `json:"commit_rate"`
