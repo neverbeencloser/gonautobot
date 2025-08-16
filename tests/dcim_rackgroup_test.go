@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -54,7 +54,7 @@ func TestClient_RackGroupAll(t *testing.T) {
 }
 
 func TestClient_RackGroupCreate(t *testing.T) {
-	newRackGroup := dcim.NewRackGroup{
+	newRackGroup := types.NewRackGroup{
 		Name:     "rackgroup1",
 		Location: "b840f97e-e6e9-4b8b-b7ce-0e30f3424201",
 	}
