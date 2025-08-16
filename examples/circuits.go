@@ -2,15 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/circuits"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/rs/zerolog/log"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/rs/zerolog/log"
 )
 
 // CircuitExample : Example usage of the Circuit Nautobot methods.
 func (c *ex) CircuitExample() {
-	r0, err := c.Circuits.CircuitCreate(circuits.CircuitRequest{
+	r0, err := c.Circuits.CircuitCreate(types.CircuitRequest{
 		CircuitID:   "abc12345903",
 		Status:      "Active",
 		Description: "Test Circuit",
@@ -26,7 +27,7 @@ func (c *ex) CircuitExample() {
 	if err != nil {
 		log.Fatal().Err(err)
 	}
-	first, _ := core.First[circuits.Circuit](r1)
+	first, _ := core.First[types.Circuit](r1)
 	fmt.Println(first.CircuitID)
 
 	r2, err := c.Circuits.CircuitGet(first.ID)
