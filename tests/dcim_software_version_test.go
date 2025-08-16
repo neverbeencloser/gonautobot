@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -54,7 +54,7 @@ func TestClient_SoftwareVersionAll(t *testing.T) {
 }
 
 func TestClient_SoftwareVersionCreate(t *testing.T) {
-	newSoftwareVersion := dcim.NewSoftwareVersion{
+	newSoftwareVersion := types.NewSoftwareVersion{
 		Platform: "9a47828b-0f74-42b0-8d30-99fd9806cb1f",
 		Status:   "active",
 		Version:  "6.15.2",

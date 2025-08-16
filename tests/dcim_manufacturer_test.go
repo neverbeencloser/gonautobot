@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -59,7 +59,7 @@ func TestClient_ManufacturerAll(t *testing.T) {
 
 func TestClient_ManufacturerCreate(t *testing.T) {
 	defer gock.Off()
-	newManufacturer := dcim.NewManufacturer{
+	newManufacturer := types.NewManufacturer{
 		Name:        "AWS",
 		Description: "Amazon Web Services",
 	}
