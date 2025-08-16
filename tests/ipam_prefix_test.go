@@ -1,11 +1,12 @@
 package nautobot_test
 
 import (
-	"github.com/neverbeencloser/gonautobot/ipam"
-	"github.com/stretchr/testify/require"
 	"net/url"
 	"path"
 	"testing"
+
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/stretchr/testify/require"
 
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/h2non/gock.v1"
@@ -48,7 +49,7 @@ func TestClient_GetPrefixAvailablePrefixes(t *testing.T) {
 }
 
 func TestClient_CreatePrefix(t *testing.T) {
-	req := ipam.NewPrefix{
+	req := types.NewPrefix{
 		Description: "Test Prefix",
 		IsPool:      false,
 		Prefix:      "10.197.27.0/29",

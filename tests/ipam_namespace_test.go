@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/ipam"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -65,7 +65,7 @@ func TestClient_NamespaceAll(t *testing.T) {
 func TestClient_NamespaceCreate(t *testing.T) {
 	defer gock.Off()
 
-	newNamespace := ipam.NewNamespace{
+	newNamespace := types.NewNamespace{
 		Name:        "Art old radio.",
 		Description: "",
 	}

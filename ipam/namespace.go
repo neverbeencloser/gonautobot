@@ -2,11 +2,9 @@ package ipam
 
 import (
 	"net/url"
-	"time"
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/dcim"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -14,60 +12,31 @@ const (
 	ipamEndpointNamespace = "ipam/namespaces/"
 )
 
-type (
-	// Namespace : Represents a namespace in Nautobot.
-	Namespace struct {
-		ID           uuid.UUID      `json:"id"`
-		Created      time.Time      `json:"created"`
-		CustomFields map[string]any `json:"custom_fields"`
-		Description  string         `json:"description"`
-		Display      string         `json:"display"`
-		LastUpdated  time.Time      `json:"last_updated"`
-		Location     *dcim.Location `json:"location"`
-		Name         string         `json:"name"`
-		NaturalSlug  string         `json:"natural_slug"`
-		NotesURL     string         `json:"notes_url"`
-		ObjectType   string         `json:"object_type"`
-		Tags         []types.Tag    `json:"tags"`
-		URL          string         `json:"url"`
-	}
-
-	// NewNamespace : Represents a new namespace to be created in Nautobot.
-	NewNamespace struct {
-		Name          string         `json:"name"`
-		CustomFields  map[string]any `json:"custom_fields,omitempty"`
-		Description   string         `json:"description,omitempty"`
-		Location      string         `json:"location,omitempty"`
-		Relationships map[string]any `json:"relationships,omitempty"`
-		Tags          []string       `json:"tags,omitempty"`
-	}
-)
-
 // NamespaceGet : Get a Namespace by UUID identifier.
-func (c *Client) NamespaceGet(id uuid.UUID) (*Namespace, error) {
-	return core.Get[Namespace](c.Client, ipamEndpointNamespace, id)
+func (c *Client) NamespaceGet(id uuid.UUID) (*types.Namespace, error) {
+	return core.Get[types.Namespace](c.Client, ipamEndpointNamespace, id)
 }
 
 // NamespaceFilter : Get a list of Namespaces based on query parameters.
-func (c *Client) NamespaceFilter(q *url.Values) ([]Namespace, error) {
-	namespaces := make([]Namespace, 0)
-	return namespaces, core.Paginate[Namespace](c.Client, ipamEndpointNamespace, q, &namespaces)
+func (c *Client) NamespaceFilter(q *url.Values) ([]types.Namespace, error) {
+	namespaces := make([]types.Namespace, 0)
+	return namespaces, core.Paginate[types.Namespace](c.Client, ipamEndpointNamespace, q, &namespaces)
 }
 
 // NamespaceAll : Get all Namespaces in Nautobot.
-func (c *Client) NamespaceAll() ([]Namespace, error) {
-	namespaces := make([]Namespace, 0)
-	return namespaces, core.Paginate[Namespace](c.Client, ipamEndpointNamespace, nil, &namespaces)
+func (c *Client) NamespaceAll() ([]types.Namespace, error) {
+	namespaces := make([]types.Namespace, 0)
+	return namespaces, core.Paginate[types.Namespace](c.Client, ipamEndpointNamespace, nil, &namespaces)
 }
 
 // NamespaceCreate : Generate a new Namespace record in Nautobot.
-func (c *Client) NamespaceCreate(obj NewNamespace) (*Namespace, error) {
-	return core.Create[Namespace, NewNamespace](c.Client, ipamEndpointNamespace, obj)
+func (c *Client) NamespaceCreate(obj types.NewNamespace) (*types.Namespace, error) {
+	return core.Create[types.Namespace, types.NewNamespace](c.Client, ipamEndpointNamespace, obj)
 }
 
 // NamespaceUpdate : Update an existing Namespace record in Nautobot.
-func (c *Client) NamespaceUpdate(id uuid.UUID, patch map[string]any) (*Namespace, error) {
-	return core.Update[Namespace](c.Client, ipamEndpointNamespace, id, patch)
+func (c *Client) NamespaceUpdate(id uuid.UUID, patch map[string]any) (*types.Namespace, error) {
+	return core.Update[types.Namespace](c.Client, ipamEndpointNamespace, id, patch)
 }
 
 // NamespaceDelete : Delete a Namespace by UUID identifier.
