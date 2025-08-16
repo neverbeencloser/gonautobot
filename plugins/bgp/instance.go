@@ -7,39 +7,18 @@ import (
 
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/types"
-	"github.com/neverbeencloser/gonautobot/types/nested"
-)
-
-type (
-	// RoutingInstance : Routing Instance data representation in Nautobot.
-	RoutingInstance struct {
-		AutonomousSystem *AutonomousSystem        `json:"autonomous_system"`
-		Created          string                   `json:"created"`
-		CustomFields     map[string]interface{}   `json:"custom_fields"`
-		Description      string                   `json:"description"`
-		Device           *nested.Device           `json:"device"`
-		Display          string                   `json:"display"`
-		Endpoints        []nested.BGPPeerEndpoint `json:"endpoints"`
-		ExtraAttributes  map[string]interface{}   `json:"extra_attributes"`
-		ID               string                   `json:"id"`
-		LastUpdated      string                   `json:"last_updated"`
-		RouterID         *nested.IPAddress        `json:"router_id"`
-		Status           *types.LabelValue        `json:"status"`
-		Tags             []types.Tag              `json:"tags"`
-		URL              string                   `json:"url"`
-	}
 )
 
 // BGPRoutingInstanceGet : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/:id/
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_list
-func (c *Client) BGPRoutingInstanceGet(uuid string) (*RoutingInstance, error) {
+func (c *Client) BGPRoutingInstanceGet(uuid string) (*types.RoutingInstance, error) {
 	req, err := c.Request(http.MethodGet, fmt.Sprintf("plugins/bgp/routing-instances/%s/", url.PathEscape(uuid)), nil, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	ret := new(RoutingInstance)
+	ret := new(types.RoutingInstance)
 	err = c.UnmarshalDo(req, ret)
 	return ret, err
 }
@@ -47,7 +26,7 @@ func (c *Client) BGPRoutingInstanceGet(uuid string) (*RoutingInstance, error) {
 // BGPRoutingInstanceFilter : Go function to process requests for the endpoint: /api/plugins/bgp/autonomous-systems/
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_retrieve
-func (c *Client) BGPRoutingInstanceFilter(q *url.Values) ([]RoutingInstance, error) {
-	resp := make([]RoutingInstance, 0)
-	return resp, core.Paginate[RoutingInstance](c.Client, "plugins/bgp/routing-instances/", q, &resp)
+func (c *Client) BGPRoutingInstanceFilter(q *url.Values) ([]types.RoutingInstance, error) {
+	resp := make([]types.RoutingInstance, 0)
+	return resp, core.Paginate[types.RoutingInstance](c.Client, "plugins/bgp/routing-instances/", q, &resp)
 }

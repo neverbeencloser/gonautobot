@@ -7,7 +7,6 @@ import (
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/dcim"
-	"github.com/neverbeencloser/gonautobot/tenancy"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -18,28 +17,28 @@ const (
 type (
 	// VRF : Data type entry for a VRF in Nautobot.
 	VRF struct {
-		ID                    uuid.UUID       `json:"id"`
-		Created               time.Time       `json:"created"`
-		CustomFields          map[string]any  `json:"custom_fields"`
-		Description           string          `json:"description"`
-		Devices               []dcim.Device   `json:"devices"`
-		Display               string          `json:"display"`
-		ExportTargets         []types.Object  `json:"export_targets"`
-		ImportTargets         []types.Object  `json:"import_targets"`
-		LastUpdated           time.Time       `json:"last_updated"`
-		Name                  string          `json:"name"`
-		Namespace             Namespace       `json:"namespace"`
-		NaturalSlug           string          `json:"natural_slug"`
-		NotesURL              string          `json:"notes_url"`
-		ObjectType            string          `json:"object_type"`
-		Prefixes              []Prefix        `json:"prefixes"`
-		RD                    string          `json:"rd"`
-		Status                *types.Status   `json:"status"`
-		Tags                  []types.Tag     `json:"tags"`
-		Tenant                *tenancy.Tenant `json:"tenant"`
-		URL                   string          `json:"url"`
-		VirtualDeviceContexts []types.Object  `json:"virtual_device_contexts"`
-		VirtualMachines       []types.Object  `json:"virtual_machines"`
+		ID                    uuid.UUID      `json:"id"`
+		Created               time.Time      `json:"created"`
+		CustomFields          map[string]any `json:"custom_fields"`
+		Description           string         `json:"description"`
+		Devices               []dcim.Device  `json:"devices"`
+		Display               string         `json:"display"`
+		ExportTargets         []types.Object `json:"export_targets"`
+		ImportTargets         []types.Object `json:"import_targets"`
+		LastUpdated           time.Time      `json:"last_updated"`
+		Name                  string         `json:"name"`
+		Namespace             Namespace      `json:"namespace"`
+		NaturalSlug           string         `json:"natural_slug"`
+		NotesURL              string         `json:"notes_url"`
+		ObjectType            string         `json:"object_type"`
+		Prefixes              []Prefix       `json:"prefixes"`
+		RD                    string         `json:"rd"`
+		Status                *types.Status  `json:"status"`
+		Tags                  []types.Tag    `json:"tags"`
+		Tenant                *types.Tenant  `json:"tenant"`
+		URL                   string         `json:"url"`
+		VirtualDeviceContexts []types.Object `json:"virtual_device_contexts"`
+		VirtualMachines       []types.Object `json:"virtual_machines"`
 	}
 
 	// NewVRF : Structured input for a new VRF record in Nautobot.

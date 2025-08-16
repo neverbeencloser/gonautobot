@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/tenancy"
 	"github.com/neverbeencloser/gonautobot/types"
 
 	"github.com/google/uuid"
@@ -42,7 +41,7 @@ type (
 		Serial         string              `json:"serial"`
 		Status         types.Status        `json:"status"`
 		Tags           []types.Tag         `json:"tags"`
-		Tenant         *tenancy.Tenant     `json:"tenant"`
+		Tenant         *types.Tenant       `json:"tenant"`
 		Type           *types.LabelValue   `json:"type"`
 		UHeight        int                 `json:"u_height"`
 		URL            string              `json:"url"`
