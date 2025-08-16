@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -54,7 +54,7 @@ func TestClient_RackAll(t *testing.T) {
 }
 
 func TestClient_RackCreate(t *testing.T) {
-	newRack := dcim.NewRack{
+	newRack := types.NewRack{
 		Location: "96af6f0f-c573-48d7-8ee1-f4e10545c14c",
 		Name:     "A12-24",
 		Status:   "7069f6d4-e69e-4b7b-a5d1-ac1d4fc59353",

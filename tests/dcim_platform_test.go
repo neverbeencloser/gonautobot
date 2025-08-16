@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -58,7 +58,7 @@ func TestClient_PlatformAll(t *testing.T) {
 
 func TestClient_PlatformCreate(t *testing.T) {
 	defer gock.Off()
-	newPlatform := dcim.NewPlatform{
+	newPlatform := types.NewPlatform{
 		Name:         "eos",
 		Manufacturer: "b832f225-56af-4ff3-8e9a-66ab401c84de", // Manufacturer ID from fixture
 	}

@@ -11,8 +11,8 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
 	"github.com/neverbeencloser/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -60,7 +60,7 @@ func TestClient_DeviceTypeAll(t *testing.T) {
 }
 
 func TestClient_DeviceTypeCreate(t *testing.T) {
-	newDeviceType := dcim.NewDeviceType{
+	newDeviceType := types.NewDeviceType{
 		Model:        "t2.micro",
 		Manufacturer: "acc4c522-cf77-46bf-bdf3-d0e4a69b4d1e",
 		UHeight:      1,
@@ -78,7 +78,7 @@ func TestClient_DeviceTypeCreate(t *testing.T) {
 }
 
 func TestClient_DeviceTypeUpdate(t *testing.T) {
-	updateData := dcim.NewDeviceType{
+	updateData := types.NewDeviceType{
 		Comments: "updated comments",
 	}
 
@@ -117,7 +117,7 @@ func TestCreateMultipartBody(t *testing.T) {
 	err = tmpFile.Close()
 	require.NoError(t, err)
 
-	newDeviceType := dcim.NewDeviceType{
+	newDeviceType := types.NewDeviceType{
 		Model:        "test-model",
 		Manufacturer: "test-manufacturer",
 		UHeight:      1,
