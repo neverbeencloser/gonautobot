@@ -1,10 +1,9 @@
-package virtualization
+package types
 
 import (
 	"time"
 
-	"github.com/neverbeencloser/gonautobot/dcim"
-	"github.com/neverbeencloser/gonautobot/tenancy"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 // Cluster : Cerebro Cluster data representation in Nautobot.
@@ -21,11 +20,11 @@ type Cluster struct {
 		ObjectType string `json:"object_type"`
 		URL        string `json:"url"`
 	} `json:"cluster_type"`
-	ClusterGroup any             `json:"cluster_group"`
-	Tenant       *tenancy.Tenant `json:"tenant"`
-	Location     *dcim.Location  `json:"location"`
-	Created      time.Time       `json:"created"`
-	LastUpdated  time.Time       `json:"last_updated"`
-	NotesURL     string          `json:"notes_url"`
-	CustomFields map[string]any  `json:"custom_fields"`
+	ClusterGroup any              `json:"cluster_group"`
+	Tenant       *Tenant          `json:"tenant"`
+	Location     *nested.Location `json:"location"`
+	Created      time.Time        `json:"created"`
+	LastUpdated  time.Time        `json:"last_updated"`
+	NotesURL     string           `json:"notes_url"`
+	CustomFields map[string]any   `json:"custom_fields"`
 }
