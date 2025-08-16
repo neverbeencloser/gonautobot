@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -63,7 +63,7 @@ func TestClient_CustomFieldAll(t *testing.T) {
 
 func TestClient_CustomFieldCreate(t *testing.T) {
 	defer gock.Off()
-	newCf := extras.NewCustomField{
+	newCf := types.NewCustomField{
 		ContentTypes: []string{"dcim.device", "dcim.location", "dcim.locationtype", "tenancy.tenant"},
 		Key:          "terraform",
 		Label:        "Terraform",

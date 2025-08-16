@@ -7,7 +7,6 @@ import (
 	"time"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/neverbeencloser/gonautobot/types/nested"
 )
@@ -31,7 +30,7 @@ type (
 		Comments     string             `json:"comments"`
 		Created      string             `json:"created"`
 		LastUpdated  time.Time          `json:"last_updated"`
-		Tags         []extras.Tag       `json:"tags"`
+		Tags         []types.Tag        `json:"tags"`
 		NotesURL     string             `json:"notes_url"`
 		CustomFields map[string]any     `json:"custom_fields"`
 	}
@@ -50,7 +49,7 @@ type (
 		TerminationZ Termination    `json:"termination_z,omitempty"`
 		Comments     string         `json:"comments,omitempty"`
 		Created      string         `json:"created,omitempty"`
-		Tags         []extras.Tag   `json:"tags,omitempty"`
+		Tags         []types.Tag    `json:"tags,omitempty"`
 		CustomFields map[string]any `json:"custom_fields,omitempty"`
 	}
 )

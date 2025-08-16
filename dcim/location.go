@@ -6,8 +6,8 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/tenancy"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const (
@@ -43,8 +43,8 @@ type (
 		PrefixCount     int             `json:"prefix_count"`
 		RackCount       int             `json:"rack_count"`
 		ShippingAddress string          `json:"shipping_address"`
-		Status          extras.Status   `json:"status"`
-		Tags            []extras.Tag    `json:"tags"`
+		Status          types.Status    `json:"status"`
+		Tags            []types.Tag     `json:"tags"`
 		Tenant          *tenancy.Tenant `json:"tenant"`
 		TimeZone        *string         `json:"time_zone"`
 		TreeDepth       *int            `json:"tree_depth"`

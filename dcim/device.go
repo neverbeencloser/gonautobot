@@ -7,7 +7,6 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/neverbeencloser/gonautobot/types/nested"
 )
@@ -43,7 +42,7 @@ type (
 		Serial             string                        `json:"serial"`
 		Site               *Site                         `json:"site"`
 		Status             *types.LabelValue             `json:"status"`
-		Tags               []extras.Tag                  `json:"tags"`
+		Tags               []types.Tag                   `json:"tags"`
 		Tenant             *nested.Tenant                `json:"tenant"`
 		URL                string                        `json:"url"`
 		VCPosition         *int                          `json:"vc_position"`

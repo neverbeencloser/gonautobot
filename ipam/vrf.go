@@ -7,7 +7,6 @@ import (
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/dcim"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/tenancy"
 	"github.com/neverbeencloser/gonautobot/types"
 )
@@ -35,8 +34,8 @@ type (
 		ObjectType            string          `json:"object_type"`
 		Prefixes              []Prefix        `json:"prefixes"`
 		RD                    string          `json:"rd"`
-		Status                *extras.Status  `json:"status"`
-		Tags                  []extras.Tag    `json:"tags"`
+		Status                *types.Status   `json:"status"`
+		Tags                  []types.Tag     `json:"tags"`
 		Tenant                *tenancy.Tenant `json:"tenant"`
 		URL                   string          `json:"url"`
 		VirtualDeviceContexts []types.Object  `json:"virtual_device_contexts"`

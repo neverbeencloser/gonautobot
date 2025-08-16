@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -54,7 +54,7 @@ func TestClient_RoleAll(t *testing.T) {
 }
 
 func TestClient_RoleCreate(t *testing.T) {
-	newRole := extras.NewRole{
+	newRole := types.NewRole{
 		Name:         "Compute",
 		ContentTypes: []string{"dcim.device"},
 		Color:        "9e9e9e",

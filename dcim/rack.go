@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/tenancy"
 	"github.com/neverbeencloser/gonautobot/types"
 
@@ -39,10 +38,10 @@ type (
 		OuterWidth     *int                `json:"outer_width"`
 		PowerFeedCount int                 `json:"power_feed_count"`
 		RackGroup      *RackGroup          `json:"rack_group"`
-		Role           *extras.Role        `json:"role"`
+		Role           *types.Role         `json:"role"`
 		Serial         string              `json:"serial"`
-		Status         extras.Status       `json:"status"`
-		Tags           []extras.Tag        `json:"tags"`
+		Status         types.Status        `json:"status"`
+		Tags           []types.Tag         `json:"tags"`
 		Tenant         *tenancy.Tenant     `json:"tenant"`
 		Type           *types.LabelValue   `json:"type"`
 		UHeight        int                 `json:"u_height"`

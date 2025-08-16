@@ -7,7 +7,6 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -28,7 +27,7 @@ type (
 		CircuitCount int            `json:"circuit_count"`
 		Created      string         `json:"created"`
 		LastUpdated  time.Time      `json:"last_updated"`
-		Tags         []extras.Tag   `json:"tags"`
+		Tags         []types.Tag    `json:"tags"`
 		NotesURL     string         `json:"notes_url"`
 		CustomFields map[string]any `json:"custom_fields"`
 	}

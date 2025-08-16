@@ -6,7 +6,6 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	nautobot "github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/neverbeencloser/gonautobot/types/nested"
 )
@@ -26,7 +25,7 @@ type (
 		LastUpdated      string                   `json:"last_updated"`
 		RouterID         *nested.IPAddress        `json:"router_id"`
 		Status           *types.LabelValue        `json:"status"`
-		Tags             []nautobot.Tag           `json:"tags"`
+		Tags             []types.Tag              `json:"tags"`
 		URL              string                   `json:"url"`
 	}
 )

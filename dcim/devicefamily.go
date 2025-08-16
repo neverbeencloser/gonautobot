@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const (
@@ -26,7 +26,7 @@ type (
 		NaturalSlug  string         `json:"natural_slug"`
 		NotesURL     string         `json:"notes_url"`
 		ObjectType   string         `json:"object_type"`
-		Tags         []extras.Tag   `json:"tags"`
+		Tags         []types.Tag    `json:"tags"`
 		URL          string         `json:"url"`
 	}
 
