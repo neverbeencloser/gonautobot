@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -44,7 +44,7 @@ func TestClient_TagAll(t *testing.T) {
 }
 
 func TestClient_TagCreate(t *testing.T) {
-	newTag := extras.NewTag{
+	newTag := types.NewTag{
 		Name:         "sup-720",
 		ContentTypes: []string{},
 		Color:        "607d8b",

@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -53,7 +53,7 @@ func TestClient_StatusAll(t *testing.T) {
 }
 
 func TestClient_StatusCreate(t *testing.T) {
-	newStatus := extras.NewStatus{
+	newStatus := types.NewStatus{
 		Name:         "Staging",
 		ContentTypes: []string{"dcim.location", "dcim.deviceredundancygroup", "dcim.interfaceredundancygroup"},
 		Color:        "2196f3",

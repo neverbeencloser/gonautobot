@@ -7,7 +7,6 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/neverbeencloser/gonautobot/types/nested"
 )
@@ -44,7 +43,7 @@ type (
 		NotesURL                   string                 `json:"notes_url"`
 		ParentInterface            *Interface             `json:"parent_interface"`
 		TaggedVLANs                []nested.VLAN          `json:"tagged_vlans"`
-		Tags                       []extras.Tag           `json:"tags"`
+		Tags                       []types.Tag            `json:"tags"`
 		Type                       *types.LabelValue      `json:"type"`
 		UntaggedVLAN               *nested.VLAN           `json:"untagged_vlan"`
 		URL                        string                 `json:"url"`
