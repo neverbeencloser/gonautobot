@@ -6,7 +6,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -36,7 +35,7 @@ type (
 		RearImage          *string             `json:"rear_image"`
 		SoftwareImageFiles []SoftwareImageFile `json:"software_image_files"`
 		SubDeviceRole      *types.LabelValue   `json:"subdevice_role"`
-		Tags               []extras.Tag        `json:"tags"`
+		Tags               []types.Tag         `json:"tags"`
 		UHeight            int                 `json:"u_height"`
 		URL                string              `json:"url"`
 	}

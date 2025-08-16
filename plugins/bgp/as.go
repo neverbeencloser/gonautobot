@@ -6,7 +6,6 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/neverbeencloser/gonautobot/types/nested"
 )
@@ -23,7 +22,7 @@ type (
 		LastUpdated  string                 `json:"last_updated"`
 		Provider     *nested.Provider       `json:"provider"`
 		Status       *types.LabelValue      `json:"status"`
-		Tags         []extras.Tag           `json:"tags"`
+		Tags         []types.Tag            `json:"tags"`
 		URL          string                 `json:"url"`
 	}
 )

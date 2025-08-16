@@ -6,7 +6,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -33,8 +32,8 @@ type (
 		NotesURL            string          `json:"notes_url"`
 		ObjectType          string          `json:"object_type"`
 		SoftwareVersion     SoftwareVersion `json:"software_version"`
-		Status              extras.Status   `json:"status"`
-		Tags                []extras.Tag    `json:"tags"`
+		Status              types.Status    `json:"status"`
+		Tags                []types.Tag     `json:"tags"`
 		URL                 string          `json:"url"`
 	}
 

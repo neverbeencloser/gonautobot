@@ -6,7 +6,6 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/neverbeencloser/gonautobot/types/nested"
 )
@@ -30,7 +29,7 @@ type (
 		Role         *nested.Role           `json:"role"`
 		Site         *nested.Site           `json:"site"`
 		Status       *types.LabelValue      `json:"status"`
-		Tags         []extras.Tag           `json:"tags"`
+		Tags         []types.Tag            `json:"tags"`
 		Tenant       *nested.Tenant         `json:"tenant"`
 		URL          string                 `json:"url"`
 		VLAN         *nested.VLAN           `json:"vlan"`
@@ -53,13 +52,13 @@ type (
 
 	// NewPrefix : The data structure required to create a new Prefix object in Nautobot.
 	NewPrefix struct {
-		Description string       `json:"description"`
-		ID          string       `json:"id"`
-		IsPool      bool         `json:"is_pool"`
-		Prefix      string       `json:"prefix"`
-		Status      Status       `json:"status"`
-		Tags        []extras.Tag `json:"tags"`
-		VRF         *nested.VRF  `json:"vrf"`
+		Description string      `json:"description"`
+		ID          string      `json:"id"`
+		IsPool      bool        `json:"is_pool"`
+		Prefix      string      `json:"prefix"`
+		Status      Status      `json:"status"`
+		Tags        []types.Tag `json:"tags"`
+		VRF         *nested.VRF `json:"vrf"`
 	}
 
 	// Status is a required parameter defining the status of the prefix ( enum)
@@ -67,15 +66,15 @@ type (
 
 	// PrefixUpdate : defines writable fields to update a Prefix entry in nautobot
 	PrefixUpdate struct {
-		Prefix      string       `json:"prefix"`
-		IsPool      bool         `json:"is_pool"`
-		Tags        []extras.Tag `json:"tags"`
-		Description string       `json:"description"`
-		VRF         *nested.VRF  `json:"vrf"`
-		Site        string       `json:"site"`
-		Location    string       `json:"location"`
-		Tenant      string       `json:"tenant"`
-		VLAN        string       `json:"vlan"`
+		Prefix      string      `json:"prefix"`
+		IsPool      bool        `json:"is_pool"`
+		Tags        []types.Tag `json:"tags"`
+		Description string      `json:"description"`
+		VRF         *nested.VRF `json:"vrf"`
+		Site        string      `json:"site"`
+		Location    string      `json:"location"`
+		Tenant      string      `json:"tenant"`
+		VLAN        string      `json:"vlan"`
 	}
 
 	// PrefixesAvailablePrefixesCreateRequest : required parameters for PrefixesAvailablePrefixesCreate

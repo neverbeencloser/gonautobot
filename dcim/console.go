@@ -8,7 +8,6 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/neverbeencloser/gonautobot/extras"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -34,7 +33,7 @@ type (
 			URL   string `json:"url"`
 			Label string `json:"label"`
 		} `json:"cable"`
-		Tags []extras.Tag `json:"tags"`
+		Tags []types.Tag `json:"tags"`
 	}
 
 	// ConnectedEndpoint : Struct representing the far-side of the console connection.
