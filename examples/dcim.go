@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/dcim"
-	"github.com/rs/zerolog/log"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/rs/zerolog/log"
 )
 
 // DeviceExample : Example usage of the Device Nautobot methods.
 func (c *ex) DeviceExample() {
-	req := dcim.NewDevice{
+	req := types.NewDevice{
 		Name:       "tst01-device-01",
 		Role:       "edge",
 		Status:     "Active",

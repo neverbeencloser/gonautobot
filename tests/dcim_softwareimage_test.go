@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -54,7 +54,7 @@ func TestClient_SoftwareImageFileAll(t *testing.T) {
 }
 
 func TestClient_SoftwareImageFileCreate(t *testing.T) {
-	newSIF := dcim.NewSoftwareImageFile{
+	newSIF := types.NewSoftwareImageFile{
 		ImageFileName:   "efwwefwf",
 		SoftwareVersion: "bd0d3850-385d-47c5-8117-75de4c92d6c6",
 		Status:          "active",

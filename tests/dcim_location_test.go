@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -67,7 +67,7 @@ func TestClient_LocationAll(t *testing.T) {
 func TestClient_LocationCreate(t *testing.T) {
 	defer gock.Off()
 
-	newLocation := dcim.NewLocation{
+	newLocation := types.NewLocation{
 		Name:         "us-west-1",
 		LocationType: "1d464670-8fd2-4d1e-bd9d-8811bf2d1fe0",
 		Status:       "7e222b0f-efe9-4bb3-81a0-fb9e81db4ca6",

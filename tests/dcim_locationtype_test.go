@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -67,7 +67,7 @@ func TestClient_LocationTypeCreate(t *testing.T) {
 	defer gock.Off()
 
 	parentID := testParentLocationTypeID
-	newLocationType := dcim.NewLocationType{
+	newLocationType := types.NewLocationType{
 		Name:         "Site",
 		ContentTypes: []string{"dcim.device", "ipam.prefix", "ipam.vlan", "ipam.vlangroup"},
 		Nestable:     true,

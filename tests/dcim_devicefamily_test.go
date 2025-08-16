@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/dcim"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -61,7 +61,7 @@ func TestClient_DeviceFamilyAll(t *testing.T) {
 
 func TestClient_DeviceFamilyCreate(t *testing.T) {
 	defer gock.Off()
-	newDeviceFamily := dcim.NewDeviceFamily{
+	newDeviceFamily := types.NewDeviceFamily{
 		Name:        "Family1",
 		Description: "A family for devices",
 	}
