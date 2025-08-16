@@ -3,12 +3,13 @@ package dcim
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
+
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 type (
@@ -59,7 +60,7 @@ func (c *Client) ConsoleConnectionFilter(q *url.Values) ([]ConsolePort, error) {
 		return nil, err
 	}
 
-	resp := new(shared.ResponseList)
+	resp := new(types.ResponseList)
 	ret := make([]ConsolePort, 0)
 	if err = c.UnmarshalDo(req, resp); err != nil {
 		return ret, err

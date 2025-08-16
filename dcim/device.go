@@ -3,12 +3,13 @@ package dcim
 import (
 	"errors"
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -24,7 +25,7 @@ type (
 		DeviceRole         *nested.DeviceRole            `json:"device_role"`
 		DeviceType         *nested.DeviceType            `json:"device_type"`
 		Display            string                        `json:"display"`
-		Face               *shared.LabelValue            `json:"face"`
+		Face               *types.LabelValue             `json:"face"`
 		LastUpdated        string                        `json:"last_updated"`
 		LocalContextSchema *nested.ConfigContextSchema   `json:"local_context_schema"`
 		LocalContextData   map[string]interface{}        `json:"local_context_data"`
@@ -41,7 +42,7 @@ type (
 		SecretsGroup       *nested.SecretsGroup          `json:"secrets_group"`
 		Serial             string                        `json:"serial"`
 		Site               *Site                         `json:"site"`
-		Status             *shared.LabelValue            `json:"status"`
+		Status             *types.LabelValue             `json:"status"`
 		Tags               []extras.Tag                  `json:"tags"`
 		Tenant             *nested.Tenant                `json:"tenant"`
 		URL                string                        `json:"url"`

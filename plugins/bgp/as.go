@@ -2,12 +2,13 @@ package bgp
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -21,7 +22,7 @@ type (
 		ID           string                 `json:"id"`
 		LastUpdated  string                 `json:"last_updated"`
 		Provider     *nested.Provider       `json:"provider"`
-		Status       *shared.LabelValue     `json:"status"`
+		Status       *types.LabelValue      `json:"status"`
 		Tags         []extras.Tag           `json:"tags"`
 		URL          string                 `json:"url"`
 	}

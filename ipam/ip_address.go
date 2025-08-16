@@ -2,12 +2,13 @@ package ipam
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -26,13 +27,13 @@ type (
 		Description        string                   `json:"description"`
 		Display            string                   `json:"display"`
 		DNSName            string                   `json:"dns_name"`
-		Family             *shared.LabelValueInt    `json:"family"`
+		Family             *types.LabelValueInt     `json:"family"`
 		LastUpdated        string                   `json:"last_updated"`
 		NATInside          *string                  `json:"nat_inside"`
 		NATOutside         *string                  `json:"nat_outside"`
 		NotesURL           string                   `json:"notes_url"`
-		Role               *shared.LabelValue       `json:"role"`
-		Status             *shared.LabelValue       `json:"status"`
+		Role               *types.LabelValue        `json:"role"`
+		Status             *types.LabelValue        `json:"status"`
 		Tags               []extras.Tag             `json:"tags"`
 		Tenant             *nested.Tenant           `json:"tenant"`
 		URL                string                   `json:"url"`

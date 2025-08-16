@@ -7,7 +7,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
+	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const (
@@ -23,7 +23,7 @@ type (
 		DefaultImage        bool            `json:"default_image"`
 		Display             string          `json:"display"`
 		DownloadURL         string          `json:"download_url"`
-		ExternalIntegration *shared.Object  `json:"external_integration"`
+		ExternalIntegration *types.Object   `json:"external_integration"`
 		HashingAlgorithm    string          `json:"hashing_algorithm"`
 		ImageFileChecksum   string          `json:"image_file_checksum"`
 		ImageFileName       string          `json:"image_file_name"`
