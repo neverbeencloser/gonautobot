@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
-	"github.com/neverbeencloser/gonautobot/tenancy"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -43,7 +43,7 @@ func TestClient_GetTenantGroups(t *testing.T) {
 }
 
 func TestClient_TenantCreate(t *testing.T) {
-	newTenant := tenancy.NewTenant{
+	newTenant := types.NewTenant{
 		Name: "Customer2",
 	}
 
