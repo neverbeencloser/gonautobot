@@ -2,12 +2,13 @@ package bgp
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	nautobot "github.com/neverbeencloser/gonautobot/extras"
-	nautobot2 "github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	nautobot "github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -24,7 +25,7 @@ type (
 		ID               string                   `json:"id"`
 		LastUpdated      string                   `json:"last_updated"`
 		RouterID         *nested.IPAddress        `json:"router_id"`
-		Status           *nautobot2.LabelValue    `json:"status"`
+		Status           *types.LabelValue        `json:"status"`
 		Tags             []nautobot.Tag           `json:"tags"`
 		URL              string                   `json:"url"`
 	}

@@ -2,12 +2,13 @@ package ipam
 
 import (
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -26,7 +27,7 @@ type (
 		PrefixCount  int                    `json:"prefix_count"`
 		Role         *nested.Role           `json:"role"`
 		Site         *nested.Site           `json:"site"`
-		Status       *shared.LabelValue     `json:"status"`
+		Status       *types.LabelValue      `json:"status"`
 		Tags         []extras.Tag           `json:"tags"`
 		Tenant       *nested.Tenant         `json:"tenant"`
 		URL          string                 `json:"url"`

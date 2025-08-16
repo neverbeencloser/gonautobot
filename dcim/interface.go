@@ -3,12 +3,13 @@ package dcim
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/neverbeencloser/gonautobot/core"
-	"github.com/neverbeencloser/gonautobot/extras"
-	"github.com/neverbeencloser/gonautobot/shared"
-	"github.com/neverbeencloser/gonautobot/shared/nested"
 	"net/http"
 	"net/url"
+
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/extras"
+	"github.com/neverbeencloser/gonautobot/types"
+	"github.com/neverbeencloser/gonautobot/types/nested"
 )
 
 type (
@@ -37,14 +38,14 @@ type (
 		LastUpdated                string                 `json:"last_updated"`
 		MACAddress                 *string                `json:"mac_address"`
 		MgmtOnly                   bool                   `json:"mgmt_only"`
-		Mode                       *shared.LabelValue     `json:"mode"`
+		Mode                       *types.LabelValue      `json:"mode"`
 		MTU                        *int                   `json:"mtu"`
 		Name                       string                 `json:"name"`
 		NotesURL                   string                 `json:"notes_url"`
 		ParentInterface            *Interface             `json:"parent_interface"`
 		TaggedVLANs                []nested.VLAN          `json:"tagged_vlans"`
 		Tags                       []extras.Tag           `json:"tags"`
-		Type                       *shared.LabelValue     `json:"type"`
+		Type                       *types.LabelValue      `json:"type"`
 		UntaggedVLAN               *nested.VLAN           `json:"untagged_vlan"`
 		URL                        string                 `json:"url"`
 	}
