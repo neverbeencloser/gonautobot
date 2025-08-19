@@ -2,12 +2,14 @@ package types
 
 import (
 	"time"
+
+	"github.com/google/uuid"
 )
 
 type (
 	// Provider : defines a circuit provider in Nautobot
 	Provider struct {
-		ID           string         `json:"id"`
+		ID           uuid.UUID      `json:"id"`
 		Display      string         `json:"display"`
 		URL          string         `json:"url"`
 		Name         string         `json:"name"`
@@ -19,7 +21,7 @@ type (
 		AdminContact string         `json:"admin_contact"`
 		Comments     string         `json:"comments"`
 		CircuitCount int            `json:"circuit_count"`
-		Created      string         `json:"created"`
+		Created      time.Time      `json:"created"`
 		LastUpdated  time.Time      `json:"last_updated"`
 		Tags         []Tag          `json:"tags"`
 		NotesURL     string         `json:"notes_url"`
