@@ -5,6 +5,7 @@ import (
 	"path"
 	"testing"
 
+	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -15,7 +16,7 @@ func TestClient_GetInterface(t *testing.T) {
 	gock.New(testURL).Get("dcim/interfaces/1ce0df0c-5221-4b4e-a7e5-d52810828041/").Reply(200).
 		File(path.Join("fixtures", "dcim", "interface_200_1.json"))
 
-	resp, err := testClient.Dcim.InterfaceGet("1ce0df0c-5221-4b4e-a7e5-d52810828041")
+	resp, err := testClient.Dcim.InterfaceGet(uuid.MustParse("1ce0df0c-5221-4b4e-a7e5-d52810828041"))
 	require.NoError(t, err)
 	assert.Equal(t, "Ethernet1", resp.Name)
 }
