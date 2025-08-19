@@ -1,44 +1,49 @@
 package types
 
-import "github.com/neverbeencloser/gonautobot/types/nested"
+import (
+	"time"
+
+	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/types/nested"
+)
 
 type (
 	// Device : Data structure to represent a device record in Nautobot.
 	Device struct {
-		ID                 string                        `json:"id"`
-		AssetTag           string                        `json:"asset_tag"`
-		Cluster            *nested.VirtualizationCluster `json:"cluster"`
-		Comments           string                        `json:"comments" datastore:",noindex"`
-		ConfigContext      map[string]interface{}        `json:"config_context"`
-		Created            string                        `json:"created"`
-		CustomFields       map[string]interface{}        `json:"custom_fields"`
-		DeviceRole         *nested.DeviceRole            `json:"device_role"`
-		DeviceType         *nested.DeviceType            `json:"device_type"`
-		Display            string                        `json:"display"`
-		Face               *LabelValue                   `json:"face"`
-		LastUpdated        string                        `json:"last_updated"`
-		LocalContextSchema *nested.ConfigContextSchema   `json:"local_context_schema"`
-		LocalContextData   map[string]interface{}        `json:"local_context_data"`
-		Location           *nested.Location              `json:"location"`
-		Name               string                        `json:"name"`
-		NotesURL           string                        `json:"notes_url"`
-		ParentDevice       *Device                       `json:"parent_device"`
-		Platform           *nested.Platform              `json:"platform"`
-		Position           *int                          `json:"position"`
-		PrimaryIP          *nested.IPAddress             `json:"primary_ip"`
-		PrimaryIP4         *nested.IPAddress             `json:"primary_ip4"`
-		PrimaryIP6         *nested.IPAddress             `json:"primary_ip6"`
-		Rack               *nested.Rack                  `json:"rack"`
-		SecretsGroup       *nested.SecretsGroup          `json:"secrets_group"`
-		Serial             string                        `json:"serial"`
-		Site               *Site                         `json:"site"`
-		Status             *LabelValue                   `json:"status"`
-		Tags               []Tag                         `json:"tags"`
-		Tenant             *nested.Tenant                `json:"tenant"`
-		URL                string                        `json:"url"`
-		VCPosition         *int                          `json:"vc_position"`
-		VCPriority         *int                          `json:"vc_priority"`
-		VirtualChassis     *nested.VirtualChassis        `json:"virtual_chassis"`
+		ID                 uuid.UUID                   `json:"id"`
+		AssetTag           string                      `json:"asset_tag"`
+		Cluster            *Cluster                    `json:"cluster"`
+		Comments           string                      `json:"comments" datastore:",noindex"`
+		ConfigContext      map[string]any              `json:"config_context"`
+		Created            time.Time                   `json:"created"`
+		CustomFields       map[string]any              `json:"custom_fields"`
+		DeviceRole         *Role                       `json:"device_role"`
+		DeviceType         *DeviceType                 `json:"device_type"`
+		Display            string                      `json:"display"`
+		Face               *LabelValue                 `json:"face"`
+		LastUpdated        time.Time                   `json:"last_updated"`
+		LocalContextSchema *nested.ConfigContextSchema `json:"local_context_schema"`
+		LocalContextData   map[string]any              `json:"local_context_data"`
+		Location           *Location                   `json:"location"`
+		Name               string                      `json:"name"`
+		NotesURL           string                      `json:"notes_url"`
+		ParentDevice       *Device                     `json:"parent_device"`
+		Platform           *Platform                   `json:"platform"`
+		Position           *int                        `json:"position"`
+		PrimaryIP          *IPAddress                  `json:"primary_ip"`
+		PrimaryIP4         *IPAddress                  `json:"primary_ip4"`
+		PrimaryIP6         *IPAddress                  `json:"primary_ip6"`
+		Rack               *Rack                       `json:"rack"`
+		SecretsGroup       *nested.SecretsGroup        `json:"secrets_group"`
+		Serial             string                      `json:"serial"`
+		Site               *Site                       `json:"site"`
+		Status             *LabelValue                 `json:"status"`
+		Tags               []Tag                       `json:"tags"`
+		Tenant             *Tenant                     `json:"tenant"`
+		URL                string                      `json:"url"`
+		VCPosition         *int                        `json:"vc_position"`
+		VCPriority         *int                        `json:"vc_priority"`
+		VirtualChassis     *nested.VirtualChassis      `json:"virtual_chassis"`
 	}
 
 	// NewDevice : Structured input for a new Device record in Nautobot.
