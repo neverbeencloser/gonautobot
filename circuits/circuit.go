@@ -1,62 +1,45 @@
 package circuits
 
 import (
-	"fmt"
-	"net/http"
 	"net/url"
 
+	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
-// CircuitGet : Go function to process requests for the endpoint: /api/circuits/circuits/
-//
-// https://demo.nautobot.com/api/docs/#/circuits/circuits_circuits_list
-func (c *Client) CircuitGet(uuid string) (types.Circuit, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("circuits/circuits/%s/", uuid), nil, nil)
-	if err != nil {
-		return types.Circuit{}, err
-	}
+const (
+	circuitsEndpointCircuit = "circuits/circuits/"
+)
 
-	ret := new(types.Circuit)
-	return *ret, c.UnmarshalDo(req, ret)
+// CircuitGet : Get a Circuit by UUID identifier.
+func (c *Client) CircuitGet(id uuid.UUID) (*types.Circuit, error) {
+	return core.Get[types.Circuit](c.Client, circuitsEndpointCircuit, id)
 }
 
-// CircuitFilter : Go function to process requests for the endpoint: /api/circuits/circuits/
-//
-// https://demo.nautobot.com/api/docs/#/circuits/circuits_circuits_list
+// CircuitFilter : Get a list of Circuits based on query parameters.
 func (c *Client) CircuitFilter(q *url.Values) ([]types.Circuit, error) {
 	resp := make([]types.Circuit, 0)
-	return resp, core.Paginate[types.Circuit](c.Client, "circuits/circuits/", q, &resp)
+	return resp, core.Paginate[types.Circuit](c.Client, circuitsEndpointCircuit, q, &resp)
 }
 
-// CircuitAll : Go function to process requests for the endpoint: /api/circuits/circuits/
-//
-// https://demo.nautobot.com/api/docs/#/circuits/circuits_circuits_list
+// CircuitAll : Get all Circuits in Nautobot.
 func (c *Client) CircuitAll() ([]types.Circuit, error) {
 	resp := make([]types.Circuit, 0)
-	return resp, core.Paginate[types.Circuit](c.Client, "circuits/circuits/", nil, &resp)
+	return resp, core.Paginate[types.Circuit](c.Client, circuitsEndpointCircuit, nil, &resp)
 }
 
-// CircuitDelete : Go function to process requests for the endpoint: /api/circuits/circuits/
-//
-// https://demo.nautobot.com/api/docs/#/circuits/circuits_circuits_destroy
-func (c *Client) CircuitDelete(uuid string) error {
-	req, err := c.Request(http.MethodDelete, fmt.Sprintf("circuits/circuits/%s/", uuid), nil, nil)
-	if err != nil {
-		return err
-	}
-	return c.UnmarshalDo(req, nil)
+// CircuitDelete : Delete a Circuit by UUID identifier.
+func (c *Client) CircuitDelete(id uuid.UUID) error {
+	return core.Delete(c.Client, circuitsEndpointCircuit, id)
 }
 
-// CircuitCreate : Go function to process requests for the endpoint: /api/circuits/circuits/
-//
-// https://demo.nautobot.com/api/docs/#/circuits/circuits_circuits_create
-func (c *Client) CircuitCreate(r types.CircuitRequest) (types.Circuit, error) {
-	req, err := c.Request(http.MethodPost, "circuits/circuits/", r, nil)
-	if err != nil {
-		return types.Circuit{}, err
-	}
-	var ret types.Circuit
-	return ret, c.UnmarshalDo(req, &ret)
+// CircuitCreate : Create a new Circuit record in Nautobot.
+func (c *Client) CircuitCreate(obj types.CircuitRequest) (*types.Circuit, error) {
+	return core.Create[types.Circuit, types.CircuitRequest](c.Client, circuitsEndpointCircuit, obj)
+}
+
+// CircuitUpdate : Update an existing Circuit record in Nautobot.
+func (c *Client) CircuitUpdate(id uuid.UUID, patch map[string]any) (*types.Circuit, error) {
+	return core.Update[types.Circuit](c.Client, circuitsEndpointCircuit, id, patch)
 }

@@ -1,0 +1,130 @@
+{
+	"id": "6b2c4c96-2b3e-4533-b085-9fe31a58dbdc",
+	"object_type": "circuits.circuit",
+	"display": "ntt-104265404093023273",
+	"url": "https://demo.nautobot.com/api/circuits/circuits/6b2c4c96-2b3e-4533-b085-9fe31a58dbdc/",
+	"natural_slug": "ntt_ntt-104265404093023273_6b2c",
+	"cid": "ntt-104265404093023273",
+	"install_date": null,
+	"commit_rate": null,
+	"description": "",
+	"comments": "",
+	"status": {
+		"id": "9f38bab4-4b47-4e77-b50c-fda62817b2db",
+		"object_type": "extras.status",
+		"display": "Active",
+		"url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/",
+		"natural_slug": "active_9f38",
+		"name": "Active",
+		"color": "4caf50",
+		"description": "Unit is active",
+		"created": "2023-09-21T00:00:00Z",
+		"last_updated": "2023-09-21T19:46:47.125611Z",
+		"notes_url": "https://demo.nautobot.com/api/extras/statuses/9f38bab4-4b47-4e77-b50c-fda62817b2db/notes/",
+		"custom_fields": {}
+	},
+	"provider": {
+		"id": "f8b5a8f7-ab51-45eb-9091-642e6f0164b1",
+		"object_type": "circuits.provider",
+		"display": "NTT",
+		"url": "https://demo.nautobot.com/api/circuits/providers/f8b5a8f7-ab51-45eb-9091-642e6f0164b1/",
+		"natural_slug": "ntt_f8b5",
+		"name": "NTT",
+		"asn": 2914,
+		"account": "",
+		"portal_url": "",
+		"noc_contact": "",
+		"admin_contact": "",
+		"comments": "",
+		"created": "2023-09-21T00:00:00Z",
+		"last_updated": "2023-09-21T19:46:57.424852Z",
+		"notes_url": "https://demo.nautobot.com/api/circuits/providers/f8b5a8f7-ab51-45eb-9091-642e6f0164b1/notes/",
+		"custom_fields": {
+			"emails_for_circuit_maintenance_plugin": null,
+			"emails_circuit_maintenances": null,
+			"provider_parser_for_circuit_maintenance_plugin": null,
+			"provider_parser_circuit_maintenances": null
+		}
+	},
+	"circuit_type": {
+		"id": "50a18fc3-992c-4b1d-b89d-94079aa1b140",
+		"object_type": "circuits.circuittype",
+		"display": "Transit",
+		"url": "https://demo.nautobot.com/api/circuits/circuit-types/50a18fc3-992c-4b1d-b89d-94079aa1b140/",
+		"natural_slug": "transit_50a1",
+		"name": "Transit",
+		"description": "",
+		"created": "2023-09-21T00:00:00Z",
+		"last_updated": "2023-09-21T19:46:57.460347Z",
+		"notes_url": "https://demo.nautobot.com/api/circuits/circuit-types/50a18fc3-992c-4b1d-b89d-94079aa1b140/notes/",
+		"custom_fields": {}
+	},
+	"tenant": {
+		"id": "1f7fbd07-111a-4091-81d0-f34db26d961d",
+		"object_type": "tenancy.tenant",
+		"display": "Nautobot Airports",
+		"url": "https://demo.nautobot.com/api/tenancy/tenants/1f7fbd07-111a-4091-81d0-f34db26d961d/",
+		"natural_slug": "nautobot-airports_1f7f",
+		"name": "Nautobot Airports",
+		"description": "atc.nautobot.com",
+		"comments": "",
+		"tenant_group": null,
+		"created": "2023-09-21T00:00:00Z",
+		"last_updated": "2023-09-21T19:46:55.974813Z",
+		"notes_url": "https://demo.nautobot.com/api/tenancy/tenants/1f7fbd07-111a-4091-81d0-f34db26d961d/notes/",
+		"custom_fields": {}
+	},
+	"circuit_termination_a": {
+		"id": "9594a834-e5a7-4b98-af1c-e52050b0eeed",
+		"object_type": "circuits.circuittermination",
+		"display": "Termination A: SIN01",
+		"url": "https://demo.nautobot.com/api/circuits/circuit-terminations/9594a834-e5a7-4b98-af1c-e52050b0eeed/",
+		"natural_slug": "ntt_ntt-104265404093023273_a_9594",
+		"cable_peer_type": "dcim.interface",
+		"cable_peer": {
+			"id": "715d13cb-220b-4bb0-94c2-a55971a26282",
+			"object_type": "dcim.interface",
+			"url": "https://demo.nautobot.com/api/dcim/interfaces/715d13cb-220b-4bb0-94c2-a55971a26282/"
+		},
+		"connected_endpoint_type": "dcim.interface",
+		"connected_endpoint": {
+			"id": "715d13cb-220b-4bb0-94c2-a55971a26282",
+			"object_type": "dcim.interface",
+			"url": "https://demo.nautobot.com/api/dcim/interfaces/715d13cb-220b-4bb0-94c2-a55971a26282/"
+		},
+		"connected_endpoint_reachable": true,
+		"term_side": "A",
+		"port_speed": null,
+		"upstream_speed": null,
+		"xconnect_id": "",
+		"pp_info": "",
+		"description": "",
+		"cable": {
+			"id": "b2949c53-deae-46f6-b293-288fe991a042",
+			"object_type": "circuits.circuittermination",
+			"url": "https://demo.nautobot.com/api/dcim/cables/b2949c53-deae-46f6-b293-288fe991a042/"
+		},
+		"circuit": {
+			"id": "6b2c4c96-2b3e-4533-b085-9fe31a58dbdc",
+			"object_type": "circuits.circuit",
+			"url": "https://demo.nautobot.com/api/circuits/circuits/6b2c4c96-2b3e-4533-b085-9fe31a58dbdc/"
+		},
+		"location": {
+			"id": "8d777e84-5c52-49a5-8e7c-6c9d2e33bdb1",
+			"object_type": "dcim.location",
+			"url": "https://demo.nautobot.com/api/dcim/locations/8d777e84-5c52-49a5-8e7c-6c9d2e33bdb1/"
+		},
+		"provider_network": null,
+		"cloud_network": null,
+		"created": "2023-09-21T00:00:00Z",
+		"last_updated": "2023-09-21T19:48:57.234019Z",
+		"notes_url": "https://demo.nautobot.com/api/circuits/circuit-terminations/9594a834-e5a7-4b98-af1c-e52050b0eeed/notes/",
+		"custom_fields": {}
+	},
+	"circuit_termination_z": null,
+	"created": "2023-09-21T00:00:00Z",
+	"last_updated": "2023-09-21T19:48:57.235030Z",
+	"tags": [],
+	"notes_url": "https://demo.nautobot.com/api/circuits/circuits/6b2c4c96-2b3e-4533-b085-9fe31a58dbdc/notes/",
+	"custom_fields": {}
+}
