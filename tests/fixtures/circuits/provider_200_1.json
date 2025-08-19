@@ -1,0 +1,25 @@
+{
+	"id": "8e384236-9ff5-4f71-8418-1d607177e10e",
+	"object_type": "circuits.provider",
+	"display": "AT&T",
+	"url": "https://demo.nautobot.com/api/circuits/providers/8e384236-9ff5-4f71-8418-1d607177e10e/",
+	"natural_slug": "at-t_8e38",
+	"circuit_count": 0,
+	"name": "AT&T",
+	"asn": 7018,
+	"account": "",
+	"portal_url": "",
+	"noc_contact": "",
+	"admin_contact": "",
+	"comments": "",
+	"created": "2023-09-21T00:00:00Z",
+	"last_updated": "2023-09-21T19:46:57.405953Z",
+	"tags": [],
+	"notes_url": "https://demo.nautobot.com/api/circuits/providers/8e384236-9ff5-4f71-8418-1d607177e10e/notes/",
+	"custom_fields": {
+		"emails_for_circuit_maintenance_plugin": null,
+		"emails_circuit_maintenances": null,
+		"provider_parser_for_circuit_maintenance_plugin": null,
+		"provider_parser_circuit_maintenances": null
+	}
+}

@@ -1,55 +1,30 @@
 package circuits
 
 import (
-	"encoding/json"
-	"fmt"
-	"net/http"
 	"net/url"
-	"time"
 
+	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
-type (
-	// Provider : defines a circuit provider in Nautobot
-	Provider struct {
-		ID           string         `json:"id"`
-		Display      string         `json:"display"`
-		URL          string         `json:"url"`
-		Name         string         `json:"name"`
-		Slug         string         `json:"slug"`
-		Asn          int            `json:"asn"`
-		Account      string         `json:"account"`
-		PortalURL    string         `json:"portal_url"`
-		NocContact   string         `json:"noc_contact"`
-		AdminContact string         `json:"admin_contact"`
-		Comments     string         `json:"comments"`
-		CircuitCount int            `json:"circuit_count"`
-		Created      string         `json:"created"`
-		LastUpdated  time.Time      `json:"last_updated"`
-		Tags         []types.Tag    `json:"tags"`
-		NotesURL     string         `json:"notes_url"`
-		CustomFields map[string]any `json:"custom_fields"`
-	}
+const (
+	circuitsEndpointProvider = "circuits/providers/"
 )
 
-// ProviderFilter : Go function to process requests for the endpoint: /api/circuits/providers/
-//
-// https://demo.nautobot.com/api/docs/#/circuits/circuits_providers_list
-func (c *Client) ProviderFilter(q *url.Values) ([]Provider, error) {
-	req, err := c.Request(http.MethodGet, "circuits/providers/", nil, q)
-	if err != nil {
-		return nil, err
-	}
+// ProviderGet : Get a Provider by UUID identifier.
+func (c *Client) ProviderGet(id uuid.UUID) (*types.Provider, error) {
+	return core.Get[types.Provider](c.Client, circuitsEndpointProvider, id)
+}
 
-	resp := new(types.ResponseList)
-	ret := make([]Provider, 0)
-	if err = c.UnmarshalDo(req, resp); err != nil {
-		return ret, err
-	}
+// ProviderFilter : Get a list of Providers based on query parameters.
+func (c *Client) ProviderFilter(q *url.Values) ([]types.Provider, error) {
+	resp := make([]types.Provider, 0)
+	return resp, core.Paginate[types.Provider](c.Client, circuitsEndpointProvider, q, &resp)
+}
 
-	if err = json.Unmarshal(resp.Results, &ret); err != nil {
-		err = fmt.Errorf("GetProviders.error.json.Unmarshall(%w)", err)
-	}
-	return ret, err
+// ProviderAll : Get all Providers in Nautobot.
+func (c *Client) ProviderAll() ([]types.Provider, error) {
+	resp := make([]types.Provider, 0)
+	return resp, core.Paginate[types.Provider](c.Client, circuitsEndpointProvider, nil, &resp)
 }

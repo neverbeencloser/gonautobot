@@ -1,6 +1,6 @@
 {
-	"count": 16,
-	"next": "https://demo.nautobot.com/api/circuits/providers/?depth=1&limit=2&offset=2",
+	"count": 2,
+	"next": "",
 	"previous": null,
 	"results": [
 		{
