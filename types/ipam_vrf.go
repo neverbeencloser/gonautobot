@@ -24,7 +24,7 @@ type (
 		NotesURL              string         `json:"notes_url"`
 		ObjectType            string         `json:"object_type"`
 		Prefixes              []Prefix       `json:"prefixes"`
-		RD                    string         `json:"rd"`
+		RD                    *string        `json:"rd"`
 		Status                *Status        `json:"status"`
 		Tags                  []Tag          `json:"tags"`
 		Tenant                *Tenant        `json:"tenant"`
