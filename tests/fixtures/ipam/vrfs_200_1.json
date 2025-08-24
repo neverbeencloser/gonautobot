@@ -1,6 +1,6 @@
 {
-  "count": 20,
-  "next": "http://localhost:8080/api/ipam/vrfs/?depth=1&limit=3&offset=3",
+  "count": 3,
+  "next": "",
   "previous": null,
   "results": [
     {
