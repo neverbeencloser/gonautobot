@@ -5,87 +5,57 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
-// PrefixGet : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_retrieve
-func (c *Client) PrefixGet(uuid string) (*types.Prefix, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/prefixes/%s/", url.PathEscape(uuid)), nil, nil)
-	if err != nil {
-		return nil, err
-	}
+const (
+	ipamEndpointPrefix = "ipam/prefixes/"
+)
 
-	ret := new(types.Prefix)
-	err = c.UnmarshalDo(req, ret)
-	return ret, err
+// PrefixGet : Get a Prefix by UUID identifier.
+func (c *Client) PrefixGet(id uuid.UUID) (*types.Prefix, error) {
+	return core.Get[types.Prefix](c.Client, ipamEndpointPrefix, id)
 }
 
-// PrefixFilter : Go function to process requests for the endpoint: /api/ipam/prefixes/
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_list
+// PrefixFilter : Get a list of Prefixes based on query parameters.
 func (c *Client) PrefixFilter(q *url.Values) ([]types.Prefix, error) {
-	resp := make([]types.Prefix, 0)
-	return resp, core.Paginate[types.Prefix](c.Client, "ipam/prefixes/", q, &resp)
+	prefixes := make([]types.Prefix, 0)
+	return prefixes, core.Paginate[types.Prefix](c.Client, ipamEndpointPrefix, q, &prefixes)
 }
 
-// PrefixCreate : Creates a new prefix using the NewPrefix data type.
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_create
-func (c *Client) PrefixCreate(prefix *types.NewPrefix) (*types.Prefix, error) {
-	req, err := c.Request(http.MethodPost, "ipam/prefixes/", prefix, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	var r types.Prefix
-	err = c.UnmarshalDo(req, &r)
-	if err != nil {
-		return nil, fmt.Errorf("CreatePrefix.error.UnmarshalDo(%w)", err)
-	}
-
-	return &r, nil
+// PrefixAll : Get all Prefixes in Nautobot.
+func (c *Client) PrefixAll() ([]types.Prefix, error) {
+	prefixes := make([]types.Prefix, 0)
+	return prefixes, core.Paginate[types.Prefix](c.Client, ipamEndpointPrefix, nil, &prefixes)
 }
 
-// PrefixUpdate : Updates a Nautobot prefix by UUID
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_partial_update
-func (c *Client) PrefixUpdate(uuid string, prefix *types.PrefixUpdate) (*types.Prefix, error) {
-	req, err := c.Request(http.MethodPatch, fmt.Sprintf("ipam/prefixes/%s/", uuid), prefix, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	var r types.Prefix
-	if err := c.UnmarshalDo(req, &r); err != nil {
-		return nil, fmt.Errorf("UpdatePrefix.error.UnmarshalDo(%w)", err)
-	}
-
-	return &r, nil
+// PrefixCreate : Generate a new Prefix record in Nautobot.
+func (c *Client) PrefixCreate(obj types.NewPrefix) (*types.Prefix, error) {
+	return core.Create[types.Prefix, types.NewPrefix](c.Client, ipamEndpointPrefix, obj)
 }
 
-// PrefixDelete : Removes a prefix from the Nautobot DB.
-//
-// https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_destroy
-func (c *Client) PrefixDelete(prefixID string) error {
-	req, err := c.Request(http.MethodDelete, fmt.Sprintf("ipam/prefixes/%s/", prefixID), nil, nil)
-	if err != nil {
-		return err
-	}
+// PrefixUpdate : Update an existing Prefix record in Nautobot.
+func (c *Client) PrefixUpdate(id uuid.UUID, patch map[string]any) (*types.Prefix, error) {
+	return core.Update[types.Prefix](c.Client, ipamEndpointPrefix, id, patch)
+}
 
-	if err := c.UnmarshalDo(req, nil); err != nil {
-		return fmt.Errorf("DeletePrefix.error.UnmarshalDo(%w)", err)
-	}
-	return nil
+// PrefixDelete : Delete a Prefix by UUID identifier.
+func (c *Client) PrefixDelete(id uuid.UUID) error {
+	return core.Delete(c.Client, ipamEndpointPrefix, id)
 }
 
 // GetPrefixAvailableIPs : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/available-ips/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_available_ips_list
-func (c *Client) GetPrefixAvailableIPs(uuid string, q *url.Values) ([]types.PrefixAvailableIP, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/prefixes/%s/available-ips/", url.PathEscape(uuid)), nil, q)
+func (c *Client) GetPrefixAvailableIPs(id uuid.UUID, q *url.Values) ([]types.PrefixAvailableIP, error) {
+	req, err := c.Request(
+		http.MethodGet,
+		ipamEndpointPrefix+fmt.Sprintf("%s/available-ips/", url.PathEscape(id.String())),
+		nil,
+		q,
+	)
 	if err != nil {
 		return nil, err
 	}
@@ -100,8 +70,13 @@ func (c *Client) GetPrefixAvailableIPs(uuid string, q *url.Values) ([]types.Pref
 // GetPrefixAvailablePrefixes : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/available-prefixes/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_available_prefixes_list
-func (c *Client) GetPrefixAvailablePrefixes(uuid string, q *url.Values) ([]types.PrefixAvailablePrefix, error) {
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("ipam/prefixes/%s/available-prefixes/", url.PathEscape(uuid)), nil, q)
+func (c *Client) GetPrefixAvailablePrefixes(id uuid.UUID, q *url.Values) ([]types.PrefixAvailablePrefix, error) {
+	req, err := c.Request(
+		http.MethodGet,
+		ipamEndpointPrefix+fmt.Sprintf("%s/available-prefixes/", url.PathEscape(id.String())),
+		nil,
+		q,
+	)
 	if err != nil {
 		return nil, err
 	}
