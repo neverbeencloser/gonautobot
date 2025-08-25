@@ -46,14 +46,16 @@ type (
 	}
 
 	// NewIPAddress : defines the fields required to create a new IP Address entry in Nautobot
+	//
+	// The API requires either "parent" or "namespace" to be set.
 	NewIPAddress struct {
 		Address       string         `json:"address"`
-		Namespace     string         `json:"namespace"`
 		Status        string         `json:"status"`
 		CustomFields  map[string]any `json:"custom_fields,omitempty"`
 		Description   string         `json:"description,omitempty"`
 		DNSName       string         `json:"dns_name,omitempty"`
 		IPVersion     int            `json:"ip_version,omitempty"`
+		Namespace     string         `json:"namespace,omitempty"`
 		NATInside     string         `json:"nat_inside,omitempty"` // IPAddress UUID
 		Parent        string         `json:"parent,omitempty"`     // Prefix UUID
 		Relationships map[string]any `json:"relationships,omitempty"`
