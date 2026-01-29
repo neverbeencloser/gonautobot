@@ -1,2 +1,3 @@
-* @josh-silvas
-* @jokelyo
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence.
+* @jokelyo @josh-silvas @ross-bryan
