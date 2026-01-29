@@ -1,0 +1,21 @@
+{
+	"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+	"object_type": "extras.gitrepository",
+	"display": "my-config-repo",
+	"url": "https://demo.nautobot.com/api/extras/git-repositories/a1b2c3d4-e5f6-7890-abcd-ef1234567890/",
+	"natural_slug": "my-config-repo_a1b2",
+	"provided_contents": ["extras.configcontext", "extras.job"],
+	"name": "my-config-repo",
+	"slug": "my_config_repo",
+	"remote_url": "https://github.com/example/config-repo.git",
+	"branch": "develop",
+	"current_head": "abc123def456789",
+	"secrets_group": null,
+	"created": "2024-01-15T10:30:00Z",
+	"last_updated": "2024-01-20T14:45:30.123456Z",
+	"notes_url": "https://demo.nautobot.com/api/extras/git-repositories/a1b2c3d4-e5f6-7890-abcd-ef1234567890/notes/",
+	"custom_fields": {},
+	"computed_fields": {},
+	"relationships": {},
+	"tags": []
+}

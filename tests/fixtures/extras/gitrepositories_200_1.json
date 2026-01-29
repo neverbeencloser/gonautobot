@@ -1,0 +1,55 @@
+{
+	"count": 2,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+			"object_type": "extras.gitrepository",
+			"display": "my-config-repo",
+			"url": "https://demo.nautobot.com/api/extras/git-repositories/a1b2c3d4-e5f6-7890-abcd-ef1234567890/",
+			"natural_slug": "my-config-repo_a1b2",
+			"provided_contents": ["extras.configcontext", "extras.job"],
+			"name": "my-config-repo",
+			"slug": "my_config_repo",
+			"remote_url": "https://github.com/example/config-repo.git",
+			"branch": "main",
+			"current_head": "abc123def456789",
+			"secrets_group": null,
+			"created": "2024-01-15T10:30:00Z",
+			"last_updated": "2024-01-20T14:45:30.123456Z",
+			"notes_url": "https://demo.nautobot.com/api/extras/git-repositories/a1b2c3d4-e5f6-7890-abcd-ef1234567890/notes/",
+			"custom_fields": {},
+			"computed_fields": {},
+			"relationships": {},
+			"tags": []
+		},
+		{
+			"id": "b2c3d4e5-f678-90ab-cdef-123456789012",
+			"object_type": "extras.gitrepository",
+			"display": "job-templates",
+			"url": "https://demo.nautobot.com/api/extras/git-repositories/b2c3d4e5-f678-90ab-cdef-123456789012/",
+			"natural_slug": "job-templates_b2c3",
+			"provided_contents": ["extras.job"],
+			"name": "job-templates",
+			"slug": "job_templates",
+			"remote_url": "https://github.com/example/job-templates.git",
+			"branch": "develop",
+			"current_head": "def789abc123456",
+			"secrets_group": {
+				"id": "c3d4e5f6-7890-abcd-ef12-345678901234",
+				"display": "GitHub Secrets",
+				"name": "GitHub Secrets",
+				"slug": "github_secrets",
+				"url": "https://demo.nautobot.com/api/extras/secrets-groups/c3d4e5f6-7890-abcd-ef12-345678901234/"
+			},
+			"created": "2024-01-10T08:00:00Z",
+			"last_updated": "2024-01-18T16:20:15.654321Z",
+			"notes_url": "https://demo.nautobot.com/api/extras/git-repositories/b2c3d4e5-f678-90ab-cdef-123456789012/notes/",
+			"custom_fields": {},
+			"computed_fields": {},
+			"relationships": {},
+			"tags": []
+		}
+	]
+}
