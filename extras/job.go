@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"fmt"
-	"net/http"
 	"net/url"
 
 	"github.com/google/uuid"
@@ -12,6 +10,7 @@ import (
 
 const (
 	extrasEndpointJob = "extras/jobs/"
+	actionRun         = "run"
 )
 
 // JobGet : Get a Job by UUID identifier.
@@ -43,19 +42,5 @@ func (c *Client) JobUpdate(id uuid.UUID, patch map[string]any) (*types.Job, erro
 // or a JobResult (for immediate execution).
 // The request can include optional data parameters, commit flag, and dryrun flag.
 func (c *Client) JobRun(id uuid.UUID, request types.JobRunRequest) (*types.JobRunResponse, error) {
-	if id == uuid.Nil {
-		return nil, fmt.Errorf("extras/jobs/ JobRun.error.ID(ID is missing or nil)")
-	}
-
-	uri := fmt.Sprintf("%s%s/run/", extrasEndpointJob, id)
-	req, err := c.Request(http.MethodPost, uri, request, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	var resp types.JobRunResponse
-	if err := c.UnmarshalDo(req, &resp); err != nil {
-		return nil, fmt.Errorf("extras/jobs/ JobRun.error.UnmarshalDo(%w)", err)
-	}
-	return &resp, nil
+	return core.Action[types.JobRunResponse](c.Client, extrasEndpointJob, id, actionRun, request)
 }
