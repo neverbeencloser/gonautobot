@@ -1,0 +1,40 @@
+{
+	"scheduled_job": null,
+	"job_result": {
+		"id": "85b43318-e232-4494-9265-e53440f6bb7f",
+		"object_type": "extras.jobresult",
+		"display": "Logs Cleanup created at 2026-02-02 15:52:54.274238+00:00 (PENDING)",
+		"url": "https://demo.nautobot.com/api/extras/job-results/85b43318-e232-4494-9265-e53440f6bb7f/",
+		"natural_slug": "85b43318-e232-4494-9265-e53440f6bb7f_85b4",
+		"status": {
+			"value": "PENDING",
+			"label": "PENDING"
+		},
+		"name": "Logs Cleanup",
+		"task_name": null,
+		"date_created": "2026-02-02T15:52:54.274238Z",
+		"date_started": null,
+		"date_done": null,
+		"result": null,
+		"worker": null,
+		"task_args": [],
+		"task_kwargs": {},
+		"celery_kwargs": {},
+		"traceback": null,
+		"meta": null,
+		"job_model": {
+			"id": "baa7a682-f727-40db-987b-289b8d14b966",
+			"object_type": "extras.job",
+			"url": "https://demo.nautobot.com/api/extras/jobs/baa7a682-f727-40db-987b-289b8d14b966/"
+		},
+		"user": {
+			"id": "23b16958-5cc9-4a32-bda2-9b7e47993862",
+			"object_type": "users.user",
+			"url": "https://demo.nautobot.com/api/users/users/23b16958-5cc9-4a32-bda2-9b7e47993862/"
+		},
+		"scheduled_job": null,
+		"custom_fields": {},
+		"computed_fields": {},
+		"files": []
+	}
+}

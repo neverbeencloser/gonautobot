@@ -1,6 +1,8 @@
 package extras
 
 import (
+	"fmt"
+	"net/http"
 	"net/url"
 
 	"github.com/google/uuid"
@@ -34,4 +36,26 @@ func (c *Client) JobAll() ([]types.Job, error) {
 // Use this method to enable/disable jobs or change their settings.
 func (c *Client) JobUpdate(id uuid.UUID, patch map[string]any) (*types.Job, error) {
 	return core.Update[types.Job](c.Client, extrasEndpointJob, id, patch)
+}
+
+// JobRun : Run a Job by UUID identifier.
+// Returns a JobRunResponse containing either a ScheduledJob (for jobs requiring approval)
+// or a JobResult (for immediate execution).
+// The request can include optional data parameters, commit flag, and dryrun flag.
+func (c *Client) JobRun(id uuid.UUID, request types.JobRunRequest) (*types.JobRunResponse, error) {
+	if id == uuid.Nil {
+		return nil, fmt.Errorf("extras/jobs/ JobRun.error.ID(ID is missing or nil)")
+	}
+
+	uri := fmt.Sprintf("%s%s/run/", extrasEndpointJob, id)
+	req, err := c.Request(http.MethodPost, uri, request, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	var resp types.JobRunResponse
+	if err := c.UnmarshalDo(req, &resp); err != nil {
+		return nil, fmt.Errorf("extras/jobs/ JobRun.error.UnmarshalDo(%w)", err)
+	}
+	return &resp, nil
 }

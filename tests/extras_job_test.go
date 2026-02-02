@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -75,4 +76,37 @@ func TestClient_JobUpdate(t *testing.T) {
 
 	assert.False(t, resp.Enabled)
 	assert.Equal(t, id, resp.ID)
+}
+
+func TestClient_JobRun(t *testing.T) {
+	runRequest := types.JobRunRequest{
+		Data: map[string]any{
+			"max_age":       90,
+			"cleanup_types": []string{"extras.JobResult"},
+		},
+		Dryrun: false,
+	}
+
+	gock.New(testURL).Post("extras/jobs/" + testJobID + "/run/").
+		JSON(runRequest).
+		Reply(200).
+		File(path.Join("fixtures", "extras", "job_run_200_1.json"))
+
+	id, err := uuid.Parse(testJobID)
+	require.NoError(t, err)
+
+	resp, err := testClient.Extras.JobRun(id, runRequest)
+	require.NoError(t, err)
+
+	// ScheduledJob should be nil for immediate execution
+	assert.Nil(t, resp.ScheduledJob)
+
+	// JobResult should contain the result
+	require.NotNil(t, resp.JobResult)
+	assert.Equal(t, "Logs Cleanup", resp.JobResult.Name)
+	assert.Equal(t, "PENDING", resp.JobResult.Status.Value)
+	assert.NotNil(t, resp.JobResult.JobModel)
+	assert.Equal(t, "baa7a682-f727-40db-987b-289b8d14b966", resp.JobResult.JobModel.ID)
+	assert.NotNil(t, resp.JobResult.User)
+	assert.Equal(t, "23b16958-5cc9-4a32-bda2-9b7e47993862", resp.JobResult.User.ID)
 }
