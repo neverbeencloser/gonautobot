@@ -15,6 +15,7 @@ import (
 const (
 	testJobID       = "f1a2b3c4-d5e6-7890-abcd-ef1234567890"
 	testJobResultID = "85b43318-e232-4494-9265-e53440f6bb7f"
+	testJobLogID    = "c1d2e3f4-a5b6-7890-cdef-123456789012"
 )
 
 func TestClient_JobGet(t *testing.T) {
@@ -162,4 +163,47 @@ func TestClient_JobResultDelete(t *testing.T) {
 	err = testClient.Extras.JobResultDelete(id)
 	require.NoError(t, err)
 	assert.True(t, gock.IsDone())
+}
+
+func TestClient_JobLogGet(t *testing.T) {
+	gock.New(testURL).Get("extras/job-logs/" + testJobLogID + "/").Reply(200).
+		File(path.Join("fixtures", "extras", "joblog_200_1.json"))
+
+	id, err := uuid.Parse(testJobLogID)
+	require.NoError(t, err)
+
+	resp, err := testClient.Extras.JobLogGet(id)
+	require.NoError(t, err)
+	assert.Equal(t, "info", resp.LogLevel)
+	assert.Equal(t, "Starting cleanup process", resp.Message)
+	assert.Equal(t, id, resp.ID)
+	assert.NotNil(t, resp.JobResult)
+	assert.Equal(t, "85b43318-e232-4494-9265-e53440f6bb7f", resp.JobResult.ID)
+}
+
+func TestClient_JobLogFilter(t *testing.T) {
+	gock.New(testURL).Get("extras/job-logs/").Reply(200).
+		File(path.Join("fixtures", "extras", "joblogs_200_1.json"))
+
+	q := &url.Values{}
+	q.Set("job_result", testJobResultID)
+
+	resp, err := testClient.Extras.JobLogFilter(q)
+	require.NoError(t, err)
+	assert.Len(t, resp, 3)
+	assert.Equal(t, "info", resp[0].LogLevel)
+	assert.Equal(t, "Starting cleanup process", resp[0].Message)
+}
+
+func TestClient_JobLogAll(t *testing.T) {
+	gock.New(testURL).Get("extras/job-logs/").Reply(200).
+		File(path.Join("fixtures", "extras", "joblogs_200_1.json"))
+
+	resp, err := testClient.Extras.JobLogAll()
+	require.NoError(t, err)
+
+	assert.Len(t, resp, 3)
+	assert.Equal(t, "Starting cleanup process", resp[0].Message)
+	assert.Equal(t, "Cleaning up 150 old job results", resp[1].Message)
+	assert.Equal(t, "Cleanup completed successfully", resp[2].Message)
 }

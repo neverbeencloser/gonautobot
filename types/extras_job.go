@@ -79,6 +79,22 @@ type (
 		LastUpdated      time.Time    `json:"last_updated"`
 	}
 
+	// JobLog : A log entry from a job execution.
+	JobLog struct {
+		ID             uuid.UUID          `json:"id"`
+		ObjectType     string             `json:"object_type"`
+		Display        string             `json:"display"`
+		URL            string             `json:"url"`
+		NaturalSlug    string             `json:"natural_slug"`
+		LogLevel       string             `json:"log_level"`
+		Grouping       string             `json:"grouping"`
+		Message        string             `json:"message"`
+		Created        time.Time          `json:"created"`
+		LogObject      *string            `json:"log_object"`
+		AbsoluteURL    *string            `json:"absolute_url"`
+		JobResult      *nested.JobResult  `json:"job_result"`
+	}
+
 	// Job : Data type entry for a Job in Nautobot.
 	Job struct {
 		ID                            uuid.UUID         `json:"id"`

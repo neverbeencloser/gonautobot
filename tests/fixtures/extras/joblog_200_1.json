@@ -1,0 +1,19 @@
+{
+	"id": "c1d2e3f4-a5b6-7890-cdef-123456789012",
+	"object_type": "extras.joblogentry",
+	"display": "Logs Cleanup: info - Starting cleanup process",
+	"url": "https://demo.nautobot.com/api/extras/job-logs/c1d2e3f4-a5b6-7890-cdef-123456789012/",
+	"natural_slug": "c1d2e3f4-a5b6-7890-cdef-123456789012_c1d2",
+	"log_level": "info",
+	"grouping": "run",
+	"message": "Starting cleanup process",
+	"created": "2026-02-02T15:52:55.000000Z",
+	"log_object": null,
+	"absolute_url": null,
+	"job_result": {
+		"id": "85b43318-e232-4494-9265-e53440f6bb7f",
+		"display": "Logs Cleanup created at 2026-02-02 15:52:54.274238+00:00 (SUCCESS)",
+		"name": "Logs Cleanup",
+		"url": "https://demo.nautobot.com/api/extras/job-results/85b43318-e232-4494-9265-e53440f6bb7f/"
+	}
+}

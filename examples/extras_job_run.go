@@ -178,6 +178,9 @@ func (c *ex) pollJobResult(jobResultID uuid.UUID) {
 					Msg("Job failed with traceback")
 			}
 
+			// Fetch job logs for this job result
+			c.fetchJobLogs(jobResultID)
+
 			return
 		}
 
@@ -188,4 +191,32 @@ func (c *ex) pollJobResult(jobResultID uuid.UUID) {
 		Str("job_result_uuid", jobResultID.String()).
 		Int("max_attempts", maxAttempts).
 		Msg("Job did not complete within polling window")
+}
+
+// fetchJobLogs : Fetch and display job logs for a job result.
+func (c *ex) fetchJobLogs(jobResultID uuid.UUID) {
+	jobLogs, err := c.Extras.JobLogFilter(&url.Values{
+		"job_result": {jobResultID.String()},
+	})
+	if err != nil {
+		log.Error().Err(err).Msg("Failed to get job logs")
+		return
+	}
+
+	log.Info().
+		Int("count", len(jobLogs)).
+		Str("job_result_uuid", jobResultID.String()).
+		Msg("Retrieved job logs")
+
+	// Log each job log entry
+	for i, logEntry := range jobLogs {
+		log.Info().
+			Int("index", i).
+			Str("uuid", logEntry.ID.String()).
+			Str("log_level", logEntry.LogLevel).
+			Str("grouping", logEntry.Grouping).
+			Str("message", logEntry.Message).
+			Time("created", logEntry.Created).
+			Msg("Job log entry")
+	}
 }
