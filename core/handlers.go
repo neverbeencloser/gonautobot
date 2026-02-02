@@ -93,6 +93,26 @@ func Update[T any](c *Client, uri string, id uuid.UUID, patch map[string]any) (*
 	return &resp, nil
 }
 
+// Action : Generic function to perform a POST request to a resource action endpoint.
+// This is used for endpoints like {uri}{id}/{action}/ (e.g., extras/jobs/{id}/run/).
+func Action[T any, R any](c *Client, uri string, id uuid.UUID, action string, body R) (*T, error) {
+	var resp T
+	if id == uuid.Nil {
+		return nil, fmt.Errorf("%s Action.error.ID(ID is missing or nil)", uri)
+	}
+
+	// Build the action URI: {base_uri}{uuid}/{action}/ (e.g., "extras/jobs/abc-123/run/")
+	actionURI := fmt.Sprintf("%s%s/%s/", uri, id, action)
+	req, err := c.Request(http.MethodPost, actionURI, body, nil)
+	if err != nil {
+		return nil, err
+	}
+	if err := c.UnmarshalDo(req, &resp); err != nil {
+		return nil, fmt.Errorf("%s Action.error.UnmarshalDo(%w)", uri, err)
+	}
+	return &resp, nil
+}
+
 // UpdateMultipart : Generic function to perform a PATCH request with multipart/form-data to Nautobot.
 //
 // This should only be used on API endpoints that support

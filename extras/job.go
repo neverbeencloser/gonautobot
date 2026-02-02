@@ -10,6 +10,7 @@ import (
 
 const (
 	extrasEndpointJob = "extras/jobs/"
+	actionRun         = "run"
 )
 
 // JobGet : Get a Job by UUID identifier.
@@ -34,4 +35,12 @@ func (c *Client) JobAll() ([]types.Job, error) {
 // Use this method to enable/disable jobs or change their settings.
 func (c *Client) JobUpdate(id uuid.UUID, patch map[string]any) (*types.Job, error) {
 	return core.Update[types.Job](c.Client, extrasEndpointJob, id, patch)
+}
+
+// JobRun : Run a Job by UUID identifier.
+// Returns a JobRunResponse containing either a ScheduledJob (for jobs requiring approval)
+// or a JobResult (for immediate execution).
+// The request can include optional data parameters, commit flag, and dryrun flag.
+func (c *Client) JobRun(id uuid.UUID, request types.JobRunRequest) (*types.JobRunResponse, error) {
+	return core.Action[types.JobRunResponse](c.Client, extrasEndpointJob, id, actionRun, request)
 }

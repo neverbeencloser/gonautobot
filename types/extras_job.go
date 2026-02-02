@@ -8,6 +8,77 @@ import (
 )
 
 type (
+	// JobRunRequest : Request body for running a job.
+	JobRunRequest struct {
+		Data   map[string]any `json:"data,omitempty"`
+		Commit bool           `json:"commit,omitempty"`
+		Dryrun bool           `json:"dryrun,omitempty"`
+	}
+
+	// JobRunResponse : Response from running a job.
+	// Contains either a scheduled_job (for jobs requiring approval) or job_result (for immediate execution).
+	JobRunResponse struct {
+		ScheduledJob *ScheduledJob `json:"scheduled_job"`
+		JobResult    *JobResult    `json:"job_result"`
+	}
+
+	// JobResult : Result of a job execution.
+	JobResult struct {
+		ID             uuid.UUID      `json:"id"`
+		ObjectType     string         `json:"object_type"`
+		Display        string         `json:"display"`
+		URL            string         `json:"url"`
+		NaturalSlug    string         `json:"natural_slug"`
+		Status         *JobStatus     `json:"status"`
+		Name           string         `json:"name"`
+		TaskName       *string        `json:"task_name"`
+		DateCreated    time.Time      `json:"date_created"`
+		DateStarted    *time.Time     `json:"date_started"`
+		DateDone       *time.Time     `json:"date_done"`
+		Result         any            `json:"result"`
+		Worker         *string        `json:"worker"`
+		TaskArgs       []any          `json:"task_args"`
+		TaskKwargs     map[string]any `json:"task_kwargs"`
+		CeleryKwargs   map[string]any `json:"celery_kwargs"`
+		Traceback      *string        `json:"traceback"`
+		Meta           any            `json:"meta"`
+		JobModel       *nested.Job    `json:"job_model"`
+		User           *nested.User   `json:"user"`
+		ScheduledJob   *ScheduledJob  `json:"scheduled_job"`
+		CustomFields   map[string]any `json:"custom_fields"`
+		ComputedFields map[string]any `json:"computed_fields"`
+		Files          []any          `json:"files"`
+	}
+
+	// JobStatus : Status of a job result.
+	JobStatus struct {
+		Value string `json:"value"`
+		Label string `json:"label"`
+	}
+
+	// ScheduledJob : A scheduled job awaiting execution or approval.
+	ScheduledJob struct {
+		ID               uuid.UUID    `json:"id"`
+		ObjectType       string       `json:"object_type"`
+		Display          string       `json:"display"`
+		URL              string       `json:"url"`
+		JobModel         *nested.Job  `json:"job_model"`
+		Name             string       `json:"name"`
+		Task             string       `json:"task"`
+		Interval         string       `json:"interval"`
+		Queue            string       `json:"queue"`
+		User             *nested.User `json:"user"`
+		StartTime        time.Time    `json:"start_time"`
+		Description      string       `json:"description"`
+		ApprovalRequired bool         `json:"approval_required"`
+		Approved         bool         `json:"approved"`
+		ApprovedAt       *time.Time   `json:"approved_at"`
+		ApprovedByUser   *nested.User `json:"approved_by_user"`
+		CrontabSpec      string       `json:"crontab"`
+		Created          time.Time    `json:"created"`
+		LastUpdated      time.Time    `json:"last_updated"`
+	}
+
 	// Job : Data type entry for a Job in Nautobot.
 	Job struct {
 		ID                            uuid.UUID         `json:"id"`
