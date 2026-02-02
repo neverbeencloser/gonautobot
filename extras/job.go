@@ -1,0 +1,37 @@
+package extras
+
+import (
+	"net/url"
+
+	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/types"
+)
+
+const (
+	extrasEndpointJob = "extras/jobs/"
+)
+
+// JobGet : Get a Job by UUID identifier.
+func (c *Client) JobGet(id uuid.UUID) (*types.Job, error) {
+	return core.Get[types.Job](c.Client, extrasEndpointJob, id)
+}
+
+// JobFilter : Get a list of Jobs based on query parameters.
+func (c *Client) JobFilter(q *url.Values) ([]types.Job, error) {
+	jobs := make([]types.Job, 0)
+	return jobs, core.Paginate[types.Job](c.Client, extrasEndpointJob, q, &jobs)
+}
+
+// JobAll : Get all Jobs in Nautobot.
+func (c *Client) JobAll() ([]types.Job, error) {
+	jobs := make([]types.Job, 0)
+	return jobs, core.Paginate[types.Job](c.Client, extrasEndpointJob, nil, &jobs)
+}
+
+// JobUpdate : Update an existing Job record in Nautobot.
+// Jobs are created by the system when code is loaded, not via API.
+// Use this method to enable/disable jobs or change their settings.
+func (c *Client) JobUpdate(id uuid.UUID, patch map[string]any) (*types.Job, error) {
+	return core.Update[types.Job](c.Client, extrasEndpointJob, id, patch)
+}
