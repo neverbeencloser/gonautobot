@@ -13,7 +13,8 @@ import (
 )
 
 const (
-	testJobID = "f1a2b3c4-d5e6-7890-abcd-ef1234567890"
+	testJobID       = "f1a2b3c4-d5e6-7890-abcd-ef1234567890"
+	testJobResultID = "85b43318-e232-4494-9265-e53440f6bb7f"
 )
 
 func TestClient_JobGet(t *testing.T) {
@@ -109,4 +110,56 @@ func TestClient_JobRun(t *testing.T) {
 	assert.Equal(t, "baa7a682-f727-40db-987b-289b8d14b966", resp.JobResult.JobModel.ID)
 	assert.NotNil(t, resp.JobResult.User)
 	assert.Equal(t, "23b16958-5cc9-4a32-bda2-9b7e47993862", resp.JobResult.User.ID)
+}
+
+func TestClient_JobResultGet(t *testing.T) {
+	gock.New(testURL).Get("extras/job-results/" + testJobResultID + "/").Reply(200).
+		File(path.Join("fixtures", "extras", "jobresult_200_1.json"))
+
+	id, err := uuid.Parse(testJobResultID)
+	require.NoError(t, err)
+
+	resp, err := testClient.Extras.JobResultGet(id)
+	require.NoError(t, err)
+	assert.Equal(t, "Logs Cleanup", resp.Name)
+	assert.Equal(t, id, resp.ID)
+	assert.Equal(t, "SUCCESS", resp.Status.Value)
+	assert.NotNil(t, resp.JobModel)
+	assert.NotNil(t, resp.User)
+}
+
+func TestClient_JobResultFilter(t *testing.T) {
+	gock.New(testURL).Get("extras/job-results/").Reply(200).
+		File(path.Join("fixtures", "extras", "jobresults_200_1.json"))
+
+	q := &url.Values{}
+	q.Set("status", "SUCCESS")
+
+	resp, err := testClient.Extras.JobResultFilter(q)
+	require.NoError(t, err)
+	assert.Len(t, resp, 2)
+	assert.Equal(t, "Logs Cleanup", resp[0].Name)
+}
+
+func TestClient_JobResultAll(t *testing.T) {
+	gock.New(testURL).Get("extras/job-results/").Reply(200).
+		File(path.Join("fixtures", "extras", "jobresults_200_1.json"))
+
+	resp, err := testClient.Extras.JobResultAll()
+	require.NoError(t, err)
+
+	assert.Len(t, resp, 2)
+	assert.Equal(t, "Logs Cleanup", resp[0].Name)
+	assert.Equal(t, "Device Sync", resp[1].Name)
+}
+
+func TestClient_JobResultDelete(t *testing.T) {
+	gock.New(testURL).Delete("extras/job-results/" + testJobResultID + "/").Reply(204)
+
+	id, err := uuid.Parse(testJobResultID)
+	require.NoError(t, err)
+
+	err = testClient.Extras.JobResultDelete(id)
+	require.NoError(t, err)
+	assert.True(t, gock.IsDone())
 }

@@ -1,0 +1,81 @@
+{
+	"count": 2,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"id": "85b43318-e232-4494-9265-e53440f6bb7f",
+			"object_type": "extras.jobresult",
+			"display": "Logs Cleanup created at 2026-02-02 15:52:54.274238+00:00 (SUCCESS)",
+			"url": "https://demo.nautobot.com/api/extras/job-results/85b43318-e232-4494-9265-e53440f6bb7f/",
+			"natural_slug": "85b43318-e232-4494-9265-e53440f6bb7f_85b4",
+			"status": {
+				"value": "SUCCESS",
+				"label": "SUCCESS"
+			},
+			"name": "Logs Cleanup",
+			"task_name": null,
+			"date_created": "2026-02-02T15:52:54.274238Z",
+			"date_started": "2026-02-02T15:52:55.000000Z",
+			"date_done": "2026-02-02T15:53:10.123456Z",
+			"result": null,
+			"worker": "celery@worker-1",
+			"task_args": [],
+			"task_kwargs": {},
+			"celery_kwargs": {},
+			"traceback": null,
+			"meta": null,
+			"job_model": {
+				"id": "baa7a682-f727-40db-987b-289b8d14b966",
+				"object_type": "extras.job",
+				"url": "https://demo.nautobot.com/api/extras/jobs/baa7a682-f727-40db-987b-289b8d14b966/"
+			},
+			"user": {
+				"id": "23b16958-5cc9-4a32-bda2-9b7e47993862",
+				"object_type": "users.user",
+				"url": "https://demo.nautobot.com/api/users/users/23b16958-5cc9-4a32-bda2-9b7e47993862/"
+			},
+			"scheduled_job": null,
+			"custom_fields": {},
+			"computed_fields": {},
+			"files": []
+		},
+		{
+			"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+			"object_type": "extras.jobresult",
+			"display": "Device Sync created at 2026-02-01 10:00:00.000000+00:00 (FAILURE)",
+			"url": "https://demo.nautobot.com/api/extras/job-results/a1b2c3d4-e5f6-7890-abcd-ef1234567890/",
+			"natural_slug": "a1b2c3d4-e5f6-7890-abcd-ef1234567890_a1b2",
+			"status": {
+				"value": "FAILURE",
+				"label": "FAILURE"
+			},
+			"name": "Device Sync",
+			"task_name": null,
+			"date_created": "2026-02-01T10:00:00.000000Z",
+			"date_started": "2026-02-01T10:00:01.000000Z",
+			"date_done": "2026-02-01T10:05:30.000000Z",
+			"result": null,
+			"worker": "celery@worker-2",
+			"task_args": [],
+			"task_kwargs": {},
+			"celery_kwargs": {},
+			"traceback": "Traceback (most recent call last):\n  File ...",
+			"meta": null,
+			"job_model": {
+				"id": "c1d2e3f4-a5b6-7890-cdef-123456789012",
+				"object_type": "extras.job",
+				"url": "https://demo.nautobot.com/api/extras/jobs/c1d2e3f4-a5b6-7890-cdef-123456789012/"
+			},
+			"user": {
+				"id": "23b16958-5cc9-4a32-bda2-9b7e47993862",
+				"object_type": "users.user",
+				"url": "https://demo.nautobot.com/api/users/users/23b16958-5cc9-4a32-bda2-9b7e47993862/"
+			},
+			"scheduled_job": null,
+			"custom_fields": {},
+			"computed_fields": {},
+			"files": []
+		}
+	]
+}
