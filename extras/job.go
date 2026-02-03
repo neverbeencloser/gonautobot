@@ -9,8 +9,9 @@ import (
 )
 
 const (
-	extrasEndpointJob = "extras/jobs/"
-	actionRun         = "run"
+	extrasEndpointJob       = "extras/jobs/"
+	extrasEndpointJobResult = "extras/job-results/"
+	actionRun               = "run"
 )
 
 // JobGet : Get a Job by UUID identifier.
@@ -43,4 +44,26 @@ func (c *Client) JobUpdate(id uuid.UUID, patch map[string]any) (*types.Job, erro
 // The request can include optional data parameters, commit flag, and dryrun flag.
 func (c *Client) JobRun(id uuid.UUID, request types.JobRunRequest) (*types.JobRunResponse, error) {
 	return core.Action[types.JobRunResponse](c.Client, extrasEndpointJob, id, actionRun, request)
+}
+
+// JobResultGet : Get a Job Result by UUID identifier.
+func (c *Client) JobResultGet(id uuid.UUID) (*types.JobResult, error) {
+	return core.Get[types.JobResult](c.Client, extrasEndpointJobResult, id)
+}
+
+// JobResultFilter : Get a list of Job Results based on query parameters.
+func (c *Client) JobResultFilter(q *url.Values) ([]types.JobResult, error) {
+	results := make([]types.JobResult, 0)
+	return results, core.Paginate[types.JobResult](c.Client, extrasEndpointJobResult, q, &results)
+}
+
+// JobResultAll : Get all Job Results in Nautobot.
+func (c *Client) JobResultAll() ([]types.JobResult, error) {
+	results := make([]types.JobResult, 0)
+	return results, core.Paginate[types.JobResult](c.Client, extrasEndpointJobResult, nil, &results)
+}
+
+// JobResultDelete : Delete a Job Result by UUID identifier.
+func (c *Client) JobResultDelete(id uuid.UUID) error {
+	return core.Delete(c.Client, extrasEndpointJobResult, id)
 }

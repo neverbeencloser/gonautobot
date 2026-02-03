@@ -2,7 +2,9 @@ package main
 
 import (
 	"net/url"
+	"time"
 
+	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
@@ -100,5 +102,90 @@ func (c *ex) JobRunExample() {
 				Str("user_id", resp.JobResult.User.ID).
 				Msg("Job submitted by user")
 		}
+
+		// Poll for job completion
+		c.pollJobResult(resp.JobResult.ID)
 	}
+}
+
+// pollJobResult : Poll for job result completion status.
+func (c *ex) pollJobResult(jobResultID uuid.UUID) {
+	const (
+		maxAttempts   = 30
+		pollInterval  = 2 * time.Second
+		terminalState = true
+	)
+
+	// Terminal states for job results
+	terminalStates := map[string]bool{
+		"SUCCESS": true,
+		"FAILURE": true,
+		"ERROR":   true,
+		"ABORTED": true,
+	}
+
+	log.Info().
+		Str("job_result_uuid", jobResultID.String()).
+		Msg("Polling for job result completion...")
+
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		result, err := c.Extras.JobResultGet(jobResultID)
+		if err != nil {
+			log.Error().
+				Err(err).
+				Int("attempt", attempt).
+				Msg("Failed to fetch job result")
+			time.Sleep(pollInterval)
+			continue
+		}
+
+		status := ""
+		if result.Status != nil {
+			status = result.Status.Value
+		}
+
+		log.Info().
+			Str("job_result_uuid", result.ID.String()).
+			Str("name", result.Name).
+			Str("status", status).
+			Int("attempt", attempt).
+			Msg("Job result status")
+
+		// Check if job has reached a terminal state
+		if terminalStates[status] {
+			logEvent := log.Info().
+				Str("job_result_uuid", result.ID.String()).
+				Str("name", result.Name).
+				Str("final_status", status)
+
+			if result.Worker != nil {
+				logEvent = logEvent.Str("worker", *result.Worker)
+			}
+			logEvent.Msg("Job completed")
+
+			if result.DateStarted != nil && result.DateDone != nil {
+				duration := result.DateDone.Sub(*result.DateStarted)
+				log.Info().
+					Time("date_started", *result.DateStarted).
+					Time("date_done", *result.DateDone).
+					Dur("duration", duration).
+					Msg("Job timing")
+			}
+
+			if result.Traceback != nil && *result.Traceback != "" {
+				log.Error().
+					Str("traceback", *result.Traceback).
+					Msg("Job failed with traceback")
+			}
+
+			return
+		}
+
+		time.Sleep(pollInterval)
+	}
+
+	log.Warn().
+		Str("job_result_uuid", jobResultID.String()).
+		Int("max_attempts", maxAttempts).
+		Msg("Job did not complete within polling window")
 }
