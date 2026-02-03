@@ -11,6 +11,7 @@ import (
 const (
 	extrasEndpointJob       = "extras/jobs/"
 	extrasEndpointJobResult = "extras/job-results/"
+	extrasEndpointJobLog    = "extras/job-logs/"
 	actionRun               = "run"
 )
 
@@ -66,4 +67,21 @@ func (c *Client) JobResultAll() ([]types.JobResult, error) {
 // JobResultDelete : Delete a Job Result by UUID identifier.
 func (c *Client) JobResultDelete(id uuid.UUID) error {
 	return core.Delete(c.Client, extrasEndpointJobResult, id)
+}
+
+// JobLogGet : Get a Job Log entry by UUID identifier.
+func (c *Client) JobLogGet(id uuid.UUID) (*types.JobLog, error) {
+	return core.Get[types.JobLog](c.Client, extrasEndpointJobLog, id)
+}
+
+// JobLogFilter : Get a list of Job Log entries based on query parameters.
+func (c *Client) JobLogFilter(q *url.Values) ([]types.JobLog, error) {
+	logs := make([]types.JobLog, 0)
+	return logs, core.Paginate[types.JobLog](c.Client, extrasEndpointJobLog, q, &logs)
+}
+
+// JobLogAll : Get all Job Log entries in Nautobot.
+func (c *Client) JobLogAll() ([]types.JobLog, error) {
+	logs := make([]types.JobLog, 0)
+	return logs, core.Paginate[types.JobLog](c.Client, extrasEndpointJobLog, nil, &logs)
 }

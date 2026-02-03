@@ -27,6 +27,14 @@ type (
 		URL     string `json:"url"`
 	}
 
+	// JobResult : Models a subset on the JobResult model for nested responses.
+	JobResult struct {
+		ID      string `json:"id"`
+		Display string `json:"display"`
+		Name    string `json:"name"`
+		URL     string `json:"url"`
+	}
+
 	// SecretsGroup : Models a subset on the SecretsGroup model for nested responses.
 	SecretsGroup struct {
 		ID      string `json:"id"`
