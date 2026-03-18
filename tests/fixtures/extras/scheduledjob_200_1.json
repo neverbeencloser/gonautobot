@@ -1,0 +1,36 @@
+{
+	"id": "e1f2a3b4-c5d6-7890-abcd-ef1234567890",
+	"object_type": "extras.scheduledjob",
+	"display": "Logs Cleanup — 2026-02-02 10:00",
+	"url": "https://demo.nautobot.com/api/extras/scheduled-jobs/e1f2a3b4-c5d6-7890-abcd-ef1234567890/",
+	"natural_slug": "logs-cleanup_e1f2",
+	"job_model": {
+		"id": "baa7a682-f727-40db-987b-289b8d14b966",
+		"display": "Logs Cleanup",
+		"name": "Logs Cleanup",
+		"url": "https://demo.nautobot.com/api/extras/jobs/baa7a682-f727-40db-987b-289b8d14b966/"
+	},
+	"name": "Logs Cleanup",
+	"task": "nautobot.extras.jobs.run_job",
+	"interval": "future",
+	"queue": "default",
+	"user": {
+		"id": "23b16958-5cc9-4a32-bda2-9b7e47993862",
+		"display": "admin",
+		"username": "admin",
+		"url": "https://demo.nautobot.com/api/users/users/23b16958-5cc9-4a32-bda2-9b7e47993862/"
+	},
+	"start_time": "2026-02-02T10:00:00Z",
+	"description": "",
+	"approval_required": true,
+	"approved": false,
+	"approved_at": null,
+	"approved_by_user": null,
+	"crontab": "",
+	"created": "2026-02-01T12:00:00Z",
+	"last_updated": "2026-02-01T12:00:00Z",
+	"notes_url": "https://demo.nautobot.com/api/extras/scheduled-jobs/e1f2a3b4-c5d6-7890-abcd-ef1234567890/notes/",
+	"custom_fields": {},
+	"computed_fields": {},
+	"relationships": {}
+}
