@@ -69,7 +69,7 @@ The client is organized into modules that mirror Nautobot's API structure:
 | `Circuits` | Circuit and provider management |
 | `Dcim` | Data center infrastructure |
 | `Ipam` | IP address management |
-| `Extras` | Custom fields, tags, status |
+| `Extras` | Custom fields, tags, status, jobs, scheduled jobs |
 | `Tenancy` | Multi-tenancy support |
 | `Virtualization` | Virtual machines and clusters |
 | `Plugins` | Plugin-specific endpoints |

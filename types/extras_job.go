@@ -57,42 +57,48 @@ type (
 	}
 
 	// ScheduledJob : A scheduled job awaiting execution or approval.
+	// Used by JobRun responses and extras/scheduled-jobs/.
 	ScheduledJob struct {
-		ID               uuid.UUID    `json:"id"`
-		ObjectType       string       `json:"object_type"`
-		Display          string       `json:"display"`
-		URL              string       `json:"url"`
-		JobModel         *nested.Job  `json:"job_model"`
-		Name             string       `json:"name"`
-		Task             string       `json:"task"`
-		Interval         string       `json:"interval"`
-		Queue            string       `json:"queue"`
-		User             *nested.User `json:"user"`
-		StartTime        time.Time    `json:"start_time"`
-		Description      string       `json:"description"`
-		ApprovalRequired bool         `json:"approval_required"`
-		Approved         bool         `json:"approved"`
-		ApprovedAt       *time.Time   `json:"approved_at"`
-		ApprovedByUser   *nested.User `json:"approved_by_user"`
-		CrontabSpec      string       `json:"crontab"`
-		Created          time.Time    `json:"created"`
-		LastUpdated      time.Time    `json:"last_updated"`
+		ID               uuid.UUID      `json:"id"`
+		ObjectType       string         `json:"object_type"`
+		Display          string         `json:"display"`
+		URL              string         `json:"url"`
+		NaturalSlug      string         `json:"natural_slug,omitempty"`
+		JobModel         *nested.Job    `json:"job_model"`
+		Name             string         `json:"name"`
+		Task             string         `json:"task"`
+		Interval         string         `json:"interval"`
+		Queue            string         `json:"queue"`
+		User             *nested.User   `json:"user"`
+		StartTime        time.Time      `json:"start_time"`
+		Description      string         `json:"description"`
+		ApprovalRequired bool           `json:"approval_required"`
+		Approved         bool           `json:"approved"`
+		ApprovedAt       *time.Time     `json:"approved_at"`
+		ApprovedByUser   *nested.User   `json:"approved_by_user"`
+		CrontabSpec      string         `json:"crontab"`
+		Created          time.Time      `json:"created"`
+		LastUpdated      time.Time      `json:"last_updated"`
+		NotesURL         string         `json:"notes_url,omitempty"`
+		CustomFields     map[string]any `json:"custom_fields,omitempty"`
+		ComputedFields   map[string]any `json:"computed_fields,omitempty"`
+		Relationships    map[string]any `json:"relationships,omitempty"`
 	}
 
 	// JobLog : A log entry from a job execution.
 	JobLog struct {
-		ID             uuid.UUID          `json:"id"`
-		ObjectType     string             `json:"object_type"`
-		Display        string             `json:"display"`
-		URL            string             `json:"url"`
-		NaturalSlug    string             `json:"natural_slug"`
-		LogLevel       string             `json:"log_level"`
-		Grouping       string             `json:"grouping"`
-		Message        string             `json:"message"`
-		Created        time.Time          `json:"created"`
-		LogObject      *string            `json:"log_object"`
-		AbsoluteURL    *string            `json:"absolute_url"`
-		JobResult      *nested.JobResult  `json:"job_result"`
+		ID          uuid.UUID         `json:"id"`
+		ObjectType  string            `json:"object_type"`
+		Display     string            `json:"display"`
+		URL         string            `json:"url"`
+		NaturalSlug string            `json:"natural_slug"`
+		LogLevel    string            `json:"log_level"`
+		Grouping    string            `json:"grouping"`
+		Message     string            `json:"message"`
+		Created     time.Time         `json:"created"`
+		LogObject   *string           `json:"log_object"`
+		AbsoluteURL *string           `json:"absolute_url"`
+		JobResult   *nested.JobResult `json:"job_result"`
 	}
 
 	// Job : Data type entry for a Job in Nautobot.
