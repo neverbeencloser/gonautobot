@@ -1,0 +1,25 @@
+{
+	"id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+	"object_type": "extras.jobhook",
+	"display": "Sync device on change",
+	"url": "https://demo.nautobot.com/api/extras/job-hooks/a1b2c3d4-e5f6-7890-abcd-ef1234567890/",
+	"natural_slug": "sync-device-on-change_a1b2",
+	"content_types": ["dcim.device", "dcim.interface"],
+	"enabled": false,
+	"name": "Sync device on change",
+	"type_create": true,
+	"type_delete": false,
+	"type_update": true,
+	"job": {
+		"id": "baa7a682-f727-40db-987b-289b8d14b966",
+		"display": "Device Sync Job",
+		"name": "Device Sync Job",
+		"url": "https://demo.nautobot.com/api/extras/jobs/baa7a682-f727-40db-987b-289b8d14b966/"
+	},
+	"created": "2024-01-10T09:00:00Z",
+	"last_updated": "2024-01-20T12:00:00Z",
+	"notes_url": "https://demo.nautobot.com/api/extras/job-hooks/a1b2c3d4-e5f6-7890-abcd-ef1234567890/notes/",
+	"custom_fields": {},
+	"computed_fields": {},
+	"relationships": {}
+}
