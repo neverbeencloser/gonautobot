@@ -1,7 +1,7 @@
 APP_NAME  := gonautobot
 REPO      := github.com/neverbeencloser
 
-COMPOSE   := docker-compose -p $(APP_NAME) --project-directory "develop"  -f "develop/docker-compose.yml"
+COMPOSE   := docker compose -p $(APP_NAME) --project-directory "develop"  -f "develop/docker-compose.yml"
 
 # Check if the session is interactive. if not, disable TTY for docker-compose.
 ifneq ($(shell test -t 0 && echo true),true)
