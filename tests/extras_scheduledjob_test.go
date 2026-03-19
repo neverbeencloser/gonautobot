@@ -4,6 +4,7 @@ import (
 	"net/url"
 	"path"
 	"testing"
+	"time"
 
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
@@ -22,12 +23,36 @@ func TestClient_ScheduledJobGet(t *testing.T) {
 
 	resp, err := testClient.Extras.ScheduledJobGet(id)
 	require.NoError(t, err)
+
+	expectedLastRunAt := time.Date(2026, 2, 1, 14, 0, 0, 0, time.UTC)
+	expectedDateChanged := time.Date(2026, 2, 1, 14, 0, 0, 0, time.UTC)
+
 	assert.Equal(t, "Logs Cleanup", resp.Name)
 	assert.Equal(t, id, resp.ID)
+	assert.Equal(t, "default", resp.Queue)
+	assert.Equal(t, "UTC", resp.TimeZone)
+	assert.Equal(t, "nautobot.extras.jobs.run_job", resp.Task)
+	assert.Equal(t, "future", resp.Interval)
+	assert.Empty(t, resp.Args)
+	assert.NotNil(t, resp.Kwargs)
+	require.NotNil(t, resp.CeleryKwargs)
+	assert.Equal(t, "default", resp.CeleryKwargs["queue"])
+	assert.False(t, resp.OneOff)
+	assert.True(t, resp.Enabled)
+	require.NotNil(t, resp.LastRunAt)
+	assert.Equal(t, expectedLastRunAt, resp.LastRunAt.Truncate(time.Second))
+	assert.Equal(t, 42, resp.TotalRunCount)
+	require.NotNil(t, resp.DateChanged)
+	assert.Equal(t, expectedDateChanged, resp.DateChanged.Truncate(time.Second))
 	assert.True(t, resp.ApprovalRequired)
 	assert.False(t, resp.Approved)
 	require.NotNil(t, resp.JobModel)
 	assert.Equal(t, "baa7a682-f727-40db-987b-289b8d14b966", resp.JobModel.ID)
+	require.NotNil(t, resp.JobQueue)
+	assert.Equal(t, "a1b2c3d4-e5f6-7890-abcd-ef1234567890", resp.JobQueue.ID)
+	assert.Equal(t, "https://demo.nautobot.com/api/extras/job-queues/a1b2c3d4-e5f6-7890-abcd-ef1234567890/", resp.JobQueue.URL)
+	require.NotNil(t, resp.User)
+	assert.Equal(t, "admin", resp.User.Username)
 }
 
 func TestClient_ScheduledJobFilter(t *testing.T) {
@@ -41,7 +66,18 @@ func TestClient_ScheduledJobFilter(t *testing.T) {
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Logs Cleanup", resp[0].Name)
+	assert.Equal(t, "default", resp[0].Queue)
+	assert.Equal(t, "UTC", resp[0].TimeZone)
+	assert.True(t, resp[0].Enabled)
+	assert.Equal(t, 42, resp[0].TotalRunCount)
+	require.NotNil(t, resp[0].JobQueue)
 	assert.Equal(t, "Device Sync", resp[1].Name)
+	assert.Equal(t, "K8s", resp[1].Queue)
+	assert.Equal(t, "America/New_York", resp[1].TimeZone)
+	assert.Nil(t, resp[1].JobQueue)
+	assert.Nil(t, resp[1].LastRunAt)
+	assert.Nil(t, resp[1].DateChanged)
+	assert.Equal(t, 0, resp[1].TotalRunCount)
 }
 
 func TestClient_ScheduledJobAll(t *testing.T) {
@@ -51,6 +87,8 @@ func TestClient_ScheduledJobAll(t *testing.T) {
 	resp, err := testClient.Extras.ScheduledJobAll()
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
+	assert.Equal(t, "Logs Cleanup", resp[0].Name)
+	assert.Equal(t, "Device Sync", resp[1].Name)
 }
 
 func TestClient_ScheduledJobDelete(t *testing.T) {

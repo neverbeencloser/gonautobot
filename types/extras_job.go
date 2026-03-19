@@ -64,19 +64,29 @@ type (
 		Display          string         `json:"display"`
 		URL              string         `json:"url"`
 		NaturalSlug      string         `json:"natural_slug,omitempty"`
-		JobModel         *nested.Job    `json:"job_model"`
+		Queue            string         `json:"queue"`
+		TimeZone         string         `json:"time_zone,omitempty"`
 		Name             string         `json:"name"`
 		Task             string         `json:"task"`
 		Interval         string         `json:"interval"`
-		Queue            string         `json:"queue"`
-		User             *nested.User   `json:"user"`
+		Args             []any          `json:"args,omitempty"`
+		Kwargs           map[string]any `json:"kwargs,omitempty"`
+		CeleryKwargs     map[string]any `json:"celery_kwargs,omitempty"`
+		OneOff           bool           `json:"one_off,omitempty"`
 		StartTime        time.Time      `json:"start_time"`
+		Enabled          bool           `json:"enabled,omitempty"`
+		LastRunAt        *time.Time     `json:"last_run_at,omitempty"`
+		TotalRunCount    int            `json:"total_run_count,omitempty"`
+		DateChanged      *time.Time     `json:"date_changed,omitempty"`
 		Description      string         `json:"description"`
 		ApprovalRequired bool           `json:"approval_required"`
 		Approved         bool           `json:"approved"`
 		ApprovedAt       *time.Time     `json:"approved_at"`
 		ApprovedByUser   *nested.User   `json:"approved_by_user"`
 		CrontabSpec      string         `json:"crontab"`
+		JobModel         *nested.Job    `json:"job_model"`
+		JobQueue         *nested.JobQueue `json:"job_queue,omitempty"`
+		User             *nested.User   `json:"user"`
 		Created          time.Time      `json:"created"`
 		LastUpdated      time.Time      `json:"last_updated"`
 		NotesURL         string         `json:"notes_url,omitempty"`
