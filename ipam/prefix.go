@@ -7,6 +7,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -15,8 +16,8 @@ const (
 )
 
 // PrefixGet : Get a Prefix by UUID identifier.
-func (c *Client) PrefixGet(id uuid.UUID) (*types.Prefix, error) {
-	return core.Get[types.Prefix](c.Client, ipamEndpointPrefix, id)
+func (c *Client) PrefixGet(id uuid.UUID, opts ...query.Option) (*types.Prefix, error) {
+	return core.Get[types.Prefix](c.Client, ipamEndpointPrefix, id, opts...)
 }
 
 // PrefixFilter : Get a list of Prefixes based on query parameters.

@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // RoleGet : Get a Role by UUID identifier.
-func (c *Client) RoleGet(id uuid.UUID) (*types.Role, error) {
-	return core.Get[types.Role](c.Client, extrasEndpointRole, id)
+func (c *Client) RoleGet(id uuid.UUID, opts ...query.Option) (*types.Role, error) {
+	return core.Get[types.Role](c.Client, extrasEndpointRole, id, opts...)
 }
 
 // RoleFilter : Get a list of Roles based on query parameters.

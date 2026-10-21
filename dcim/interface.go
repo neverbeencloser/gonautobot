@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -15,8 +16,8 @@ const (
 // InterfaceGet : Go function to process requests for the endpoint: /api/dcim/interfaces/:id/
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_interfaces_retrieve
-func (c *Client) InterfaceGet(id uuid.UUID) (*types.DeviceInterface, error) {
-	return core.Get[types.DeviceInterface](c.Client, dcimEndpointInterface, id)
+func (c *Client) InterfaceGet(id uuid.UUID, opts ...query.Option) (*types.DeviceInterface, error) {
+	return core.Get[types.DeviceInterface](c.Client, dcimEndpointInterface, id, opts...)
 }
 
 // InterfaceFilter : Go function to process requests for the endpoint: /api/dcim/interfaces/

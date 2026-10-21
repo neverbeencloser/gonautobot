@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // RackGroupGet : Get a RackGroup by UUID identifier.
-func (c *Client) RackGroupGet(id uuid.UUID) (*types.RackGroup, error) {
-	return core.Get[types.RackGroup](c.Client, dcimEndpointRackGroup, id)
+func (c *Client) RackGroupGet(id uuid.UUID, opts ...query.Option) (*types.RackGroup, error) {
+	return core.Get[types.RackGroup](c.Client, dcimEndpointRackGroup, id, opts...)
 }
 
 // RackGroupFilter : Get a list of RackGroups based on query parameters.

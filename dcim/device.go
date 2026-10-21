@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // DeviceGet : Get a Device by UUID identifier.
-func (c *Client) DeviceGet(id uuid.UUID) (*types.Device, error) {
-	return core.Get[types.Device](c.Client, dcimEndpointDevice, id)
+func (c *Client) DeviceGet(id uuid.UUID, opts ...query.Option) (*types.Device, error) {
+	return core.Get[types.Device](c.Client, dcimEndpointDevice, id, opts...)
 }
 
 // DeviceFilter : Get a list of Devices based on query parameters.

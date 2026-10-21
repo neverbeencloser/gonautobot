@@ -107,6 +107,21 @@ filters := &url.Values{
 devices, err := client.Dcim.DeviceFilter(filters)
 ```
 
+### Query Options
+
+`Get` methods accept optional query parameters from the `query` package. Options apply in order;
+a later option replaces any key set by an earlier one.
+
+```go
+import "github.com/neverbeencloser/gonautobot/query"
+
+// Include nested related objects and many-to-many fields (omitted by Nautobot by default)
+iface, err := client.Dcim.InterfaceGet(id, query.WithDepth(1), query.WithM2M())
+
+// Pass arbitrary query parameters
+device, err := client.Dcim.DeviceGet(id, query.WithValues(url.Values{"include": {"config_context"}}))
+```
+
 ### Updating Resources
 
 ```go

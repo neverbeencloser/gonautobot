@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -16,8 +17,8 @@ const (
 )
 
 // JobGet : Get a Job by UUID identifier.
-func (c *Client) JobGet(id uuid.UUID) (*types.Job, error) {
-	return core.Get[types.Job](c.Client, extrasEndpointJob, id)
+func (c *Client) JobGet(id uuid.UUID, opts ...query.Option) (*types.Job, error) {
+	return core.Get[types.Job](c.Client, extrasEndpointJob, id, opts...)
 }
 
 // JobFilter : Get a list of Jobs based on query parameters.
@@ -48,8 +49,8 @@ func (c *Client) JobRun(id uuid.UUID, request types.JobRunRequest) (*types.JobRu
 }
 
 // JobResultGet : Get a Job Result by UUID identifier.
-func (c *Client) JobResultGet(id uuid.UUID) (*types.JobResult, error) {
-	return core.Get[types.JobResult](c.Client, extrasEndpointJobResult, id)
+func (c *Client) JobResultGet(id uuid.UUID, opts ...query.Option) (*types.JobResult, error) {
+	return core.Get[types.JobResult](c.Client, extrasEndpointJobResult, id, opts...)
 }
 
 // JobResultFilter : Get a list of Job Results based on query parameters.
@@ -70,8 +71,8 @@ func (c *Client) JobResultDelete(id uuid.UUID) error {
 }
 
 // JobLogGet : Get a Job Log entry by UUID identifier.
-func (c *Client) JobLogGet(id uuid.UUID) (*types.JobLog, error) {
-	return core.Get[types.JobLog](c.Client, extrasEndpointJobLog, id)
+func (c *Client) JobLogGet(id uuid.UUID, opts ...query.Option) (*types.JobLog, error) {
+	return core.Get[types.JobLog](c.Client, extrasEndpointJobLog, id, opts...)
 }
 
 // JobLogFilter : Get a list of Job Log entries based on query parameters.

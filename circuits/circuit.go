@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // CircuitGet : Get a Circuit by UUID identifier.
-func (c *Client) CircuitGet(id uuid.UUID) (*types.Circuit, error) {
-	return core.Get[types.Circuit](c.Client, circuitsEndpointCircuit, id)
+func (c *Client) CircuitGet(id uuid.UUID, opts ...query.Option) (*types.Circuit, error) {
+	return core.Get[types.Circuit](c.Client, circuitsEndpointCircuit, id, opts...)
 }
 
 // CircuitFilter : Get a list of Circuits based on query parameters.

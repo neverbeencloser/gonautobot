@@ -5,14 +5,15 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const extrasEndpointScheduledJob = "extras/scheduled-jobs/"
 
 // ScheduledJobGet : Get a ScheduledJob by UUID identifier.
-func (c *Client) ScheduledJobGet(id uuid.UUID) (*types.ScheduledJob, error) {
-	return core.Get[types.ScheduledJob](c.Client, extrasEndpointScheduledJob, id)
+func (c *Client) ScheduledJobGet(id uuid.UUID, opts ...query.Option) (*types.ScheduledJob, error) {
+	return core.Get[types.ScheduledJob](c.Client, extrasEndpointScheduledJob, id, opts...)
 }
 
 // ScheduledJobFilter : List scheduled jobs matching query parameters.

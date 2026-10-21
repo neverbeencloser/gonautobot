@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // ManufacturerGet : Get a Manufacturer by UUID identifier.
-func (c *Client) ManufacturerGet(id uuid.UUID) (*types.Manufacturer, error) {
-	return core.Get[types.Manufacturer](c.Client, dcimEndpointManufacturer, id)
+func (c *Client) ManufacturerGet(id uuid.UUID, opts ...query.Option) (*types.Manufacturer, error) {
+	return core.Get[types.Manufacturer](c.Client, dcimEndpointManufacturer, id, opts...)
 }
 
 // ManufacturerFilter : Get a list of Manufacturers based on query parameters.

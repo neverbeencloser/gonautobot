@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // VLANGet : Get a VLAN by UUID identifier.
-func (c *Client) VLANGet(id uuid.UUID) (*types.VLAN, error) {
-	return core.Get[types.VLAN](c.Client, ipamEndpointVLAN, id)
+func (c *Client) VLANGet(id uuid.UUID, opts ...query.Option) (*types.VLAN, error) {
+	return core.Get[types.VLAN](c.Client, ipamEndpointVLAN, id, opts...)
 }
 
 // VLANFilter : Get a list of VLANs based on query parameters.

@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // IPAddressGet : Get an IP Address by UUID identifier.
-func (c *Client) IPAddressGet(id uuid.UUID) (*types.IPAddress, error) {
-	return core.Get[types.IPAddress](c.Client, ipamEndpointIPAddress, id)
+func (c *Client) IPAddressGet(id uuid.UUID, opts ...query.Option) (*types.IPAddress, error) {
+	return core.Get[types.IPAddress](c.Client, ipamEndpointIPAddress, id, opts...)
 }
 
 // IPAddressFilter : Get a list of IP Addresses based on query parameters.

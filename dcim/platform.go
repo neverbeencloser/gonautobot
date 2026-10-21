@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // PlatformGet : Get a Platform by UUID identifier.
-func (c *Client) PlatformGet(id uuid.UUID) (*types.Platform, error) {
-	return core.Get[types.Platform](c.Client, dcimEndpointPlatform, id)
+func (c *Client) PlatformGet(id uuid.UUID, opts ...query.Option) (*types.Platform, error) {
+	return core.Get[types.Platform](c.Client, dcimEndpointPlatform, id, opts...)
 }
 
 // PlatformFilter : Get a list of Platforms based on query parameters.

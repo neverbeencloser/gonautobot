@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // ProviderGet : Get a Provider by UUID identifier.
-func (c *Client) ProviderGet(id uuid.UUID) (*types.Provider, error) {
-	return core.Get[types.Provider](c.Client, circuitsEndpointProvider, id)
+func (c *Client) ProviderGet(id uuid.UUID, opts ...query.Option) (*types.Provider, error) {
+	return core.Get[types.Provider](c.Client, circuitsEndpointProvider, id, opts...)
 }
 
 // ProviderFilter : Get a list of Providers based on query parameters.

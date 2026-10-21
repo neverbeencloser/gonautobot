@@ -7,6 +7,7 @@ import (
 	"github.com/neverbeencloser/gonautobot/types"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 )
 
 const (
@@ -15,8 +16,8 @@ const (
 )
 
 // TagGet : Fetches a tag from Nautobot by the slug name.
-func (c *Client) TagGet(id uuid.UUID) (*types.Tag, error) {
-	return core.Get[types.Tag](c.Client, extrasEndpointTag, id)
+func (c *Client) TagGet(id uuid.UUID, opts ...query.Option) (*types.Tag, error) {
+	return core.Get[types.Tag](c.Client, extrasEndpointTag, id, opts...)
 }
 
 // TagFilter : Returns an array of tags from Nautobot filtered by the q (query values)
