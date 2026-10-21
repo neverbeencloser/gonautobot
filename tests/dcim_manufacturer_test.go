@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -30,27 +31,27 @@ func TestClient_ManufacturerGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_ManufacturerFilter(t *testing.T) {
+func TestClient_ManufacturerListFilter(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("dcim/manufacturers/").MatchParam("name", "AWS").Reply(200).
 		File(path.Join("fixtures", "dcim", "manufacturers_200_2.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("name", "AWS")
 
-	resp, err := testClient.Dcim.ManufacturerFilter(q)
+	resp, err := testClient.Dcim.ManufacturerList(query.WithValues(q))
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 1)
 	assert.Equal(t, "AWS", resp[0].Name)
 }
 
-func TestClient_ManufacturerAll(t *testing.T) {
+func TestClient_ManufacturerList(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("dcim/manufacturers/").Reply(200).
 		File(path.Join("fixtures", "dcim", "manufacturers_200_1.json"))
 
-	resp, err := testClient.Dcim.ManufacturerAll()
+	resp, err := testClient.Dcim.ManufacturerList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)

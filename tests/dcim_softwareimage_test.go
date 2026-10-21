@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -29,24 +30,24 @@ func TestClient_SoftwareImageFileGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_SoftwareImageFileFilter(t *testing.T) {
+func TestClient_SoftwareImageFileListFilter(t *testing.T) {
 	gock.New(testURL).Get("dcim/software-image-files/").Reply(200).
 		File(path.Join("fixtures", "dcim", "softwareimages_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("status", "active")
 
-	resp, err := testClient.Dcim.SoftwareImageFileFilter(q)
+	resp, err := testClient.Dcim.SoftwareImageFileList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "asdfsdf", resp[0].ImageFileName)
 }
 
-func TestClient_SoftwareImageFileAll(t *testing.T) {
+func TestClient_SoftwareImageFileList(t *testing.T) {
 	gock.New(testURL).Get("dcim/software-image-files/").Reply(200).
 		File(path.Join("fixtures", "dcim", "softwareimages_200_1.json"))
 
-	resp, err := testClient.Dcim.SoftwareImageFileAll()
+	resp, err := testClient.Dcim.SoftwareImageFileList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)

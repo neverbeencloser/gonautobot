@@ -1,8 +1,6 @@
 package ipam
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) IPAddressGet(id uuid.UUID, opts ...query.Option) (*types.IPAddr
 	return core.Get[types.IPAddress](c.Client, ipamEndpointIPAddress, id, opts...)
 }
 
-// IPAddressFilter : Get a list of IP Addresses based on query parameters.
-func (c *Client) IPAddressFilter(q *url.Values) ([]types.IPAddress, error) {
+// IPAddressList : Get a list of IP Addresses in Nautobot, filtered by any query options.
+func (c *Client) IPAddressList(opts ...query.Option) ([]types.IPAddress, error) {
 	ipAddresses := make([]types.IPAddress, 0)
-	return ipAddresses, core.Paginate[types.IPAddress](c.Client, ipamEndpointIPAddress, q, &ipAddresses)
-}
-
-// IPAddressAll : Get all IP Addresses in Nautobot.
-func (c *Client) IPAddressAll() ([]types.IPAddress, error) {
-	ipAddresses := make([]types.IPAddress, 0)
-	return ipAddresses, core.Paginate[types.IPAddress](c.Client, ipamEndpointIPAddress, nil, &ipAddresses)
+	return ipAddresses, core.Paginate[types.IPAddress](c.Client, ipamEndpointIPAddress, opts, &ipAddresses)
 }
 
 // IPAddressCreate : Generate a new IP Address record in Nautobot.

@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) PlatformGet(id uuid.UUID, opts ...query.Option) (*types.Platfor
 	return core.Get[types.Platform](c.Client, dcimEndpointPlatform, id, opts...)
 }
 
-// PlatformFilter : Get a list of Platforms based on query parameters.
-func (c *Client) PlatformFilter(q *url.Values) ([]types.Platform, error) {
+// PlatformList : Get a list of Platforms in Nautobot, filtered by any query options.
+func (c *Client) PlatformList(opts ...query.Option) ([]types.Platform, error) {
 	platforms := make([]types.Platform, 0)
-	return platforms, core.Paginate[types.Platform](c.Client, dcimEndpointPlatform, q, &platforms)
-}
-
-// PlatformAll : Get all Platforms in Nautobot.
-func (c *Client) PlatformAll() ([]types.Platform, error) {
-	platforms := make([]types.Platform, 0)
-	return platforms, core.Paginate[types.Platform](c.Client, dcimEndpointPlatform, nil, &platforms)
+	return platforms, core.Paginate[types.Platform](c.Client, dcimEndpointPlatform, opts, &platforms)
 }
 
 // PlatformCreate : Generate a new Platform record in Nautobot.

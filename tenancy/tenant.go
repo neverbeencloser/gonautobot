@@ -1,8 +1,6 @@
 package tenancy
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -13,20 +11,12 @@ const (
 	tenancyEndpointTenant = "tenancy/tenants/"
 )
 
-// TenantFilter : Go function to process requests for the endpoint: /api/tenancy/tenants/
+// TenantList : Get a list of Tenants in Nautobot, filtered by any query options.
 //
 // https://demo.nautobot.com/api/docs/#/tenancy/tenancy_tenants_list
-func (c *Client) TenantFilter(q *url.Values) ([]types.Tenant, error) {
+func (c *Client) TenantList(opts ...query.Option) ([]types.Tenant, error) {
 	resp := make([]types.Tenant, 0)
-	return resp, core.Paginate[types.Tenant](c.Client, tenancyEndpointTenant, q, &resp)
-}
-
-// TenantAll : Go function to process requests for the endpoint: /api/tenancy/tenants/
-//
-// https://demo.nautobot.com/api/docs/#/tenancy/tenancy_tenants_list
-func (c *Client) TenantAll() ([]types.Tenant, error) {
-	resp := make([]types.Tenant, 0)
-	return resp, core.Paginate[types.Tenant](c.Client, tenancyEndpointTenant, nil, &resp)
+	return resp, core.Paginate[types.Tenant](c.Client, tenancyEndpointTenant, opts, &resp)
 }
 
 // TenantGet : Get a Tenant by UUID identifier.

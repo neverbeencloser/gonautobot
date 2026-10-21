@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,27 +32,27 @@ func TestClient_DeviceFamilyGet(t *testing.T) {
 	assert.True(t, gock.IsDone())
 }
 
-func TestClient_DeviceFamilyFilter(t *testing.T) {
+func TestClient_DeviceFamilyListFilter(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("dcim/device-families/").MatchParam("name", "Family1").Reply(200).
 		File(path.Join("fixtures", "dcim", "devicefamilies_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("name", "Family1")
 
-	resp, err := testClient.Dcim.DeviceFamilyFilter(q)
+	resp, err := testClient.Dcim.DeviceFamilyList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Family1", resp[0].Name)
 	assert.True(t, gock.IsDone())
 }
 
-func TestClient_DeviceFamilyAll(t *testing.T) {
+func TestClient_DeviceFamilyList(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("dcim/device-families/").Reply(200).
 		File(path.Join("fixtures", "dcim", "devicefamilies_200_1.json"))
 
-	resp, err := testClient.Dcim.DeviceFamilyAll()
+	resp, err := testClient.Dcim.DeviceFamilyList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,16 +32,16 @@ func TestClient_VLANGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_VLANFilter(t *testing.T) {
+func TestClient_VLANListFilter(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/vlans/").Reply(200).
 		File(path.Join("fixtures", "ipam", "vlans_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("name", "dfw01-103-mgmt")
 
-	resp, err := testClient.Ipam.VLANFilter(q)
+	resp, err := testClient.Ipam.VLANList(query.WithValues(q))
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)
@@ -48,13 +49,13 @@ func TestClient_VLANFilter(t *testing.T) {
 	assert.Equal(t, resp[0].ID, uuid.MustParse(testVLANID))
 }
 
-func TestClient_VLANAll(t *testing.T) {
+func TestClient_VLANList(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/vlans/").Reply(200).
 		File(path.Join("fixtures", "ipam", "vlans_200_1.json"))
 
-	resp, err := testClient.Ipam.VLANAll()
+	resp, err := testClient.Ipam.VLANList()
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)

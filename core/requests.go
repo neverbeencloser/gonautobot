@@ -11,6 +11,7 @@ import (
 	"net/url"
 	"strings"
 
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
@@ -23,10 +24,12 @@ type Client struct {
 }
 
 // Paginate : Helper function to abstract out Nautobot paginated responses.
-func Paginate[T any](c *Client, uri string, q *url.Values, ret *[]T) error {
+func Paginate[T any](c *Client, uri string, opts []query.Option, ret *[]T) error {
+	q := query.New(opts...)
 	fullURL := ""
 	for {
-		if fullURL == "" {
+		first := fullURL == ""
+		if first {
 			uri = strings.TrimPrefix(uri, "/")
 			fullURL = fmt.Sprintf("%s%s", c.URL, uri)
 		}
@@ -38,7 +41,8 @@ func Paginate[T any](c *Client, uri string, q *url.Values, ret *[]T) error {
 
 		req.Header.Set("Accept", "application/json")
 		req.Header.Set("Authorization", fmt.Sprintf("Token %s", c.Token))
-		if q != nil && len(*q) > 0 {
+		// Nautobot's `next` URL already carries the filters plus limit/offset.
+		if first && len(q) > 0 {
 			req.URL.RawQuery = q.Encode()
 		}
 

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/url"
 
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
@@ -29,7 +30,7 @@ func (c *ex) DeviceExample() {
 	}
 	fmt.Printf("Updated device %s with ID %s\n", res1.Name, res1.ID)
 
-	r0, err := c.Dcim.DeviceFilter(&url.Values{"name__ic": {res1.Name}})
+	r0, err := c.Dcim.DeviceList(query.WithValues(url.Values{"name__ic": {res1.Name}}))
 	if err != nil {
 		log.Fatal().Err(err)
 	}

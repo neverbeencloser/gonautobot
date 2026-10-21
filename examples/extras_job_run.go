@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
@@ -13,7 +14,7 @@ import (
 // This example shows how to run a job with optional parameters.
 func (c *ex) JobRunExample() {
 	const jobName = "Logs Cleanup"
-	jobResult, err := c.Client.Extras.JobFilter(&url.Values{"name": {jobName}})
+	jobResult, err := c.Client.Extras.JobList(query.WithValues(url.Values{"name": {jobName}}))
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to get job")
 	}
@@ -195,9 +196,9 @@ func (c *ex) pollJobResult(jobResultID uuid.UUID) {
 
 // fetchJobLogs : Fetch and display job logs for a job result.
 func (c *ex) fetchJobLogs(jobResultID uuid.UUID) {
-	jobLogs, err := c.Extras.JobLogFilter(&url.Values{
+	jobLogs, err := c.Extras.JobLogList(query.WithValues(url.Values{
 		"job_result": {jobResultID.String()},
-	})
+	}))
 	if err != nil {
 		log.Error().Err(err).Msg("Failed to get job logs")
 		return

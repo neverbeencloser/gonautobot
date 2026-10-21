@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) RackGroupGet(id uuid.UUID, opts ...query.Option) (*types.RackGr
 	return core.Get[types.RackGroup](c.Client, dcimEndpointRackGroup, id, opts...)
 }
 
-// RackGroupFilter : Get a list of RackGroups based on query parameters.
-func (c *Client) RackGroupFilter(q *url.Values) ([]types.RackGroup, error) {
+// RackGroupList : Get a list of RackGroups in Nautobot, filtered by any query options.
+func (c *Client) RackGroupList(opts ...query.Option) ([]types.RackGroup, error) {
 	rackGroups := make([]types.RackGroup, 0)
-	return rackGroups, core.Paginate[types.RackGroup](c.Client, dcimEndpointRackGroup, q, &rackGroups)
-}
-
-// RackGroupAll : Get all RackGroups in Nautobot.
-func (c *Client) RackGroupAll() ([]types.RackGroup, error) {
-	rackGroups := make([]types.RackGroup, 0)
-	return rackGroups, core.Paginate[types.RackGroup](c.Client, dcimEndpointRackGroup, nil, &rackGroups)
+	return rackGroups, core.Paginate[types.RackGroup](c.Client, dcimEndpointRackGroup, opts, &rackGroups)
 }
 
 // RackGroupCreate : Generate a new RackGroup record in Nautobot.

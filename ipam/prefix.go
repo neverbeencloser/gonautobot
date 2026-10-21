@@ -20,16 +20,10 @@ func (c *Client) PrefixGet(id uuid.UUID, opts ...query.Option) (*types.Prefix, e
 	return core.Get[types.Prefix](c.Client, ipamEndpointPrefix, id, opts...)
 }
 
-// PrefixFilter : Get a list of Prefixes based on query parameters.
-func (c *Client) PrefixFilter(q *url.Values) ([]types.Prefix, error) {
+// PrefixList : Get a list of Prefixes in Nautobot, filtered by any query options.
+func (c *Client) PrefixList(opts ...query.Option) ([]types.Prefix, error) {
 	prefixes := make([]types.Prefix, 0)
-	return prefixes, core.Paginate[types.Prefix](c.Client, ipamEndpointPrefix, q, &prefixes)
-}
-
-// PrefixAll : Get all Prefixes in Nautobot.
-func (c *Client) PrefixAll() ([]types.Prefix, error) {
-	prefixes := make([]types.Prefix, 0)
-	return prefixes, core.Paginate[types.Prefix](c.Client, ipamEndpointPrefix, nil, &prefixes)
+	return prefixes, core.Paginate[types.Prefix](c.Client, ipamEndpointPrefix, opts, &prefixes)
 }
 
 // PrefixCreate : Generate a new Prefix record in Nautobot.
@@ -50,12 +44,13 @@ func (c *Client) PrefixDelete(id uuid.UUID) error {
 // GetPrefixAvailableIPs : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/available-ips/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_available_ips_list
-func (c *Client) GetPrefixAvailableIPs(id uuid.UUID, q *url.Values) ([]types.PrefixAvailableIP, error) {
+func (c *Client) GetPrefixAvailableIPs(id uuid.UUID, opts ...query.Option) ([]types.PrefixAvailableIP, error) {
+	q := query.New(opts...)
 	req, err := c.Request(
 		http.MethodGet,
 		ipamEndpointPrefix+fmt.Sprintf("%s/available-ips/", url.PathEscape(id.String())),
 		nil,
-		q,
+		&q,
 	)
 	if err != nil {
 		return nil, err
@@ -71,12 +66,13 @@ func (c *Client) GetPrefixAvailableIPs(id uuid.UUID, q *url.Values) ([]types.Pre
 // GetPrefixAvailablePrefixes : Go function to process requests for the endpoint: /api/ipam/prefixes/:id/available-prefixes/
 //
 // https://demo.nautobot.com/api/docs/#/ipam/ipam_prefixes_available_prefixes_list
-func (c *Client) GetPrefixAvailablePrefixes(id uuid.UUID, q *url.Values) ([]types.PrefixAvailablePrefix, error) {
+func (c *Client) GetPrefixAvailablePrefixes(id uuid.UUID, opts ...query.Option) ([]types.PrefixAvailablePrefix, error) {
+	q := query.New(opts...)
 	req, err := c.Request(
 		http.MethodGet,
 		ipamEndpointPrefix+fmt.Sprintf("%s/available-prefixes/", url.PathEscape(id.String())),
 		nil,
-		q,
+		&q,
 	)
 	if err != nil {
 		return nil, err

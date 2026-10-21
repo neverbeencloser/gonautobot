@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,16 +32,16 @@ func TestClient_GetDevices(t *testing.T) {
 	gock.New(testURL).Get("dcim/devices/").Reply(200).
 		File(path.Join("fixtures", "dcim", "devices_200_1.json"))
 
-	resp, err := testClient.Dcim.DeviceFilter(&url.Values{"offset": {"50"}})
+	resp, err := testClient.Dcim.DeviceList(query.WithValues(url.Values{"offset": {"50"}}))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }
 
-func TestClient_DeviceAll(t *testing.T) {
+func TestClient_DeviceList(t *testing.T) {
 	gock.New(testURL).Get("dcim/devices/").Reply(200).
 		File(path.Join("fixtures", "dcim", "devices_200_1.json"))
 
-	resp, err := testClient.Dcim.DeviceAll()
+	resp, err := testClient.Dcim.DeviceList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)

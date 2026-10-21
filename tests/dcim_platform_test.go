@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -30,26 +31,26 @@ func TestClient_PlatformGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_PlatformFilter(t *testing.T) {
+func TestClient_PlatformListFilter(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("dcim/platforms/").MatchParam("name", "eos").Reply(200).
 		File(path.Join("fixtures", "dcim", "platforms_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("name", "eos")
 
-	resp, err := testClient.Dcim.PlatformFilter(q)
+	resp, err := testClient.Dcim.PlatformList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 3)
 	assert.Equal(t, "eos", resp[0].Name)
 }
 
-func TestClient_PlatformAll(t *testing.T) {
+func TestClient_PlatformList(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("dcim/platforms/").Reply(200).
 		File(path.Join("fixtures", "dcim", "platforms_200_1.json"))
 
-	resp, err := testClient.Dcim.PlatformAll()
+	resp, err := testClient.Dcim.PlatformList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 3)

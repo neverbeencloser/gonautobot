@@ -41,7 +41,7 @@ func main() {
     )
 
     // Use the client
-    devices, err := client.Dcim.DeviceAll()
+    devices, err := client.Dcim.DeviceList()
     if err != nil {
         log.Fatal(err)
     }
@@ -98,18 +98,17 @@ device, err := client.Dcim.DeviceCreate(dcim.NewDevice{
 device, err := client.Dcim.LocationGet(uuid.MustParse(locationID))
 
 // List all devices
-devices, err := client.Dcim.DeviceAll()
+devices, err := client.Dcim.DeviceList()
 
 // Filter devices
-filters := &url.Values{
-    "status":   {"Active"},
-}
-devices, err := client.Dcim.DeviceFilter(filters)
+devices, err := client.Dcim.DeviceList(query.WithValues(url.Values{
+    "status": {"Active"},
+}))
 ```
 
 ### Query Options
 
-`Get` methods accept optional query parameters from the `query` package. Options apply in order;
+`Get` and `List` methods accept optional query parameters from the `query` package. Options apply in order;
 a later option replaces any key set by an earlier one.
 
 ```go
@@ -117,6 +116,7 @@ import "github.com/neverbeencloser/gonautobot/query"
 
 // Include nested related objects and many-to-many fields (omitted by Nautobot by default)
 iface, err := client.Dcim.InterfaceGet(id, query.WithDepth(1), query.WithM2M())
+ifaces, err := client.Dcim.InterfaceList(query.WithValues(url.Values{"device": {"core-01"}}), query.WithM2M())
 
 // Pass arbitrary query parameters
 device, err := client.Dcim.DeviceGet(id, query.WithValues(url.Values{"include": {"config_context"}}))
@@ -147,7 +147,7 @@ The client automatically handles paginated responses:
 
 ```go
 // This will fetch ALL devices across multiple pages
-allDevices, err := client.Dcim.DeviceAll()
+allDevices, err := client.Dcim.DeviceList()
 ```
 
 ### Multipart File Uploads

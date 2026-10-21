@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,16 +32,16 @@ func TestClient_VRFGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_VRFFilter(t *testing.T) {
+func TestClient_VRFListFilter(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/vrfs/").Reply(200).
 		File(path.Join("fixtures", "ipam", "vrfs_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("name", "CadetBlue8029")
 
-	resp, err := testClient.Ipam.VRFFilter(q)
+	resp, err := testClient.Ipam.VRFList(query.WithValues(q))
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)
@@ -48,13 +49,13 @@ func TestClient_VRFFilter(t *testing.T) {
 	assert.Equal(t, resp[0].ID, uuid.MustParse(testVRFID))
 }
 
-func TestClient_VRFAll(t *testing.T) {
+func TestClient_VRFList(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/vrfs/").Reply(200).
 		File(path.Join("fixtures", "ipam", "vrfs_200_1.json"))
 
-	resp, err := testClient.Ipam.VRFAll()
+	resp, err := testClient.Ipam.VRFList()
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)

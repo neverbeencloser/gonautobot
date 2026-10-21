@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"gopkg.in/h2non/gock.v1"
@@ -55,14 +56,14 @@ func TestClient_ScheduledJobGet(t *testing.T) {
 	assert.Equal(t, "admin", resp.User.Username)
 }
 
-func TestClient_ScheduledJobFilter(t *testing.T) {
+func TestClient_ScheduledJobListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/scheduled-jobs/").Reply(200).
 		File(path.Join("fixtures", "extras", "scheduledjobs_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("approval_required", "true")
 
-	resp, err := testClient.Extras.ScheduledJobFilter(q)
+	resp, err := testClient.Extras.ScheduledJobList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Logs Cleanup", resp[0].Name)
@@ -80,11 +81,11 @@ func TestClient_ScheduledJobFilter(t *testing.T) {
 	assert.Equal(t, 0, resp[1].TotalRunCount)
 }
 
-func TestClient_ScheduledJobAll(t *testing.T) {
+func TestClient_ScheduledJobList(t *testing.T) {
 	gock.New(testURL).Get("extras/scheduled-jobs/").Reply(200).
 		File(path.Join("fixtures", "extras", "scheduledjobs_200_1.json"))
 
-	resp, err := testClient.Extras.ScheduledJobAll()
+	resp, err := testClient.Extras.ScheduledJobList()
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Logs Cleanup", resp[0].Name)

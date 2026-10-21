@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) DeviceFamilyGet(id uuid.UUID, opts ...query.Option) (*types.Dev
 	return core.Get[types.DeviceFamily](c.Client, dcimEndpointDeviceFamily, id, opts...)
 }
 
-// DeviceFamilyFilter : Get a list of DeviceFamilies based on query parameters.
-func (c *Client) DeviceFamilyFilter(q *url.Values) ([]types.DeviceFamily, error) {
+// DeviceFamilyList : Get a list of DeviceFamilies in Nautobot, filtered by any query options.
+func (c *Client) DeviceFamilyList(opts ...query.Option) ([]types.DeviceFamily, error) {
 	deviceFamilies := make([]types.DeviceFamily, 0)
-	return deviceFamilies, core.Paginate[types.DeviceFamily](c.Client, dcimEndpointDeviceFamily, q, &deviceFamilies)
-}
-
-// DeviceFamilyAll : Get all DeviceFamilies in Nautobot.
-func (c *Client) DeviceFamilyAll() ([]types.DeviceFamily, error) {
-	deviceFamilies := make([]types.DeviceFamily, 0)
-	return deviceFamilies, core.Paginate[types.DeviceFamily](c.Client, dcimEndpointDeviceFamily, nil, &deviceFamilies)
+	return deviceFamilies, core.Paginate[types.DeviceFamily](c.Client, dcimEndpointDeviceFamily, opts, &deviceFamilies)
 }
 
 // DeviceFamilyCreate : Generate a new DeviceFamily record in Nautobot.

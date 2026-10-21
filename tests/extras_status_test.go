@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -29,24 +30,24 @@ func TestClient_StatusGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_StatusFilter(t *testing.T) {
+func TestClient_StatusListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/statuses/").Reply(200).
 		File(path.Join("fixtures", "extras", "statuses_200_2.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("content_types__ic", "dcim.device")
 
-	resp, err := testClient.Extras.StatusFilter(q)
+	resp, err := testClient.Extras.StatusList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 7)
 	assert.Equal(t, "Active", resp[0].Name)
 }
 
-func TestClient_StatusAll(t *testing.T) {
+func TestClient_StatusList(t *testing.T) {
 	gock.New(testURL).Get("extras/statuses/").Reply(200).
 		File(path.Join("fixtures", "extras", "statuses_200_1.json"))
 
-	resp, err := testClient.Extras.StatusAll()
+	resp, err := testClient.Extras.StatusList()
 	require.NoError(t, err)
 	assert.Len(t, resp, 22)
 	assert.Equal(t, "Active", resp[0].Name)

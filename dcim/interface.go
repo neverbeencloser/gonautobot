@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -20,10 +18,10 @@ func (c *Client) InterfaceGet(id uuid.UUID, opts ...query.Option) (*types.Device
 	return core.Get[types.DeviceInterface](c.Client, dcimEndpointInterface, id, opts...)
 }
 
-// InterfaceFilter : Go function to process requests for the endpoint: /api/dcim/interfaces/
+// InterfaceList : Get a list of Interfaces in Nautobot, filtered by any query options.
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_interfaces_list
-func (c *Client) InterfaceFilter(q *url.Values) ([]types.DeviceInterface, error) {
+func (c *Client) InterfaceList(opts ...query.Option) ([]types.DeviceInterface, error) {
 	resp := make([]types.DeviceInterface, 0)
-	return resp, core.Paginate[types.DeviceInterface](c.Client, dcimEndpointInterface, q, &resp)
+	return resp, core.Paginate[types.DeviceInterface](c.Client, dcimEndpointInterface, opts, &resp)
 }

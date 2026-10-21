@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -16,16 +14,10 @@ func (c *Client) JobHookGet(id uuid.UUID, opts ...query.Option) (*types.JobHook,
 	return core.Get[types.JobHook](c.Client, extrasEndpointJobHook, id, opts...)
 }
 
-// JobHookFilter : Get JobHooks matching query parameters.
-func (c *Client) JobHookFilter(q *url.Values) ([]types.JobHook, error) {
+// JobHookList : Get a list of JobHooks in Nautobot, filtered by any query options.
+func (c *Client) JobHookList(opts ...query.Option) ([]types.JobHook, error) {
 	hooks := make([]types.JobHook, 0)
-	return hooks, core.Paginate[types.JobHook](c.Client, extrasEndpointJobHook, q, &hooks)
-}
-
-// JobHookAll : Get all JobHooks in Nautobot.
-func (c *Client) JobHookAll() ([]types.JobHook, error) {
-	hooks := make([]types.JobHook, 0)
-	return hooks, core.Paginate[types.JobHook](c.Client, extrasEndpointJobHook, nil, &hooks)
+	return hooks, core.Paginate[types.JobHook](c.Client, extrasEndpointJobHook, opts, &hooks)
 }
 
 // JobHookCreate : Create a new JobHook.

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -29,24 +30,24 @@ func TestClient_RackGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_RackFilter(t *testing.T) {
+func TestClient_RackListFilter(t *testing.T) {
 	gock.New(testURL).Get("dcim/racks/").Reply(200).
 		File(path.Join("fixtures", "dcim", "racks_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("location", "96af6f0f-c573-48d7-8ee1-f4e10545c14c")
 
-	resp, err := testClient.Dcim.RackFilter(q)
+	resp, err := testClient.Dcim.RackList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 3)
 	assert.Equal(t, "A11-13", resp[0].Name)
 }
 
-func TestClient_RackAll(t *testing.T) {
+func TestClient_RackList(t *testing.T) {
 	gock.New(testURL).Get("dcim/racks/").Reply(200).
 		File(path.Join("fixtures", "dcim", "racks_200_1.json"))
 
-	resp, err := testClient.Dcim.RackAll()
+	resp, err := testClient.Dcim.RackList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 3)

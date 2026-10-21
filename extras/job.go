@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -21,16 +19,10 @@ func (c *Client) JobGet(id uuid.UUID, opts ...query.Option) (*types.Job, error) 
 	return core.Get[types.Job](c.Client, extrasEndpointJob, id, opts...)
 }
 
-// JobFilter : Get a list of Jobs based on query parameters.
-func (c *Client) JobFilter(q *url.Values) ([]types.Job, error) {
+// JobList : Get a list of Jobs in Nautobot, filtered by any query options.
+func (c *Client) JobList(opts ...query.Option) ([]types.Job, error) {
 	jobs := make([]types.Job, 0)
-	return jobs, core.Paginate[types.Job](c.Client, extrasEndpointJob, q, &jobs)
-}
-
-// JobAll : Get all Jobs in Nautobot.
-func (c *Client) JobAll() ([]types.Job, error) {
-	jobs := make([]types.Job, 0)
-	return jobs, core.Paginate[types.Job](c.Client, extrasEndpointJob, nil, &jobs)
+	return jobs, core.Paginate[types.Job](c.Client, extrasEndpointJob, opts, &jobs)
 }
 
 // JobUpdate : Update an existing Job record in Nautobot.
@@ -53,16 +45,10 @@ func (c *Client) JobResultGet(id uuid.UUID, opts ...query.Option) (*types.JobRes
 	return core.Get[types.JobResult](c.Client, extrasEndpointJobResult, id, opts...)
 }
 
-// JobResultFilter : Get a list of Job Results based on query parameters.
-func (c *Client) JobResultFilter(q *url.Values) ([]types.JobResult, error) {
+// JobResultList : Get a list of Job Results in Nautobot, filtered by any query options.
+func (c *Client) JobResultList(opts ...query.Option) ([]types.JobResult, error) {
 	results := make([]types.JobResult, 0)
-	return results, core.Paginate[types.JobResult](c.Client, extrasEndpointJobResult, q, &results)
-}
-
-// JobResultAll : Get all Job Results in Nautobot.
-func (c *Client) JobResultAll() ([]types.JobResult, error) {
-	results := make([]types.JobResult, 0)
-	return results, core.Paginate[types.JobResult](c.Client, extrasEndpointJobResult, nil, &results)
+	return results, core.Paginate[types.JobResult](c.Client, extrasEndpointJobResult, opts, &results)
 }
 
 // JobResultDelete : Delete a Job Result by UUID identifier.
@@ -75,14 +61,8 @@ func (c *Client) JobLogGet(id uuid.UUID, opts ...query.Option) (*types.JobLog, e
 	return core.Get[types.JobLog](c.Client, extrasEndpointJobLog, id, opts...)
 }
 
-// JobLogFilter : Get a list of Job Log entries based on query parameters.
-func (c *Client) JobLogFilter(q *url.Values) ([]types.JobLog, error) {
+// JobLogList : Get a list of Job Log entries in Nautobot, filtered by any query options.
+func (c *Client) JobLogList(opts ...query.Option) ([]types.JobLog, error) {
 	logs := make([]types.JobLog, 0)
-	return logs, core.Paginate[types.JobLog](c.Client, extrasEndpointJobLog, q, &logs)
-}
-
-// JobLogAll : Get all Job Log entries in Nautobot.
-func (c *Client) JobLogAll() ([]types.JobLog, error) {
-	logs := make([]types.JobLog, 0)
-	return logs, core.Paginate[types.JobLog](c.Client, extrasEndpointJobLog, nil, &logs)
+	return logs, core.Paginate[types.JobLog](c.Client, extrasEndpointJobLog, opts, &logs)
 }

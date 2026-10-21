@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) RoleGet(id uuid.UUID, opts ...query.Option) (*types.Role, error
 	return core.Get[types.Role](c.Client, extrasEndpointRole, id, opts...)
 }
 
-// RoleFilter : Get a list of Roles based on query parameters.
-func (c *Client) RoleFilter(q *url.Values) ([]types.Role, error) {
+// RoleList : Get a list of Roles in Nautobot, filtered by any query options.
+func (c *Client) RoleList(opts ...query.Option) ([]types.Role, error) {
 	roles := make([]types.Role, 0)
-	return roles, core.Paginate[types.Role](c.Client, "extras/roles/", q, &roles)
-}
-
-// RoleAll : Get all Roles in Nautobot.
-func (c *Client) RoleAll() ([]types.Role, error) {
-	roles := make([]types.Role, 0)
-	return roles, core.Paginate[types.Role](c.Client, "extras/roles/", nil, &roles)
+	return roles, core.Paginate[types.Role](c.Client, "extras/roles/", opts, &roles)
 }
 
 // RoleCreate : Generate a new Role record in Nautobot.

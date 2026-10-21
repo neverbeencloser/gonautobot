@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) SecretGet(id uuid.UUID, opts ...query.Option) (*types.Secret, e
 	return core.Get[types.Secret](c.Client, extrasEndpointSecret, id, opts...)
 }
 
-// SecretFilter : Get a list of Secrets based on query parameters.
-func (c *Client) SecretFilter(q *url.Values) ([]types.Secret, error) {
+// SecretList : Get a list of Secrets in Nautobot, filtered by any query options.
+func (c *Client) SecretList(opts ...query.Option) ([]types.Secret, error) {
 	secrets := make([]types.Secret, 0)
-	return secrets, core.Paginate[types.Secret](c.Client, extrasEndpointSecret, q, &secrets)
-}
-
-// SecretAll : Get all Secrets in Nautobot.
-func (c *Client) SecretAll() ([]types.Secret, error) {
-	secrets := make([]types.Secret, 0)
-	return secrets, core.Paginate[types.Secret](c.Client, extrasEndpointSecret, nil, &secrets)
+	return secrets, core.Paginate[types.Secret](c.Client, extrasEndpointSecret, opts, &secrets)
 }
 
 // SecretCreate : Generate a new Secret record in Nautobot.

@@ -1,8 +1,6 @@
 package ipam
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) NamespaceGet(id uuid.UUID, opts ...query.Option) (*types.Namesp
 	return core.Get[types.Namespace](c.Client, ipamEndpointNamespace, id, opts...)
 }
 
-// NamespaceFilter : Get a list of Namespaces based on query parameters.
-func (c *Client) NamespaceFilter(q *url.Values) ([]types.Namespace, error) {
+// NamespaceList : Get a list of Namespaces in Nautobot, filtered by any query options.
+func (c *Client) NamespaceList(opts ...query.Option) ([]types.Namespace, error) {
 	namespaces := make([]types.Namespace, 0)
-	return namespaces, core.Paginate[types.Namespace](c.Client, ipamEndpointNamespace, q, &namespaces)
-}
-
-// NamespaceAll : Get all Namespaces in Nautobot.
-func (c *Client) NamespaceAll() ([]types.Namespace, error) {
-	namespaces := make([]types.Namespace, 0)
-	return namespaces, core.Paginate[types.Namespace](c.Client, ipamEndpointNamespace, nil, &namespaces)
+	return namespaces, core.Paginate[types.Namespace](c.Client, ipamEndpointNamespace, opts, &namespaces)
 }
 
 // NamespaceCreate : Generate a new Namespace record in Nautobot.

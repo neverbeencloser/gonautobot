@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) ManufacturerGet(id uuid.UUID, opts ...query.Option) (*types.Man
 	return core.Get[types.Manufacturer](c.Client, dcimEndpointManufacturer, id, opts...)
 }
 
-// ManufacturerFilter : Get a list of Manufacturers based on query parameters.
-func (c *Client) ManufacturerFilter(q *url.Values) ([]types.Manufacturer, error) {
+// ManufacturerList : Get a list of Manufacturers in Nautobot, filtered by any query options.
+func (c *Client) ManufacturerList(opts ...query.Option) ([]types.Manufacturer, error) {
 	manufacturers := make([]types.Manufacturer, 0)
-	return manufacturers, core.Paginate[types.Manufacturer](c.Client, dcimEndpointManufacturer, q, &manufacturers)
-}
-
-// ManufacturerAll : Get all Manufacturers in Nautobot.
-func (c *Client) ManufacturerAll() ([]types.Manufacturer, error) {
-	manufacturers := make([]types.Manufacturer, 0)
-	return manufacturers, core.Paginate[types.Manufacturer](c.Client, dcimEndpointManufacturer, nil, &manufacturers)
+	return manufacturers, core.Paginate[types.Manufacturer](c.Client, dcimEndpointManufacturer, opts, &manufacturers)
 }
 
 // ManufacturerCreate : Generate a new Manufacturer record in Nautobot.

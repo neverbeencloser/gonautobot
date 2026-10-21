@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,24 +32,24 @@ func TestClient_SecretGet(t *testing.T) {
 	assert.Equal(t, "AWS API credentials for automation", resp.Description)
 }
 
-func TestClient_SecretFilter(t *testing.T) {
+func TestClient_SecretListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/secrets/").Reply(200).
 		File(path.Join("fixtures", "extras", "secrets_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("provider", "environment-variable")
 
-	resp, err := testClient.Extras.SecretFilter(q)
+	resp, err := testClient.Extras.SecretList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "aws-credentials", resp[0].Name)
 }
 
-func TestClient_SecretAll(t *testing.T) {
+func TestClient_SecretList(t *testing.T) {
 	gock.New(testURL).Get("extras/secrets/").Reply(200).
 		File(path.Join("fixtures", "extras", "secrets_200_1.json"))
 
-	resp, err := testClient.Extras.SecretAll()
+	resp, err := testClient.Extras.SecretList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)

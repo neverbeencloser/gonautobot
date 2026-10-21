@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,16 +32,16 @@ func TestClient_NamespaceGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_NamespaceFilter(t *testing.T) {
+func TestClient_NamespaceListFilter(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/namespaces/").Reply(200).
 		File(path.Join("fixtures", "ipam", "namespaces_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("name", "Art old radio.")
 
-	resp, err := testClient.Ipam.NamespaceFilter(q)
+	resp, err := testClient.Ipam.NamespaceList(query.WithValues(q))
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)
@@ -48,13 +49,13 @@ func TestClient_NamespaceFilter(t *testing.T) {
 	assert.Equal(t, resp[0].ID, uuid.MustParse(testNamespaceID))
 }
 
-func TestClient_NamespaceAll(t *testing.T) {
+func TestClient_NamespaceList(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/namespaces/").Reply(200).
 		File(path.Join("fixtures", "ipam", "namespaces_200_1.json"))
 
-	resp, err := testClient.Ipam.NamespaceAll()
+	resp, err := testClient.Ipam.NamespaceList()
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)

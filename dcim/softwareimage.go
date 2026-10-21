@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) SoftwareImageFileGet(id uuid.UUID, opts ...query.Option) (*type
 	return core.Get[types.SoftwareImageFile](c.Client, dcimEndpointSoftwareImageFile, id, opts...)
 }
 
-// SoftwareImageFileFilter : Get a list of SoftwareImageFiles based on query parameters.
-func (c *Client) SoftwareImageFileFilter(q *url.Values) ([]types.SoftwareImageFile, error) {
+// SoftwareImageFileList : Get a list of SoftwareImageFiles in Nautobot, filtered by any query options.
+func (c *Client) SoftwareImageFileList(opts ...query.Option) ([]types.SoftwareImageFile, error) {
 	sifs := make([]types.SoftwareImageFile, 0)
-	return sifs, core.Paginate[types.SoftwareImageFile](c.Client, dcimEndpointSoftwareImageFile, q, &sifs)
-}
-
-// SoftwareImageFileAll : Get all SoftwareImageFiles in Nautobot.
-func (c *Client) SoftwareImageFileAll() ([]types.SoftwareImageFile, error) {
-	sifs := make([]types.SoftwareImageFile, 0)
-	return sifs, core.Paginate[types.SoftwareImageFile](c.Client, dcimEndpointSoftwareImageFile, nil, &sifs)
+	return sifs, core.Paginate[types.SoftwareImageFile](c.Client, dcimEndpointSoftwareImageFile, opts, &sifs)
 }
 
 // SoftwareImageFileCreate : Generate a new SoftwareImageFile record in Nautobot.
