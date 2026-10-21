@@ -5,6 +5,7 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
@@ -24,7 +25,7 @@ func (c *ex) GitRepositoryExample() {
 	fmt.Println("Created git repository:", repo.Name)
 
 	// Filter git repositories by name
-	repos, err := c.Extras.GitRepositoryFilter(&url.Values{"name": {"example-config-repo"}})
+	repos, err := c.Extras.GitRepositoryList(query.WithValues(url.Values{"name": {"example-config-repo"}}))
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to filter git repositories")
 	}

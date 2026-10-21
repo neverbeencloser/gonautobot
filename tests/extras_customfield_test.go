@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,25 +32,25 @@ func TestClient_CustomFieldGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_CustomFieldFilter(t *testing.T) {
+func TestClient_CustomFieldListFilter(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("extras/custom-fields/").Reply(200).
 		File(path.Join("fixtures", "extras", "customfields_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 
-	resp, err := testClient.Extras.CustomFieldFilter(q)
+	resp, err := testClient.Extras.CustomFieldList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 3)
 	assert.Equal(t, resp[2].ID, uuid.MustParse(testCustomFieldID))
 }
 
-func TestClient_CustomFieldAll(t *testing.T) {
+func TestClient_CustomFieldList(t *testing.T) {
 	defer gock.Off()
 	gock.New(testURL).Get("extras/custom-fields/").Reply(200).
 		File(path.Join("fixtures", "extras", "customfields_200_1.json"))
 
-	resp, err := testClient.Extras.CustomFieldAll()
+	resp, err := testClient.Extras.CustomFieldList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 3)

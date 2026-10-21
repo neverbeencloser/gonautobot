@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -35,24 +36,24 @@ func TestClient_JobGet(t *testing.T) {
 	assert.True(t, resp.Installed)
 }
 
-func TestClient_JobFilter(t *testing.T) {
+func TestClient_JobListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/jobs/").Reply(200).
 		File(path.Join("fixtures", "extras", "jobs_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("enabled", "true")
 
-	resp, err := testClient.Extras.JobFilter(q)
+	resp, err := testClient.Extras.JobList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Device Onboarding", resp[0].Name)
 }
 
-func TestClient_JobAll(t *testing.T) {
+func TestClient_JobList(t *testing.T) {
 	gock.New(testURL).Get("extras/jobs/").Reply(200).
 		File(path.Join("fixtures", "extras", "jobs_200_1.json"))
 
-	resp, err := testClient.Extras.JobAll()
+	resp, err := testClient.Extras.JobList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)
@@ -129,24 +130,24 @@ func TestClient_JobResultGet(t *testing.T) {
 	assert.NotNil(t, resp.User)
 }
 
-func TestClient_JobResultFilter(t *testing.T) {
+func TestClient_JobResultListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/job-results/").Reply(200).
 		File(path.Join("fixtures", "extras", "jobresults_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("status", "SUCCESS")
 
-	resp, err := testClient.Extras.JobResultFilter(q)
+	resp, err := testClient.Extras.JobResultList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Logs Cleanup", resp[0].Name)
 }
 
-func TestClient_JobResultAll(t *testing.T) {
+func TestClient_JobResultList(t *testing.T) {
 	gock.New(testURL).Get("extras/job-results/").Reply(200).
 		File(path.Join("fixtures", "extras", "jobresults_200_1.json"))
 
-	resp, err := testClient.Extras.JobResultAll()
+	resp, err := testClient.Extras.JobResultList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)
@@ -181,25 +182,25 @@ func TestClient_JobLogGet(t *testing.T) {
 	assert.Equal(t, "85b43318-e232-4494-9265-e53440f6bb7f", resp.JobResult.ID)
 }
 
-func TestClient_JobLogFilter(t *testing.T) {
+func TestClient_JobLogListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/job-logs/").Reply(200).
 		File(path.Join("fixtures", "extras", "joblogs_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("job_result", testJobResultID)
 
-	resp, err := testClient.Extras.JobLogFilter(q)
+	resp, err := testClient.Extras.JobLogList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 3)
 	assert.Equal(t, "info", resp[0].LogLevel)
 	assert.Equal(t, "Starting cleanup process", resp[0].Message)
 }
 
-func TestClient_JobLogAll(t *testing.T) {
+func TestClient_JobLogList(t *testing.T) {
 	gock.New(testURL).Get("extras/job-logs/").Reply(200).
 		File(path.Join("fixtures", "extras", "joblogs_200_1.json"))
 
-	resp, err := testClient.Extras.JobLogAll()
+	resp, err := testClient.Extras.JobLogList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 3)

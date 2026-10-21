@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -29,16 +30,16 @@ func TestClient_GetTags(t *testing.T) {
 	gock.New(testURL).Get("extras/tags/").Reply(200).
 		File(path.Join("fixtures", "extras", "tags_200_1.json"))
 
-	resp, err := testClient.Extras.TagFilter(&url.Values{"offset": {"50"}})
+	resp, err := testClient.Extras.TagList(query.WithValues(url.Values{"offset": {"50"}}))
 	require.NoError(t, err)
 	assert.Len(t, resp, 1)
 }
 
-func TestClient_TagAll(t *testing.T) {
+func TestClient_TagList(t *testing.T) {
 	gock.New(testURL).Get("extras/tags/").Reply(200).
 		File(path.Join("fixtures", "extras", "tags_200_1.json"))
 
-	resp, err := testClient.Extras.TagAll()
+	resp, err := testClient.Extras.TagList()
 	require.NoError(t, err)
 	assert.Len(t, resp, 1)
 }

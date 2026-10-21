@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) StatusGet(id uuid.UUID, opts ...query.Option) (*types.Status, e
 	return core.Get[types.Status](c.Client, extrasEndpointStatus, id, opts...)
 }
 
-// StatusFilter : Go function to process requests for the endpoint: /api/extras/statuses/
-func (c *Client) StatusFilter(q *url.Values) ([]types.Status, error) {
+// StatusList : Get a list of Statuses in Nautobot, filtered by any query options.
+func (c *Client) StatusList(opts ...query.Option) ([]types.Status, error) {
 	statuses := make([]types.Status, 0)
-	return statuses, core.Paginate[types.Status](c.Client, "extras/statuses/", q, &statuses)
-}
-
-// StatusAll : Go function to process requests for the endpoint: /api/extras/statuses/
-func (c *Client) StatusAll() ([]types.Status, error) {
-	statuses := make([]types.Status, 0)
-	return statuses, core.Paginate[types.Status](c.Client, "extras/statuses/", nil, &statuses)
+	return statuses, core.Paginate[types.Status](c.Client, "extras/statuses/", opts, &statuses)
 }
 
 // StatusCreate : Generate a new Status record in Nautobot.

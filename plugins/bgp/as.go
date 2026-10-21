@@ -6,6 +6,7 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -26,6 +27,11 @@ func (c *Client) BGPAutonomousSystemGet(uuid string) (*types.AutonomousSystem, e
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_retrieve
 func (c *Client) BGPAutonomousSystemFilter(q *url.Values) ([]types.AutonomousSystem, error) {
+	var opts []query.Option
+	if q != nil {
+		opts = append(opts, query.WithValues(*q))
+	}
+
 	resp := make([]types.AutonomousSystem, 0)
-	return resp, core.Paginate[types.AutonomousSystem](c.Client, "plugins/bgp/autonomous-systems/", q, &resp)
+	return resp, core.Paginate[types.AutonomousSystem](c.Client, "plugins/bgp/autonomous-systems/", opts, &resp)
 }

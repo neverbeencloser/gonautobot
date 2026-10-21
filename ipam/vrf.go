@@ -1,8 +1,6 @@
 package ipam
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) VRFGet(id uuid.UUID, opts ...query.Option) (*types.VRF, error) 
 	return core.Get[types.VRF](c.Client, ipamEndpointVRF, id, opts...)
 }
 
-// VRFFilter : Get a list of VRFs based on query parameters.
-func (c *Client) VRFFilter(q *url.Values) ([]types.VRF, error) {
+// VRFList : Get a list of VRFs in Nautobot, filtered by any query options.
+func (c *Client) VRFList(opts ...query.Option) ([]types.VRF, error) {
 	vrfs := make([]types.VRF, 0)
-	return vrfs, core.Paginate[types.VRF](c.Client, ipamEndpointVRF, q, &vrfs)
-}
-
-// VRFAll : Get all VRFs in Nautobot.
-func (c *Client) VRFAll() ([]types.VRF, error) {
-	vrfs := make([]types.VRF, 0)
-	return vrfs, core.Paginate[types.VRF](c.Client, ipamEndpointVRF, nil, &vrfs)
+	return vrfs, core.Paginate[types.VRF](c.Client, ipamEndpointVRF, opts, &vrfs)
 }
 
 // VRFCreate : Generate a new VRF record in Nautobot.

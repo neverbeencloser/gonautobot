@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) LocationGet(id uuid.UUID, opts ...query.Option) (*types.Locatio
 	return core.Get[types.Location](c.Client, dcimEndpointLocation, id, opts...)
 }
 
-// LocationFilter : Get a list of Locations based on query parameters.
-func (c *Client) LocationFilter(q *url.Values) ([]types.Location, error) {
+// LocationList : Get a list of Locations in Nautobot, filtered by any query options.
+func (c *Client) LocationList(opts ...query.Option) ([]types.Location, error) {
 	locationTypes := make([]types.Location, 0)
-	return locationTypes, core.Paginate[types.Location](c.Client, dcimEndpointLocation, q, &locationTypes)
-}
-
-// LocationAll : Get all Locations in Nautobot.
-func (c *Client) LocationAll() ([]types.Location, error) {
-	locationTypes := make([]types.Location, 0)
-	return locationTypes, core.Paginate[types.Location](c.Client, dcimEndpointLocation, nil, &locationTypes)
+	return locationTypes, core.Paginate[types.Location](c.Client, dcimEndpointLocation, opts, &locationTypes)
 }
 
 // LocationCreate : Generate a new Location record in Nautobot.

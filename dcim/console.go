@@ -4,16 +4,17 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"net/url"
 	"strconv"
 	"strings"
 
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
-// ConsoleConnectionFilter : Method used to fetch a list of console connections for a device.
-func (c *Client) ConsoleConnectionFilter(q *url.Values) ([]types.ConsolePort, error) {
-	req, err := c.Request(http.MethodGet, "dcim/console-connections/", nil, q)
+// ConsoleConnectionList : Get a list of Console Connections in Nautobot, filtered by any query options.
+func (c *Client) ConsoleConnectionList(opts ...query.Option) ([]types.ConsolePort, error) {
+	q := query.New(opts...)
+	req, err := c.Request(http.MethodGet, "dcim/console-connections/", nil, &q)
 	if err != nil {
 		return nil, err
 	}

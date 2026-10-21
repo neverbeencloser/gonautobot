@@ -59,6 +59,48 @@ func TestQueryOption_GetWithValues(t *testing.T) {
 	assert.True(t, gock.IsDone())
 }
 
+func TestQueryOption_ListLaterOptionWins(t *testing.T) {
+	t.Cleanup(gock.Flush)
+	gock.New(testURL).Get("extras/roles/").
+		AddMatcher(matchQuery(t, url.Values{"depth": {"2"}, "name": {"core", "edge"}})).
+		Reply(200).
+		File(path.Join("fixtures", "extras", "roles_200_1.json"))
+
+	q := url.Values{"depth": {"0"}, "name": {"core", "edge"}}
+	_, err := testClient.Extras.RoleList(query.WithValues(q), query.WithDepth(2))
+	require.NoError(t, err)
+	assert.True(t, gock.IsDone())
+}
+
+func TestQueryOption_ListPaginatesWithFilters(t *testing.T) {
+	t.Cleanup(gock.Flush)
+	gock.New(testURL).Get("dcim/devices/").
+		AddMatcher(matchQuery(t, url.Values{"name__ic": {"core"}})).
+		Reply(200).
+		JSON(map[string]any{
+			"count":   2,
+			"next":    testURL + "dcim/devices/?limit=1&name__ic=core&offset=1",
+			"results": []map[string]any{{"id": testQueryID, "name": "core-01"}},
+		})
+	gock.New(testURL).Get("dcim/devices/").
+		AddMatcher(matchQuery(t, url.Values{"limit": {"1"}, "name__ic": {"core"}, "offset": {"1"}})).
+		Reply(200).
+		JSON(map[string]any{
+			"count":   2,
+			"next":    nil,
+			"results": []map[string]any{{"id": testRoleID, "name": "core-02"}},
+		})
+
+	q := url.Values{"name__ic": {"core"}}
+	resp, err := testClient.Dcim.DeviceList(query.WithValues(q))
+	require.NoError(t, err)
+	require.Len(t, resp, 2)
+	assert.Equal(t, "core-01", resp[0].Name)
+	assert.Equal(t, "core-02", resp[1].Name)
+	assert.Equal(t, url.Values{"name__ic": {"core"}}, q)
+	assert.True(t, gock.IsDone())
+}
+
 func TestQueryOption_GetNilOption(t *testing.T) {
 	t.Cleanup(gock.Flush)
 	gock.New(testURL).Get("extras/roles/" + testRoleID + "/").

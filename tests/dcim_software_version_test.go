@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -29,24 +30,24 @@ func TestClient_SoftwareVersionGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_SoftwareVersionFilter(t *testing.T) {
+func TestClient_SoftwareVersionListFilter(t *testing.T) {
 	gock.New(testURL).Get("dcim/software-versions/").Reply(200).
 		File(path.Join("fixtures", "dcim", "softwareversions_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("status", "active")
 
-	resp, err := testClient.Dcim.SoftwareVersionFilter(q)
+	resp, err := testClient.Dcim.SoftwareVersionList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "4.34.0F", resp[0].Version)
 }
 
-func TestClient_SoftwareVersionAll(t *testing.T) {
+func TestClient_SoftwareVersionList(t *testing.T) {
 	gock.New(testURL).Get("dcim/software-versions/").Reply(200).
 		File(path.Join("fixtures", "dcim", "softwareversions_200_1.json"))
 
-	resp, err := testClient.Dcim.SoftwareVersionAll()
+	resp, err := testClient.Dcim.SoftwareVersionList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)

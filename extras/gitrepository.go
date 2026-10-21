@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) GitRepositoryGet(id uuid.UUID, opts ...query.Option) (*types.Gi
 	return core.Get[types.GitRepository](c.Client, extrasEndpointGitRepository, id, opts...)
 }
 
-// GitRepositoryFilter : Get a list of Git Repositories based on query parameters.
-func (c *Client) GitRepositoryFilter(q *url.Values) ([]types.GitRepository, error) {
+// GitRepositoryList : Get a list of Git Repositories in Nautobot, filtered by any query options.
+func (c *Client) GitRepositoryList(opts ...query.Option) ([]types.GitRepository, error) {
 	repos := make([]types.GitRepository, 0)
-	return repos, core.Paginate[types.GitRepository](c.Client, extrasEndpointGitRepository, q, &repos)
-}
-
-// GitRepositoryAll : Get all Git Repositories in Nautobot.
-func (c *Client) GitRepositoryAll() ([]types.GitRepository, error) {
-	repos := make([]types.GitRepository, 0)
-	return repos, core.Paginate[types.GitRepository](c.Client, extrasEndpointGitRepository, nil, &repos)
+	return repos, core.Paginate[types.GitRepository](c.Client, extrasEndpointGitRepository, opts, &repos)
 }
 
 // GitRepositoryCreate : Generate a new Git Repository record in Nautobot.

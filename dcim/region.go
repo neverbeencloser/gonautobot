@@ -6,6 +6,7 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -27,8 +28,13 @@ func (c *Client) RegionGet(uuid string) (*types.Region, error) {
 //
 // https://demo.nautobot.com/api/docs/#/dcim/dcim_regions_list
 func (c *Client) RegionFilter(q *url.Values) ([]types.Region, error) {
+	var opts []query.Option
+	if q != nil {
+		opts = append(opts, query.WithValues(*q))
+	}
+
 	resp := make([]types.Region, 0)
-	if err := core.Paginate[types.Region](c.Client, "dcim/regions/", q, &resp); err != nil {
+	if err := core.Paginate[types.Region](c.Client, "dcim/regions/", opts, &resp); err != nil {
 		return nil, err
 	}
 	return resp, nil

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -29,24 +30,24 @@ func TestClient_RoleGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_RoleFilter(t *testing.T) {
+func TestClient_RoleListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/roles/").Reply(200).
 		File(path.Join("fixtures", "extras", "roles_200_2.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("content_types", "dcim.device")
 
-	resp, err := testClient.Extras.RoleFilter(q)
+	resp, err := testClient.Extras.RoleList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Compute", resp[0].Name)
 }
 
-func TestClient_RoleAll(t *testing.T) {
+func TestClient_RoleList(t *testing.T) {
 	gock.New(testURL).Get("extras/roles/").Reply(200).
 		File(path.Join("fixtures", "extras", "roles_200_1.json"))
 
-	resp, err := testClient.Extras.RoleAll()
+	resp, err := testClient.Extras.RoleList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 14)

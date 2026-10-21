@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) DeviceTypeGet(id uuid.UUID, opts ...query.Option) (*types.Devic
 	return core.Get[types.DeviceType](c.Client, dcimEndpointDeviceType, id, opts...)
 }
 
-// DeviceTypeFilter : Get a list of DeviceTypes based on query parameters.
-func (c *Client) DeviceTypeFilter(q *url.Values) ([]types.DeviceType, error) {
+// DeviceTypeList : Get a list of DeviceTypes in Nautobot, filtered by any query options.
+func (c *Client) DeviceTypeList(opts ...query.Option) ([]types.DeviceType, error) {
 	devicetypes := make([]types.DeviceType, 0)
-	return devicetypes, core.Paginate[types.DeviceType](c.Client, dcimEndpointDeviceType, q, &devicetypes)
-}
-
-// DeviceTypeAll : Get all DeviceTypes in Nautobot.
-func (c *Client) DeviceTypeAll() ([]types.DeviceType, error) {
-	devicetypes := make([]types.DeviceType, 0)
-	return devicetypes, core.Paginate[types.DeviceType](c.Client, dcimEndpointDeviceType, nil, &devicetypes)
+	return devicetypes, core.Paginate[types.DeviceType](c.Client, dcimEndpointDeviceType, opts, &devicetypes)
 }
 
 // DeviceTypeCreate : Generate a new DeviceType record in Nautobot.

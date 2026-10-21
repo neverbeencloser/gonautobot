@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -27,20 +28,20 @@ func TestClient_CircuitGet(t *testing.T) {
 	assert.Equal(t, "ntt-104265404093023273", resp.CircuitID)
 }
 
-func TestClient_CircuitFilter(t *testing.T) {
+func TestClient_CircuitListFilter(t *testing.T) {
 	gock.New(testURL).Get("circuits/circuits/").Reply(200).
 		File(path.Join("fixtures", "circuits", "circuits_200_1.json"))
 
-	circuits, err := testClient.Circuits.CircuitFilter(&url.Values{"offset": {"0"}})
+	circuits, err := testClient.Circuits.CircuitList(query.WithValues(url.Values{"offset": {"0"}}))
 	require.NoError(t, err)
 	assert.Len(t, circuits, 2)
 }
 
-func TestClient_CircuitAll(t *testing.T) {
+func TestClient_CircuitList(t *testing.T) {
 	gock.New(testURL).Get("circuits/circuits/").Reply(200).
 		File(path.Join("fixtures", "circuits", "circuits_200_1.json"))
 
-	circuits, err := testClient.Circuits.CircuitAll()
+	circuits, err := testClient.Circuits.CircuitList()
 	require.NoError(t, err)
 	assert.Len(t, circuits, 2)
 }

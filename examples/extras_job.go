@@ -4,6 +4,7 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
@@ -13,7 +14,7 @@ import (
 // This example shows how to list, filter, get, and update jobs.
 func (c *ex) JobExample() {
 	// Get all jobs
-	jobs, err := c.Extras.JobAll()
+	jobs, err := c.Extras.JobList()
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to get all jobs")
 	}
@@ -22,7 +23,7 @@ func (c *ex) JobExample() {
 		Msg("Retrieved all jobs")
 
 	// Filter jobs by enabled status
-	enabledJobs, err := c.Extras.JobFilter(&url.Values{"enabled": {"true"}})
+	enabledJobs, err := c.Extras.JobList(query.WithValues(url.Values{"enabled": {"true"}}))
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to filter jobs")
 	}

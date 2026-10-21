@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -25,7 +26,7 @@ func TestClient_GetInterfaces(t *testing.T) {
 	gock.New(testURL).Get("dcim/interfaces/").Reply(200).
 		File(path.Join("fixtures", "dcim", "interfaces_200_1.json"))
 
-	resp, err := testClient.Dcim.InterfaceFilter(&url.Values{"offset": {"50"}})
+	resp, err := testClient.Dcim.InterfaceList(query.WithValues(url.Values{"offset": {"50"}}))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }

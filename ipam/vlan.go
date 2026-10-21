@@ -1,8 +1,6 @@
 package ipam
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) VLANGet(id uuid.UUID, opts ...query.Option) (*types.VLAN, error
 	return core.Get[types.VLAN](c.Client, ipamEndpointVLAN, id, opts...)
 }
 
-// VLANFilter : Get a list of VLANs based on query parameters.
-func (c *Client) VLANFilter(q *url.Values) ([]types.VLAN, error) {
+// VLANList : Get a list of VLANs in Nautobot, filtered by any query options.
+func (c *Client) VLANList(opts ...query.Option) ([]types.VLAN, error) {
 	vlans := make([]types.VLAN, 0)
-	return vlans, core.Paginate[types.VLAN](c.Client, ipamEndpointVLAN, q, &vlans)
-}
-
-// VLANAll : Get all VLANs in Nautobot.
-func (c *Client) VLANAll() ([]types.VLAN, error) {
-	vlans := make([]types.VLAN, 0)
-	return vlans, core.Paginate[types.VLAN](c.Client, ipamEndpointVLAN, nil, &vlans)
+	return vlans, core.Paginate[types.VLAN](c.Client, ipamEndpointVLAN, opts, &vlans)
 }
 
 // VLANCreate : Generate a new VLAN record in Nautobot.

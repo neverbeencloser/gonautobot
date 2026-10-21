@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -34,25 +35,25 @@ func TestClient_JobHookGet(t *testing.T) {
 	assert.Equal(t, []string{"dcim.device"}, resp.ContentTypes)
 }
 
-func TestClient_JobHookFilter(t *testing.T) {
+func TestClient_JobHookListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/job-hooks/").Reply(200).
 		File(path.Join("fixtures", "extras", "jobhooks_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("enabled", "true")
 
-	resp, err := testClient.Extras.JobHookFilter(q)
+	resp, err := testClient.Extras.JobHookList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "Sync device on change", resp[0].Name)
 	assert.Equal(t, "IPAM hook", resp[1].Name)
 }
 
-func TestClient_JobHookAll(t *testing.T) {
+func TestClient_JobHookList(t *testing.T) {
 	gock.New(testURL).Get("extras/job-hooks/").Reply(200).
 		File(path.Join("fixtures", "extras", "jobhooks_200_1.json"))
 
-	resp, err := testClient.Extras.JobHookAll()
+	resp, err := testClient.Extras.JobHookList()
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }
@@ -84,8 +85,8 @@ func TestClient_JobHookCreate(t *testing.T) {
 
 func TestClient_JobHookUpdate(t *testing.T) {
 	updateData := map[string]any{
-		"enabled":        false,
-		"content_types":  []string{"dcim.device", "dcim.interface"},
+		"enabled":       false,
+		"content_types": []string{"dcim.device", "dcim.interface"},
 	}
 
 	gock.New(testURL).Patch("extras/job-hooks/" + testJobHookID + "/").

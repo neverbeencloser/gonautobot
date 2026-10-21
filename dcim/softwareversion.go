@@ -1,8 +1,6 @@
 package dcim
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) SoftwareVersionGet(id uuid.UUID, opts ...query.Option) (*types.
 	return core.Get[types.SoftwareVersion](c.Client, dcimEndpointSoftwareVersion, id, opts...)
 }
 
-// SoftwareVersionFilter : Get a list of SoftwareVersions based on query parameters.
-func (c *Client) SoftwareVersionFilter(q *url.Values) ([]types.SoftwareVersion, error) {
+// SoftwareVersionList : Get a list of SoftwareVersions in Nautobot, filtered by any query options.
+func (c *Client) SoftwareVersionList(opts ...query.Option) ([]types.SoftwareVersion, error) {
 	softwareVersions := make([]types.SoftwareVersion, 0)
-	return softwareVersions, core.Paginate[types.SoftwareVersion](c.Client, dcimEndpointSoftwareVersion, q, &softwareVersions)
-}
-
-// SoftwareVersionAll : Get all SoftwareVersions in Nautobot.
-func (c *Client) SoftwareVersionAll() ([]types.SoftwareVersion, error) {
-	softwareVersions := make([]types.SoftwareVersion, 0)
-	return softwareVersions, core.Paginate[types.SoftwareVersion](c.Client, dcimEndpointSoftwareVersion, nil, &softwareVersions)
+	return softwareVersions, core.Paginate[types.SoftwareVersion](c.Client, dcimEndpointSoftwareVersion, opts, &softwareVersions)
 }
 
 // SoftwareVersionCreate : Generate a new SoftwareVersion record in Nautobot.

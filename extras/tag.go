@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/types"
 
@@ -20,16 +18,10 @@ func (c *Client) TagGet(id uuid.UUID, opts ...query.Option) (*types.Tag, error) 
 	return core.Get[types.Tag](c.Client, extrasEndpointTag, id, opts...)
 }
 
-// TagFilter : Returns an array of tags from Nautobot filtered by the q (query values)
-func (c *Client) TagFilter(q *url.Values) ([]types.Tag, error) {
+// TagList : Get a list of Tags in Nautobot, filtered by any query options.
+func (c *Client) TagList(opts ...query.Option) ([]types.Tag, error) {
 	resp := make([]types.Tag, 0)
-	return resp, core.Paginate[types.Tag](c.Client, extrasEndpointTag, q, &resp)
-}
-
-// TagAll : Returns an array of all tags from Nautobot
-func (c *Client) TagAll() ([]types.Tag, error) {
-	resp := make([]types.Tag, 0)
-	return resp, core.Paginate[types.Tag](c.Client, extrasEndpointTag, nil, &resp)
+	return resp, core.Paginate[types.Tag](c.Client, extrasEndpointTag, opts, &resp)
 }
 
 // TagCreate : Generate a new Tag in Nautobot.

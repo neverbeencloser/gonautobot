@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -32,16 +33,16 @@ func TestClient_LocationTypeGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_LocationTypeFilter(t *testing.T) {
+func TestClient_LocationTypeListFilter(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("dcim/location-types/").Reply(200).
 		File(path.Join("fixtures", "dcim", "location-types_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("content_types", "dcim.device")
 
-	resp, err := testClient.Dcim.LocationTypeFilter(q)
+	resp, err := testClient.Dcim.LocationTypeList(query.WithValues(q))
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)
@@ -49,13 +50,13 @@ func TestClient_LocationTypeFilter(t *testing.T) {
 	assert.Equal(t, resp[2].ID, uuid.MustParse(testLocationTypeID))
 }
 
-func TestClient_LocationTypeAll(t *testing.T) {
+func TestClient_LocationTypeList(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("dcim/location-types/").Reply(200).
 		File(path.Join("fixtures", "dcim", "location-types_200_1.json"))
 
-	resp, err := testClient.Dcim.LocationTypeAll()
+	resp, err := testClient.Dcim.LocationTypeList()
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)

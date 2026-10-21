@@ -1,8 +1,6 @@
 package circuits
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,14 +16,8 @@ func (c *Client) ProviderGet(id uuid.UUID, opts ...query.Option) (*types.Provide
 	return core.Get[types.Provider](c.Client, circuitsEndpointProvider, id, opts...)
 }
 
-// ProviderFilter : Get a list of Providers based on query parameters.
-func (c *Client) ProviderFilter(q *url.Values) ([]types.Provider, error) {
+// ProviderList : Get a list of Providers in Nautobot, filtered by any query options.
+func (c *Client) ProviderList(opts ...query.Option) ([]types.Provider, error) {
 	resp := make([]types.Provider, 0)
-	return resp, core.Paginate[types.Provider](c.Client, circuitsEndpointProvider, q, &resp)
-}
-
-// ProviderAll : Get all Providers in Nautobot.
-func (c *Client) ProviderAll() ([]types.Provider, error) {
-	resp := make([]types.Provider, 0)
-	return resp, core.Paginate[types.Provider](c.Client, circuitsEndpointProvider, nil, &resp)
+	return resp, core.Paginate[types.Provider](c.Client, circuitsEndpointProvider, opts, &resp)
 }

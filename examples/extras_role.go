@@ -22,7 +22,7 @@ func (c *ex) RoleExample() {
 	fmt.Println("Created role:", role.Name)
 
 	// Get all roles
-	roles, err := c.Extras.RoleAll()
+	roles, err := c.Extras.RoleList()
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to get all roles")
 	}

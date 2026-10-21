@@ -4,6 +4,7 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/rs/zerolog/log"
 )
@@ -32,7 +33,7 @@ func (c *ex) SecretExample() {
 		Msg("Created secret")
 
 	// Filter secrets by provider
-	secrets, err := c.Extras.SecretFilter(&url.Values{"provider": {"environment-variable"}})
+	secrets, err := c.Extras.SecretList(query.WithValues(url.Values{"provider": {"environment-variable"}}))
 	if err != nil {
 		log.Fatal().Err(err).Msg("Failed to filter secrets")
 	}

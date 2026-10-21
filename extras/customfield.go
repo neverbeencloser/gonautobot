@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) CustomFieldGet(id uuid.UUID, opts ...query.Option) (*types.Cust
 	return core.Get[types.CustomField](c.Client, extrasEndpointCustomField, id, opts...)
 }
 
-// CustomFieldFilter : Get a list of CustomFields based on query parameters.
-func (c *Client) CustomFieldFilter(q *url.Values) ([]types.CustomField, error) {
+// CustomFieldList : Get a list of CustomFields in Nautobot, filtered by any query options.
+func (c *Client) CustomFieldList(opts ...query.Option) ([]types.CustomField, error) {
 	customFields := make([]types.CustomField, 0)
-	return customFields, core.Paginate[types.CustomField](c.Client, extrasEndpointCustomField, q, &customFields)
-}
-
-// CustomFieldAll : Get all CustomFields in Nautobot.
-func (c *Client) CustomFieldAll() ([]types.CustomField, error) {
-	customFields := make([]types.CustomField, 0)
-	return customFields, core.Paginate[types.CustomField](c.Client, extrasEndpointCustomField, nil, &customFields)
+	return customFields, core.Paginate[types.CustomField](c.Client, extrasEndpointCustomField, opts, &customFields)
 }
 
 // CustomFieldCreate : Generate a new CustomField record in Nautobot.

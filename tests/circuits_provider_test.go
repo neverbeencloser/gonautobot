@@ -25,7 +25,7 @@ func TestClient_GetProviders(t *testing.T) {
 	gock.New(testURL).Get("circuits/providers/").Reply(200).
 		File(path.Join("fixtures", "circuits", "providers_200_1.json"))
 
-	circuits, err := testClient.Circuits.ProviderFilter(nil)
+	circuits, err := testClient.Circuits.ProviderList()
 	require.NoError(t, err)
 	assert.Len(t, circuits, 2)
 }

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,24 +32,24 @@ func TestClient_GitRepositoryGet(t *testing.T) {
 	assert.Equal(t, "main", resp.Branch)
 }
 
-func TestClient_GitRepositoryFilter(t *testing.T) {
+func TestClient_GitRepositoryListFilter(t *testing.T) {
 	gock.New(testURL).Get("extras/git-repositories/").Reply(200).
 		File(path.Join("fixtures", "extras", "gitrepositories_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("name", "my-config-repo")
 
-	resp, err := testClient.Extras.GitRepositoryFilter(q)
+	resp, err := testClient.Extras.GitRepositoryList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 	assert.Equal(t, "my-config-repo", resp[0].Name)
 }
 
-func TestClient_GitRepositoryAll(t *testing.T) {
+func TestClient_GitRepositoryList(t *testing.T) {
 	gock.New(testURL).Get("extras/git-repositories/").Reply(200).
 		File(path.Join("fixtures", "extras", "gitrepositories_200_1.json"))
 
-	resp, err := testClient.Extras.GitRepositoryAll()
+	resp, err := testClient.Extras.GitRepositoryList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 2)

@@ -1,8 +1,6 @@
 package circuits
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -18,16 +16,10 @@ func (c *Client) CircuitGet(id uuid.UUID, opts ...query.Option) (*types.Circuit,
 	return core.Get[types.Circuit](c.Client, circuitsEndpointCircuit, id, opts...)
 }
 
-// CircuitFilter : Get a list of Circuits based on query parameters.
-func (c *Client) CircuitFilter(q *url.Values) ([]types.Circuit, error) {
+// CircuitList : Get a list of Circuits in Nautobot, filtered by any query options.
+func (c *Client) CircuitList(opts ...query.Option) ([]types.Circuit, error) {
 	resp := make([]types.Circuit, 0)
-	return resp, core.Paginate[types.Circuit](c.Client, circuitsEndpointCircuit, q, &resp)
-}
-
-// CircuitAll : Get all Circuits in Nautobot.
-func (c *Client) CircuitAll() ([]types.Circuit, error) {
-	resp := make([]types.Circuit, 0)
-	return resp, core.Paginate[types.Circuit](c.Client, circuitsEndpointCircuit, nil, &resp)
+	return resp, core.Paginate[types.Circuit](c.Client, circuitsEndpointCircuit, opts, &resp)
 }
 
 // CircuitDelete : Delete a Circuit by UUID identifier.

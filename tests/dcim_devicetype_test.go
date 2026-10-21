@@ -11,6 +11,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/shared"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
@@ -35,24 +36,24 @@ func TestClient_DeviceTypeGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_DeviceTypeFilter(t *testing.T) {
+func TestClient_DeviceTypeListFilter(t *testing.T) {
 	gock.New(testURL).Get("dcim/device-types/").Reply(200).
 		File(path.Join("fixtures", "dcim", "devicetypes_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("manufacturer", "AWS")
 
-	resp, err := testClient.Dcim.DeviceTypeFilter(q)
+	resp, err := testClient.Dcim.DeviceTypeList(query.WithValues(q))
 	require.NoError(t, err)
 	assert.Len(t, resp, 3)
 	assert.Equal(t, "t2.micro", resp[0].Model)
 }
 
-func TestClient_DeviceTypeAll(t *testing.T) {
+func TestClient_DeviceTypeList(t *testing.T) {
 	gock.New(testURL).Get("dcim/device-types/").Reply(200).
 		File(path.Join("fixtures", "dcim", "devicetypes_200_1.json"))
 
-	resp, err := testClient.Dcim.DeviceTypeAll()
+	resp, err := testClient.Dcim.DeviceTypeList()
 	require.NoError(t, err)
 
 	assert.Len(t, resp, 3)

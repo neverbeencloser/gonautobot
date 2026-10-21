@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -31,29 +32,29 @@ func TestClient_IPAddressGet(t *testing.T) {
 	assert.Equal(t, id, resp.ID)
 }
 
-func TestClient_IPAddressFilter(t *testing.T) {
+func TestClient_IPAddressListFilter(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/ip-addresses/").Reply(200).
 		File(path.Join("fixtures", "ipam", "ip_addresses_200_1.json"))
 
-	q := &url.Values{}
+	q := url.Values{}
 	q.Set("address", "2.1.1.1/32")
 
-	resp, err := testClient.Ipam.IPAddressFilter(q)
+	resp, err := testClient.Ipam.IPAddressList(query.WithValues(q))
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)
 	assert.Len(t, resp, 2)
 }
 
-func TestClient_IPAddressAll(t *testing.T) {
+func TestClient_IPAddressList(t *testing.T) {
 	defer gock.Off()
 
 	gock.New(testURL).Get("ipam/ip-addresses/").Reply(200).
 		File(path.Join("fixtures", "ipam", "ip_addresses_200_1.json"))
 
-	resp, err := testClient.Ipam.IPAddressAll()
+	resp, err := testClient.Ipam.IPAddressList()
 	require.NoError(t, err)
 
 	assert.NotEmpty(t, resp)

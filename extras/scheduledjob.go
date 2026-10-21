@@ -1,8 +1,6 @@
 package extras
 
 import (
-	"net/url"
-
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
 	"github.com/neverbeencloser/gonautobot/query"
@@ -16,16 +14,10 @@ func (c *Client) ScheduledJobGet(id uuid.UUID, opts ...query.Option) (*types.Sch
 	return core.Get[types.ScheduledJob](c.Client, extrasEndpointScheduledJob, id, opts...)
 }
 
-// ScheduledJobFilter : List scheduled jobs matching query parameters.
-func (c *Client) ScheduledJobFilter(q *url.Values) ([]types.ScheduledJob, error) {
+// ScheduledJobList : Get a list of Scheduled Jobs in Nautobot, filtered by any query options.
+func (c *Client) ScheduledJobList(opts ...query.Option) ([]types.ScheduledJob, error) {
 	out := make([]types.ScheduledJob, 0)
-	return out, core.Paginate[types.ScheduledJob](c.Client, extrasEndpointScheduledJob, q, &out)
-}
-
-// ScheduledJobAll : List all scheduled jobs.
-func (c *Client) ScheduledJobAll() ([]types.ScheduledJob, error) {
-	out := make([]types.ScheduledJob, 0)
-	return out, core.Paginate[types.ScheduledJob](c.Client, extrasEndpointScheduledJob, nil, &out)
+	return out, core.Paginate[types.ScheduledJob](c.Client, extrasEndpointScheduledJob, opts, &out)
 }
 
 // ScheduledJobDelete : Delete a scheduled job by UUID.

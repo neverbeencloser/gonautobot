@@ -15,20 +15,20 @@ const (
 	testTenantID = "fa973d85-f491-4253-9c90-49a62f90d657"
 )
 
-func TestClient_TenantsFilter(t *testing.T) {
+func TestClient_TenantsListFilter(t *testing.T) {
 	gock.New(testURL).Get("tenancy/tenants/").Reply(200).
 		File(path.Join("fixtures", "tenancy", "tenants_200_1.json"))
 
-	resp, err := testClient.Tenancy.TenantFilter(nil)
+	resp, err := testClient.Tenancy.TenantList()
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }
 
-func TestClient_TenantsAll(t *testing.T) {
+func TestClient_TenantsList(t *testing.T) {
 	gock.New(testURL).Get("tenancy/tenants/").Reply(200).
 		File(path.Join("fixtures", "tenancy", "tenants_200_1.json"))
 
-	resp, err := testClient.Tenancy.TenantAll()
+	resp, err := testClient.Tenancy.TenantList()
 	require.NoError(t, err)
 	assert.Len(t, resp, 2)
 }
@@ -37,7 +37,7 @@ func TestClient_GetTenantGroups(t *testing.T) {
 	gock.New(testURL).Get("tenancy/tenant-groups/").Reply(200).
 		File(path.Join("fixtures", "tenancy", "tenant_groups_200_1.json"))
 
-	resp, err := testClient.Tenancy.TenantGroupFilter(nil)
+	resp, err := testClient.Tenancy.TenantGroupList()
 	require.NoError(t, err)
 	assert.Len(t, resp, 1)
 }

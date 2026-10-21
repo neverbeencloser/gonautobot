@@ -6,6 +6,7 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -27,6 +28,11 @@ func (c *Client) BGPRoutingInstanceGet(uuid string) (*types.RoutingInstance, err
 //
 // https://demo.nautobot.com/api/docs/#/plugins/plugins_bgp_autonomous_systems_retrieve
 func (c *Client) BGPRoutingInstanceFilter(q *url.Values) ([]types.RoutingInstance, error) {
+	var opts []query.Option
+	if q != nil {
+		opts = append(opts, query.WithValues(*q))
+	}
+
 	resp := make([]types.RoutingInstance, 0)
-	return resp, core.Paginate[types.RoutingInstance](c.Client, "plugins/bgp/routing-instances/", q, &resp)
+	return resp, core.Paginate[types.RoutingInstance](c.Client, "plugins/bgp/routing-instances/", opts, &resp)
 }
