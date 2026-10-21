@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -29,8 +30,8 @@ func (c *Client) TenantAll() ([]types.Tenant, error) {
 }
 
 // TenantGet : Get a Tenant by UUID identifier.
-func (c *Client) TenantGet(id uuid.UUID) (*types.Tenant, error) {
-	return core.Get[types.Tenant](c.Client, tenancyEndpointTenant, id)
+func (c *Client) TenantGet(id uuid.UUID, opts ...query.Option) (*types.Tenant, error) {
+	return core.Get[types.Tenant](c.Client, tenancyEndpointTenant, id, opts...)
 }
 
 // TenantCreate : Generate a new Tenant record in Nautobot.

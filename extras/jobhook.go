@@ -5,14 +5,15 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
 const extrasEndpointJobHook = "extras/job-hooks/"
 
 // JobHookGet : Get a JobHook by UUID identifier.
-func (c *Client) JobHookGet(id uuid.UUID) (*types.JobHook, error) {
-	return core.Get[types.JobHook](c.Client, extrasEndpointJobHook, id)
+func (c *Client) JobHookGet(id uuid.UUID, opts ...query.Option) (*types.JobHook, error) {
+	return core.Get[types.JobHook](c.Client, extrasEndpointJobHook, id, opts...)
 }
 
 // JobHookFilter : Get JobHooks matching query parameters.

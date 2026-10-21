@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // LocationGet : Get a Location by UUID identifier.
-func (c *Client) LocationGet(id uuid.UUID) (*types.Location, error) {
-	return core.Get[types.Location](c.Client, dcimEndpointLocation, id)
+func (c *Client) LocationGet(id uuid.UUID, opts ...query.Option) (*types.Location, error) {
+	return core.Get[types.Location](c.Client, dcimEndpointLocation, id, opts...)
 }
 
 // LocationFilter : Get a list of Locations based on query parameters.

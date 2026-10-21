@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // NamespaceGet : Get a Namespace by UUID identifier.
-func (c *Client) NamespaceGet(id uuid.UUID) (*types.Namespace, error) {
-	return core.Get[types.Namespace](c.Client, ipamEndpointNamespace, id)
+func (c *Client) NamespaceGet(id uuid.UUID, opts ...query.Option) (*types.Namespace, error) {
+	return core.Get[types.Namespace](c.Client, ipamEndpointNamespace, id, opts...)
 }
 
 // NamespaceFilter : Get a list of Namespaces based on query parameters.

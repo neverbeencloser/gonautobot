@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // SoftwareImageFileGet : Get a SoftwareImageFile by UUID identifier.
-func (c *Client) SoftwareImageFileGet(id uuid.UUID) (*types.SoftwareImageFile, error) {
-	return core.Get[types.SoftwareImageFile](c.Client, dcimEndpointSoftwareImageFile, id)
+func (c *Client) SoftwareImageFileGet(id uuid.UUID, opts ...query.Option) (*types.SoftwareImageFile, error) {
+	return core.Get[types.SoftwareImageFile](c.Client, dcimEndpointSoftwareImageFile, id, opts...)
 }
 
 // SoftwareImageFileFilter : Get a list of SoftwareImageFiles based on query parameters.

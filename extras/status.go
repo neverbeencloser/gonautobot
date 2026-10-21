@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // StatusGet : Go function to process requests for the endpoint: /api/extras/statuses/:id/
-func (c *Client) StatusGet(id uuid.UUID) (*types.Status, error) {
-	return core.Get[types.Status](c.Client, extrasEndpointStatus, id)
+func (c *Client) StatusGet(id uuid.UUID, opts ...query.Option) (*types.Status, error) {
+	return core.Get[types.Status](c.Client, extrasEndpointStatus, id, opts...)
 }
 
 // StatusFilter : Go function to process requests for the endpoint: /api/extras/statuses/

@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // SecretGet : Get a Secret by UUID identifier.
-func (c *Client) SecretGet(id uuid.UUID) (*types.Secret, error) {
-	return core.Get[types.Secret](c.Client, extrasEndpointSecret, id)
+func (c *Client) SecretGet(id uuid.UUID, opts ...query.Option) (*types.Secret, error) {
+	return core.Get[types.Secret](c.Client, extrasEndpointSecret, id, opts...)
 }
 
 // SecretFilter : Get a list of Secrets based on query parameters.

@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // DeviceFamilyGet : Get a DeviceFamily by UUID identifier.
-func (c *Client) DeviceFamilyGet(id uuid.UUID) (*types.DeviceFamily, error) {
-	return core.Get[types.DeviceFamily](c.Client, dcimEndpointDeviceFamily, id)
+func (c *Client) DeviceFamilyGet(id uuid.UUID, opts ...query.Option) (*types.DeviceFamily, error) {
+	return core.Get[types.DeviceFamily](c.Client, dcimEndpointDeviceFamily, id, opts...)
 }
 
 // DeviceFamilyFilter : Get a list of DeviceFamilies based on query parameters.

@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // SoftwareVersionGet : Get a SoftwareVersion by UUID identifier.
-func (c *Client) SoftwareVersionGet(id uuid.UUID) (*types.SoftwareVersion, error) {
-	return core.Get[types.SoftwareVersion](c.Client, dcimEndpointSoftwareVersion, id)
+func (c *Client) SoftwareVersionGet(id uuid.UUID, opts ...query.Option) (*types.SoftwareVersion, error) {
+	return core.Get[types.SoftwareVersion](c.Client, dcimEndpointSoftwareVersion, id, opts...)
 }
 
 // SoftwareVersionFilter : Get a list of SoftwareVersions based on query parameters.

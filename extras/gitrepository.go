@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // GitRepositoryGet : Get a Git Repository by UUID identifier.
-func (c *Client) GitRepositoryGet(id uuid.UUID) (*types.GitRepository, error) {
-	return core.Get[types.GitRepository](c.Client, extrasEndpointGitRepository, id)
+func (c *Client) GitRepositoryGet(id uuid.UUID, opts ...query.Option) (*types.GitRepository, error) {
+	return core.Get[types.GitRepository](c.Client, extrasEndpointGitRepository, id, opts...)
 }
 
 // GitRepositoryFilter : Get a list of Git Repositories based on query parameters.

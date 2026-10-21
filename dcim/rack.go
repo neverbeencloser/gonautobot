@@ -4,6 +4,7 @@ import (
 	"net/url"
 
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 
 	"github.com/google/uuid"
@@ -14,8 +15,8 @@ const (
 )
 
 // RackGet : Get a Rack by UUID identifier.
-func (c *Client) RackGet(id uuid.UUID) (*types.Rack, error) {
-	return core.Get[types.Rack](c.Client, dcimEndpointRack, id)
+func (c *Client) RackGet(id uuid.UUID, opts ...query.Option) (*types.Rack, error) {
+	return core.Get[types.Rack](c.Client, dcimEndpointRack, id, opts...)
 }
 
 // RackFilter : Get a list of Racks based on query parameters.

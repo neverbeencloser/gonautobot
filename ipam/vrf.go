@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // VRFGet : Get a VRF by UUID identifier.
-func (c *Client) VRFGet(id uuid.UUID) (*types.VRF, error) {
-	return core.Get[types.VRF](c.Client, ipamEndpointVRF, id)
+func (c *Client) VRFGet(id uuid.UUID, opts ...query.Option) (*types.VRF, error) {
+	return core.Get[types.VRF](c.Client, ipamEndpointVRF, id, opts...)
 }
 
 // VRFFilter : Get a list of VRFs based on query parameters.

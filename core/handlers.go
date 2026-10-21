@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/shared"
 )
 
@@ -60,12 +61,13 @@ func Delete(c *Client, uri string, id uuid.UUID) error {
 }
 
 // Get : Generic function to perform a GET request to Nautobot for a single object.
-func Get[T any](c *Client, uri string, id uuid.UUID) (*T, error) {
+func Get[T any](c *Client, uri string, id uuid.UUID, opts ...query.Option) (*T, error) {
 	if id == uuid.Nil {
 		return nil, fmt.Errorf("%s Get.error.ID(ID is missing or nil)", uri)
 	}
 
-	req, err := c.Request(http.MethodGet, fmt.Sprintf("%s%s/", uri, id), nil, nil)
+	q := query.New(opts...)
+	req, err := c.Request(http.MethodGet, fmt.Sprintf("%s%s/", uri, id), nil, &q)
 	if err != nil {
 		return nil, err
 	}

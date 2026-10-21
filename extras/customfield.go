@@ -5,6 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/neverbeencloser/gonautobot/core"
+	"github.com/neverbeencloser/gonautobot/query"
 	"github.com/neverbeencloser/gonautobot/types"
 )
 
@@ -13,8 +14,8 @@ const (
 )
 
 // CustomFieldGet : Get a CustomField by UUID identifier.
-func (c *Client) CustomFieldGet(id uuid.UUID) (*types.CustomField, error) {
-	return core.Get[types.CustomField](c.Client, extrasEndpointCustomField, id)
+func (c *Client) CustomFieldGet(id uuid.UUID, opts ...query.Option) (*types.CustomField, error) {
+	return core.Get[types.CustomField](c.Client, extrasEndpointCustomField, id, opts...)
 }
 
 // CustomFieldFilter : Get a list of CustomFields based on query parameters.
